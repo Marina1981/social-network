@@ -1,0 +1,39 @@
+.index-form{
+    height: 100%;
+    width: 100%;
+
+    justify-self: stretch;
+    align-self:   stretch;
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+}
+
+.index-form__label {
+    justify-content: center;
+    align-self: center;
+
+    font-family: Verdana;
+    font-size: 1.3rem;
+    color: gray;
+}
+/*------------------------------------------------------------------*/
+.index-form__input{
+    justify-content: center;
+    align-self: center;
+
+    width: 25rem;
+    height: 3rem;
+    border: none;
+    background-color: #edf5f5;
+    font-size: 1.4rem;
+}
+::-webkit-input-placeholder {color:darkgray;}
+::-moz-placeholder          {color:darkgray;}/* Firefox 19+ */
+:-moz-placeholder           {color:darkgray;}/* Firefox 18- */
+:-ms-input-placeholder      {color:darkgray;}
+
+.index-form__input:hover{
+    cursor: pointer;
+}

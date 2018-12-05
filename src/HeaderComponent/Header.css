@@ -1,0 +1,22 @@
+.c-header-section{
+    width:  100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background-color: midnightblue;
+}
+/*------------------------------------------------------------------*/
+.c-header-section__logo-icon{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-left: 2rem;
+}
+
+.logo-img{
+    max-height: 3rem;
+
+}
+/*------------------------------------------------------------------*/

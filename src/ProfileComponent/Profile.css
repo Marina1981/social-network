@@ -1,0 +1,72 @@
+.c-profile-section{
+    height: 100%;
+    width:  100%;
+
+    justify-self: stretch;
+    align-self:   stretch;
+
+    display: grid;
+
+    grid-template-rows: minmax(auto, 25%)
+                        minmax(auto, 30%)
+                        minmax(auto, 35%);
+    grid-template-columns:  minmax(auto, 40%)
+                            minmax(auto, 60%);
+
+
+   /* min-width: 50rem;*/
+    min-height: 20rem;
+}
+
+/*------------------------------------------------------------------*/
+
+.c-profile-section__head-image{
+    display: flex;
+
+    background-image: url("./images/img_5terre_wide.jpg");
+    background-position: center;
+    background-size:cover;
+    min-height: 6rem;
+}
+.c-profile-section__head-image--positioned{
+    grid-row:    1 / span 1;
+    grid-column: 1 / span 2;
+}
+
+/*------------------------------------------------------------------*/
+.c-profile-section__wall-block{
+   /* display: flex;
+    flex-direction: column;*/
+    display: grid;
+    grid-template-rows: minmax(auto, 30%)
+                        minmax(auto, 70%);
+    grid-template-columns: minmax(auto, 100%);
+
+    min-height: 15rem;
+}
+
+.c-profile-section__wall-block--positioned{
+    grid-row:    3 / span 1;
+    grid-column: 1 / span 2;
+
+    justify-self: stretch;
+    align-self:   stretch;
+}
+/*------------------------------------------------------------------*/
+.wall-block__record-form--positioned{
+    grid-row:    1 / span 1;
+    grid-column: 1 / span 1;
+
+    justify-self: stretch;
+    align-self:   stretch;
+}
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+.wall-block__posts-block{
+    display: flex;
+    flex-direction: column;
+    justify-self: stretch;
+    align-self:   stretch;
+}
+
+/*------------------------------------------------------------------*/

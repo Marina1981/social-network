@@ -1,0 +1,47 @@
+.c-message{
+    justify-self: stretch;
+    align-self:   stretch;
+
+    height: 10%;
+    width:  100%;
+
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 2rem;
+}
+/*------------------------------------------------------------------*/
+.c-message__label{
+    width: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+}
+/*------------------------------------------------------------------*/
+.label-img{
+    height: 50%;
+    width: auto;
+    min-height: 1rem;
+}
+/*------------------------------------------------------------------*/
+.label-username{
+    font-family: Verdana;
+    font-size: 0.5rem;
+    color: gray;
+}
+/*------------------------------------------------------------------*/
+.c-message__message{
+    font-family: Verdana;
+    font-size: 0.8rem;
+    color: gray;
+
+    display: flex;
+    align-self: flex-start;
+    border: 0.05rem solid gray;
+    border-radius: 0.6rem;
+    padding: 0.5rem;
+    margin-left: 1rem;
+}
+/*------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------*/

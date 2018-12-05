@@ -1,0 +1,95 @@
+.c-login-section{
+
+    height:     100vh;
+    width:      100vw;
+    display: grid;
+
+    grid-template-rows:     minmax(auto, 15%)
+                            minmax(auto, 20%)
+                            minmax(auto, 20%)
+                            minmax(auto, 10%)
+                            minmax(auto, 35%);
+    grid-template-columns:  minmax(auto, 100%);
+}
+/*------------------------------------------------------------------*/
+.c-login-section__index-column{
+    font-family: Verdana;
+    font-size: 2.4rem;
+    color: gray;
+}
+
+.c-login-section__index-column--positioned{
+    justify-self: stretch;
+    align-self:   stretch;
+
+    grid-row:    1 / span 1;
+    grid-column: 1 / span 1;
+
+    display: flex;
+    justify-content: space-around;
+    align-self: center;
+}
+/*------------------------------------------------------------------*/
+
+.c-login-section__index-login-form--positioned{
+    grid-row:    2 / span 1;
+    grid-column: 1 / span 1;
+}
+/*------------------------------------------------------------------*/
+
+.c-login-section__index-password-form--positioned{
+    justify-self: stretch;
+    align-self:   stretch;
+
+    grid-row:    3 / span 1;
+    grid-column: 1 / span 1;
+}
+/*------------------------------------------------------------------*/
+.button-box__button{
+    display: flex;
+    justify-content: center;
+
+    width: 10rem;
+    height: 3rem;
+    border: none;
+    background-color: #5be36f;
+    color: white;
+    font-family: Verdana;
+    font-size: 1.3rem;
+    border-radius: 0.5rem;
+
+}
+.button-box__button:hover{
+    color: gray;
+    cursor: pointer;
+}
+/*------------------------------------------------------------------*/
+.c-login-section__button-box{
+    justify-self: stretch;
+    align-self:   stretch;
+
+    grid-row:    4 / span 1;
+    grid-column: 1 / span 1;
+
+    display: flex;
+    justify-content: center;
+    align-items:     flex-end;
+}
+/*------------------------------------------------------------------*/
+.checkbox-label{
+    font-family: Verdana;
+    font-size: 0.8rem;
+    color: gray;
+    margin-right: 5rem;
+}
+/*------------------------------------------------------------------*/
+.index-column__index-login{
+    color: #5be36f;
+}
+
+.index-column__index-login:hover,
+.index-column__index-registration:hover{
+    cursor: pointer;
+}
+/*------------------------------------------------------------------*/
+

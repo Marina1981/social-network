@@ -1,0 +1,33 @@
+.c-post{
+    justify-self: stretch;
+    align-self:   stretch;
+
+    height: 30%;
+    width:  100%;
+
+    display: flex;
+    justify-content: flex-start;
+}
+/*------------------------------------------------------------------*/
+.c-post__label{
+    width:  0.7rem;
+    height: 0.7rem;
+    background: gold;
+    border-radius: 50%;
+
+    margin-right: 2rem;
+    margin-left:  3rem;
+}
+
+.c-post__label:hover{
+    background: #5be36f;
+    cursor: pointer;
+}
+/*------------------------------------------------------------------*/
+.c-post__text-post{
+    font-family: Verdana;
+    font-size: 0.8rem;
+    color: gray;
+
+}
+/*------------------------------------------------------------------*/

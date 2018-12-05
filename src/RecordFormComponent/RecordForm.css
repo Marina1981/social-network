@@ -1,0 +1,62 @@
+.c-record-form{
+    justify-self: stretch;
+    align-self:   stretch;
+
+    height: 100%;
+    width:  100%;
+
+    display: flex;
+    flex-direction: column;
+}
+/*------------------------------------------------------------------*/
+.record-form-label{
+    font-family:  Verdana;
+    font-size: 1.2rem;
+    color: gray;
+
+    display: flex;
+    justify-self: center;
+    align-self: center;
+}
+/*------------------------------------------------------------------*/
+.record-form-textarea{
+    height: 5rem;
+    width: 90%;
+
+    display: flex;
+    justify-self: center;
+    align-self: center;
+
+
+    border: 0.01rem solid #28bad4;
+    min-height: 3rem;
+}
+.record-form-textarea:hover{
+    border: 0.01rem solid gray;
+    cursor: pointer;
+}
+/*------------------------------------------------------------------*/
+.wall-block__record-form-button{
+    height: 2.3rem;
+    width:  7rem;
+
+    display: flex;
+    align-self: flex-end;
+
+    background-color: #5be36f;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-family: Verdana;
+    font-size: 1rem;
+
+    margin-right: 3rem;
+    margin-top: 1rem;
+    min-height: 2rem;
+}
+.wall-block__record-form-button:hover{
+    color: gray;
+    cursor: pointer;
+}
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
