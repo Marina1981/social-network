@@ -26,13 +26,13 @@
     width: 25rem;
     height: 3rem;
     border: none;
-    background-color: #edf5f5;
+    background-color: #e6ffcc;
     font-size: 1.4rem;
 }
-::-webkit-input-placeholder {color:darkgray;}
-::-moz-placeholder          {color:darkgray;}/* Firefox 19+ */
-:-moz-placeholder           {color:darkgray;}/* Firefox 18- */
-:-ms-input-placeholder      {color:darkgray;}
+::-webkit-input-placeholder {color:#ffc349;}
+::-moz-placeholder          {color:#ffc349;}/* Firefox 19+ */
+:-moz-placeholder           {color:#ffc349;}/* Firefox 18- */
+:-ms-input-placeholder      {color:#ffc349;}
 
 .index-form__input:hover{
     cursor: pointer;

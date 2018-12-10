@@ -52,7 +52,7 @@
     width: 10rem;
     height: 3rem;
     border: none;
-    background-color: #5be36f;
+    background-color: #ffc349;
     color: white;
     font-family: Verdana;
     font-size: 1.3rem;
@@ -60,7 +60,7 @@
 
 }
 .button-box__button:hover{
-    color: gray;
+    color: #b3ff66;
     cursor: pointer;
 }
 /*------------------------------------------------------------------*/
@@ -84,7 +84,7 @@
 }
 /*------------------------------------------------------------------*/
 .index-column__index-login{
-    color: #5be36f;
+    color: #ffc349;
 }
 
 .index-column__index-login:hover,

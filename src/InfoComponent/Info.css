@@ -6,14 +6,14 @@
 
     display: grid;
 
-    grid-template-rows:     minmax(auto, 40%)
-                            minmax(auto, 60%);
+    grid-template-rows:     minmax(auto, 100%);
+
     grid-template-columns:  minmax(auto, 30%)
                             minmax(auto, 70%);
 }
 
 .c-info--positioned{
-    grid-row:    2 / span 2;
+    grid-row:    1 / span 1;
     grid-column: 1 / span 2;
 
     justify-self: stretch;
@@ -25,6 +25,7 @@
 .c-info__userpic {
     display: flex;
     justify-content: center;
+    align-items: center;
 
 }
 
@@ -43,12 +44,18 @@
 .c-info__userpic-img{
     height: 100%;
     width: auto;
+    max-height: 6rem;
+
+    border: 0.1rem solid #b3ff66;
+    border-radius: 2rem;
+    padding: 1rem;
 }
 
 /*------------------------------------------------------------------*/
 .c-info__short-info{
     display: flex;
     flex-direction: column;
+    justify-content: center;
 
 }
 

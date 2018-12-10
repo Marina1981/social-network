@@ -5,7 +5,7 @@
     display: flex;
     justify-content: start;
     align-items: center;
-    background-color: midnightblue;
+    background-color: #b3ff66;
 }
 /*------------------------------------------------------------------*/
 .c-header-section__logo-icon{
@@ -16,7 +16,7 @@
 }
 
 .logo-img{
-    max-height: 3rem;
+    max-height: 6rem;
 
 }
 /*------------------------------------------------------------------*/

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './Profile.css';
-import Post from './../PostComponent/Post.js';
+import Post       from './../PostComponent/Post.js';
 import RecordForm from "../RecordFormComponent/RecordForm";
-import Info from "../InfoComponent/Info";
+import Info       from "../InfoComponent/Info";
 
 
 
@@ -27,9 +27,9 @@ class Profile extends Component {
             <article className="c-profile-section">
                 <div className="c-profile-section__head-image
                                 c-profile-section__head-image--positioned"/>
-
-                         <Info/>
-
+                <div className="c-profile-section__info-block">
+                    <Info/>
+                </div>
                 <div className="c-profile-section__wall-block
                                 c-profile-section__wall-block--positioned">
                      <div className="wall-block__record-form

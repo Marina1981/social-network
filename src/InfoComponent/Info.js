@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Info.css';
-import userPic from    './images/homer_2.png';
+import userPic from    './images/apelsin2.png';
 
 
 class Info extends Component {
@@ -9,7 +9,7 @@ class Info extends Component {
             <div className="c-info
                             c-info__c-info--positioned">
                 <div className="c-info__userpic
-                                    c-info__userpic--positioned">
+                                c-info__userpic--positioned">
                     <img className="c-info__userpic-img" src={userPic} alt="userpic"/>
                 </div>
                 <div className="c-info__short-info

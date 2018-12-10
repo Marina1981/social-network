@@ -1,6 +1,6 @@
 import React from 'react';
 import './Message.css';
-import Smile from './images/smile.png';
+import Smile from './images/apels.png';
 
 
 const Message = (props) => {

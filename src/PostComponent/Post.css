@@ -7,11 +7,12 @@
 
     display: flex;
     justify-content: flex-start;
+    align-items: center;
 }
 /*------------------------------------------------------------------*/
 .c-post__label{
-    width:  0.7rem;
-    height: 0.7rem;
+    width:  1rem;
+    height: 1rem;
     background: gold;
     border-radius: 50%;
 
@@ -20,13 +21,13 @@
 }
 
 .c-post__label:hover{
-    background: #5be36f;
+    background: #b3ff66;
     cursor: pointer;
 }
 /*------------------------------------------------------------------*/
 .c-post__text-post{
     font-family: Verdana;
-    font-size: 0.8rem;
+    font-size: 1rem;
     color: gray;
 
 }

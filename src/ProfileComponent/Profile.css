@@ -10,8 +10,7 @@
     grid-template-rows: minmax(auto, 25%)
                         minmax(auto, 30%)
                         minmax(auto, 35%);
-    grid-template-columns:  minmax(auto, 40%)
-                            minmax(auto, 60%);
+    grid-template-columns: minmax(auto, 100%);
 
 
    /* min-width: 50rem;*/
@@ -23,7 +22,7 @@
 .c-profile-section__head-image{
     display: flex;
 
-    background-image: url("./images/img_5terre_wide.jpg");
+    background-image: url("./images/anaranjado-din-mico.png");
     background-position: center;
     background-size:cover;
     min-height: 6rem;
@@ -70,3 +69,14 @@
 }
 
 /*------------------------------------------------------------------*/
+.c-profile-section__info-block{
+    grid-row:    2 / span 1;
+    grid-column: 1 / span 1;
+
+    justify-self: stretch;
+    align-self:   stretch;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

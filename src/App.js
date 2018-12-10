@@ -12,7 +12,7 @@ class App extends Component {
     return (
         <BrowserRouter>
             <div className="App">
-                <Route exact path='/Login'   component = {LoginPage}/>
+                <Route exact path='/'        component = {LoginPage}/>
                 <Route exact path='/Profile' component = {ProfilePage}/>
                 <Route exact path='/Dialog'  component = {DialogsPage}/>
             </div>
@@ -20,5 +20,6 @@ class App extends Component {
     );
   }
 }
+
 
 export default App;

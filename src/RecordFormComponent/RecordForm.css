@@ -28,11 +28,11 @@
     align-self: center;
 
 
-    border: 0.01rem solid #28bad4;
+    border: 0.01rem solid gold;
     min-height: 3rem;
 }
 .record-form-textarea:hover{
-    border: 0.01rem solid gray;
+
     cursor: pointer;
 }
 /*------------------------------------------------------------------*/
@@ -42,8 +42,9 @@
 
     display: flex;
     align-self: flex-end;
+    justify-content: center;
 
-    background-color: #5be36f;
+    background-color: #ffc349;
     color: white;
     border: none;
     border-radius: 0.5rem;
@@ -55,7 +56,7 @@
     min-height: 2rem;
 }
 .wall-block__record-form-button:hover{
-    color: gray;
+    color: #b3ff66;
     cursor: pointer;
 }
 /*------------------------------------------------------------------*/
