@@ -3,8 +3,8 @@ import './App.css';
 import BrowserRouter from "react-router-dom/es/BrowserRouter";
 import Route         from "react-router/es/Route";
 import ProfilePage   from "./ProfilePageComponent/ProfilePage";
-import LoginPage     from "./LoginPageComponent/LoginPage";
 import DialogsPage   from "./DialogsPageComponent/DialogsPage";
+import LoginPage     from "./LoginPageComponent/LoginPage";
 
 
 class App extends Component {
@@ -12,9 +12,21 @@ class App extends Component {
     return (
         <BrowserRouter>
             <div className="App">
-                <Route exact path='/'        component = {LoginPage}/>
-                <Route exact path='/Profile' component = {ProfilePage}/>
-                <Route exact path='/Dialog'  component = {DialogsPage}/>
+                <Route exact
+                       path='/'
+                       render={() => <LoginPage />} />
+                <Route exact
+                       path='/Profile'
+                       render={ () => <ProfilePage  name="Orange"
+                                                    data='10.10.200'
+                                                    city="Minsk"
+                                                    education='BGU'
+                                                    webSite='www.it-kamasutra.com'
+                                                    posts=''
+                                                    currentWritingPost='' />} />
+                <Route exact
+                       path='/Dialog'
+                       render={ () => <DialogsPage />} />
             </div>
         </BrowserRouter>
     );
