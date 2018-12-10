@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './IndexForm.css';
 
 
-class IndexForm extends Component {
-    render() {
+const IndexForm = (props) => {
+     {
         return (
             <div className="index-form">
                     <span className="index-form__label">
-                        Email
+                        {props.text}
                     </span>
-                <input className="index-form__input" placeholder="Email"/>
+                <input className="index-form__input" placeholder= {props.text} />
             </div>
         );
     }
