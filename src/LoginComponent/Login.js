@@ -1,8 +1,36 @@
 import React, { Component } from 'react';
-import './LoginPage.css';
+import './Login.css';
 import IndexForm from "../IndexFormComponent/IndexForm";
 
-class LoginPage extends Component {
+
+
+let inputMailText = [
+        {
+            text:     'Mail'
+        }
+   ];
+
+let inputMail  = inputMailText.map ( (el) => {
+    return  <IndexForm  text={el.text} />
+} );
+
+/*---------------------------------------------------------------*/
+let inputPasswordText = [
+    {
+        text:     'Password'
+     }
+
+    ];
+
+
+let inputPassword  = inputPasswordText.map( (el) => {
+    return  <IndexForm  text={el.text} />
+} );
+
+/*---------------------------------------------------------------*/
+
+
+class Login extends Component {
     render() {
         return (
             <div className="c-login-section">
@@ -17,12 +45,12 @@ class LoginPage extends Component {
                 </div>
                 <div className="c-login-section__index-login-form--positioned">
 
-                     <IndexForm/>
+                    {inputMail}
 
                 </div>
                 <div className="c-login-section__index-password-form--positioned">
 
-                     <IndexForm/>
+                    {inputPassword}
 
                 </div>
                 <div className="c-login-section__button-box">
@@ -39,4 +67,4 @@ class LoginPage extends Component {
     }
 }
 
-export default LoginPage;
+export default Login;
