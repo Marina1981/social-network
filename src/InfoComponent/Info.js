@@ -3,6 +3,11 @@ import './Info.css';
 import userPic from    './images/apelsin2.png';
 
 
+// атрибуты:
+// userPicURL    = строка - адрес картинки юзерпика
+// userName      = строка - имя пользователя
+// userBirthDate = строка - дата рождения
+
 class Info extends Component {
     render() {
         return (
@@ -10,20 +15,20 @@ class Info extends Component {
                             c-info__c-info--positioned">
                 <div className="c-info__userpic
                                 c-info__userpic--positioned">
-                    <img className="c-info__userpic-img" src={userPic} alt="userpic"/>
+                    <img className="c-info__userpic-img" src={this.props.userInfo.userPicURL} alt="userpic"/>
                 </div>
                 <div className="c-info__short-info
                                 c-info__short-info--positioned">
                     <div className="c-info__user-name">
-                        Илья Муромец
+                            {this.props.userInfo.userName}
                     </div>
                     <div className="c-info__birth-date">
                             <span className="c-info__birth-date-label
                                              c-info__decorated-label">
                                 Дата рождения :
                             </span>
-                        <span className="c-info__birth-date-value">
-                               2.02.2000 г.
+                            <span className="c-info__birth-date-value">
+                              {this.props.userInfo.userBirthDate}
                             </span>
                     </div>
                     <div className="c-info__residence">
@@ -31,8 +36,8 @@ class Info extends Component {
                                              c-info__decorated-label">
                                 Город :
                             </span>
-                        <span className="c-info__residence-value">
-                               Минск
+                            <span className="c-info__residence-value">
+                               {this.props.userInfo.userCity}
                             </span>
                     </div>
                     <div className="c-info__education">
@@ -40,8 +45,8 @@ class Info extends Component {
                                              c-info__decorated-label">
                                 Образование :
                             </span>
-                        <span className="c-info__education-value">
-                              БГУ'2011
+                            <span className="c-info__education-value">
+                               {this.props.userInfo.userEducation}
                             </span>
                     </div>
                     <div className="c-info__website">
@@ -49,8 +54,8 @@ class Info extends Component {
                                              c-info__decorated-label">
                                 Веб-сайт :
                             </span>
-                        <span className="c-info__website-value">
-                             http://it-kamasutra.com
+                            <span className="c-info__website-value">
+                               {this.props.userInfo.userWebSite}
                             </span>
                     </div>
                 </div>

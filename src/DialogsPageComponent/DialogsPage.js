@@ -8,14 +8,14 @@ import Sidebar from "../SideBarComponent/Sidebar";
 class DialogsPage extends Component {
     render() {
         return (
-            <div className="c-dialogPage">
-                <div className="wraperHeader">
+            <div className="c-dialog-page">
+                <div className="c-dialog-page__wraper-header">
                     <Header/>
                 </div>
-                <div className="wraperSidebar">
+                <div className="c-dialog-page__wraper-sidebar">
                     <Sidebar/>
                 </div>
-                <div className="wraperDialogs">
+                <div className="c-dialog-page__wraper-dialogs">
                     <Dialog/>
                 </div>
             </div>

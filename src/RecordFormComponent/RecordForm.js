@@ -9,9 +9,18 @@ class RecordForm extends Component {
                     <span className="record-form-label">
                         Мои  записи
                     </span>
-                    <textarea className="record-form-textarea" placeholder="Что у вас нового..."/>
-                    <button className="wall-block__record-form-button">
-                        Отправить
+                    <textarea className="record-form-textarea" placeholder="Что у вас нового..."
+                              value = {this.props.creatingMessage}
+                              onChange={
+                                       (e)=>{this.props.onCreatingMessageChanged(e.currentTarget.value);}
+                                         }
+                    />
+                    <button className="wall-block__record-form-button"
+                            onClick={
+                                (e) => {this.props.onCreatingMessageFinishCommitted();}
+                                    }
+                    >
+                        Добавить
                     </button>
             </div>
         );

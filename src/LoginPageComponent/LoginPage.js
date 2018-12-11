@@ -6,11 +6,11 @@ import Login  from "../LoginComponent/Login";
 class LoginPage extends Component {
     render() {
         return (
-            <div className="c-loginPage">
-                <div className="wraperHeader">
+            <div className="c-login-page">
+                <div className="c-login-page__wraper-header">
                     <Header/>
                 </div>
-                <div className="wraperDialogs">
+                <div className="c-login-page__wraper-dialogs">
                     <Login/>
                 </div>
             </div>
