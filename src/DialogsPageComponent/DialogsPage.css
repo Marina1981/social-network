@@ -18,6 +18,7 @@ grid-template-rows:     minmax(auto, 15%)
     align-self:   stretch;
 
     display: flex;
+    margin-bottom: 0.5vh;
 
 
 

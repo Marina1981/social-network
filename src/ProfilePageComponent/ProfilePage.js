@@ -17,13 +17,13 @@ import './ProfilePage.css';
 const ProfilePage = (props) => {
         return (
             <div className="c-profile-page">
-                <div className="wraperHeader">
+                <div className="c-profile-page__wraper-header">
                    <Header/>
                 </div>
-                <div className="wraperSidebar">
+                <div className="c-profile-page__wraper-sidebar">
                    <Sidebar/>
                 </div>
-                <div className="wraperProfile">
+                <div className="c-profile-page__wraper-profile">
                    <Profile userInfo  = {props.userInfo}
                             wall     =  {props.wall} />
                 </div>

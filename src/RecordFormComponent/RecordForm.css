@@ -29,6 +29,9 @@
 
 
     border: 0.01rem solid gold;
+    color: gray;
+    font-family: Verdana;
+    font-size: 1rem;
     min-height: 3rem;
 }
 .record-form-textarea:hover{
@@ -49,14 +52,14 @@
     border: none;
     border-radius: 0.5rem;
     font-family: Verdana;
-    font-size: 1rem;
+    font-size: 1.2rem;
 
     margin-right: 3rem;
     margin-top: 1rem;
     min-height: 2rem;
 }
 .wall-block__record-form-button:hover{
-    color: #b3ff66;
+    background-color: #b3ff66;
     cursor: pointer;
 }
 /*------------------------------------------------------------------*/

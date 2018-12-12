@@ -32,12 +32,13 @@
 /*------------------------------------------------------------------*/
 .c-message__message{
     font-family: Verdana;
-    font-size: 0.8rem;
+    font-size: 1rem;
     color: gray;
 
     display: flex;
     align-self: flex-start;
-    border: 0.05rem solid gray;
+    background: linear-gradient(to top, #fefcea,#b3ff6657);
+    border: 0.05rem solid #ffc34942;;
     border-radius: 0.6rem;
     padding: 0.5rem;
     margin-left: 1rem;

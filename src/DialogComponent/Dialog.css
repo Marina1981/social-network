@@ -7,22 +7,35 @@
 
     display: grid;
     grid-template-rows:     minmax(auto, 10%)
-                            minmax(auto, 90%);
-    grid-template-columns:  minmax(auto, 50%)
-                            minmax(auto, 50%);
+                            minmax(auto, 70%)
+                            minmax(auto, 20%);
+    grid-template-columns:  minmax(auto, 30%)
+                            minmax(auto, 70%);
+
+   /* background: linear-gradient(to top, #fefcea, #f1da36);*/
 }
 /*------------------------------------------------------------------*/
-.c-dialog-section__label{
+.c-dialog-section__label-friends,
+.c-dialog-section__label-dialogs{
     justify-self: stretch;
     align-self:   stretch;
 
     font-family: Verdana;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: gray;
+    background: linear-gradient(to top, #fefcea,#171e231f);
+    border: 0.1rem solid #ececec;
+    border-radius: 2rem;
+    padding: 1rem;
 }
 
-.c-dialog-section__label--positioned{
-    justify-self: stretch;
+.c-dialog-section__label-friends:hover,
+.c-dialog-section__label-dialogs:hover{
+    background: linear-gradient(to top, #fefcea, #b3ff66);
+    cursor: pointer;
+}
+
+.c-dialog-section__label-friends--positioned{
     align-self:   stretch;
 
     grid-row:    1 / span 1;
@@ -31,6 +44,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    justify-self: center
 }
 /*------------------------------------------------------------------*/
 .c-dialog-section__border-line{
@@ -38,7 +52,7 @@
     grid-column: 1 / span 1;
 
     background-color: gray;
-    height: 80vh;
+    height: 60vh;
     width: 0.1rem;
 
     display: flex;
@@ -66,8 +80,40 @@
 }
 /*------------------------------------------------------------------*/
 
-/*------------------------------------------------------------------*/
 .c-dialog-section__messages--positioned{
     grid-row:    2 / span 1;
     grid-column: 2 / span 1;
 }
+/*------------------------------------------------------------------*/
+
+.c-dialog-section__label-dialogs--positioned{
+    justify-self: stretch;
+    align-self:   stretch;
+
+    grid-row:    1 / span 1;
+    grid-column: 2 / span 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center
+}
+/*------------------------------------------------------------------*/
+.c-dialog-section__chat{
+    width: 40rem;
+    height: 4rem;
+    border: 1px solid #ececec;
+    background: linear-gradient(to top, #fefcea,#171e231f);
+
+}
+.c-dialog-section__chat--positioned{
+    align-self:   stretch;
+
+    grid-row:    3 / span 1;
+    grid-column: 2 / span 1;
+
+    display: flex;
+    justify-self: center;
+}
+/*------------------------------------------------------------------*/
+

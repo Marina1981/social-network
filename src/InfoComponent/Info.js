@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Info.css';
-import userPic from    './images/apelsin2.png';
+import {Link} from "react-router-dom";
 
 
 // атрибуты:
@@ -54,9 +54,9 @@ class Info extends Component {
                                              c-info__decorated-label">
                                 Веб-сайт :
                             </span>
-                            <span className="c-info__website-value">
+                            <Link to='/' className="c-info__website-value">
                                {this.props.userInfo.userWebSite}
-                            </span>
+                            </Link>
                     </div>
                 </div>
             </div>

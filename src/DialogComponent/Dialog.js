@@ -47,8 +47,14 @@ class Dialog extends Component {
     render() {
         return (
             <div className="c-dialog-section">
-                <span className="c-dialog-section__label
-                                 c-dialog-section__label--positioned">
+                <span className="c-dialog-section__label-friends
+                                 c-dialog-section__label-friends--positioned">
+
+                    Friends
+
+                </span>
+                <span className="c-dialog-section__label-dialogs
+                                 c-dialog-section__label-dialogs--positioned">
 
                     Dialogs
 
@@ -66,6 +72,9 @@ class Dialog extends Component {
                     {messages}
 
                 </div>
+                <textarea className="c-dialog-section__chat
+                                     c-dialog-section__chat--positioned" placeholder="напишите сообщение..."/>
+
             </div>
         );
     }

@@ -5,6 +5,7 @@ import Route         from "react-router/es/Route";
 import ProfilePage   from "./ProfilePageComponent/ProfilePage";
 import DialogsPage   from "./DialogsPageComponent/DialogsPage";
 import LoginPage     from "./LoginPageComponent/LoginPage";
+import NewsPage from "./NewsPageComponent/NewsPage";
 
 // атрибуты:
 // profilePage: oбъект - profile: oбъект - { userInfo: объект - {userPicURL: строка - адрес картинки юзерпика,
@@ -32,6 +33,10 @@ const App = (props) => {
                 <Route exact
                        path='/Dialog'
                        render={ () => <DialogsPage />} />
+                <Route exact
+                       path='/News'
+                       render={ () => <NewsPage />} />
+
             </div>
         </BrowserRouter>
     )

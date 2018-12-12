@@ -50,8 +50,8 @@ class CAppStateStore
                         userWebSite: ''
                     },
                     wall:{
-                        messagesList: []
-                    }
+                        messagesList:[]//['text1', 'text2']  -> [{text:'text1', like: 0}, {text:'text1', like: 0}]
+    }
                 },
                 view:{
                     wall: {
@@ -62,11 +62,13 @@ class CAppStateStore
             //----
             dialogsPageState: {
                 model:{
-
+                    friendsContactsDossier: null
                 },
                 view:{
+                    selectedFriendId: '',
+                    creatingMessage: ''
+                },
 
-                }
             }
             //----
         };
@@ -74,8 +76,10 @@ class CAppStateStore
         this._onActionCallback();
     };
     //----------------------------------------------------------
-    //----------------------Action----------------------------//
+    //------------------------Action--------------------------//
     //----------------------------------------------------------
+
+    //----------------------ProfilePage-----------------------//
 
     setProfilePageState_Model_UserPicURL_Action = (urlImg)=>{
         this._state.profilePageState.model.userInfo.userPicURL = urlImg;
@@ -114,7 +118,7 @@ class CAppStateStore
     };
     //----------------------------------------------------------
     setProfilePageState_Model_AddMessage_Action = (message)=>{
-        let  newMessageList = [...this._state.profilePageState.model.wall.messagesList, message];
+        let  newMessageList = [message,...this._state.profilePageState.model.wall.messagesList];
 
         this._state.profilePageState.model.wall.messagesList = newMessageList;
 
@@ -128,6 +132,31 @@ class CAppStateStore
     };
     //----------------------------------------------------------
 
+    //----------------------DialogsPage-----------------------//
+
+    //----------------------------------------------------------
+   /* setDialogsPageState_Model_FriendsList_Action = (friend) =>{
+        let newFriendsList = [...this._state.dialogsPageState.model.friendsInfo.friendList, friend];
+
+        this._state.dialogsPageState.model.friendsInfo.friendList = newFriendsList;
+
+        this._onActionCallback();
+    };*/
+    //----------------------------------------------------------
+
+    //----------------------------------------------------------
+   /* setDialogsPageState__Model_AddMessage_Action = (message) => {
+        let newMessageList = [...this._state.dialogsPageState.model.friendsInfo.friendsMessage, message];
+
+        this._state.dialogsPageState.model.friendsInfo.friendsMessage = newMessageList;
+
+        this._onActionCallback();
+    };*/
+    //----------------------------------------------------------
+    //----------------------------------------------------------
+    //----------------------------------------------------------
+    //----------------------------------------------------------
+
 
 
 }
@@ -139,6 +168,7 @@ let  appStateStore = new CAppStateStore(); // создается объект х
 let rerenderAppVDOM = ()=>{
     const state = appStateStore.getState();
 
+    //----
     let profilePageAttrsVal = {
           profile:{
               userInfo: {
@@ -163,8 +193,20 @@ let rerenderAppVDOM = ()=>{
               }
           }
     };
-    let dialogPageAttrsVal = {};
+    //----
+    let dialogPageAttrsVal = {
+      /*  dialogs:{
+            friendsInfo:{
+                friendList:      state.dialogsPageState.model.friendsInfo.friendList,
+                friendsMessage:  state.dialogsPageState.model.friendsInfo.friendsMessage,
+
+
+            }
+        }*/
+    };
+    //----
     let loginPageAttrsVal  = {};
+    //----
 
     ReactDOM.render(<App profilePageAttrs = {profilePageAttrsVal}
                          dialogPageAttrs  = {dialogPageAttrsVal}
