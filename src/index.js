@@ -50,7 +50,9 @@ class CAppStateStore
                         userWebSite: ''
                     },
                     wall:{
-                        messagesList:[]//['text1', 'text2']  -> [{text:'text1', like: 0}, {text:'text1', like: 0}]
+                        messagesList:[
+
+                        ]//['text1', 'text2']  -> [{text:'text1', like: 0}, {text:'text1', like: 0}]
     }
                 },
                 view:{

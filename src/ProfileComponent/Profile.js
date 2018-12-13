@@ -6,7 +6,7 @@ import Info       from "../InfoComponent/Info";
 
 
 
-let PostsText = [
+/*let PostsText = [
     {
         text: 'Привет!!!'
    },
@@ -14,7 +14,7 @@ let PostsText = [
         text: 'почему не лайкнул мой пост?!!'
     }];
 
-/*let post = PostsText.map( (el) => {
+let post = PostsText.map( (el) => {
    return <Post  text={el.text}/>
 });*/
 

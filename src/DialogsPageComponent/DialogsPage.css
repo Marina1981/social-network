@@ -6,8 +6,8 @@
 display: grid;
 grid-template-columns:  minmax(auto, 15%)
                         minmax(auto, 85%);
-grid-template-rows:     minmax(auto, 15%)
-                        minmax(auto, 85%);
+grid-template-rows:     minmax(auto, 10%)
+                        minmax(auto, 90%);
 
 }
 .c-dialog-page__wraper-header{

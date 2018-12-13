@@ -56,14 +56,12 @@
     align-items: center;
 }
 /*------------------------------------------------------------------*/
-.c-post__like-counter{
-    display: flex;
-
+.c-post__like-box{
     font-family: Verdana;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     color:gray;
 }
-.c-post__like-counter--positioned{
+.c-post__like-box--positioned{
     justify-self: stretch;
     align-self:   stretch;
 
@@ -71,6 +69,11 @@
     grid-column: 1 / span 1;
 
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+}
+.like__img{
+    height: 100%;
+    width: auto;
+    max-height: 2rem;
 }

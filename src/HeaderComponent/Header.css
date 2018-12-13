@@ -12,11 +12,11 @@
     display: flex;
     justify-content: start;
     align-items: center;
-    margin-left: 2rem;
+    margin-left: 2%;
 }
 
 .logo-img{
-    max-height: 6rem;
+    max-height: 4rem;
 
 }
 /*------------------------------------------------------------------*/
