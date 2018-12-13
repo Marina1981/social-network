@@ -120,7 +120,7 @@ class CAppStateStore
     };
     //----------------------------------------------------------
     setProfilePageState_Model_AddMessage_Action = (message)=>{
-        let  newMessageList = [message,...this._state.profilePageState.model.wall.messagesList];
+        let  newMessageList = [...this._state.profilePageState.model.wall.messagesList, message];
 
         this._state.profilePageState.model.wall.messagesList = newMessageList;
 
