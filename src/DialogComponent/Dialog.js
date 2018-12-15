@@ -2,46 +2,10 @@ import React, { Component } from 'react';
 import './Dialog.css';
 import Username from "../UserNameComponent/UserName";
 import Message from "../MessageComponent/Message";
-
-/*---------------------------------------------------------------*/
-let messagesText = [
-     {
-        text: 'yo',    name: 'Коля'
-     },
-    {
-        text: 'yo-yo', name: 'Петя'
-     },
-    {
-        text: 'yo!!!', name: 'Оля'
-     },
-    {
-        text: 'Hi!!!', name: 'Вася'
-     }];
+import Post from "../PostComponent/Post";
 
 
-let messages  = messagesText.map ((el) => {
-   return  <Message  text={el.text} name={el.name}/>
-} );
 
-/*---------------------------------------------------------------*/
-
-let userNameList = [
-    {
-        name: 'Коля'
-    },
-    {
-        name: 'Петя'
-    },
-    {
-        name: 'Оля'
-    }
-];
-
-let username  = userNameList.map( (el) => {
-   return <Username  name={el.name}/>
-});
-
-/*---------------------------------------------------------------*/
 
 class Dialog extends Component {
     render() {
@@ -62,7 +26,13 @@ class Dialog extends Component {
                 <div className="c-dialog-section__border-line"/>
                 <div className="c-dialog-section__dialogs
                                 c-dialog-section__dialogs--positioned">
-                    {username}
+                    {
+                        this.props.friendsList.map(
+                            (el) => {
+                                return  <span>el.</span>}
+                                          )
+                    }
+
 
                 </div>
                 <div className="c-dialog-section__messages

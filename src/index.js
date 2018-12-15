@@ -50,9 +50,7 @@ class CAppStateStore
                         userWebSite: ''
                     },
                     wall:{
-                        messagesList:[
-
-                        ]//['text1', 'text2']  -> [{text:'text1', like: 0}, {text:'text1', like: 0}]
+                        messagesList:[]//['text1', 'text2']  -> [{text:'text1', like: 0}, {text:'text1', like: 0}]
     }
                 },
                 view:{
@@ -64,7 +62,18 @@ class CAppStateStore
             //----
             dialogsPageState: {
                 model:{
-                    friendsContactsDossier: null
+                    friendsList: [
+                        {friendId: '1',
+                         friendName: 'Vasia'
+                        },
+                        {friendId: '2',
+                         friendName: 'Dima'
+                        }
+                    ],
+                    friendsChatLog: new Map( [
+                        ['1', []],
+                        ['2', []]
+                    ])                               //[ { text: '', time: ''} ]
                 },
                 view:{
                     selectedFriendId: '',
@@ -119,10 +128,10 @@ class CAppStateStore
         this._onActionCallback();
     };
     //----------------------------------------------------------
-    setProfilePageState_Model_AddMessage_Action = (message)=>{
-        let  newMessageList = [...this._state.profilePageState.model.wall.messagesList, message];
-
-        this._state.profilePageState.model.wall.messagesList = newMessageList;
+    setProfilePageState_Model_AddMessage_Action = (message, messageId)=>{
+       this._state.profilePageState.model.wall.messagesList=
+                               [...this._state.profilePageState.model.wall.messagesList,
+                                {text: message, likeCount: 0, messageId: messageId}];
 
         this._onActionCallback();
     };
@@ -133,10 +142,53 @@ class CAppStateStore
         this._onActionCallback();
     };
     //----------------------------------------------------------
+    incrementProfilePageState_Model_MessageLikeCaunt_Action = (messageId) =>{
+      let filteredMessages =  this._state.profilePageState.model.wall.messagesList.filter( (el) =>{return messageId === el.messageId ? true : false;});
+      filteredMessages[0].likeCount += 1;
+
+      this._onActionCallback();
+    };
+    //----------------------------------------------------------
+    //----------------------------------------------------------
 
     //----------------------DialogsPage-----------------------//
 
     //----------------------------------------------------------
+    setDialogsPageState_View_SelectedFriend_Action = (friendId) => {
+        this._state.dialogsPageState.view.selectedFriendId = friendId;
+
+        this._onActionCallback();
+    };
+    //----------------------------------------------------------
+    setDialogsPage_View_CreatingMessage_Action = (message) => {
+        this._state.dialogsPageState.view.creatingMessage = message;
+
+        this._onActionCallback();
+    };
+
+    //----------------------------------------------------------
+    addDialogPageState_Model_UserMessage_Action = (userMessage, friendId, messageTime, userMessageId) => {
+        let oldChatMessageList = this._state.dialogsPageState.model.friendsChatLog.get(friendId);
+        let newChatMessageList  = [...oldChatMessageList, {text: userMessage, time: messageTime, userMessageId: userMessageId}];
+
+        this._state.dialogsPageState.model.friendsChatLog.set(friendId, newChatMessageList);
+
+        this._onActionCallback();
+    };
+    //----------------------------------------------------------
+ /*   setDialogPagw_View_CreatingMessage_Action = (userMessage)=>{
+        this._state.dialogsPageState.view.creatingMessage =  userMessage;
+
+        this._onActionCallback();
+    };*/
+    //----------------------------------------------------------
+    //----------------------------------------------------------
+
+
+
+
+
+
    /* setDialogsPageState_Model_FriendsList_Action = (friend) =>{
         let newFriendsList = [...this._state.dialogsPageState.model.friendsInfo.friendList, friend];
 
@@ -187,16 +239,40 @@ let rerenderAppVDOM = ()=>{
                   onCreatingMessageChanged: (message)=>{
                       appStateStore.setProfilePageState_View_CreatingMessage_Action(message);
                   },
-                  onCreatingMessageFinishCommitted: ()=>{
-                      appStateStore.setProfilePageState_Model_AddMessage_Action(state.profilePageState.view.wall.creatingMessage);
+                  onCreatingMessageFinishCommitted: (messageId)=>{
+                      appStateStore.setProfilePageState_Model_AddMessage_Action(state.profilePageState.view.wall.creatingMessage, messageId);
                       appStateStore.setProfilePageState_View_CreatingMessage_Action('');
+                  },
+                  onMesaageLikeIncrementRequest: (messageId)=>{
+                      appStateStore.incrementProfilePageState_Model_MessageLikeCaunt_Action(messageId);
                   }
 
               }
           }
     };
     //----
-    let dialogPageAttrsVal = {
+    let dialogsPageAttrsVal = {
+        dialogs: {
+            friendsList:      state.dialogsPageState.model.friendsList,
+            friendsChatLog:   state.dialogsPageState.model.friendsChatLog,
+            selectedFriendId: state.dialogsPageState.view.selectedFriendId,
+            creatingMessage:  state.dialogsPageState.view.creatingMessage,
+            onFriendSelected: (friendId) => {
+                appStateStore.setDialogsPageState_View_SelectedFriend_Action(friendId);
+            },
+            onCreatingMessageChanged: (message)=>{
+                appStateStore.setDialogsPage_View_CreatingMessage_Action(message);
+            },
+            onCreatingMessageFinishCommitted: (messageId,messageFinishCommittedTime)=>{
+                appStateStore.addDialogPageState_Model_UserMessage_Action(state.dialogsPageState.view.creatingMessage,
+                                                                          state.dialogsPageState.view.selectedFriendId,
+                                                                          messageFinishCommittedTime,
+                                                                          messageId);
+                appStateStore.setDialogsPage_View_CreatingMessage_Action('');
+            }
+        }
+
+
       /*  dialogs:{
             friendsInfo:{
                 friendList:      state.dialogsPageState.model.friendsInfo.friendList,
@@ -210,9 +286,9 @@ let rerenderAppVDOM = ()=>{
     let loginPageAttrsVal  = {};
     //----
 
-    ReactDOM.render(<App profilePageAttrs = {profilePageAttrsVal}
-                         dialogPageAttrs  = {dialogPageAttrsVal}
-                         loginPageAttrs   = {loginPageAttrsVal}/>,
+    ReactDOM.render(<App profilePageAttrs  = {profilePageAttrsVal}
+                         dialogsPageAttrs  = {dialogsPageAttrsVal}
+                         loginPageAttrs    = {loginPageAttrsVal}/>,
                      document.getElementById('root'));
 };
 //---
@@ -237,6 +313,7 @@ start();
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
 //-- end
+
 
 
 //----------------------------------------------------------

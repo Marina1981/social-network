@@ -32,7 +32,13 @@ const App = (props) => {
                                                     wall      = {props.profilePageAttrs.profile.wall} />} />
                 <Route exact
                        path='/Dialog'
-                       render={ () => <DialogsPage />} />
+                       render={ () => <DialogsPage   friendsList = {props.dialogsPageAttrs.dialogs.friendsList}
+                                                     friendsChatLog = {props.dialogsPageAttrs.dialogs.friendsChatLog}
+                                                     selectedFriendId = {props.dialogsPageAttrs.dialogs.selectedFriendId}
+                                                     creatingMessage = {props.dialogsPageAttrs.dialogs.creatingMessage}
+                                                     onFriendSelected = {props.dialogsPageAttrs.dialogs.onFriendSelected}
+                                                     onCreatingMessageChanged = {props.dialogsPageAttrs.dialogs.onCreatingMessageChanged}
+                                                     onCreatingMessageFinishCommitted = {props.dialogsPageAttrs.dialogs.onCreatingMessageFinishCommitted}/>} />
                 <Route exact
                        path='/News'
                        render={ () => <NewsPage />} />

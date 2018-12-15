@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 import './Like.css';
 
 
@@ -15,23 +15,3 @@ import './Like.css';
 export default Like;*/
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    ]

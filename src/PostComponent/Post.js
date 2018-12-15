@@ -13,13 +13,14 @@ const Post = (props) => {
                 </div>
                 <span className="c-post__text-post
                                  c-post__text-post--positioned">
-                    {props.text}
+                    {props.messageDetailes.text}
                 </span>
                 <div className="c-post__like-box
                                 c-post__like-box--positioned">
 
-                        <span className="c-like__counter">8</span>
-                        <img src={Like} className="c-like__img"  alt="like"/>
+                        <span className="c-like__counter">{props.messageDetailes.likeCount}</span>
+                        <img src={Like} className="c-like__img"  alt="like"
+                             onClick={(e)=>{props.onMesaageLikeIncrementRequest(props.messageDetailes.messageId)}}/>
 
                 </div>
             </div>

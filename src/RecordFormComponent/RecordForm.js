@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './RecordForm.css';
+import generateGuid from "../libs/Guid";
 
 
 class RecordForm extends Component {
@@ -14,7 +15,7 @@ class RecordForm extends Component {
                     />
                     <button className="wall-block__record-form-button"
                             onClick={
-                                (e) => {this.props.onCreatingMessageFinishCommitted();}
+                                (e) => {this.props.onCreatingMessageFinishCommitted(generateGuid());}
                                     }
                     >
                         Добавить
