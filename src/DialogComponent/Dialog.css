@@ -79,7 +79,7 @@
 
 }
 /*------------------------------------------------------------------*/
-
+.c-dialog-section__messages{}
 .c-dialog-section__messages--positioned{
     grid-row:    2 / span 1;
     grid-column: 2 / span 1;
@@ -96,9 +96,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }
 /*------------------------------------------------------------------*/
+.c-dialog-section__record-form{}
+.c-dialog-section__record-form--positioned{
+    justify-self: stretch;
+    align-self:   stretch;
+
+    grid-row:    3 / span 1;
+    grid-column: 2 / span 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
 
 .c-friend{
     justify-self: stretch;
@@ -139,3 +155,4 @@
     font-size: 1rem;
     color: gray;
 }
+/*------------------------------------------------------------------*/

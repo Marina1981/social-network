@@ -59,9 +59,12 @@ class Dialog extends Component {
 
                 </div>
 
-               <RecordForm creatingMessage                   = {this.props.creatingMessage}
-                           onCreatingMessageChanged          = {this.props.onCreatingMessageChanged}
-                           onCreatingMessageFinishCommitted  = {this.props.onCreatingMessageFinishCommitted}/>
+                <div className="c-dialog-section__record-form
+                                c-dialog-section__record-form--positioned">
+                       <RecordForm creatingMessage                   = {this.props.creatingMessage}
+                                   onCreatingMessageChanged          = {this.props.onCreatingMessageChanged}
+                                   onCreatingMessageFinishCommitted  = {this.props.onCreatingMessageFinishCommitted}/>
+                </div>
 
             </div>
         );
