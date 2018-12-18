@@ -87,7 +87,6 @@
 /*------------------------------------------------------------------*/
 
 .c-dialog-section__label-dialogs--positioned{
-    justify-self: stretch;
     align-self:   stretch;
 
     grid-row:    1 / span 1;
@@ -96,6 +95,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    justify-self: center;
 
 }
 /*------------------------------------------------------------------*/
