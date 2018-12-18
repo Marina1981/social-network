@@ -39,9 +39,9 @@ let post = PostsText.map( (el) => {
                                 c-profile-section__wall-block--positioned">
                      <div className="wall-block__record-form
                                      wall-block__record-form--positioned">
-                        <RecordForm  creatingMessage = {props.wall.creatingMessage}
-                                     onCreatingMessageChanged = {props.wall.onCreatingMessageChanged}
-                                     onCreatingMessageFinishCommitted = {props.wall.onCreatingMessageFinishCommitted}/>
+                        <RecordForm  creatingMessage                   = {props.wall.creatingMessage}
+                                     onCreatingMessageChanged          = {props.wall.onCreatingMessageChanged}
+                                     onCreatingMessageFinishCommitted  = {props.wall.onCreatingMessageFinishCommitted}/>
                      </div>
                     <div className="wall-block__posts-block
                                     wall-block__posts-block--positioned">

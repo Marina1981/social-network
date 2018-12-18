@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
 import './Dialog.css';
-import Username from "../UserNameComponent/UserName";
-import Message from "../MessageComponent/Message";
-import Post from "../PostComponent/Post";
+import RecordForm from "../RecordFormComponent/RecordForm";
 
 
 
 
 class Dialog extends Component {
     render() {
+        //---
+        let selectedFriendChatLogMessagesList = this.props.friendsChatLog.get(this.props.selectedFriendId);
+
+        if(undefined === selectedFriendChatLogMessagesList){
+            selectedFriendChatLogMessagesList = [];
+        }
+        //---
+
+
+
         return (
             <div className="c-dialog-section">
                 <span className="c-dialog-section__label-friends
@@ -27,10 +35,13 @@ class Dialog extends Component {
                 <div className="c-dialog-section__dialogs
                                 c-dialog-section__dialogs--positioned">
                     {
-                        this.props.friendsList.map(
-                            (el) => {
-                                return  <span>el.</span>}
-                                          )
+                        this.props.friendsList.map( (el) => {
+                            return  <div className="c-friend"  key={el.friendId} onClick= {(e)=>{this.props.onFriendSelected(el.friendId);}} >
+                                        <div className="c-friend__userpic">
+                                            <img className="userpic" src={el.friendUserPicURL}/>
+                                        </div>
+                                        <span className="c-friend__name">{el.friendName}</span>
+                                    </div>})
                     }
 
 
@@ -39,11 +50,18 @@ class Dialog extends Component {
                                 c-dialog-section__messages--positioned">
 
 
-                    {messages}
+                    {
+                        selectedFriendChatLogMessagesList.map( (el) => {return (<div className="friend-chat-log__message" key={el.userMessageId}>
+                                                                                    <span className="message-text" >{el.text}</span>
+                                                                                    <span className="message-time" >{el.time}</span>
+                                                                                </div>)} )
+                    }
 
                 </div>
-                <textarea className="c-dialog-section__chat
-                                     c-dialog-section__chat--positioned" placeholder="напишите сообщение..."/>
+
+               <RecordForm creatingMessage                   = {this.props.creatingMessage}
+                           onCreatingMessageChanged          = {this.props.onCreatingMessageChanged}
+                           onCreatingMessageFinishCommitted  = {this.props.onCreatingMessageFinishCommitted}/>
 
             </div>
         );

@@ -42,6 +42,7 @@ class CAppStateStore
             profilePageState: {
                 model:{
                     userInfo:{
+                        userID: '',
                         userPicURL:'',
                         userName:'',
                         userBirthDate:'',
@@ -64,14 +65,16 @@ class CAppStateStore
                 model:{
                     friendsList: [
                         {friendId: '1',
-                         friendName: 'Vasia'
+                         friendUserPicURL: 'https://image.shutterstock.com/image-vector/avatar-userpic-icon-isolated-old-260nw-516627148.jpg',
+                         friendName: 'Vera'
                         },
                         {friendId: '2',
+                         friendUserPicURL: 'https://cdn3.vectorstock.com/i/thumb-large/47/92/redhead-male-character-avatar-userpic-vector-17104792.jpg',
                          friendName: 'Dima'
                         }
                     ],
                     friendsChatLog: new Map( [
-                        ['1', []],
+                        ['1', [{text: 'Hi', time:'22:00', userMessageId: '55'}]],
                         ['2', []]
                     ])                               //[ { text: '', time: ''} ]
                 },
@@ -169,46 +172,17 @@ class CAppStateStore
     //----------------------------------------------------------
     addDialogPageState_Model_UserMessage_Action = (userMessage, friendId, messageTime, userMessageId) => {
         let oldChatMessageList = this._state.dialogsPageState.model.friendsChatLog.get(friendId);
-        let newChatMessageList  = [...oldChatMessageList, {text: userMessage, time: messageTime, userMessageId: userMessageId}];
+        if (oldChatMessageList !== undefined) {
+            let newChatMessageList  = [...oldChatMessageList, {text: userMessage, time: messageTime, userMessageId: userMessageId}];
 
-        this._state.dialogsPageState.model.friendsChatLog.set(friendId, newChatMessageList);
+            this._state.dialogsPageState.model.friendsChatLog.set(friendId, newChatMessageList);
+
+        }
 
         this._onActionCallback();
     };
     //----------------------------------------------------------
- /*   setDialogPagw_View_CreatingMessage_Action = (userMessage)=>{
-        this._state.dialogsPageState.view.creatingMessage =  userMessage;
 
-        this._onActionCallback();
-    };*/
-    //----------------------------------------------------------
-    //----------------------------------------------------------
-
-
-
-
-
-
-   /* setDialogsPageState_Model_FriendsList_Action = (friend) =>{
-        let newFriendsList = [...this._state.dialogsPageState.model.friendsInfo.friendList, friend];
-
-        this._state.dialogsPageState.model.friendsInfo.friendList = newFriendsList;
-
-        this._onActionCallback();
-    };*/
-    //----------------------------------------------------------
-
-    //----------------------------------------------------------
-   /* setDialogsPageState__Model_AddMessage_Action = (message) => {
-        let newMessageList = [...this._state.dialogsPageState.model.friendsInfo.friendsMessage, message];
-
-        this._state.dialogsPageState.model.friendsInfo.friendsMessage = newMessageList;
-
-        this._onActionCallback();
-    };*/
-    //----------------------------------------------------------
-    //----------------------------------------------------------
-    //----------------------------------------------------------
     //----------------------------------------------------------
 
 
@@ -226,6 +200,7 @@ let rerenderAppVDOM = ()=>{
     let profilePageAttrsVal = {
           profile:{
               userInfo: {
+                  userID:         state.profilePageState.model.userInfo.userID,
                   userPicURL:     state.profilePageState.model.userInfo.userPicURL,
                   userName:       state.profilePageState.model.userInfo.userName,
                   userBirthDate:  state.profilePageState.model.userInfo.userBirthDate,
@@ -253,6 +228,7 @@ let rerenderAppVDOM = ()=>{
     //----
     let dialogsPageAttrsVal = {
         dialogs: {
+            friendUserPicURL: state.dialogsPageState.model.friendUserPicURL,
             friendsList:      state.dialogsPageState.model.friendsList,
             friendsChatLog:   state.dialogsPageState.model.friendsChatLog,
             selectedFriendId: state.dialogsPageState.view.selectedFriendId,
@@ -273,14 +249,6 @@ let rerenderAppVDOM = ()=>{
         }
 
 
-      /*  dialogs:{
-            friendsInfo:{
-                friendList:      state.dialogsPageState.model.friendsInfo.friendList,
-                friendsMessage:  state.dialogsPageState.model.friendsInfo.friendsMessage,
-
-
-            }
-        }*/
     };
     //----
     let loginPageAttrsVal  = {};
@@ -304,6 +272,8 @@ let start = ()=>{
     appStateStore.setProfilePageState_Model_UserCity_Action('Минск');
     appStateStore.setProfilePageState_Model_UserEducation_Action(' БГУ 2011');
     appStateStore.setProfilePageState_Model_UserWebSite_Action('http://it-kamasutra.com');
+
+
 };
 start();
 

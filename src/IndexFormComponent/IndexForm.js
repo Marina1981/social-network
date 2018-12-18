@@ -13,6 +13,6 @@ const IndexForm = (props) => {
             </div>
         );
     }
-}
+};
 
 export default IndexForm;

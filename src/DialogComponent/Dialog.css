@@ -96,24 +96,46 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    justify-self: center
+    
 }
 /*------------------------------------------------------------------*/
-.c-dialog-section__chat{
-    width: 40rem;
-    height: 4rem;
-    border: 1px solid #ececec;
-    background: linear-gradient(to top, #fefcea,#171e231f);
 
-}
-.c-dialog-section__chat--positioned{
-    align-self:   stretch;
-
-    grid-row:    3 / span 1;
-    grid-column: 2 / span 1;
-
+.c-friend{
+    justify-self: stretch;
+    align-self: stretch;
     display: flex;
-    justify-self: center;
+    align-items: center;
+
+}
+.c-friend__userpic{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.userpic{
+    height: 100%;
+    width: auto;
+    max-height: 4rem;
+ }
+.c-friend__name{
+    font-family: Verdana;
+    font-size: 1.2rem;
+    color: gray;
 }
 /*------------------------------------------------------------------*/
+.friend-chat-log__message{
+    display: flex;
+    flex-direction: column;
 
+}
+.message-time{
+    font-family: Verdana;
+    font-size: 0.7rem;
+    color: #b3ff66;
+}
+.message-text{
+    font-family: Verdana;
+    font-size: 1rem;
+    color: gray;
+}
