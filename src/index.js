@@ -79,7 +79,7 @@ class CAppStateStore
                     ])                               //[ { text: '', time: ''} ]
                 },
                 view:{
-                    selectedFriendId: '',
+                    selectedFriendId: null,
                     creatingMessage: ''
                 },
 

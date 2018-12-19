@@ -14,7 +14,8 @@ class Dialog extends Component {
             selectedFriendChatLogMessagesList = [];
         }
         //---
-
+        const that = this;
+        //---
 
 
         return (
@@ -36,7 +37,12 @@ class Dialog extends Component {
                                 c-dialog-section__dialogs--positioned">
                     {
                         this.props.friendsList.map( (el) => {
-                            return  <div className="c-friend"  key={el.friendId} onClick= {(e)=>{this.props.onFriendSelected(el.friendId);}} >
+
+                            let clss = "c-friend" + ' ' + ((el.friendId ===  that.props.selectedFriendId)?("c-friend__selected"):(""));
+
+                            return  <div className = {clss}
+                                         key       = {el.friendId}
+                                         onClick   = {(e)=>{ that.props.onFriendSelected(el.friendId);}} >
                                         <div className="c-friend__userpic">
                                             <img className="userpic" src={el.friendUserPicURL}/>
                                         </div>
