@@ -38,11 +38,11 @@ class Dialog extends Component {
                     {
                         this.props.friendsList.map( (el) => {
 
-                            let clss = "c-friend" + ' ' + ((el.friendId ===  that.props.selectedFriendId)?("c-friend__selected"):(""));
+                            let clss = "c-friend" + ' ' + ((el.friendId ===  this.props.selectedFriendId)?("c-friend__selected"):(""));
 
                             return  <div className = {clss}
                                          key       = {el.friendId}
-                                         onClick   = {(e)=>{ that.props.onFriendSelected(el.friendId);}} >
+                                         onClick   = {(e)=>{this.props.onFriendSelected(el.friendId);}} >
                                         <div className="c-friend__userpic">
                                             <img className="userpic" src={el.friendUserPicURL}/>
                                         </div>
