@@ -24,8 +24,8 @@
     text-decoration: none;
 }
 .c-sidebar__menu-item:hover{
-    border: 0.1rem solid #b3ff66;
+    border: 0.1rem solid #171e231f;
 }
 .active-item{
-    background: #b3ff66;
+    background: linear-gradient(to top, #fefcea,#171e231f);
 }
