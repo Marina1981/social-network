@@ -1,19 +1,34 @@
 import React, { Component } from 'react';
 import './Sidebar.css';
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
+import {withRouter} from "react-router";
+
+
+let Menuitem = (props) => {
+
+    return (
+        <>
+            <div className={"c-sidebar__menu-item" + ' ' + (props.location.pathname == props.path ? 'active-item' : ' ')}>
+                <NavLink to={props.path}  className="menu-item__decorated" activeClass="active">{props.title}</NavLink>
+            </div>
+        </>
+    )
+};
+
+
 
 class Sidebar extends Component {
     render() {
         return (
             <div className="c-sidebar">
-                <Link to="/Profile" style={{textDecoration: 'none'}} className="c-sidebar__decorated">Профиль</Link>
-                <Link to="/Dialog"  style={{textDecoration: 'none'}} className="c-sidebar__decorated">Сообщения</Link>
-                <Link to="/News"    style={{textDecoration: 'none'}} className="c-sidebar__decorated">Новости</Link>
-                <Link to="/Music"   style={{textDecoration: 'none'}} className="c-sidebar__decorated">Музыка</Link>
-                <Link to="/Setting" style={{textDecoration: 'none'}} className="c-sidebar__decorated">Настройки</Link>
+                <Menuitem path="/Profile" title="Профиль"   location={this.props.location}/>
+                <Menuitem path="/Dialog"  title="Сообщения" location={this.props.location}/>
+                <Menuitem path="/News"    title="Новости"   location={this.props.location}/>
+                <Menuitem path="/Music"   title="Музыка"    location={this.props.location}/>
+                <Menuitem path="/Setting" title="Настройки" location={this.props.location}/>
             </div>
         );
     }
 }
-
-export default Sidebar;
+let superSidebar = withRouter(Sidebar);
+export default superSidebar;

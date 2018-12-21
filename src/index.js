@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import BrowserRouter from "react-router-dom/es/BrowserRouter";
 import * as serviceWorker from './serviceWorker';
 import userPic from './InfoComponent/images/apelsin2.png';
 
@@ -254,9 +255,12 @@ let rerenderAppVDOM = ()=>{
     let loginPageAttrsVal  = {};
     //----
 
-    ReactDOM.render(<App profilePageAttrs  = {profilePageAttrsVal}
-                         dialogsPageAttrs  = {dialogsPageAttrsVal}
-                         loginPageAttrs    = {loginPageAttrsVal}/>,
+    ReactDOM.render(
+        <BrowserRouter>
+                <App profilePageAttrs  = {profilePageAttrsVal}
+                                 dialogsPageAttrs  = {dialogsPageAttrsVal}
+                                 loginPageAttrs    = {loginPageAttrsVal}/>
+        </BrowserRouter>,
                      document.getElementById('root'));
 };
 //---

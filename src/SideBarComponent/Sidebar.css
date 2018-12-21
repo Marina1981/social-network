@@ -1,6 +1,5 @@
 .c-sidebar{
     display: flex;
-    align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
     height: 100%;
@@ -11,13 +10,22 @@
 
     min-height: 20rem;
 }
-.c-sidebar__decorated{
-    color: white;
-    border: 0.1rem solid white;
-    padding: 5%;
-    border-radius: 1rem;
+
+.c-sidebar__menu-item {
+    display: flex;
+    align-self: center;
+    border: 1px solid white;
+    padding: 0.6rem;
+    border-radius: 0.8rem;
 }
-.c-sidebar__decorated:hover{
-    color: #b3ff66;
+
+.menu-item__decorated{
+    color: white;
+    text-decoration: none;
+}
+.c-sidebar__menu-item:hover{
     border: 0.1rem solid #b3ff66;
+}
+.active-item{
+    background: #b3ff66;
 }

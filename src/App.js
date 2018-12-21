@@ -6,6 +6,7 @@ import ProfilePage   from "./ProfilePageComponent/ProfilePage";
 import DialogsPage   from "./DialogsPageComponent/DialogsPage";
 import LoginPage     from "./LoginPageComponent/LoginPage";
 import NewsPage from "./NewsPageComponent/NewsPage";
+import {withRouter} from "react-router";
 
 // атрибуты:
 // profilePage: oбъект - profile: oбъект - { userInfo: объект - {userPicURL: строка - адрес картинки юзерпика,
@@ -19,9 +20,7 @@ import NewsPage from "./NewsPageComponent/NewsPage";
 //
 //
 const App = (props) => {
-
     return (
-        <BrowserRouter>
             <div className="App">
                 <Route exact
                        path='/'
@@ -45,10 +44,10 @@ const App = (props) => {
                        render={ () => <NewsPage />} />
 
             </div>
-        </BrowserRouter>
+
     )
 
 };
 
-
-export default App;
+let superApp = withRouter(App);
+export default superApp;
