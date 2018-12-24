@@ -66,11 +66,11 @@ class Info extends Component {
 }
 
 Info.propTypes = {
-     userPicURL:    PropTypes.string,
-     userName:      PropTypes.string,
-     userBirthDate: PropTypes.string,
-     userCity:      PropTypes.string,
-     userEducation: PropTypes.string,
-     userWebSite:   PropTypes.string
+     userPicURL:    PropTypes.string.isRequired,
+     userName:      PropTypes.string.isRequired,
+     userBirthDate: PropTypes.string.isRequired,
+     userCity:      PropTypes.string.isRequired,
+     userEducation: PropTypes.string.isRequired,
+     userWebSite:   PropTypes.string.isRequired
 };
 export default Info;
