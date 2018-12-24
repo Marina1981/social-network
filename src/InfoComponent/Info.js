@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Info.css';
 import {Link} from "react-router-dom";
+import PropTypes from 'prop-types';
 
 
 // атрибуты:
@@ -64,4 +65,12 @@ class Info extends Component {
     }
 }
 
+Info.propTypes = {
+     userPicURL:    PropTypes.string,
+     userName:      PropTypes.string,
+     userBirthDate: PropTypes.string,
+     userCity:      PropTypes.string,
+     userEducation: PropTypes.string,
+     userWebSite:   PropTypes.string
+};
 export default Info;

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './Dialog.css';
 import RecordForm from "../RecordFormComponent/RecordForm";
+import PropTypes from 'prop-types';
+
 
 
 
@@ -14,7 +16,7 @@ class Dialog extends Component {
             selectedFriendChatLogMessagesList = [];
         }
         //---
-        const that = this;
+
         //---
 
 
@@ -76,5 +78,9 @@ class Dialog extends Component {
         );
     }
 }
+
+/*Dialog.propTypes = {
+    friendUserPicURL: PropTypes.string.isRequired
+};*/
 
 export default Dialog;
