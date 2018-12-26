@@ -4,7 +4,6 @@ import './index.css';
 import App from './App';
 import BrowserRouter from "react-router-dom/es/BrowserRouter";
 import * as serviceWorker from './serviceWorker';
-import userPic from './InfoComponent/images/apelsin2.png';
 
 
 //////////////////////////////
@@ -129,100 +128,6 @@ class CAppStateStore
     //     this._onActionCallback();
     // };
     //----------------------------------------------------------
-
-
-/*
-    dispatch(action) {
-
-        //----------------------ProfilePage-----------------------//
-
-        if (action.type === 'SET-PROFILE-PAGE-STATE-MODEL-USERPIC-URL') {
-            this._state.profilePageState.model.userInfo.userPicURL = action.urlImg;
-
-            this._onActionCallback();
-        }
-        //-----------------------
-        else if (action.type === 'SET-PROFILE-PAGE-STATE-MODEL-USER=NAME') {
-            this._state.profilePageState.model.userInfo.userName = action.userName;
-
-            this._onActionCallback();
-        }
-        //-----------------------
-        else  if (action.type === 'SET-PROFILE-PAGE-STATE-MODEL-USER-BIRTH-DATE') {
-            this._state.profilePageState.model.userInfo.userBirthDate = action.birthDate;
-
-            this._onActionCallback();
-        }
-        //-----------------------
-        else  if (action.type === 'SET-PROFILE-PAGE-STATE-MODEL-USER-CITY') {
-            this._state.profilePageState.model.userInfo.userEducation = action.userEducation;
-
-            this._onActionCallback();
-        }
-        //-----------------------
-        else  if (action.type === 'SET-PROFILE-PAGE-STATE-MODEL-USER-EDUCATION') {
-            this._state.profilePageState.model.userInfo.userEducation = action.userEducation;
-
-            this._onActionCallback();
-        }
-        //-----------------------
-        else  if (action.type === 'SET-PROFILE-PAGE-STATE-MODEL-USER-WEBSITE') {
-            this._state.profilePageState.model.userInfo.userWebSite = action.userWebSite;
-
-            this._onActionCallback();
-        }
-        //-----------------------
-        else  if (action.type === 'SET-PROFILE-PAGE-STATE-MODEL-ADD-MESSAGE') {
-            this._state.profilePageState.model.wall.messagesList=
-                [...this._state.profilePageState.model.wall.messagesList,
-                    {text: action.message, likeCount: 0, messageId: action.messageId}];
-
-            this._onActionCallback();
-        }
-        //-----------------------
-        else  if (action.type === 'SET-PROFILE-PAGE-STATE-VIEW-CREATING-MESSAGE') {
-            this._state.profilePageState.view.wall.creatingMessage =  action.message;
-
-            this._onActionCallback();
-        }
-        //-----------------------
-        else  if (action.type === 'INCREMENT-PROFILE-PAGE-STATE-MODEL-MESSAGE-LIKE-COUNT') {
-            let filteredMessages =  this._state.profilePageState.model.wall.messagesList.filter( (el) =>
-            {return action.messageId === el.messageId ? true : false;});
-            filteredMessages[0].likeCount += 1;
-
-            this._onActionCallback();
-        }
-
-        //----------------------DialogsPage-----------------------//
-
-        else  if (action.type === 'SET-DIALOGS-PAGE-STATE-VIEW-SELECTED-FRIEND-ID') {
-            this._state.dialogsPageState.view.selectedFriendId = action.friendId;
-
-            this._onActionCallback();
-        }
-        //-----------------------
-        else  if (action.type === 'SET-DIALOGS-PAGE-VIEW-CREATING-MESSAGE') {
-            this._state.dialogsPageState.view.creatingMessage = action.message;
-
-            this._onActionCallback();
-        }
-        //-----------------------
-        else  if (action.type === 'ADD-DIALOGS-PAGE-STATE-MODEL-USER-MESSAGE') {
-            let oldChatMessageList = this._state.dialogsPageState.model.friendsChatLog.get(action.friendId);
-            if (oldChatMessageList !== undefined) {
-                let newChatMessageList  = [...oldChatMessageList, {text: action.userMessage, time: action.messageTime, userMessageId: action.userMessageId}];
-
-                this._state.dialogsPageState.model.friendsChatLog.set(action.friendId, newChatMessageList);
-
-            }
-
-            this._onActionCallback();
-        }
-        //-----------------------
-    }
-
-*/
 
 }
 //////////////////////////////
@@ -507,7 +412,7 @@ let rerenderAppVDOM = ()=>{
 
 appStateStore.subscribe(rerenderAppVDOM);
 //---
-//appStateStore.reset_state_action();
+
 //---
 let start = ()=>{
     appStateStore.dispatch({
