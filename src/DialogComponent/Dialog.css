@@ -144,11 +144,16 @@
     display: flex;
     flex-direction: column;
 
+    width: 80%;
+
 }
 .message-time{
+    display: flex;
+    align-self: flex-end;
+
     font-family: Verdana;
     font-size: 0.7rem;
-    color: #b3ff66;
+    color: black;
 }
 .message-text{
     font-family: Verdana;
