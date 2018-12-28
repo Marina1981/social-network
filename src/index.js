@@ -79,17 +79,23 @@ const  initialAppState = {
         dialogsPageState: {
             model:{
                 friendsList: [
-                    {friendId: '1',
-                        friendUserPicURL: 'https://img0.liveinternet.ru/images/attach/c/10/110/384/110384324_5a__5_.png',
-                        friendName: 'Vera'
+                    {
+                      friendId: '1',
+                      friendUserPicURL: 'https://img0.liveinternet.ru/images/attach/c/10/110/384/110384324_5a__5_.png',
+                      friendName: 'Vera'
                     },
-                    {friendId: '2',
-                        friendUserPicURL: 'https://img1.liveinternet.ru/images/attach/c/10/110/384/110384517_5a__2_.png',
-                        friendName: 'Dima'
+                    {
+                      friendId: '2',
+                      friendUserPicURL: 'https://img1.liveinternet.ru/images/attach/c/10/110/384/110384517_5a__2_.png',
+                      friendName: 'Dima'
                     }
                 ],
                 friendsChatLog: new Map( [
-                    ['1', [{userMessageId: '5', text: 'Hi', time:'22:00'}]],
+                    ['1', [{userMessageId: '5',
+                            userPicURL: 'https://99px.ru/sstorage/86/2018/04/image_86290418140829606047.gif' ,
+                            userName: 'Orange',
+                            text: 'Hi',
+                            time:'22:00'}]],
                     ['2', []]
                 ])                               //[ { text: '', time: ''} ]
             },
@@ -193,7 +199,11 @@ const appReducer = (appState, actionObj) => {
         let newAppState = {...appState};
         let oldChatMessageList = newAppState.dialogsPageState.model.friendsChatLog.get(actionObj.friendId);
              if (oldChatMessageList !== undefined) {
-                 let newChatMessageList  = [...oldChatMessageList, {text: actionObj.userMessage, time: actionObj.messageTime, userMessageId: actionObj.userMessageId}];//userName: name
+                 let newChatMessageList  = [...oldChatMessageList, {userMessageId: actionObj.userMessageId,
+                                                                    userPicURL:    actionObj.userPicURL,
+                                                                    userName:      actionObj.userName,
+                                                                    text:          actionObj.userMessage,
+                                                                    time:          actionObj.messageTime}];//userName: name
 
                  newAppState.dialogsPageState.model.friendsChatLog.set(actionObj.friendId, newChatMessageList);
 

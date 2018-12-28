@@ -129,7 +129,7 @@
     align-items: center;
 }
 
-.userpic{
+.userpic-friend{
     height: 100%;
     width: auto;
     max-height: 4rem;
@@ -141,27 +141,88 @@
 }
 /*------------------------------------------------------------------*/
 .friend-chat-log__message{
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows:    minmax(auto, 80%)
+                           minmax(auto, 20%);
+    grid-template-columns: minmax(auto, 10%)
+                           minmax(auto, 80%)
+                           minmax(auto, 10%);
 
     width: 80%;
 
 }
-.message-time{
+/*------------------------------------------------------------------*/
+.message__userpic{
+    justify-self: stretch;
+    align-self:   stretch;
+
+    grid-row:    1 / span 1;
+    grid-column: 1 / span 1;
+
     display: flex;
-    align-self: flex-end;
+    justify-content: center;
+    align-items: center;
+}
+
+.userpic{
+    height: 100%;
+    width: auto;
+    max-height: 3rem;
+}
+
+/*------------------------------------------------------------------*/
+.message__text{
+    justify-self: stretch;
+    align-self:   stretch;
+
+    grid-row:    1 / span 1;
+    grid-column: 2 / span 1;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items:     flex-end;
+
+    font-family: Verdana;
+    font-size: 1rem;
+    color: gray;
+}
+
+/*------------------------------------------------------------------*/
+.message__time{
+    justify-self: stretch;
+    align-self:   stretch;
+
+    grid-row:    2 / span 1;
+    grid-column: 3 / span 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     font-family: Verdana;
     font-size: 0.7rem;
     color: black;
 }
-.message-text{
+/*------------------------------------------------------------------*/
+.message__username{
+    justify-self: stretch;
+    align-self:   stretch;
+
+    grid-row:    2 / span 1;
+    grid-column: 1 / span 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     font-family: Verdana;
-    font-size: 1rem;
-    color: gray;
+    font-size: 0.8rem;
+    color: black;
 }
 /*------------------------------------------------------------------*/
 .c-friend__selected{
     background: #b3ff66;
 
 }
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/

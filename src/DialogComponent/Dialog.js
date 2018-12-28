@@ -46,7 +46,7 @@ class Dialog extends Component {
                                          key       = {el.friendId}
                                          onClick   = {(e)=>{this.props.onFriendSelected(el.friendId);}} >
                                         <div className="c-friend__userpic">
-                                            <img className="userpic" src={el.friendUserPicURL}/>
+                                            <img className="userpic-friend" src={el.friendUserPicURL}/>
                                         </div>
                                         <span className="c-friend__name">{el.friendName}</span>
                                     </div>})
@@ -60,8 +60,12 @@ class Dialog extends Component {
 
                     {
                         selectedFriendChatLogMessagesList.map( (el) => {return (<div className="friend-chat-log__message" key={el.userMessageId}>
-                                                                                    <span className="message-text" >{el.text}</span>
-                                                                                    <span className="message-time" >{el.time}</span>
+                                                                                    <div className="message__userpic">
+                                                                                       <img className="userpic" src={el.userPicURL}/>
+                                                                                    </div>
+                                                                                    <span className="message__username">{el.userName}</span>
+                                                                                    <span className="message__text" >{el.text}</span>
+                                                                                    <span className="message__time" >{el.time}</span>
                                                                                 </div>)} )
                     }
 
