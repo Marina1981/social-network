@@ -31,7 +31,8 @@ const App = (props) => {
                                                     wall      = {props.profilePageAttrs.profile.wall} />} />
                 <Route exact
                        path='/Dialog'
-                       render={ () => <DialogsPage   friendUserPicURL                 = {props.dialogsPageAttrs.dialogs.friendUserPicURL}
+                       render={ () => <DialogsPage   userInfo                         = {props.dialogsPageAttrs.dialogs.userInfo}
+                                                     // friendUserPicURL                 = {props.dialogsPageAttrs.dialogs.friendUserPicURL}
                                                      friendsList                      = {props.dialogsPageAttrs.dialogs.friendsList}
                                                      friendsChatLog                   = {props.dialogsPageAttrs.dialogs.friendsChatLog}
                                                      selectedFriendId                 = {props.dialogsPageAttrs.dialogs.selectedFriendId}

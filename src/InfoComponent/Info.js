@@ -11,6 +11,7 @@ import PropTypes from 'prop-types';
 
 class Info extends Component {
     render() {
+
         return (
             <div className="c-info
                             c-info__c-info--positioned">
@@ -66,11 +67,6 @@ class Info extends Component {
 }
 
 Info.propTypes = {
-     userPicURL:    PropTypes.string,
-     userName:      PropTypes.string,
-     userBirthDate: PropTypes.string,
-     userCity:      PropTypes.string,
-     userEducation: PropTypes.string,
-     userWebSite:   PropTypes.string
+     userInfo:    PropTypes.object.isRequired,
 };
 export default Info;

@@ -9,7 +9,7 @@ let Menuitem = (props) => {
     return (
         <>
             <div className={"c-sidebar__menu-item" + ' ' + (props.location.pathname == props.path ? 'active-item' : ' ')}>
-                <NavLink to={props.path}  className="menu-item__decorated" activeClass="active">{props.title}</NavLink>
+                <NavLink to={props.path}  className="menu-item__decorated" >{props.title}</NavLink>
             </div>
         </>
     )

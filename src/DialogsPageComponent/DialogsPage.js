@@ -16,7 +16,8 @@ class DialogsPage extends Component {
                     <Sidebar/>
                 </div>
                 <div className="c-dialog-page__wraper-dialogs">
-                    <Dialog  friendUserPicURL                 = {this.props.friendUserPicURL}
+                    <Dialog  userInfo                         = {this.props.userInfo}
+                             // friendUserPicURL                 = {this.props.friendUserPicURL}
                              friendsList                      = {this.props.friendsList}
                              friendsChatLog                   = {this.props.friendsChatLog}
                              selectedFriendId                 = {this.props.selectedFriendId}

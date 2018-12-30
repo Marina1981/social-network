@@ -17,9 +17,6 @@ class Dialog extends Component {
         }
         //---
 
-        //---
-
-
         return (
             <div className="c-dialog-section">
                 <span className="c-dialog-section__label-friends
@@ -59,20 +56,40 @@ class Dialog extends Component {
 
 
                     {
-                        selectedFriendChatLogMessagesList.map( (el) => {return (<div className="friend-chat-log__message" key={el.userMessageId}>
-                                                                                    <div className="message__userpic">
-                                                                                       <img className="userpic" src={el.userPicURL}/>
-                                                                                    </div>
-                                                                                    <span className="message__username">{el.userName}</span>
-                                                                                    <span className="message__text" >{el.text}</span>
-                                                                                    <span className="message__time" >{el.time}</span>
-                                                                                </div>)} )
+                        selectedFriendChatLogMessagesList.map( (el) => {
+
+                            let authorPicURL;
+                            let authorName;
+                            if (el.isUserMessage === true){
+                                authorPicURL = this.props.userInfo.userPicURL;
+                                authorName   = this.props.userInfo.userName;
+                            } else {
+
+                                const predicate = (el) => {
+                                    return (el.friendId === this.props.selectedFriendId);
+                                };
+
+                               const filteredList = this.props.friendsList.filter(predicate);
+                                authorPicURL = filteredList[0].friendUserPicURL;
+                                authorName   = filteredList[0].friendName;
+                            }
+
+
+                            return (<div className="friend-chat-log__message" key={el.messageId}>
+                                        <div className="message__userpic">
+                                           <img className="userpic" src={authorPicURL}/>
+                                        </div>
+                                        <span className="message__username">{authorName}</span>
+                                        <div className="message__text" >{el.text}</div>
+                                        <div className="message__time" >{el.time}</div>
+                                    </div>)} )
                     }
 
                 </div>
 
                 <div className="c-dialog-section__record-form
                                 c-dialog-section__record-form--positioned">
+
                        <RecordForm creatingMessage                   = {this.props.creatingMessage}
                                    onCreatingMessageChanged          = {this.props.onCreatingMessageChanged}
                                    onCreatingMessageFinishCommitted  = {this.props.onCreatingMessageFinishCommitted}/>

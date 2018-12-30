@@ -91,9 +91,10 @@ const  initialAppState = {
                     }
                 ],
                 friendsChatLog: new Map( [
-                    ['1', [{userMessageId: '5',
-                            userPicURL: 'https://99px.ru/sstorage/86/2018/04/image_86290418140829606047.gif' ,
-                            userName: 'Orange',
+                    ['1', [{messageId: '5',
+                            // userPicURL: 'https://img0.liveinternet.ru/images/attach/c/10/110/384/110384324_5a__5_.png' ,
+                            // userName: 'Vera',
+                            isUserMessage: false,
                             text: 'Hi',
                             time:'22:00'}]],
                     ['2', []]
@@ -125,7 +126,7 @@ const ActionTypes = {
 
     setDialogsPageState_View_SelectedFriend:              'SET-DIALOGS-PAGE-STATE-VIEW-SELECTED-FRIEND-ID',
     setDialogsPage_View_CreatingMessage:                  'SET-DIALOGS-PAGE-VIEW-CREATING-MESSAGE',
-    addDialogPageState_Model_UserMessage:                 'ADD-DIALOGS-PAGE-STATE-MODEL-USER-MESSAGE'
+    addDialogPageState_Model_FriendChatLogMessage:        'ADD-DIALOGS-PAGE-STATE-MODEL-FRIEND-CHAT-LOG-MESSAGE'
 
 };
 //
@@ -195,13 +196,14 @@ const appReducer = (appState, actionObj) => {
         newAppState.dialogsPageState.view.creatingMessage = actionObj.message;
         return newAppState;
     }
-    else if(actionObj.type === ActionTypes.addDialogPageState_Model_UserMessage){
+    else if(actionObj.type === ActionTypes.addDialogPageState_Model_FriendChatLogMessage){
         let newAppState = {...appState};
         let oldChatMessageList = newAppState.dialogsPageState.model.friendsChatLog.get(actionObj.friendId);
              if (oldChatMessageList !== undefined) {
-                 let newChatMessageList  = [...oldChatMessageList, {userMessageId: actionObj.userMessageId,
-                                                                    userPicURL:    actionObj.userPicURL,
-                                                                    userName:      actionObj.userName,
+                 let newChatMessageList  = [...oldChatMessageList, {messageId:     actionObj.messageId,
+                                                                    // userPicURL:    actionObj.userPicURL,
+                                                                    // userName:      actionObj.userName,
+                                                                    isUserMessage: actionObj.isUserMessage,
                                                                     text:          actionObj.userMessage,
                                                                     time:          actionObj.messageTime}];//userName: name
 
@@ -274,7 +276,17 @@ let rerenderAppVDOM = ()=>{
     //----
     let dialogsPageAttrsVal = {
         dialogs: {
-            friendUserPicURL: state.dialogsPageState.model.friendUserPicURL,
+            userInfo: {
+                userID:         state.profilePageState.model.userInfo.userID,
+                userPicURL:     state.profilePageState.model.userInfo.userPicURL,
+                userName:       state.profilePageState.model.userInfo.userName,
+                userBirthDate:  state.profilePageState.model.userInfo.userBirthDate,
+                userCity:       state.profilePageState.model.userInfo.userCity,
+                userEducation:  state.profilePageState.model.userInfo.userEducation,
+                userWebSite:    state.profilePageState.model.userInfo.userWebSite
+            },
+
+            // friendUserPicURL: state.dialogsPageState.model.friendUserPicURL,
             friendsList:      state.dialogsPageState.model.friendsList,
             friendsChatLog:   state.dialogsPageState.model.friendsChatLog,
             selectedFriendId: state.dialogsPageState.view.selectedFriendId,
@@ -283,31 +295,35 @@ let rerenderAppVDOM = ()=>{
 
             onFriendSelected: (friendId) => {
                 const actionObj = {
-                    type: ActionTypes.setDialogsPageState_View_SelectedFriend,
+                    type:     ActionTypes.setDialogsPageState_View_SelectedFriend,
                     friendId: friendId
                 };
                 appStateStore.dispatch(actionObj);
             },
             onCreatingMessageChanged: (message)=>{
                 const actionObj = {
-                    type: ActionTypes.setDialogsPage_View_CreatingMessage,
+                    type:    ActionTypes.setDialogsPage_View_CreatingMessage,
                     message: message
                 };
                 appStateStore.dispatch(actionObj);
             },
             onCreatingMessageFinishCommitted: (messageId,messageFinishCommittedTime)=>{
                 const actionObj_1 = {
-                    type: ActionTypes.addDialogPageState_Model_UserMessage,
-                    userMessage: state.dialogsPageState.view.creatingMessage,
-                    messageTime: messageFinishCommittedTime,
-                    userMessageId: messageId,
-                    friendId:  state.dialogsPageState.view.selectedFriendId
+                    type:           ActionTypes.addDialogPageState_Model_FriendChatLogMessage,
+                    friendId:       state.dialogsPageState.view.selectedFriendId,
+                    // userPicURL:     state.profilePageState.model.userInfo.userPicURL,
+                    // userName:       state.profilePageState.model.userInfo.userName,
+                    isUserMessage:  true,
+                    userMessage:    state.dialogsPageState.view.creatingMessage,
+                    messageTime:    messageFinishCommittedTime,
+                    messageId:      messageId
+
 
                 };
                 appStateStore.dispatch(actionObj_1);
 
                 const actionObj_2 = {
-                    type: ActionTypes.setDialogsPage_View_CreatingMessage,
+                    type:    ActionTypes.setDialogsPage_View_CreatingMessage,
                     message: ''
                 };
                 appStateStore.dispatch(actionObj_2);
