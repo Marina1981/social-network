@@ -46,7 +46,8 @@ let post = PostsText.map( (el) => {
                     <div className="wall-block__posts-block
                                     wall-block__posts-block--positioned">
                         {
-                            props.wall.messagesList.map( (el) => {return <Post  messageDetailes={el}
+                            props.wall.messagesList.map( (el) => {return <Post  userInfo = {props.userInfo}
+                                                                                          messageDetailes={el}
                                                                                           key={el.messageId}
                                                                                           onMesaageLikeIncrementRequest={props.wall.onMesaageLikeIncrementRequest}/>})
                         }

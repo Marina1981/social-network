@@ -20,15 +20,22 @@
 .c-post__author-post{}
 
 .c-post__author-post--positioned{
-    justify-self: stretch;
-    align-self:   stretch;
-
-    grid-row:    1 / span 1;
+    grid-row: 1 / span 1;
     grid-column: 1 / span 1;
 
     display: flex;
     justify-content: center;
     align-items: center;
+    justify-self: center;
+    align-self: center;
+    align-content: center;
+
+    border: 0.1rem solid #88d23de6;
+    border-radius: 2rem;
+    height: 2rem;
+    width: 2rem;
+    background-size: contain;
+    overflow: hidden;
     margin: auto;
 }
 .author-post__img{
