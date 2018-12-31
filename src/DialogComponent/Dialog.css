@@ -136,9 +136,14 @@
 }
 
 .userpic-friend{
-    height: 100%;
-    width: auto;
     max-height: 4rem;
+    border: 0.1rem solid #88d23de6;
+    border-radius: 2rem;
+    height: 3rem;
+    width: 3rem;
+    background-size: contain;
+    overflow: hidden;
+    background: white;
  }
 .c-friend__name{
     font-family: Verdana;
@@ -173,18 +178,23 @@
     display: flex;
     justify-self: center;
     align-self:   center;
+    justify-content: center;
+    align-content: center;
 
-    /*border: 1px solid #88d23de6;*/
-    /*border-radius: 2rem;*/
-    /*height: 2rem;*/
-    /*width: 2rem;*/
-    /*background-size: auto;*/
+    border: 0.1rem solid #88d23de6;
+    border-radius: 2rem;
+    height: 2rem;
+    width: 2rem;
+    background-size: contain;
+    overflow: hidden;
+
 }
 
 .userpic{
     height: 100%;
     width: auto;
     max-height: 2rem;
+
 }
 
 /*------------------------------------------------------------------*/

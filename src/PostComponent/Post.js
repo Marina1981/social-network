@@ -11,10 +11,10 @@ const Post = (props) => {
                                 c-post__author-post--positioned">
                         <img className="author-post__img" src={authorPost} alt={authorPost}/>
                 </div>
-                <span className="c-post__text-post
+                <div className="c-post__text-post
                                  c-post__text-post--positioned">
                     {props.messageDetailes.text}
-                </span>
+                </div>
                 <div className="c-post__like-box
                                 c-post__like-box--positioned">
 
