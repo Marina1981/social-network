@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Login.css';
-import IndexForm from "../IndexFormComponent/IndexForm";
+import InputForm from "../InputForm/InputForm";
 
 
 
@@ -11,7 +11,7 @@ let inputMailText = [
    ];
 
 let inputMail  = inputMailText.map ( (el) => {
-    return  <IndexForm  text={el.text} />
+    return  <InputForm text={el.text} />
 } );
 
 /*---------------------------------------------------------------*/
@@ -24,7 +24,7 @@ let inputPasswordText = [
 
 
 let inputPassword  = inputPasswordText.map( (el) => {
-    return  <IndexForm  text={el.text} />
+    return  <InputForm text={el.text} />
 } );
 
 /*---------------------------------------------------------------*/

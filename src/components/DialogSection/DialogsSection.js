@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Dialog.css';
+import './DialogSection.css';
 import RecordForm from "../RecordFormComponent/RecordForm";
 import PropTypes from 'prop-types';
 
@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 
 
-class Dialog extends Component {
+class DialogSection extends Component {
     render() {
         //---
         let selectedFriendChatLogMessagesList = this.props.friendsChatLog.get(this.props.selectedFriendId);
@@ -100,8 +100,8 @@ class Dialog extends Component {
     }
 }
 
-/*Dialog.propTypes = {
+/*DialogSection.propTypes = {
     friendUserPicURL: PropTypes.string.isRequired
 };*/
 
-export default Dialog;
+export default DialogSection;

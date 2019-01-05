@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import './LoginPage.css';
-import Header from "../HeaderComponent/Header";
-import Login  from "../LoginComponent/Login";
+import MainHeader from "../MainHeader/MainHeader";
+import LoginSection  from "../LoginSection/LoginSection";
 
 class LoginPage extends Component {
     render() {
         return (
             <div className="c-login-page">
                 <div className="c-login-page__wraper-header">
-                    <Header/>
+                    <MainHeader/>
                 </div>
                 <div className="c-login-page__wraper-dialogs">
-                    <Login/>
+                    <LoginSection/>
                 </div>
             </div>
         );

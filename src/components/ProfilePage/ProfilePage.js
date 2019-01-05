@@ -1,7 +1,7 @@
 import React   from 'react';
-import Header  from "../HeaderComponent/Header";
+import MainHeader  from "../MainHeader/MainHeader";
 import Sidebar from "../SideBarComponent/Sidebar";
-import Profile from "../ProfileComponent/Profile";
+import UserProfileSection from "../UserProfileSection/UserProfileSection";
 import './ProfilePage.css';
 
 
@@ -18,14 +18,14 @@ const ProfilePage = (props) => {
         return (
             <div className="c-profile-page">
                 <div className="c-profile-page__wraper-header">
-                   <Header/>
+                   <MainHeader/>
                 </div>
                 <div className="c-profile-page__wraper-sidebar">
                    <Sidebar/>
                 </div>
                 <div className="c-profile-page__wraper-profile">
-                   <Profile userInfo  = {props.userInfo}
-                            wall     =  {props.wall} />
+                   <UserProfileSection userInfo  = {props.userInfo}
+                                       wall     =  {props.wall} />
                 </div>
             </div>
         )

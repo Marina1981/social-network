@@ -4,10 +4,7 @@ import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
 
 
-// атрибуты:
-// userPicURL    = строка - адрес картинки юзерпика
-// userName      = строка - имя пользователя
-// userBirthDate = строка - дата рождения
+
 
 class Info extends Component {
     render() {

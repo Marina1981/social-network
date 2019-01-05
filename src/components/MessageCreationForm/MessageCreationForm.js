@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './RecordForm.css';
-import generateGuid from "../libs/Guid";
+import generateGuid from "../../utils/Guid";
 
 
 class RecordForm extends Component {

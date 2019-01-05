@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './NewsPage.css';
-import Header  from "../HeaderComponent/Header";
+import MainHeader  from "../MainHeader/MainHeader";
 import Sidebar from "../SideBarComponent/Sidebar";
 import News from "../NewsComponent/News";
 
@@ -9,7 +9,7 @@ class NewsPage extends Component {
         return (
             <div className="c-news-page">
                 <div className="c-news-page__wraper-header">
-                    <Header/>
+                    <MainHeader/>
                 </div>
                 <div className="c-news-page__wraper-sidebar">
                     <Sidebar/>

@@ -22,7 +22,7 @@
 .c-profile-section__head-image{
     display: flex;
 
-    background-image: url("./images/skinali_frukty.jpg");
+    background-image: url("images/skinali_frukty.jpg");
     background-position: center;
     background-size:cover;
     min-height: 6rem;
