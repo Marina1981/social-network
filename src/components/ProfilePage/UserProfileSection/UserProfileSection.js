@@ -1,12 +1,12 @@
 import React  from 'react';
-import './Profile.css';
-import Post       from '../Post/Post.js';
-import RecordForm from "../RecordFormComponent/RecordForm";
+import './UserProfileSection.css';
+import Post                  from '../Post/Post.js';
+import MessageCreationForm   from "../MessageCreationForm/MessageCreationForm";
 import UserInfoSection       from "../UserInfoSection/UserInfoSection";
 
 
 
- const Profile = (props) =>{
+ const UserProfileSection = (props) =>{
 
         return (
             <article className="c-profile-section">
@@ -19,9 +19,9 @@ import UserInfoSection       from "../UserInfoSection/UserInfoSection";
                                 c-profile-section__wall-block--positioned">
                      <div className="wall-block__record-form
                                      wall-block__record-form--positioned">
-                        <RecordForm  creatingMessage                   = {props.wall.creatingMessage}
-                                     onCreatingMessageChanged          = {props.wall.onCreatingMessageChanged}
-                                     onCreatingMessageFinishCommitted  = {props.wall.onCreatingMessageFinishCommitted}/>
+                        <MessageCreationForm creatingMessage                   = {props.wall.creatingMessage}
+                                             onCreatingMessageChanged          = {props.wall.onCreatingMessageChanged}
+                                             onCreatingMessageFinishCommitted  = {props.wall.onCreatingMessageFinishCommitted}/>
                      </div>
                     <div className="wall-block__posts-block
                                     wall-block__posts-block--positioned">
@@ -38,4 +38,4 @@ import UserInfoSection       from "../UserInfoSection/UserInfoSection";
         )
 };
 
-export default  Profile;
+export default  UserProfileSection;

@@ -1,4 +1,4 @@
-.index-form{
+.input-form{
     height: 100%;
     width: 100%;
 
@@ -10,7 +10,7 @@
     justify-content: center;
 }
 
-.index-form__label {
+.input-form__label {
     justify-content: center;
     align-self: center;
 
@@ -19,7 +19,7 @@
     color: gray;
 }
 /*------------------------------------------------------------------*/
-.index-form__input{
+.input-form__input{
     justify-content: center;
     align-self: center;
 
@@ -34,6 +34,6 @@
 :-moz-placeholder           {color:#ffc349;}/* Firefox 18- */
 :-ms-input-placeholder      {color:#ffc349;}
 
-.index-form__input:hover{
+.input-form__input:hover{
     cursor: pointer;
 }

@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import './Login.css';
+import React from 'react';
+import './LoginSection.css';
 import InputForm from "../InputForm/InputForm";
 
 
@@ -30,8 +30,8 @@ let inputPassword  = inputPasswordText.map( (el) => {
 /*---------------------------------------------------------------*/
 
 
-class Login extends Component {
-    render() {
+const LoginSection = () =>{
+
         return (
             <div className="c-login-section">
                 <div className="c-login-section__index-column
@@ -64,7 +64,7 @@ class Login extends Component {
                 </div>
             </div>
         );
-    }
-}
+    };
 
-export default Login;
+
+export default LoginSection;

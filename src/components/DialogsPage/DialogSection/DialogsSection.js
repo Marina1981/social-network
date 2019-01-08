@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
-import './DialogSection.css';
-import RecordForm from "../RecordFormComponent/RecordForm";
+import React from 'react';
+import './DialogsSection.css';
+import MessageCreationForm from "../MessageCreationForm/MessageCreationForm";
 import PropTypes from 'prop-types';
 
 
 
 
 
-class DialogSection extends Component {
-    render() {
+const DialogsSection = (props) => {
+
         //---
-        let selectedFriendChatLogMessagesList = this.props.friendsChatLog.get(this.props.selectedFriendId);
+        let selectedFriendChatLogMessagesList = props.friendsChatLog.get(props.selectedFriendId);
 
         if(undefined === selectedFriendChatLogMessagesList){
             selectedFriendChatLogMessagesList = [];
@@ -35,13 +35,13 @@ class DialogSection extends Component {
                 <div className="c-dialog-section__dialogs
                                 c-dialog-section__dialogs--positioned">
                     {
-                        this.props.friendsList.map( (el) => {
+                        props.friendsList.map( (el) => {
 
-                            let clss = "c-friend" + ' ' + ((el.friendId ===  this.props.selectedFriendId)?("c-friend__selected"):(""));
+                            let clss = "c-friend" + ' ' + ((el.friendId ===  props.selectedFriendId)?("c-friend__selected"):(""));
 
                             return  <div className = {clss}
                                          key       = {el.friendId}
-                                         onClick   = {(e)=>{this.props.onFriendSelected(el.friendId);}} >
+                                         onClick   = {(e)=>{props.onFriendSelected(el.friendId);}} >
                                         <div className="c-friend__userpic">
                                             <img className="userpic-friend" src={el.friendUserPicURL}/>
                                         </div>
@@ -61,15 +61,15 @@ class DialogSection extends Component {
                             let authorPicURL;
                             let authorName;
                             if (el.isUserMessage === true){
-                                authorPicURL = this.props.userInfo.userPicURL;
-                                authorName   = this.props.userInfo.userName;
+                                authorPicURL = props.userInfo.userPicURL;
+                                authorName   = props.userInfo.userName;
                             } else {
 
                                 const predicate = (el) => {
-                                    return (el.friendId === this.props.selectedFriendId);
+                                    return (el.friendId === props.selectedFriendId);
                                 };
 
-                               const filteredList = this.props.friendsList.filter(predicate);
+                               const filteredList = props.friendsList.filter(predicate);
                                 authorPicURL = filteredList[0].friendUserPicURL;
                                 authorName   = filteredList[0].friendName;
                             }
@@ -90,18 +90,18 @@ class DialogSection extends Component {
                 <div className="c-dialog-section__record-form
                                 c-dialog-section__record-form--positioned">
 
-                       <RecordForm creatingMessage                   = {this.props.creatingMessage}
-                                   onCreatingMessageChanged          = {this.props.onCreatingMessageChanged}
-                                   onCreatingMessageFinishCommitted  = {this.props.onCreatingMessageFinishCommitted}/>
+                       <MessageCreationForm creatingMessage                   = {props.creatingMessage}
+                                            onCreatingMessageChanged          = {props.onCreatingMessageChanged}
+                                            onCreatingMessageFinishCommitted  = {props.onCreatingMessageFinishCommitted}/>
                 </div>
 
             </div>
         );
-    }
-}
+    };
 
-/*DialogSection.propTypes = {
+
+/*DialogsSection.propTypes = {
     friendUserPicURL: PropTypes.string.isRequired
 };*/
 
-export default DialogSection;
+export default DialogsSection;
