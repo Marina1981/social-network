@@ -1,7 +1,8 @@
 import React from 'react';
 import './DialogsSection.css';
-import MessageCreationForm from "../MessageCreationForm/MessageCreationForm";
 import PropTypes from 'prop-types';
+import MessageCreationForm from "../../MessageCreationForm/MessageCreationForm";
+import {connect} from "react-redux";
 
 
 
@@ -41,7 +42,7 @@ const DialogsSection = (props) => {
 
                             return  <div className = {clss}
                                          key       = {el.friendId}
-                                         onClick   = {(e)=>{props.onFriendSelected(el.friendId);}} >
+                                         onClick   = {(e)=>{props(el.friendId);}} >
                                         <div className="c-friend__userpic">
                                             <img className="userpic-friend" src={el.friendUserPicURL}/>
                                         </div>
@@ -61,8 +62,8 @@ const DialogsSection = (props) => {
                             let authorPicURL;
                             let authorName;
                             if (el.isUserMessage === true){
-                                authorPicURL = props.userInfo.userPicURL;
-                                authorName   = props.userInfo.userName;
+                                authorPicURL = props.userPicURL;
+                                authorName   = props.userName;
                             } else {
 
                                 const predicate = (el) => {
@@ -90,18 +91,37 @@ const DialogsSection = (props) => {
                 <div className="c-dialog-section__record-form
                                 c-dialog-section__record-form--positioned">
 
-                       <MessageCreationForm creatingMessage                   = {props.creatingMessage}
-                                            onCreatingMessageChanged          = {props.onCreatingMessageChanged}
-                                            onCreatingMessageFinishCommitted  = {props.onCreatingMessageFinishCommitted}/>
+                       <MessageCreationForm/>
                 </div>
 
             </div>
         );
     };
+//---
+
+const mapStateToProps = (state) => {
+    return {
+        friendsChatLog:   state.dialogsPage.model.friendsChatLog,
+        selectedFriendId: state.dialogsPage.view.selectedFriendId,
+        friendsList:      state.dialogsPage.model.friendsList,
+        friendId:         state.dialogsPage.model.friendsList.friendId,
+        friendUserPicURL: state.dialogsPage.model.friendsList.friendUserPicURL,
+        friendName:       state.dialogsPage.model.friendsList.friendName,
+        messageId:        state.dialogsPage.model.friendsChatLog.messageId,
+    }
+};
+
+
+const mapDispatchToProps = (dispatch) => {};
+
+const ConnectedDialogsSection = connect(
+    mapStateToProps,
+    mapDispatchToProps)(DialogsSection);
+//---
 
 
 /*DialogsSection.propTypes = {
     friendUserPicURL: PropTypes.string.isRequired
 };*/
 
-export default DialogsSection;
+export default ConnectedDialogsSection;
