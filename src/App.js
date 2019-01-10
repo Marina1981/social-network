@@ -1,25 +1,14 @@
 import React  from 'react';
 import './App.css';
-import BrowserRouter from "react-router-dom/es/BrowserRouter";
 import Route         from "react-router/es/Route";
-import ProfilePage   from "./ProfilePageComponent/ProfilePage";
-import DialogsPage   from "./DialogsPageComponent/DialogsPage";
-import LoginPage     from "./LoginPageComponent/LoginPage";
-import NewsPage from "./NewsPageComponent/NewsPage";
-import {withRouter} from "react-router";
+import ProfilePage   from "./components/ProfilePage/ProfilePage";
+import DialogsPage   from "./components/DialogsPage/DialogsPage";
+import {withRouter}  from "react-router";
+import NewsPage      from "./components/NewsPage/NewsPage";
+import LoginPage     from "./components/LoginPage/LoginPage";
 
-// атрибуты:
-// profilePage: oбъект - profile: oбъект - { userInfo: объект - {userPicURL: строка - адрес картинки юзерпика,
-//                                            userName:   строка - имя пользователя
-//                                            userBirthDate: строка - дата рождения
-//                                            userPicURL:    строка - адрес картинки юзерпика},
-// dialogPage: oбъект <....>  ,
-// loginPage:  oбъект <....>
-//
-// }
-//
-//
-const App = (props) => {
+
+const App = () => {
     return (
             <div className="App">
                 <Route exact
@@ -27,19 +16,10 @@ const App = (props) => {
                        render={() => <LoginPage />} />
                 <Route exact
                        path='/Profile'
-                       render={ () => <ProfilePage  userInfo  = {props.profilePageAttrs.profile.userInfo}
-                                                    wall      = {props.profilePageAttrs.profile.wall} />} />
+                       render={ () => <ProfilePage/>} />
                 <Route exact
                        path='/Dialog'
-                       render={ () => <DialogsPage   userInfo                         = {props.dialogsPageAttrs.dialogs.userInfo}
-                                                     // friendUserPicURL                 = {props.dialogsPageAttrs.dialogs.friendUserPicURL}
-                                                     friendsList                      = {props.dialogsPageAttrs.dialogs.friendsList}
-                                                     friendsChatLog                   = {props.dialogsPageAttrs.dialogs.friendsChatLog}
-                                                     selectedFriendId                 = {props.dialogsPageAttrs.dialogs.selectedFriendId}
-                                                     creatingMessage                  = {props.dialogsPageAttrs.dialogs.creatingMessage}
-                                                     onFriendSelected                 = {props.dialogsPageAttrs.dialogs.onFriendSelected}
-                                                     onCreatingMessageChanged         = {props.dialogsPageAttrs.dialogs.onCreatingMessageChanged}
-                                                     onCreatingMessageFinishCommitted = {props.dialogsPageAttrs.dialogs.onCreatingMessageFinishCommitted}/>} />
+                       render={ () => <DialogsPage/>} />
                 <Route exact
                        path='/News'
                        render={ () => <NewsPage />} />

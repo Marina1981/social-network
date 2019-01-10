@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import './Sidebar.css';
-import {Link, NavLink} from "react-router-dom";
+import React from 'react';
+import './MainSidebar.css';
+import {NavLink} from "react-router-dom";
 import {withRouter} from "react-router";
 
 
@@ -17,18 +17,18 @@ let Menuitem = (props) => {
 
 
 
-class Sidebar extends Component {
-    render() {
+const MainSidebar = (props) => {
+
         return (
             <div className="c-sidebar">
-                <Menuitem path="/Profile" title="Профиль"   location={this.props.location}/>
-                <Menuitem path="/Dialog"  title="Сообщения" location={this.props.location}/>
-                <Menuitem path="/News"    title="Новости"   location={this.props.location}/>
-                <Menuitem path="/Music"   title="Музыка"    location={this.props.location}/>
-                <Menuitem path="/Setting" title="Настройки" location={this.props.location}/>
+                <Menuitem path="/Profile" title="Профиль"   location={props.location}/>
+                <Menuitem path="/Dialog"  title="Сообщения" location={props.location}/>
+                <Menuitem path="/News"    title="Новости"   location={props.location}/>
+                <Menuitem path="/Music"   title="Музыка"    location={props.location}/>
+                <Menuitem path="/Setting" title="Настройки" location={props.location}/>
             </div>
         );
-    }
-}
-let superSidebar = withRouter(Sidebar);
-export default superSidebar;
+    };
+
+let superMainSidebar = withRouter(MainSidebar);
+export default superMainSidebar;

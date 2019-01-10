@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './NewsPage.css';
 import MainHeader  from "../MainHeader/MainHeader";
-import Sidebar from "../SideBarComponent/Sidebar";
-import News from "../NewsComponent/News";
+import Sidebar     from "../MainSideBar/MainSidebar";
+import NewsSection from "../NewsSection/NewsSection";
 
-class NewsPage extends Component {
-    render() {
+const NewsPage = () => {
+
         return (
             <div className="c-news-page">
                 <div className="c-news-page__wraper-header">
@@ -15,11 +15,11 @@ class NewsPage extends Component {
                     <Sidebar/>
                 </div>
                 <div className="c-news-page__wraper-news">
-                    <News/>
+                    <NewsSection/>
                 </div>
             </div>
         );
-    }
-}
+    };
+
 
 export default NewsPage;

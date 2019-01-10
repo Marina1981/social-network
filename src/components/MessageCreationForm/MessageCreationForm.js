@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
-import './RecordForm.css';
+import React from 'react';
+import './MessageCreationForm.css';
 import generateGuid from "../../utils/Guid";
 
 
-class RecordForm extends Component {
-    render() {
+
+const MessageCreationForm = (props) => {
+
      const getDate = () => {
          let currentdate = new Date();
          let datetime =  currentdate.getDate() + "/"
@@ -19,22 +20,24 @@ class RecordForm extends Component {
 
         return (
             <div className="c-record-form">
-                    <textarea className="record-form-textarea" placeholder="Что у вас нового..."
-                              value = {this.props.creatingMessage}
-                              onChange={
-                                       (e)=>{this.props.onCreatingMessageChanged(e.currentTarget.value);}
-                                         }
-                    />
-                    <button className="wall-block__record-form-button"
-                            onClick={
-                                (e) => {this.props.onCreatingMessageFinishCommitted(generateGuid(), getDate());}
-                                    }
-                    >
-                        Добавить
-                    </button>
+                        <textarea className="record-form-textarea" placeholder="Что у вас нового..."
+                                  value = {props.creatingMessage}
+                                  onChange={
+                                      (e)=>{props.onCreatingMessageChanged(e.currentTarget.value);}
+                                  }
+                        />
+                <button className="wall-block__record-form-button"
+                        onClick={
+                            (e) => {props.onCreatingMessageFinishCommitted(generateGuid(), getDate());}
+                        }
+                >
+                    Добавить
+                </button>
             </div>
         );
-    }
-}
+    };
 
-export default RecordForm;
+//---
+
+export default MessageCreationForm;
+

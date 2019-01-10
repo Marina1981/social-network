@@ -1,8 +1,8 @@
 import React from 'react';
 import './DialogsSection.css';
 import PropTypes from 'prop-types';
-import MessageCreationForm from "../../MessageCreationForm/MessageCreationForm";
 import {connect} from "react-redux";
+import MessageCreationForm from "../MessageCreationForm/MessageCreationForm";
 
 
 
@@ -91,7 +91,9 @@ const DialogsSection = (props) => {
                 <div className="c-dialog-section__record-form
                                 c-dialog-section__record-form--positioned">
 
-                       <MessageCreationForm/>
+                       <MessageCreationForm  creatingMessage                   = {props.creatingMessage}
+                                             onCreatingMessageChanged          = {props.onCreatingMessageChanged}
+                                             onCreatingMessageFinishCommitted  = {props.onCreatingMessageFinishCommitted}/>
                 </div>
 
             </div>
@@ -101,13 +103,13 @@ const DialogsSection = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        friendsChatLog:   state.dialogsPage.model.friendsChatLog,
-        selectedFriendId: state.dialogsPage.view.selectedFriendId,
-        friendsList:      state.dialogsPage.model.friendsList,
-        friendId:         state.dialogsPage.model.friendsList.friendId,
-        friendUserPicURL: state.dialogsPage.model.friendsList.friendUserPicURL,
-        friendName:       state.dialogsPage.model.friendsList.friendName,
-        messageId:        state.dialogsPage.model.friendsChatLog.messageId,
+        friendsChatLog:   state.dialogsPage.friendsChatLog,
+        selectedFriendId: state.dialogsPage.selectedFriendId,
+        friendsList:      state.dialogsPage.friendsList,
+        friendId:         state.dialogsPage.friendsList.friendId,
+        friendUserPicURL: state.dialogsPage.friendsList.friendUserPicURL,
+        friendName:       state.dialogsPage.friendsList.friendName,
+        messageId:        state.dialogsPage.friendsChatLog.messageId,
     }
 };
 

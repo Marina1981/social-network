@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import './Header.css';
+import React from 'react';
+import './MainHeader.css';
 import logoIcon from './images/apelsin.png';
 
 
-class Header extends Component {
-    render() {
+const MainHeader = () =>{
+
         return (
                 <header className="c-header-section">
                     <div className="c-header-section__logo-icon">
@@ -12,7 +12,7 @@ class Header extends Component {
                     </div>
                 </header>
         );
-    }
-}
+    };
 
-export default Header;
+
+export default MainHeader;
