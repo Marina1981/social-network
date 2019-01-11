@@ -11,7 +11,7 @@ import {superReducer as state} from "../../redux/modules/reducer";
 
 
 const UserProfileSection = (props) =>{
-  
+
 
     return (
         <article className="c-profile-section">
@@ -32,9 +32,9 @@ const UserProfileSection = (props) =>{
                                     wall-block__posts-block--positioned">
                     {
                         props.messagesList.map( (el) => {return <Post  userInfo = {props.userInfo}
-                                                                                      messageDetailes={el}
-                                                                                      key={el.messageId}
-                                                                                      onMesaageLikeIncrementRequest={props.onMesaageLikeIncrementRequest}/>})
+                                                                                 messageDetailes = {el}
+                                                                                 key = {el.messageId}
+                                                                                 onMesaageLikeIncrementRequest = {props.onMesaageLikeIncrementRequest}/>})
                     }
 
                 </div>
@@ -49,14 +49,14 @@ const mapStateToProps = (state) => {
     return {
         userInfo:        state.profilePage.userInfo,
         messagesList:    state.profilePage.wall.messagesList,
-        creatingMessage: state.profilePage.wall.creatingMessage
+        creatingMessage: state.profilePage.wall.creatingMessage,
+
     }
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
         onCreatingMessageChanged: (message) => {
-            debugger;
             dispatch({
                 type:    SET_CREATING_POST,
                 message: message
@@ -65,7 +65,7 @@ const mapDispatchToProps = (dispatch) => {
         onCreatingMessageFinishCommitted: (messageId) => {
             dispatch({
                 type:      SET_ADD_POST,
-                message:   state.profilePage.wall.creatingMessage,
+               // message:   state.profilePage.wall.creatingMessage,
                 messageId: messageId
             });
             dispatch({

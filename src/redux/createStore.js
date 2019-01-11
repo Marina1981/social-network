@@ -1,4 +1,4 @@
-import {createStore} from "redux";
+import {createStore}  from "redux";
 import {superReducer} from "./modules/reducer";
 import {
     SET_USER_BIRTH_DATE,
@@ -19,7 +19,7 @@ let start = ()=>{
 
     store.dispatch({
         type:    SET_USERPIC_URL,
-        urlImg: 'https://99px.ru/sstorage/86/2018/04/image_86290418140829606047.gif'
+        urlImg:  'https://99px.ru/sstorage/86/2018/04/image_86290418140829606047.gif'
     });
     store.dispatch({
         type:      SET_USER_NAME,

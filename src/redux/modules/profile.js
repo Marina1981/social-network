@@ -72,7 +72,7 @@ export const profilePageReducer = (state = initialStateForProfilePage, action) =
         case INCREMENT_POST_LIKE_COUNT:
             newState = {...state};
             let filteredMessages =  newState.wall.messagesList.filter( (el) =>{return action.messageId === el.messageId ? true : false;});
-            filteredMessages[0].likeCount += 1;
+            filteredMessages[0].likeCount =+ 1;
 
             return newState;
         default:

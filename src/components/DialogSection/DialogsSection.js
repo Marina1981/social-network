@@ -42,7 +42,7 @@ const DialogsSection = (props) => {
 
                             return  <div className = {clss}
                                          key       = {el.friendId}
-                                         onClick   = {(e)=>{props(el.friendId);}} >
+                                         onClick   = {(e)=>{props.onFriendSelected(el.friendId);}} >
                                         <div className="c-friend__userpic">
                                             <img className="userpic-friend" src={el.friendUserPicURL}/>
                                         </div>
@@ -62,8 +62,8 @@ const DialogsSection = (props) => {
                             let authorPicURL;
                             let authorName;
                             if (el.isUserMessage === true){
-                                authorPicURL = props.userPicURL;
-                                authorName   = props.userName;
+                                authorPicURL = props.userInfo.userPicURL;
+                                authorName   = props.userInfo.userName;
                             } else {
 
                                 const predicate = (el) => {
@@ -71,8 +71,8 @@ const DialogsSection = (props) => {
                                 };
 
                                const filteredList = props.friendsList.filter(predicate);
-                                authorPicURL = filteredList[0].friendUserPicURL;
-                                authorName   = filteredList[0].friendName;
+                                    authorPicURL = filteredList[0].friendUserPicURL;
+                                    authorName   = filteredList[0].friendName;
                             }
 
 
@@ -101,29 +101,4 @@ const DialogsSection = (props) => {
     };
 //---
 
-const mapStateToProps = (state) => {
-    return {
-        friendsChatLog:   state.dialogsPage.friendsChatLog,
-        selectedFriendId: state.dialogsPage.selectedFriendId,
-        friendsList:      state.dialogsPage.friendsList,
-        friendId:         state.dialogsPage.friendsList.friendId,
-        friendUserPicURL: state.dialogsPage.friendsList.friendUserPicURL,
-        friendName:       state.dialogsPage.friendsList.friendName,
-        messageId:        state.dialogsPage.friendsChatLog.messageId,
-    }
-};
-
-
-const mapDispatchToProps = (dispatch) => {};
-
-const ConnectedDialogsSection = connect(
-    mapStateToProps,
-    mapDispatchToProps)(DialogsSection);
-//---
-
-
-/*DialogsSection.propTypes = {
-    friendUserPicURL: PropTypes.string.isRequired
-};*/
-
-export default ConnectedDialogsSection;
+export default DialogsSection;
