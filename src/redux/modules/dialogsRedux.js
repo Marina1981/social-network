@@ -1,8 +1,65 @@
 
-export const SET_SELECTED_FRIEND_ID  =           'NETWORK/DIALOGS_PAGE/SET_SELECTED_FRIEND_ID';
-export const SET_CREATING_MESSAGE =              'NETWORK/DIALOGS_PAGE/SET_CREATING_MESSAGE';
-export const ADD_FRIEND_CHAT_LOG_MESSAGE =       'NETWORK/DIALOGS_PAGE/ADD_FRIEND_CHAT_LOG_MESSAGE';
+export const types = {
+    SET_SELECTED_FRIEND_ID:                  'NETWORK/DIALOGS_PAGE/SET_SELECTED_FRIEND_ID',
+    SET_CREATING_MESSAGE:                    'NETWORK/DIALOGS_PAGE/SET_CREATING_MESSAGE',
+    ADD_FRIEND_CHAT_LOG_MESSAGE:             'NETWORK/DIALOGS_PAGE/ADD_FRIEND_CHAT_LOG_MESSAGE',
+    ADD_CREATING_MESSAGE_TO_FRIEND_CHAT_LOG: 'NETWORK/DIALOGS_PAGE/ADD_CREATING_MESSAGE_TO_FRIEND_CHAT_LOG'
 
+};
+
+//---- actionCreators--------//
+
+export const actions = {
+        setSelectedFriendId:(friendId) => {
+            return {
+                type:     types.SET_SELECTED_FRIEND_ID,
+                friendId: friendId
+            }
+        },
+        setCreatingMessage: (message) => {
+            return {
+                type:    types.SET_CREATING_MESSAGE,
+                message: message
+            }
+        },
+        addFriendsChatLogMessage: (friendId, messageId, isUserMessage, text, time) => {
+            return {
+                type:          types.ADD_FRIEND_CHAT_LOG_MESSAGE,
+                friendId:      friendId,
+                messageId:     messageId,
+                isUserMessage: isUserMessage,
+                text:          text,
+                time:          time
+            }
+        },
+        addCreatingMessageToFriendChatLog: (friendId, messageId, time) => {
+            return {
+                type:        types.ADD_CREATING_MESSAGE_TO_FRIEND_CHAT_LOG,
+                messageId:   messageId,
+                friendId:    friendId,
+                time:        time
+            }
+        }
+    };
+//---------
+
+// export const onCreatingMessageChanged = (message) => {
+//     return {
+//         type:    SET_CREATING_MESSAGE,
+//         message: message
+//     }
+// };
+// //---------
+// export const onCreatingMessageFinishCommitted = (messageId,messageFinishCommittedTime) => {
+//     return {
+//         type:           ADD_FRIEND_CHAT_LOG_MESSAGE,
+//         friendId:       state.dialogsPage.selectedFriendId,
+//         isUserMessage:  true,
+//         userMessage:    state.dialogsPage.creatingMessage,
+//         messageTime:    messageFinishCommittedTime,
+//         messageId:      messageId
+//     }
+// };
 
 //----
 export const initialStateForDialogsPage = {
@@ -27,22 +84,26 @@ export const initialStateForDialogsPage = {
         ]),
         selectedFriendId: null,
         creatingMessage: ''
+
 };
 //----
 
 //----
 
-export const dialogsPageReducer = (state=initialStateForDialogsPage, action) => {
+
+export const reducer = (state=initialStateForDialogsPage, action) => {
     switch (action.type) {
-        case SET_SELECTED_FRIEND_ID:
+        case types.SET_SELECTED_FRIEND_ID:
             let newState = {...state};
             newState.selectedFriendId = action.friendId;
             return newState;
-        case SET_CREATING_MESSAGE:
+
+        case types.SET_CREATING_MESSAGE:
             newState = {...state};
             newState.creatingMessage = action.message;
             return newState;
-        case ADD_FRIEND_CHAT_LOG_MESSAGE:
+
+        case types.ADD_FRIEND_CHAT_LOG_MESSAGE:
             newState = {...state};
             let oldChatMessageList = newState.friendsChatLog.get(action.friendId);
             if (oldChatMessageList !== undefined) {
@@ -55,12 +116,32 @@ export const dialogsPageReducer = (state=initialStateForDialogsPage, action) => 
 
             }
             return newState;
+
+        case  types.ADD_CREATING_MESSAGE_TO_FRIEND_CHAT_LOG:
+            newState = {...state};
+            oldChatMessageList = newState.friendsChatLog.get(action.friendId);
+            if (oldChatMessageList !== undefined) {
+                let newChatMessageList  = [...oldChatMessageList, { messageId:     action.messageId,
+                                                                    isUserMessage: action.isUserMessage,
+                                                                    text:          newState.creatingMessage,
+                                                                    time:          action.time}];
+
+                newState.friendsChatLog.set(action.friendId, newChatMessageList);
+
+            }
+            return newState;
+
+
         default:
             return state;
     }
 };
 
-//----
+
+
+
+
+
 //export let dialogsPageAttrsVal = {
     // dialogs: {
     //     userInfo: {

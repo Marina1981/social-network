@@ -15,7 +15,7 @@ export const INCREMENT_POST_LIKE_COUNT =       'NETWORK/PROFILE_PAGE/INCREMENT_P
 export const initialStateForProfilePage = {
         userInfo:{
                 userID: '',
-                userPicURL:'',
+                userPicURL: '',
                 userName:'',
                 userBirthDate:'',
                 userCity: '',
@@ -31,7 +31,7 @@ export const initialStateForProfilePage = {
 
 
 
-export const profilePageReducer = (state = initialStateForProfilePage, action) => {
+export const reducer = (state = initialStateForProfilePage, action) => {
 
     switch (action.type) {
         case SET_USERPIC_URL:
@@ -61,7 +61,7 @@ export const profilePageReducer = (state = initialStateForProfilePage, action) =
         case SET_ADD_POST:
             newState = {...state};
             newState.wall.messagesList = [...newState.wall.messagesList,
-                                                {text: action.message,
+                                                {text:      action.message,
                                                  likeCount: 0,
                                                  messageId: action.messageId}];
             return newState;
