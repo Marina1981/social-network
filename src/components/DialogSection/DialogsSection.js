@@ -11,7 +11,7 @@ import MessageCreationForm from "../MessageCreationForm/MessageCreationForm";
 const DialogsSection = (props) => {
 
         //---
-        let selectedFriendChatLogMessagesList = props.friendsChatLog.get(props.selectedFriendId);
+        let selectedFriendChatLogMessagesList = props.friendsChatLog[props.selectedFriendId];//get(props.selectedFriendId);
 
         if(undefined === selectedFriendChatLogMessagesList){
             selectedFriendChatLogMessagesList = [];

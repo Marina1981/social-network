@@ -93,3 +93,42 @@
 }
 /*------------------------------------------------------------------*/
 
+.input-form{
+    height: 100%;
+    width: 100%;
+
+    justify-self: stretch;
+    align-self:   stretch;
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+}
+
+.input-form__label {
+    justify-content: center;
+    align-self: center;
+
+    font-family: Verdana;
+    font-size: 1.3rem;
+    color: gray;
+}
+/*------------------------------------------------------------------*/
+.input-form__input{
+    justify-content: center;
+    align-self: center;
+
+    width: 25rem;
+    height: 3rem;
+    border: none;
+    background-color: #e6ffcc;
+    font-size: 1.4rem;
+}
+::-webkit-input-placeholder {color:#ffc349;}
+::-moz-placeholder          {color:#ffc349;}/* Firefox 19+ */
+:-moz-placeholder           {color:#ffc349;}/* Firefox 18- */
+:-ms-input-placeholder      {color:#ffc349;}
+
+.input-form__input:hover{
+    cursor: pointer;
+}

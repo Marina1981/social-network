@@ -1,3 +1,6 @@
+import * as Immutable from 'immutable';
+
+
 
 export const types = {
     SET_SELECTED_FRIEND_ID:                  'NETWORK/DIALOGS_PAGE/SET_SELECTED_FRIEND_ID',
@@ -62,6 +65,7 @@ export const actions = {
 // };
 
 //----
+
 export const initialStateForDialogsPage = {
         friendsList: [
             {
@@ -75,13 +79,20 @@ export const initialStateForDialogsPage = {
                 friendName: 'Dima'
             }
         ],
-        friendsChatLog: new Map( [
-            ['1', [{messageId: '5',
-                    isUserMessage: false,
-                    text: 'Hi',
-                    time:'22:00'}]],
-            ['2', []]
-        ]),
+        // friendsChatLog: new Map( [
+        //     ['1', [{messageId: '5',
+        //             isUserMessage: false,
+        //             text: 'Hi',
+        //             time:'22:00'}]],
+        //     ['2', []]
+        // ])
+        friendsChatLog: {
+            '1': [{messageId: '5',
+                isUserMessage: false,
+                text: 'Hi',
+                time:'22:00'}],
+            '2': []
+        },
         selectedFriendId: null,
         creatingMessage: ''
 
@@ -89,53 +100,143 @@ export const initialStateForDialogsPage = {
 //----
 
 //----
-
-
 export const reducer = (state=initialStateForDialogsPage, action) => {
+    //---
+
+    // let str = JSON.stringify(state);
+    // let newState = JSON.parse(str);
+    // const newState = {
+    //     ...state,
+    //     friendsList:    state.friendsList.map( obj => ({...obj})),
+    //     friendsChatLog: state.friendsChatLog.map( obj => ({...obj}))
+    // };
+
+    //---
+    debugger;
+    let immutableState    = Immutable.fromJS(state);
+    let newImmutableState = immutableState;
+
     switch (action.type) {
         case types.SET_SELECTED_FRIEND_ID:
-            let newState = {...state};
-            newState.selectedFriendId = action.friendId;
-            return newState;
+            newImmutableState =  immutableState.set('selectedFriendId', action.friendId);
+            return newImmutableState.toJS();
 
         case types.SET_CREATING_MESSAGE:
-            newState = {...state};
-            newState.creatingMessage = action.message;
-            return newState;
+           // newState.creatingMessage = action.message;
+            newImmutableState  = immutableState.set('creatingMessage',action.message);
+            return newImmutableState.toJS();
 
         case types.ADD_FRIEND_CHAT_LOG_MESSAGE:
-            newState = {...state};
-            let oldChatMessageList = newState.friendsChatLog.get(action.friendId);
-            if (oldChatMessageList !== undefined) {
-                let newChatMessageList  = [...oldChatMessageList, { messageId:     action.messageId,
-                                                                    isUserMessage: action.isUserMessage,
-                                                                    text:          action.text,
-                                                                    time:          action.time}];
 
-                newState.friendsChatLog.set(action.friendId, newChatMessageList);
+            let oldImmutableChatMessageList = immutableState.get('friendsChatLog').get(action.friendId);//getIn(['friendsChatLog', action.friendId]);
 
-            }
-            return newState;
+            if (oldImmutableChatMessageList !== undefined) {
+
+
+                const messageItem = { messageId:     action.messageId,
+                                      isUserMessage: action.isUserMessage,
+                                      text:          action.text,
+                                      time:          action.time};
+
+                let newImmutableChatMessageList =
+                    oldImmutableChatMessageList.push(messageItem);
+
+
+                let newImmutableState =
+                    immutableState.setIn(['friendsChatLog', action.friendId], newImmutableChatMessageList);
+
+                return newImmutableState.toJS();
+
+            };
+            
+            return state;
 
         case  types.ADD_CREATING_MESSAGE_TO_FRIEND_CHAT_LOG:
-            newState = {...state};
-            oldChatMessageList = newState.friendsChatLog.get(action.friendId);
-            if (oldChatMessageList !== undefined) {
-                let newChatMessageList  = [...oldChatMessageList, { messageId:     action.messageId,
-                                                                    isUserMessage: action.isUserMessage,
-                                                                    text:          newState.creatingMessage,
-                                                                    time:          action.time}];
 
-                newState.friendsChatLog.set(action.friendId, newChatMessageList);
+            oldImmutableChatMessageList = immutableState.get('friendsChatLog').get(action.friendId);//getIn(['friendsChatLog', action.friendId]);
 
-            }
-            return newState;
+            if (oldImmutableChatMessageList !== undefined) {
+
+
+                let messageItem = { messageId:     action.messageId,
+                                    isUserMessage: true,
+                                    text:          state.creatingMessage,
+                                    time:          action.time};
+
+                let newImmutableChatMessageList =
+                            oldImmutableChatMessageList.push(messageItem);
+
+
+                let newImmutableState =
+                      immutableState.setIn(['friendsChatLog', action.friendId], newImmutableChatMessageList);
+
+                return newImmutableState.toJS();
+
+            };
+
+            return state;
 
 
         default:
             return state;
     }
 };
+
+// export const reducer = (state=initialStateForDialogsPage, action) => {
+//     //---
+//
+//     // let str = JSON.stringify(state);
+//     // let newState = JSON.parse(str);
+//     // const newState = {
+//     //     ...state,
+//     //     friendsList:    state.friendsList.map( obj => ({...obj})),
+//     //     friendsChatLog: state.friendsChatLog.map( obj => ({...obj}))
+//     // };
+//
+//     //---
+//     switch (action.type) {
+//         case types.SET_SELECTED_FRIEND_ID:
+//             let newState = {...state}
+//             newState.selectedFriendId = action.friendId;
+//             return newState;
+//
+//         case types.SET_CREATING_MESSAGE:
+//             newState.creatingMessage = action.message;
+//             return newState;
+//
+//         case types.ADD_FRIEND_CHAT_LOG_MESSAGE:
+//             let oldChatMessageList = newState.friendsChatLog.get(action.friendId);
+//
+//             if (oldChatMessageList !== undefined) {
+//                 let newChatMessageList  = [...oldChatMessageList, { messageId:     action.messageId,
+//                                                                     isUserMessage: action.isUserMessage,
+//                                                                     text:          action.text,
+//                                                                     time:          action.time}];
+//
+//                 newState.friendsChatLog.set(action.friendId, newChatMessageList);
+//
+//             }
+//
+//             return newState;
+//
+//         case  types.ADD_CREATING_MESSAGE_TO_FRIEND_CHAT_LOG:
+//             oldChatMessageList = newState.friendsChatLog.get(action.friendId);
+//             if (oldChatMessageList !== undefined) {
+//                 let newChatMessageList  = [...oldChatMessageList, { messageId:     action.messageId,
+//                                                                     isUserMessage: action.isUserMessage,
+//                                                                     text:          newState.creatingMessage,
+//                                                                     time:          action.time}];
+//
+//                 newState.friendsChatLog.set(action.friendId, newChatMessageList);
+//
+//             }
+//             return newState;
+//
+//
+//         default:
+//             return state;
+//     }
+// };
 
 
 

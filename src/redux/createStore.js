@@ -19,7 +19,7 @@ let start = ()=>{
         type:      types.SET_USER_NAME,
         userName:  'Orange'
     });
-    debugger;
+
     store.dispatch({
         type:       types.SET_USER_BIRTH_DATE,
         birthDate: '10.10.2000г.'
