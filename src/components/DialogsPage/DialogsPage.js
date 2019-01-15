@@ -4,9 +4,8 @@ import MainHeader from "../MainHeader/MainHeader";
 import DialogsSection from "../DialogSection/DialogsSection";
 import MainSidebar from "../MainSideBar/MainSidebar";
 import {connect} from "react-redux";
-import {ADD_FRIEND_CHAT_LOG_MESSAGE, SET_CREATING_MESSAGE, SET_SELECTED_FRIEND_ID} from "../../redux/modules/dialogs";
-import {superReducer as state} from "../../redux/modules/reducer";
 
+import {actions as action} from "../../redux/modules/dialogsRedux";
 
 
 
@@ -28,12 +27,14 @@ const DialogsPage = (props) => {
                                      creatingMessage                  = {props.creatingMessage}
                                      onFriendSelected                 = {props.onFriendSelected}
                                      onCreatingMessageChanged         = {props.onCreatingMessageChanged}
-                                     onCreatingMessageFinishCommitted = {props.onCreatingMessageFinishCommitted}/>
+                                     onCreatingMessageFinishCommitted = {props.onCreatingMessageFinishCommitted}
+
+
+                    />
                 </div>
             </div>
         );
     };
-
 //---
 const mapStateToProps = (state) => {
   return {
@@ -46,32 +47,17 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
+
+
     return{
         onFriendSelected: (friendId) => {
-            dispatch({
-                type:     SET_SELECTED_FRIEND_ID,
-                friendId: friendId
-            })
+            dispatch(action.setSelectedFriendId(friendId))
         },
         onCreatingMessageChanged: (message) => {
-            dispatch({
-                type:    SET_CREATING_MESSAGE,
-                message: message
-            })
+            dispatch(action.setCreatingMessage(message))
         },
-        onCreatingMessageFinishCommitted: (messageId,messageFinishCommittedTime) => {
-            dispatch({
-                type:           ADD_FRIEND_CHAT_LOG_MESSAGE,
-                friendId:       state.dialogsPage.selectedFriendId,
-                isUserMessage:  true,
-                userMessage:    state.dialogsPage.creatingMessage,
-                messageTime:    messageFinishCommittedTime,
-                messageId:      messageId
-            });
-            dispatch({
-                type:    SET_CREATING_MESSAGE,
-                message: ''
-            })
+        onCreatingMessageFinishCommitted: (friendId,messageId,messageFinishCommittedTime) => {
+            dispatch(action.addCreatingMessageToFriendChatLog(friendId,messageId,messageFinishCommittedTime));
         }
     }
 

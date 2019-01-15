@@ -18,6 +18,8 @@ const MessageCreationForm = (props) => {
      };
 
 
+
+
         return (
             <div className="c-record-form">
                         <textarea className="record-form-textarea" placeholder="Что у вас нового..."
@@ -28,7 +30,7 @@ const MessageCreationForm = (props) => {
                         />
                 <button className="wall-block__record-form-button"
                         onClick={
-                            (e) => {props.onCreatingMessageFinishCommitted(generateGuid(), getDate());}
+                            (e) => {props.onCreatingMessageFinishCommitted(props.selectedFriendId ,generateGuid(), getDate());}
                         }
                 >
                     Добавить

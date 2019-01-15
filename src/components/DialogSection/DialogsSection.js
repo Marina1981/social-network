@@ -91,9 +91,12 @@ const DialogsSection = (props) => {
                 <div className="c-dialog-section__record-form
                                 c-dialog-section__record-form--positioned">
 
-                       <MessageCreationForm  creatingMessage                   = {props.creatingMessage}
+                       <MessageCreationForm  selectedFriendId                  = {props.selectedFriendId}
+                                             creatingMessage                   = {props.creatingMessage}
                                              onCreatingMessageChanged          = {props.onCreatingMessageChanged}
-                                             onCreatingMessageFinishCommitted  = {props.onCreatingMessageFinishCommitted}/>
+                                             onCreatingMessageFinishCommitted  = {props.onCreatingMessageFinishCommitted}
+
+                       />
                 </div>
 
             </div>

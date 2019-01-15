@@ -1,11 +1,11 @@
 import {combineReducers}    from "redux";
-import {loginPageReducer}   from "./login";
-import {profilePageReducer} from "./profile";
-import {dialogsPageReducer} from "./dialogs";
+
+import {reducer as loginPageReducer}   from "./loginRedux";
+import {reducer as profilePageReducer} from "./profileRedux";
+import {reducer as dialogsPageReducer} from "./dialogsRedux";
 
 
-console.log(loginPageReducer);
-console.log(profilePageReducer);
+
 
 export const superReducer = combineReducers({
     loginPage:    loginPageReducer,

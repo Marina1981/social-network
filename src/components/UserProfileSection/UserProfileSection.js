@@ -4,15 +4,15 @@ import Post                  from '../Post/Post.js';
 import UserInfoSection       from "../UserInfoSection/UserInfoSection";
 import {connect} from "react-redux";
 import MessageCreationForm from "../MessageCreationForm/MessageCreationForm";
-import {INCREMENT_POST_LIKE_COUNT, SET_ADD_POST, SET_CREATING_POST} from "../../redux/modules/profile";
-import {superReducer as state} from "../../redux/modules/reducer";
+import {actions as profileActions} from "../../redux/modules/profileRedux";
+
+
+
 
 
 
 
 const UserProfileSection = (props) =>{
-
-
     return (
         <article className="c-profile-section">
             <div className="c-profile-section__head-image
@@ -24,7 +24,8 @@ const UserProfileSection = (props) =>{
                                 c-profile-section__wall-block--positioned">
                 <div className="wall-block__record-form
                                      wall-block__record-form--positioned">
-                    <MessageCreationForm  creatingMessage                   = {props.creatingMessage}
+                    <MessageCreationForm  selectedFriendId                  = {props.selectedFriendId}
+                                          creatingMessage                   = {props.creatingMessage}
                                           onCreatingMessageChanged          = {props.onCreatingMessageChanged}
                                           onCreatingMessageFinishCommitted  = {props.onCreatingMessageFinishCommitted}/>
                 </div>
@@ -47,9 +48,10 @@ const UserProfileSection = (props) =>{
 //---
 const mapStateToProps = (state) => {
     return {
-        userInfo:        state.profilePage.userInfo,
-        messagesList:    state.profilePage.wall.messagesList,
-        creatingMessage: state.profilePage.wall.creatingMessage,
+        userInfo:         state.profilePage.userInfo,
+        selectedFriendId: state.dialogsPage.selectedFriendId,
+        messagesList:     state.profilePage.wall.messagesList,
+        creatingMessage:  state.profilePage.wall.creatingMessage,
 
     }
 };
@@ -57,27 +59,13 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         onCreatingMessageChanged: (message) => {
-            dispatch({
-                type:    SET_CREATING_POST,
-                message: message
-            });
+            dispatch(profileActions.setCreatingPost(message));
         },
         onCreatingMessageFinishCommitted: (messageId) => {
-            dispatch({
-                type:      SET_ADD_POST,
-               // message:   state.profilePage.wall.creatingMessage,
-                messageId: messageId
-            });
-            dispatch({
-                type:    SET_CREATING_POST,
-                message: ''
-            })
+            dispatch(profileActions.addCreatingMessageAsPost(messageId));
         },
         onMesaageLikeIncrementRequest: (messageId) => (
-            dispatch({
-                type:      INCREMENT_POST_LIKE_COUNT,
-                messageId: messageId
-            })
+            dispatch(profileActions.incrementPostLikeCount(messageId))
         )
     }
 };
