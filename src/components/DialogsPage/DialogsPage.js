@@ -1,8 +1,6 @@
 import React from 'react';
 import './DialogsPage.css';
-import MainHeader from "../MainHeader/MainHeader";
 import DialogsSection from "../DialogSection/DialogsSection";
-import MainSidebar from "../MainSideBar/MainSidebar";
 import {connect} from "react-redux";
 
 import {actions as action} from "../../redux/modules/dialogsRedux";
@@ -12,13 +10,6 @@ import {actions as action} from "../../redux/modules/dialogsRedux";
 const DialogsPage = (props) => {
 
         return (
-            <div className="c-dialog-page">
-                <div className="c-dialog-page__wraper-header">
-                    <MainHeader/>
-                </div>
-                <div className="c-dialog-page__wraper-sidebar">
-                    <MainSidebar/>
-                </div>
                 <div className="c-dialog-page__wraper-dialogs">
                     <DialogsSection  userInfo                         = {props.userInfo}
                                      friendsList                      = {props.friendsList}
@@ -32,7 +23,6 @@ const DialogsPage = (props) => {
 
                     />
                 </div>
-            </div>
         );
     };
 //---

@@ -79,13 +79,6 @@ export const initialStateForDialogsPage = {
                 friendName: 'Dima'
             }
         ],
-        // friendsChatLog: new Map( [
-        //     ['1', [{messageId: '5',
-        //             isUserMessage: false,
-        //             text: 'Hi',
-        //             time:'22:00'}]],
-        //     ['2', []]
-        // ])
         friendsChatLog: {
             '1': [{messageId: '5',
                 isUserMessage: false,
@@ -101,18 +94,7 @@ export const initialStateForDialogsPage = {
 
 //----
 export const reducer = (state=initialStateForDialogsPage, action) => {
-    //---
 
-    // let str = JSON.stringify(state);
-    // let newState = JSON.parse(str);
-    // const newState = {
-    //     ...state,
-    //     friendsList:    state.friendsList.map( obj => ({...obj})),
-    //     friendsChatLog: state.friendsChatLog.map( obj => ({...obj}))
-    // };
-
-    //---
-    debugger;
     let immutableState    = Immutable.fromJS(state);
     let newImmutableState = immutableState;
 
@@ -148,7 +130,7 @@ export const reducer = (state=initialStateForDialogsPage, action) => {
                 return newImmutableState.toJS();
 
             };
-            
+
             return state;
 
         case  types.ADD_CREATING_MESSAGE_TO_FRIEND_CHAT_LOG:
