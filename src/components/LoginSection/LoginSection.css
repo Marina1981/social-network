@@ -6,9 +6,6 @@
     align-self:   stretch;
 
 
-
-    /*height:     100vh;*/
-    /*width:      100vw;*/
     display: grid;
 
     grid-template-rows:     minmax(auto, 15%)
@@ -18,22 +15,11 @@
                             minmax(auto, 35%);
     grid-template-columns:  minmax(auto, 100%);
 
+
+
 }
 /*------------------------------------------------------------------*/
-/*.c-login-section{*/
 
-    /*height:     100vh;*/
-    /*width:      100vw;*/
-    /*display: grid;*/
-
-    /*grid-template-rows:     minmax(auto, 15%)*/
-                            /*minmax(auto, 20%)*/
-                            /*minmax(auto, 20%)*/
-                            /*minmax(auto, 10%)*/
-                            /*minmax(auto, 35%);*/
-    /*grid-template-columns:  minmax(auto, 100%);*/
-/*}*/
-/*------------------------------------------------------------------*/
 .c-login-section__index-column{
     font-family: Verdana;
     font-size: 2.4rem;

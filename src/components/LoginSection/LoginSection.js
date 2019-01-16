@@ -9,15 +9,6 @@ const LoginSection = (props) =>{
 
         return (
             <div className="c-login-section">
-                <div className="c-login-section__index-column
-                                c-login-section__index-column--positioned">
-                    <span className='index-column__index-login'>
-                        Login
-                    </span>
-                    <span className='index-column__index-registration'>
-                        Registration
-                     </span>
-                </div>
                 <div className="c-login-section__index-login-form--positioned">
                     <div className="input-form">
                         <span className="input-form__label">

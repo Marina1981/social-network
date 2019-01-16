@@ -10,6 +10,9 @@ const MainHeader = () =>{
                     <div className="c-header-section__logo-icon">
                        <img className='logo-img' src={logoIcon} alt='logo'/>
                     </div>
+                    <div className="c-header-section__output">
+                       выйти
+                    </div>
                 </header>
         );
     };
