@@ -16,7 +16,7 @@ export const types = {
 export const actions = {
     setUserpicURL: (userPicURL) => {
         return {
-            type:      types.SET_USERPIC_URL,
+            type:       types.SET_USERPIC_URL,
             userPicURL: userPicURL
         }
     },

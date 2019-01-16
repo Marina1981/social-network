@@ -126,11 +126,22 @@
 .c-friend{
     justify-self: stretch;
     align-self: stretch;
-    display: flex;
-    align-items: center;
+
+    display: grid;
+    grid-template-rows:     minmax(auto, 100%);
+    grid-template-columns:  minmax(auto, 20%)
+                            minmax(auto, 80%);
+
+    height: 4rem;
 
 }
 .c-friend__userpic{
+    justify-self: stretch;
+    align-self:   stretch;
+
+    grid-row:    1 / span 1;
+    grid-column: 1 / span 1;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -147,6 +158,16 @@
     background: white;
  }
 .c-friend__name{
+    justify-self: stretch;
+    align-self:   stretch;
+
+    grid-row:    1 / span 1;
+    grid-column: 2 / span 1;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
     font-family: Verdana;
     font-size: 1.2rem;
     color: gray;
