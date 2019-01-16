@@ -1,5 +1,5 @@
 import React  from 'react';
-import './UserProfileSection.css';
+import './ProfileSection.css';
 import Post                  from '../Post/Post.js';
 import UserInfoSection       from "../UserInfoSection/UserInfoSection";
 import {connect} from "react-redux";
@@ -12,7 +12,7 @@ import {actions as profileActions} from "../../redux/modules/profileRedux";
 
 
 
-const UserProfileSection = (props) =>{
+const ProfileSection = (props) =>{
     return (
         <article className="c-profile-section">
             <div className="c-profile-section__head-image
@@ -70,9 +70,9 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-const ConnectedUserProfileSection = connect(
+const ConnectedProfileSection = connect(
     mapStateToProps,
-    mapDispatchToProps)(UserProfileSection);
+    mapDispatchToProps)(ProfileSection);
 //---
 
-export default ConnectedUserProfileSection;
+export default ConnectedProfileSection;

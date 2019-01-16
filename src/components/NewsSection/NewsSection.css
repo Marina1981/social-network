@@ -1,6 +1,12 @@
+
+
 .c-news-section{
-    width:      100vw;
+    grid-row:    2 / span 1;
+    grid-column: 2 / span 1;
 
     justify-self: stretch;
     align-self:   stretch;
+
+    display: flex;
+
 }

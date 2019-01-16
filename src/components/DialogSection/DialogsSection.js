@@ -3,6 +3,7 @@ import './DialogsSection.css';
 import PropTypes from 'prop-types';
 import {connect} from "react-redux";
 import MessageCreationForm from "../MessageCreationForm/MessageCreationForm";
+import {actions as action} from "../../redux/modules/dialogsRedux";
 
 
 
@@ -103,5 +104,39 @@ const DialogsSection = (props) => {
         );
     };
 //---
+const mapStateToProps = (state) => {
+    return {
+        userInfo:         state.profilePage.userInfo,
+        friendsList:      state.dialogsPage.friendsList,
+        friendsChatLog:   state.dialogsPage.friendsChatLog,
+        selectedFriendId: state.dialogsPage.selectedFriendId,
+        creatingMessage:  state.dialogsPage.creatingMessage,
+    }
+};
 
-export default DialogsSection;
+const mapDispatchToProps = (dispatch) => {
+
+
+    return{
+        onFriendSelected: (friendId) => {
+            dispatch(action.setSelectedFriendId(friendId))
+        },
+        onCreatingMessageChanged: (message) => {
+            dispatch(action.setCreatingMessage(message))
+        },
+        onCreatingMessageFinishCommitted: (friendId,messageId,messageFinishCommittedTime) => {
+            dispatch(action.addCreatingMessageToFriendChatLog(friendId,messageId,messageFinishCommittedTime));
+        }
+    }
+
+};
+
+
+
+const ConnectedDialogsSection = connect(
+    mapStateToProps,
+    mapDispatchToProps)(DialogsSection);
+//---
+export default  ConnectedDialogsSection;
+
+// export default DialogsSection;

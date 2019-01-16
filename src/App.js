@@ -1,13 +1,13 @@
 import React  from 'react';
 import './App.css';
 import Route         from "react-router/es/Route";
-import ProfilePage   from "./components/ProfilePage/ProfilePage";
-import DialogsPage   from "./components/DialogsPage/DialogsPage";
 import {withRouter}  from "react-router";
-import NewsPage      from "./components/NewsPage/NewsPage";
-import LoginPage     from "./components/LoginPage/LoginPage";
 import MainHeader from "./components/MainHeader/MainHeader";
 import MainSidebar from "./components/MainSideBar/MainSidebar";
+import LoginSection from "./components/LoginSection/LoginSection";
+import NewsSection from "./components/NewsSection/NewsSection";
+import ProfileSection from "./components/ProfileSection/ProfileSection";
+import DialogsSection from "./components/DialogSection/DialogsSection";
 
 
 const App = () => {
@@ -21,16 +21,16 @@ const App = () => {
                 </div>
                 <Route exact
                        path='/'
-                       render={() => <LoginPage />} />
+                       render={() => <LoginSection />} />
                 <Route exact
                        path='/Profile'
-                       render={ () => <ProfilePage/>} />
+                       render={ () => <ProfileSection/>} />
                 <Route exact
                        path='/Dialog'
-                       render={ () => <DialogsPage/>} />
+                       render={ () => <DialogsSection/>} />
                 <Route exact
                        path='/News'
-                       render={ () => <NewsPage />} />
+                       render={ () => <NewsSection />} />
 
             </div>
 

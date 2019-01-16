@@ -1,9 +1,12 @@
 .c-profile-section{
-    height: 100%;
-    width:  100%;
+    grid-row:    2 / span 1;
+    grid-column: 2 / span 1;
 
     justify-self: stretch;
     align-self:   stretch;
+
+    /*height: 100%;*/
+    /*width:  100%;*/
 
     display: grid;
 
