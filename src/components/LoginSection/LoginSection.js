@@ -3,9 +3,15 @@ import './LoginSection.css';
 
 import {connect} from "react-redux";
 import {actions as action, login} from "../../redux/modules/loginRedux";
+import Redirect from "react-router/es/Redirect";
 
 
 const LoginSection = (props) =>{
+    //---------------------------
+    if (props.isLoggedIn){
+        return <Redirect to="/Profile"/>
+    }
+    //---------------------------
 
         return (
             <div className="c-login-section">
@@ -25,7 +31,7 @@ const LoginSection = (props) =>{
                         <span className="input-form__label">
                             Password
                         </span>
-                        <input className="input-form__input" placeholder= 'password'  value={props.userPassword}
+                        <input className="input-form__input" placeholder= 'password' type="password"  value={props.userPassword}
                                onChange={
                                    (e) => {props.onChangePassword(e.currentTarget.value)}
                                }/>
@@ -39,6 +45,7 @@ const LoginSection = (props) =>{
                     <span className="checkbox-label">
                         remember me
                     </span>
+                    {/*------------------------------------------------*/}
                     {props.status !== 'in progress' ?
                     <button className="button-box__button" onClick={
                         (e) => {
@@ -46,13 +53,36 @@ const LoginSection = (props) =>{
                         }}
                             disabled={props.status === 'in progress'}>
                         Login
-                    </button> : <span>vvvvbbbbb</span>}
+                    </button> :
+                        <div aria-busy="true" aria-label="Loading" role="progressbar" className="container">
+                            <div className="swing">
+                                <div className="swing-l"/>
+                                <div/>
+                                <div/>
+                                <div/>
+                                <div/>
+                                <div/>
+                                <div className="swing-r"/>
+                            </div>
+                            <div className="shadow">
+                                <div className="shadow-l"/>
+                                <div/>
+                                <div/>
+                                <div/>
+                                <div/>
+                                <div/>
+                                <div className="shadow-r"/>
+                            </div>
+                        </div>}
+                    {/*------------------------------------------------*/}
                     <span>{props.isLoggedIn.toString()}</span>
                 </div>
+
                 {props.status === 'error' ?
                     <div className= "error-block">
                         Invalid login or password
                     </div> : null}
+                {/*------------------------------------------------*/}
             </div>
         );
     };

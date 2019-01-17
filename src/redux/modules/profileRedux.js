@@ -172,55 +172,7 @@ export const reducer = (state = initialStateForProfilePage, action) => {
 
 
 
-//---
 
 
 
-// export let profilePageAttrsVal = {
-// //     profile:{
-// //         userInfo: {
-// //             userID:         state.profilePage.model.userInfo.userID,
-// //             userPicURL:     state.profilePage.model.userInfo.userPicURL,
-// //             userName:       state.profilePage.model.userInfo.userName,
-// //             userBirthDate:  state.profilePage.model.userInfo.userBirthDate,
-// //             userCity:       state.profilePage.model.userInfo.userCity,
-// //             userEducation:  state.profilePage.model.userInfo.userEducation,
-// //             userWebSite:    state.profilePage.model.userInfo.userWebSite
-// //     },
-// //         wall:  {
-// //             messagesList:    state.model.wall.messagesList,
-// //             creatingMessage: state.view.wall.creatingMessage,
-// //
-// //             onCreatingMessageChanged: (message)=>{
-// //                 const action = {
-// //                     type:    SET_CREATING_POST,
-// //                     message: message
-// //                 };
-// //                 store.dispatch(action);
-// //             },
-// //             onCreatingMessageFinishCommitted: (messageId)=>{
-// //                 const action_1 = {
-// //                     type:    SET_ADD_POST,
-// //                     message:   state.view.wall.creatingMessage,
-// //                     messageId: messageId
-// //                 };
-// //                 store.dispatch(action_1);
-// //
-// //                 const action_2 = {
-// //                     type:    SET_CREATING_POST,
-// //                     message: ''
-// //                 };
-// //                 store.dispatch(action_2);
-// //             },
-// //             onMesaageLikeIncrementRequest: (messageId)=>{
-// //                 const action = {
-// //                     type:      INCREMENT_POST_LIKE_COUNT,
-// //                     messageId: messageId
-// //                 };
-// //                 store.dispatch(action);
-// //             }
-// //
-//         }
-//     }
-// };
 

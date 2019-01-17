@@ -29,8 +29,9 @@
     align-self: center;
 
 
-    border: 1px solid #ececec;
-    background: linear-gradient(to top, #fefcea,#171e231f);
+    border: 0.2rem solid bisque;;
+    /*background: linear-gradient(to top, #fefcea,#171e231f);*/
+    background: white;
     color: gray;
     font-family: Verdana, serif;
     font-size: 1rem;

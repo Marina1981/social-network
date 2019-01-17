@@ -45,9 +45,9 @@ export const login= () => {
     return (dispatch) => {
         dispatch(actions.changeStatus('in progress'));
         setTimeout(() => {
-            //dispatch(setLogInToTrue());
-        }, 3000);
-        dispatch(actions.changeStatus('error'))
+            dispatch(setLogInToTrue());
+        }, 6000);
+       // dispatch(actions.changeStatus('error'))
     };
 };
 //---

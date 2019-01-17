@@ -5,14 +5,16 @@ import UserInfoSection       from "../UserInfoSection/UserInfoSection";
 import {connect} from "react-redux";
 import MessageCreationForm from "../MessageCreationForm/MessageCreationForm";
 import {actions as profileActions} from "../../redux/modules/profileRedux";
-
-
-
-
+import {Redirect} from "react-router";
 
 
 
 const ProfileSection = (props) =>{
+    //---
+    // if (!props.isLoggedIn){
+    //     return <Redirect to="/"/>
+    // }
+    //---
     return (
         <article className="c-profile-section">
             <div className="c-profile-section__head-image
@@ -52,6 +54,7 @@ const mapStateToProps = (state) => {
         selectedFriendId: state.dialogsPage.selectedFriendId,
         messagesList:     state.profilePage.wall.messagesList,
         creatingMessage:  state.profilePage.wall.creatingMessage,
+        status:           state.auth.isLoggedIn
 
     }
 };

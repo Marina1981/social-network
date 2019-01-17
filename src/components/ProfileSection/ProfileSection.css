@@ -18,6 +18,7 @@
 
    /* min-width: 50rem;*/
     min-height: 30rem;
+    background: bisque;
 }
 
 /*------------------------------------------------------------------*/
@@ -37,8 +38,6 @@
 
 /*------------------------------------------------------------------*/
 .c-profile-section__wall-block{
-   /* display: flex;
-    flex-direction: column;*/
     display: grid;
     grid-template-rows: minmax(auto, 30%)
                         minmax(auto, 70%);
@@ -65,7 +64,6 @@
 /*------------------------------------------------------------------*/
 /*------------------------------------------------------------------*/
 .wall-block__posts-block{
-    display: flex;
     flex-direction: column;
     justify-self: stretch;
     align-self:   stretch;

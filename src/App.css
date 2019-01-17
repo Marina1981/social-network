@@ -9,7 +9,7 @@
                           minmax(auto, 85%);
   grid-template-rows:     minmax(auto, 10%)
                           minmax(auto, 90%);
-
+  background: bisque;
 }
 .wraper-header{
   grid-row:    1 / span 1;

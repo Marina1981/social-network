@@ -4,13 +4,15 @@ import PropTypes from 'prop-types';
 import {connect} from "react-redux";
 import MessageCreationForm from "../MessageCreationForm/MessageCreationForm";
 import {actions as action} from "../../redux/modules/dialogsRedux";
-import {NavLink} from "react-router-dom";
-
-
+import Redirect from "../LoginSection/LoginSection";
 
 
 
 const DialogsSection = (props) => {
+    //---
+    // if (!props.isLoggedIn){
+    //     return <Redirect to="/"/>
+    // }
 
         //---
         let selectedFriendChatLogMessagesList = props.friendsChatLog[props.selectedFriendId];//get(props.selectedFriendId);
@@ -115,6 +117,7 @@ const mapStateToProps = (state) => {
         friendsChatLog:   state.dialogsPage.friendsChatLog,
         selectedFriendId: state.dialogsPage.selectedFriendId,
         creatingMessage:  state.dialogsPage.creatingMessage,
+        status:           state.auth.isLoggedIn
     }
 };
 
