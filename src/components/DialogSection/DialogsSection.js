@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {connect} from "react-redux";
 import MessageCreationForm from "../MessageCreationForm/MessageCreationForm";
 import {actions as action} from "../../redux/modules/dialogsRedux";
+import {NavLink} from "react-router-dom";
 
 
 
@@ -42,13 +43,16 @@ const DialogsSection = (props) => {
                             let clss = "c-friend" + ' ' + ((el.friendId ===  props.selectedFriendId)?("c-friend__selected"):(""));
 
                             return  <div className = {clss}
-                                         key       = {el.friendId}
-                                         onClick   = {(e)=>{props.onFriendSelected(el.friendId);}} >
+                                             key       = {el.friendId}
+                                             onClick   = {(e)=>{props.onFriendSelected(el.friendId);}} >
                                         <div className="c-friend__userpic">
-                                            <img className="userpic-friend" src={el.friendUserPicURL}/>
-                                        </div>
+                                             <img className="userpic-friend" src={el.friendUserPicURL}/>
+                                         </div>
                                         <span className="c-friend__name">{el.friendName}</span>
-                                    </div>})
+                            </div>})
+
+
+
                     }
 
 
@@ -72,8 +76,8 @@ const DialogsSection = (props) => {
                                 };
 
                                const filteredList = props.friendsList.filter(predicate);
-                                    authorPicURL = filteredList[0].friendUserPicURL;
-                                    authorName   = filteredList[0].friendName;
+                                    authorPicURL  = filteredList[0].friendUserPicURL;
+                                    authorName    = filteredList[0].friendName;
                             }
 
 

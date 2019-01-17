@@ -1,4 +1,8 @@
 .c-login-section{
+    height: 80%;
+    width: 80%;
+    min-height: 15rem;
+
     grid-row:    2 / span 1;
     grid-column: 2 / span 1;
 
@@ -15,33 +19,35 @@
                             minmax(auto, 35%);
     grid-template-columns:  minmax(auto, 100%);
 
-
-
+    margin: auto;
+    background: #b3ff66;
 }
 /*------------------------------------------------------------------*/
 
-.c-login-section__index-column{
-    font-family: Verdana;
-    font-size: 2.4rem;
-    color: gray;
-}
+/*.c-login-section__index-column{*/
+    /*font-family: Verdana;*/
+    /*font-size: 2.4rem;*/
+    /*color: gray;*/
+/*}*/
 
-.c-login-section__index-column--positioned{
-    justify-self: stretch;
-    align-self:   stretch;
+/*.c-login-section__index-column--positioned{*/
+    /*justify-self: stretch;*/
+    /*align-self:   stretch;*/
 
-    grid-row:    1 / span 1;
-    grid-column: 1 / span 1;
+    /*grid-row:    1 / span 1;*/
+    /*grid-column: 1 / span 1;*/
 
-    display: flex;
-    justify-content: space-around;
-    align-self: center;
-}
+    /*display: flex;*/
+    /*justify-content: space-around;*/
+    /*align-self: center;*/
+/*}*/
 /*------------------------------------------------------------------*/
 
 .c-login-section__index-login-form--positioned{
     grid-row:    2 / span 1;
     grid-column: 1 / span 1;
+
+    min-height: 4rem;
 }
 /*------------------------------------------------------------------*/
 
@@ -51,6 +57,8 @@
 
     grid-row:    3 / span 1;
     grid-column: 1 / span 1;
+
+    min-height: 4rem;
 }
 /*------------------------------------------------------------------*/
 .button-box__button{
@@ -82,6 +90,8 @@
     display: flex;
     justify-content: center;
     align-items:     flex-end;
+
+    min-height: 4rem;
 }
 /*------------------------------------------------------------------*/
 .checkbox-label{
@@ -139,4 +149,25 @@
 
 .input-form__input:hover{
     cursor: pointer;
+}
+
+.error-block{
+    width: 13rem;
+    height: 2rem;
+
+    grid-row: 5 / span 1;
+    grid-column: 1 / span 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    align-self: center;
+
+    background: #fd0606cc;
+    color: white;
+    font-family: Verdana;
+    font-size: 0.9rem;
+
+    border-radius: 1rem;
 }

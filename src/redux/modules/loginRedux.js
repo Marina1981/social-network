@@ -1,8 +1,12 @@
+import {setLogInToTrue} from "./authReducer";
+
 export const types = {
+    REMEMBER_USER:              'NETWORK/LOGIN_PAGE/REMEMBER_USER',
     USER_LOGIN_ONCHANGE:        'NETWORK/LOGIN_PAGE/USER_LOGIN_ONCHANGE',
     USER_PASSWORD_ONCHANGE:     'NETWORK/LOGIN_PAGE/USER_PASSWORD_ONCHANGE',
-    ADD_SUBMIT_CLICK:           'NETWORK/LOGIN_PAGE/ADD_SUBMIT_CLICK',
-    CHANGE_STATUS:              'NETWORK/LOGIN_PAGE/CHANGE_STATUS'
+    SET_FLAG:                   'NETWORK/LOGIN_PAGE/SET_FLAG',
+    CHANGE_STATUS:              'NETWORK/LOGIN_PAGE/CHANGE_STATUS',
+    ADD_USER_DATA:              'NETWORK/LOGIN_PAGE/ADD_USER_DATA'
 };
 
 //---- actionCreators--------//
@@ -20,9 +24,10 @@ export const actions = {
             userPassword: userPassword
         }
     },
-    addSubmitClick: () => {
+    setFlag: () => {
         return {
-            type: types.ADD_SUBMIT_CLICK,
+            type: types.SET_FLAG,
+            flag: false
         }
     },
     changeStatus: (status) => {
@@ -31,22 +36,40 @@ export const actions = {
             status: status
         }
     }
+
+};
+
+
+//--- thunkCreator -------//
+export const login= () => {
+    return (dispatch) => {
+        dispatch(actions.changeStatus('in progress'));
+        setTimeout(() => {
+            //dispatch(setLogInToTrue());
+        }, 3000);
+        dispatch(actions.changeStatus('error'))
+    };
 };
 //---
 
 const initialStateForLoginPage = {
-    userLogin: '',
-    userPassword: '',
-    isRememberMe: true,
-    status: null //'in progress'
+    userLogin:          '',
+    userPassword:       '',
+    isRememberMe:       true,
+    status:             null //'in progress'
 };
 
 
 
 export const reducer = (state = initialStateForLoginPage, action) => {
     switch (action.type) {
-        case types.USER_LOGIN_ONCHANGE:
+        case types.REMEMBER_USER:
             let newState = {...state};
+            newState.isRememberMe = action.isRememberMe
+            return newState;
+
+        case types.USER_LOGIN_ONCHANGE:
+            newState = {...state};
             newState.userLogin = action.userLogin;
             return newState;
 
@@ -55,10 +78,11 @@ export const reducer = (state = initialStateForLoginPage, action) => {
             newState.userPassword = action.userPassword;
             return newState;
 
-        case types.ADD_SUBMIT_CLICK:
+        case types.SET_FLAG:
             newState = {...state};
             newState.isRememberMe = action.isRememberMe;
             return newState;
+
         case types.CHANGE_STATUS:
             newState = {...state};
             newState.status = action.status;
