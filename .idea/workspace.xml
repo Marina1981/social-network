@@ -2,24 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc362f95-17c0-44b3-a3cb-2fae7517dc0d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DialogSection/DialogsSection.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DialogSection/DialogsSection.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DialogSection/DialogsSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DialogSection/DialogsSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LoginSection/LoginSection.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginSection/LoginSection.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LoginSection/LoginSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginSection/LoginSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainHeader/MainHeader.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainHeader/MainHeader.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainHeader/MainHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainHeader/MainHeader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainSideBar/MainSidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainSideBar/MainSidebar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainSideBar/MainSidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainSideBar/MainSidebar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MessageCreationForm/MessageCreationForm.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MessageCreationForm/MessageCreationForm.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ProfileSection/ProfileSection.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProfileSection/ProfileSection.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ProfileSection/ProfileSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProfileSection/ProfileSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/modules/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/modules/authReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/modules/loginRedux.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/modules/loginRedux.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,8 +27,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/ProfileSection/ProfileSection.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="43" column="18" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
+            <state relative-caret-position="445">
+              <caret line="66" column="18" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -311,12 +294,12 @@
       <workItem from="1546674229872" duration="337000" />
       <workItem from="1546674593930" duration="4254000" />
       <workItem from="1546679414206" duration="54329000" />
-      <workItem from="1547098595910" duration="145442000" />
+      <workItem from="1547098595910" duration="145922000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="209247000" />
+    <option name="totallyTimeSpent" value="209727000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -837,8 +820,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ProfileSection/ProfileSection.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="43" column="18" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
+        <state relative-caret-position="445">
+          <caret line="66" column="18" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="18" />
         </state>
       </provider>
     </entry>

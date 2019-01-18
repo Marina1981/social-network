@@ -34,7 +34,7 @@
 /*------------------------------------------------------------------*/
 .c-profile-section__wall-block{
     display: grid;
-    grid-template-rows: minmax(auto, 40%)
+    grid-template-rows: minmax(auto, 30%)
                         minmax(auto, 1fr);
     grid-template-columns:  100%;
     min-height: 15rem;
@@ -64,7 +64,7 @@
     flex-direction: column;
 
     overflow-y: auto;
-    max-height: 14rem;;
+    max-height: 20rem;;
 }
 .wall-block__posts-block--positioned{
     grid-row:    3;
