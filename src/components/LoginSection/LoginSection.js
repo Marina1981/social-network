@@ -46,15 +46,14 @@ const LoginSection = (props) =>{
                         remember me
                     </span>
                     {/*------------------------------------------------*/}
-                    {props.status !== 'in progress' ?
                     <button className="button-box__button" onClick={
                         (e) => {
                             props.onLoginButtonClick(e.currentTarget.value)
                         }}
                             disabled={props.status === 'in progress'}>
                         Login
-                    </button> :
-                        <div aria-busy="true" aria-label="Loading" role="progressbar" className="container">
+                    </button>
+                        <div className={`container ${props.status.preloadingStatus ? 'show' : 'hide'}`} aria-busy="true" aria-label="Loading" role="progressbar">
                             <div className="swing">
                                 <div className="swing-l"/>
                                 <div/>

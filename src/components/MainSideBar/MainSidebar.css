@@ -1,22 +1,22 @@
 .c-sidebar{
     display: flex;
-    justify-content: space-evenly;
+    /*justify-content: space-evenly;*/
     flex-direction: column;
     height: 100%;
     width:  100%;
     background-color: #ffc349;
-    font-size: 1.2rem;
+    font-size: 20px;
 
-
-    min-height: 20rem;
+    min-height: 0;
 }
 
 .c-sidebar__menu-item {
     display: flex;
     align-self: center;
     border: 1px solid white;
-    padding: 0.6rem;
-    border-radius: 0.8rem;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px;
 }
 
 .menu-item__decorated{
@@ -24,7 +24,7 @@
     text-decoration: none;
 }
 .c-sidebar__menu-item:hover{
-    border: 0.1rem solid #171e231f;
+    border: 1px solid #171e231f;
 }
 .active-item{
     background: linear-gradient(to top, #fefcea,#171e231f);

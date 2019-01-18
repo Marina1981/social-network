@@ -11,7 +11,7 @@ import Redirect from "../LoginSection/LoginSection";
 const DialogsSection = (props) => {
     //---
     // if (!props.isLoggedIn){
-    //     return <Redirect to="/"/>
+    //     return <Redirect to="/Login"/>
     // }
 
         //---
@@ -26,15 +26,11 @@ const DialogsSection = (props) => {
             <div className="c-dialog-section">
                 <span className="c-dialog-section__label-friends
                                  c-dialog-section__label-friends--positioned">
-
                     Friends
-
                 </span>
                 <span className="c-dialog-section__label-dialogs
                                  c-dialog-section__label-dialogs--positioned">
-
                     Dialogs
-
                 </span>
                 <div className="c-dialog-section__border-line"/>
                 <div className="c-dialog-section__dialogs
@@ -52,9 +48,6 @@ const DialogsSection = (props) => {
                                          </div>
                                         <span className="c-friend__name">{el.friendName}</span>
                             </div>})
-
-
-
                     }
 
 
@@ -105,7 +98,6 @@ const DialogsSection = (props) => {
 
                        />
                 </div>
-
             </div>
         );
     };

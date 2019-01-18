@@ -1,14 +1,9 @@
 .c-login-section{
-    height: 80%;
-    width: 80%;
-    min-height: 15rem;
-
-    grid-row:    2 / span 1;
-    grid-column: 2 / span 1;
-
     justify-self: stretch;
     align-self:   stretch;
 
+    grid-row:    2 / span 1;
+    grid-column: 2 / span 1;
 
     display: grid;
 
@@ -18,6 +13,10 @@
                             minmax(auto, 10%)
                             minmax(auto, 35%);
     grid-template-columns:  minmax(auto, 100%);
+
+    height: 80%;
+    width: 80%;
+    min-height: 15rem;
 
     margin: auto;
     background: white;
@@ -75,6 +74,8 @@
     font-size: 1.3rem;
     border-radius: 0.5rem;
 
+    outline:none;
+
 }
 .button-box__button:hover{
     color: #b3ff66;
@@ -131,6 +132,7 @@
     font-family: Verdana;
     font-size: 1.3rem;
     color: gray;
+
 }
 /*------------------------------------------------------------------*/
 .input-form__input{
@@ -142,7 +144,14 @@
     border: none;
     background-color: #e6ffcc;
     font-size: 1.4rem;
+    color: grey;
+    text-align: center;
+    outline:none;
 }
+.input-form__input:focus{
+    border: 0.1rem solid #ffc349 ;
+}
+
 ::-webkit-input-placeholder {color:#ffc349;}
 ::-moz-placeholder          {color:#ffc349;}/* Firefox 19+ */
 :-moz-placeholder           {color:#ffc349;}/* Firefox 18- */
@@ -172,10 +181,10 @@
 
     border-radius: 1rem;
 }
-/*----------------------------------------*/
-body {
-    background: #ede9de;
-}
+/*-----------animation-----------------------------*/
+/*body {*/
+    /*background: #ede9de;*/
+/*}*/
 .container {
     left: 50%;
     margin: auto -50px;
@@ -234,6 +243,13 @@ body {
 }
 .shadow .shadow-r {
     background: #eed3ca;
+}
+
+.hide {
+    display: none;
+}
+.show {
+    display: inline-block;
 }
 @-webkit-keyframes ball-l {
     0%, 50% {

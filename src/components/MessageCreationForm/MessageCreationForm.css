@@ -21,7 +21,7 @@
 }*/
 /*------------------------------------------------------------------*/
 .record-form-textarea{
-    height: 5rem;
+    height: 3rem;
     width: 90%;
 
     display: flex;
@@ -36,6 +36,8 @@
     font-family: Verdana, serif;
     font-size: 1rem;
     min-height: 3rem;
+
+    outline: none;
 }
 .record-form-textarea:hover{
 
@@ -60,6 +62,8 @@
     margin-right: 3rem;
     margin-top: 1rem;
     min-height: 2rem;
+
+    outline: none;
 }
 .wall-block__record-form-button:hover{
     background-color: #b3ff66;

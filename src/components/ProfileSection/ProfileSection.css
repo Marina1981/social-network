@@ -1,23 +1,19 @@
 .c-profile-section{
-    grid-row:    2 / span 1;
-    grid-column: 2 / span 1;
+    grid-row: 2;
+    grid-column: 2;
 
     justify-self: stretch;
     align-self:   stretch;
 
-    /*height: 100%;*/
-    /*width:  100%;*/
-
     display: grid;
-
-    grid-template-rows: minmax(auto, 25%)
+    grid-template-rows: minmax(auto, 15%)
                         minmax(auto, 30%)
-                        minmax(auto, 35%);
-    grid-template-columns: minmax(auto, 100%);
+                        minmax(auto, 1fr);
+    grid-template-columns:  1fr;
 
 
    /* min-width: 50rem;*/
-    min-height: 30rem;
+    /*min-height: 30rem;*/
     background: bisque;
 }
 
@@ -25,29 +21,27 @@
 
 .c-profile-section__head-image{
     display: flex;
-
     background-image: url("images/skinali_frukty.jpg");
     background-position: center;
     background-size:cover;
-    min-height: 6rem;
+    /*min-height: 6rem;*/
 }
 .c-profile-section__head-image--positioned{
-    grid-row:    1 / span 1;
+    grid-row:    1;
     grid-column: 1 / span 2;
 }
 
 /*------------------------------------------------------------------*/
 .c-profile-section__wall-block{
     display: grid;
-    grid-template-rows: minmax(auto, 30%)
-                        minmax(auto, 70%);
-    grid-template-columns: minmax(auto, 100%);
-
+    grid-template-rows: minmax(auto, 40%)
+                        minmax(auto, 1fr);
+    grid-template-columns:  100%;
     min-height: 15rem;
 }
 
 .c-profile-section__wall-block--positioned{
-    grid-row:    3 / span 1;
+    grid-row:    3;
     grid-column: 1 / span 2;
 
     justify-self: stretch;
@@ -64,15 +58,30 @@
 /*------------------------------------------------------------------*/
 /*------------------------------------------------------------------*/
 .wall-block__posts-block{
+    justify-self: stretch;
+    align-self:   stretch;
+    display: flex;
     flex-direction: column;
+
+    overflow-y: auto;
+    max-height: 14rem;;
+}
+.wall-block__posts-block--positioned{
+    grid-row:    3;
+    grid-column: 1 / span 1;
+
     justify-self: stretch;
     align-self:   stretch;
 }
 
 /*------------------------------------------------------------------*/
 .c-profile-section__info-block{
-    grid-row:    2 / span 1;
-    grid-column: 1 / span 1;
+    max-height: 20rem;
+}
+
+.c-profile-section__info-block--positioned{
+    grid-row:    2;
+    grid-column: 1;
 
     justify-self: stretch;
     align-self:   stretch;

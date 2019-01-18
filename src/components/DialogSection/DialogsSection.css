@@ -1,8 +1,8 @@
 .c-dialog-section{
     width: 80%;
 
-    grid-row:    2 / span 1;
-    grid-column: 2 / span 1;
+    grid-row:    2;
+    grid-column: 2;
 
     justify-self: stretch;
     align-self:   stretch;
@@ -54,7 +54,7 @@
 /*------------------------------------------------------------------*/
 .c-dialog-section__border-line{
     grid-row:    1 / span 2;
-    grid-column: 1 / span 1;
+    grid-column: 1;
 
     background-color: bisque;
     height: 60vh;
@@ -82,8 +82,8 @@
     justify-self: stretch;
     align-self:   stretch;
 
-    grid-row:    2 / span 1;
-    grid-column: 1 / span 1;
+    grid-row:    2;
+    grid-column: 1;
 
 }
 /*------------------------------------------------------------------*/
@@ -91,17 +91,17 @@
 .c-dialog-section__messages--positioned{
     justify-self: stretch;
     align-self:   stretch;
-;
-    grid-row:    2 / span 1;
-    grid-column: 2 / span 1;
+
+    grid-row:    2;
+    grid-column: 2;
 }
 /*------------------------------------------------------------------*/
 
 .c-dialog-section__label-dialogs--positioned{
     align-self:   stretch;
 
-    grid-row:    1 / span 1;
-    grid-column: 2 / span 1;
+    grid-row:    1;
+    grid-column: 2;
 
     display: flex;
     justify-content: center;
@@ -115,17 +115,13 @@
     justify-self: stretch;
     align-self:   stretch;
 
-    grid-row:    3 / span 1;
-    grid-column: 2 / span 1;
+    grid-row:    3;
+    grid-column: 2;
 
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-
-
-
 
 .c-friend{
     justify-self: stretch;
@@ -143,8 +139,8 @@
     justify-self: stretch;
     align-self:   stretch;
 
-    grid-row:    1 / span 1;
-    grid-column: 1 / span 1;
+    grid-row:    1;
+    grid-column: 1;
 
     display: flex;
     justify-content: center;
@@ -165,8 +161,8 @@
     justify-self: stretch;
     align-self:   stretch;
 
-    grid-row:    1 / span 1;
-    grid-column: 2 / span 1;
+    grid-row:    1;
+    grid-column: 2;
 
     display: flex;
     justify-content: flex-start;
@@ -198,8 +194,8 @@
 /*------------------------------------------------------------------*/
 .message__userpic{
 
-    grid-row:    1 / span 1;
-    grid-column: 1 / span 1;
+    grid-row:    1;
+    grid-column: 1;
 
     display: flex;
     justify-self: center;
@@ -229,7 +225,7 @@
     align-self:   stretch;
 
     grid-row:    1 / span 2;
-    grid-column: 2 / span 1;
+    grid-column: 2;
 
     display: flex;
     justify-content: flex-start;
@@ -248,7 +244,7 @@
     align-self:   stretch;
 
     grid-row:    1 / span 2;
-    grid-column: 3 / span 1;
+    grid-column: 3;
 
     display: flex;
     flex-direction:  column;
@@ -266,8 +262,8 @@
     justify-self: stretch;
     align-self:   stretch;
 
-    grid-row:    2 / span 1;
-    grid-column: 1 / span 1;
+    grid-row:    2;
+    grid-column: 1;
 
     display: flex;
     justify-content: center;

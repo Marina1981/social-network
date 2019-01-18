@@ -2,8 +2,8 @@ export const SET_LOGIN = 'NETWORK/LOGIN_PAGE/SET_LOGIN';
 
 let initialState = {
     userId: '23',
-    name: 'Maha',
-    avatar: '',
+    userName: 'Orange',
+    userPic: 'https://99px.ru/sstorage/86/2018/04/image_86290418140829606047.gif',
     isLoggedIn: false
 };
 

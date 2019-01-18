@@ -12,14 +12,15 @@ import {Redirect} from "react-router";
 const ProfileSection = (props) =>{
     //---
     // if (!props.isLoggedIn){
-    //     return <Redirect to="/"/>
+    //     return <Redirect to="/Login"/>
     // }
     //---
     return (
         <article className="c-profile-section">
             <div className="c-profile-section__head-image
                                 c-profile-section__head-image--positioned"/>
-            <div className="c-profile-section__info-block">
+            <div className="c-profile-section__info-block
+                            c-profile-section__info-block--positioned">
                 <UserInfoSection userInfo = {props.userInfo} />
             </div>
             <div className="c-profile-section__wall-block
