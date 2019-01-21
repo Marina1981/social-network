@@ -67,7 +67,7 @@
     max-height: 20rem;;
 }
 .wall-block__posts-block--positioned{
-    grid-row:    3;
+    grid-row:    2;
     grid-column: 1 / span 1;
 
     justify-self: stretch;

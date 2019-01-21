@@ -1,13 +1,13 @@
 import React          from 'react';
 import './App.css';
-import Route          from "react-router/es/Route";
-import {Switch, withRouter} from "react-router";
-import MainHeader     from "./components/MainHeader/MainHeader";
-import MainSidebar    from "./components/MainSideBar/MainSidebar";
-import LoginSection   from "./components/LoginSection/LoginSection";
-import NewsSection    from "./components/NewsSection/NewsSection";
-import ProfileSection from "./components/ProfileSection/ProfileSection";
-import DialogsSection from "./components/DialogSection/DialogsSection";
+import Route                   from "react-router/es/Route";
+import {Switch, withRouter}    from "react-router";
+import MainSidebar             from "./components/MainSideBar/MainSidebar";
+import NewsSection             from "./components/NewsSection/NewsSection";
+import DialogsSectionContainer from "./containers/DialogsSectionContainer/DialogsSectionContainer";
+import LoginSectionContainer   from "./containers/LoginSectionContainer/LoginSectionContainer";
+import MainHeaderContainer     from "./containers/MainHeaderContainer/MainHeaderContainer";
+import ProfileSectionContainer from "./containers/ProfileSectionContainer/ProfileSectionContainer";
 
 
 const App = () => {
@@ -15,20 +15,20 @@ const App = () => {
         <Switch>
             <div className="App">
                 <div className="wraper-header">
-                    <MainHeader/>
+                    <MainHeaderContainer/>
                 </div>
                 <div className="wraper-sidebar">
                     <MainSidebar/>
                 </div>
                 <Route exact
                        path='/Login'
-                       render={() => <LoginSection />} />
+                       render={() => <LoginSectionContainer/>} />
                 <Route exact
                        path='/Profile'
-                       render={ () => <ProfileSection/>} />
+                       render={ () => <ProfileSectionContainer/>} />
                 <Route exact
                        path='/Dialog'
-                       render={ () => <DialogsSection/>} />
+                       render={ () => <DialogsSectionContainer/>} />
                 <Route exact
                        path='/News'
                        render={ () => <NewsSection />} />

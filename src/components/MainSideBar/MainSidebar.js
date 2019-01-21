@@ -26,7 +26,7 @@ const MainSidebar = (props) => {
                 <Menuitem path="/News"    title="News"      location={props.location}/>
                 <Menuitem path="/Music"   title="Music"     location={props.location}/>
                 <Menuitem path="/Setting" title="Setting"   location={props.location}/>
-                <Menuitem path="/Photos" title="Photos"     location={props.location}/>
+                <Menuitem path="/Photos"  title="Photos"    location={props.location}/>
             </div>
         );
     };

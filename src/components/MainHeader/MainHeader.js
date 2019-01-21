@@ -1,8 +1,8 @@
 import React from 'react';
 import './MainHeader.css';
 import logoIcon from './images/apelsin.png';
-import {connect} from "react-redux";
-import Redirect from "../DialogSection/DialogsSection";
+
+
 
 
 const MainHeader = (props) =>{
@@ -21,24 +21,5 @@ const MainHeader = (props) =>{
                 </header>
         );
     };
-const mapStateToProps = (state) => {
-    return{
-        status:       state.loginPage.status,
-        isLoggedIn:   state.auth.isLoggedIn,
-        userPic:      state.auth.userPic,
-        userName:     state.auth.userName
-   }
-};
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-
-    }
-};
-//----
-const ConnectedMainHeader = connect(
-    mapStateToProps,
-    mapDispatchToProps)(MainHeader);
-//---
-
-export default ConnectedMainHeader;
+export default MainHeader;
