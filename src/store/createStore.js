@@ -1,6 +1,6 @@
 import {applyMiddleware, createStore} from "redux";
-import rootReducer from "./reducer";
-import {actions} from "./modules/profileRedux";
+import rootReducer from "../redux/reducer";
+import {actions} from "../redux/modules/profileRedux";
 import thunk from "redux-thunk";
 
 
