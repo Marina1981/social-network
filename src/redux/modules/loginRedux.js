@@ -1,4 +1,4 @@
-import {setLogInToTrue} from "./authReducer";
+
 
 export const types = {
     REMEMBER_USER:              'NETWORK/LOGIN_PAGE/REMEMBER_USER',
@@ -47,7 +47,7 @@ export const login= () => {
         dispatch(actions.changeStatus({loginStatus: false, preloadingStatus: true}));
         setTimeout(() => {
             dispatch(actions.changeStatus({loginStatus: true, preloadingStatus: false}));
-            dispatch(setLogInToTrue());
+            dispatch(actions.setLogInToTrue());
         }, 3000);
        // dispatch(actions.changeStatus('error'))
     };
@@ -72,7 +72,7 @@ export const reducer = (state = initialStateForLoginPage, action) => {
                     ...state.status
                 }
             };
-            newState.isRememberMe = action.isRememberMe
+            newState.isRememberMe = action.isRememberMe;
             return newState;
 
         case types.USER_LOGIN_ONCHANGE:
@@ -114,7 +114,7 @@ export const reducer = (state = initialStateForLoginPage, action) => {
             };
             newState.status.loginStatus = action.loginStatus;
             newState.status.preloadingStatus = action.preloadingStatus;
-            ;
+
             return newState;
 
         default:

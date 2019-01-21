@@ -21,12 +21,12 @@ const MainSidebar = (props) => {
 
         return (
             <div className="c-sidebar">
-                <Menuitem path="/Profile" title="Profile"   location={props.location}/>
-                <Menuitem path="/Dialog"  title="Dialog"    location={props.location}/>
-                <Menuitem path="/News"    title="News"      location={props.location}/>
-                <Menuitem path="/Music"   title="Music"     location={props.location}/>
-                <Menuitem path="/Setting" title="Setting"   location={props.location}/>
-                <Menuitem path="/Photos"  title="Photos"    location={props.location}/>
+                <Menuitem path="/Profile"  title="Profile"   location={props.location}/>
+                <Menuitem path="/Dialog"   title="Dialog"    location={props.location}/>
+                <Menuitem path="/News"     title="News"      location={props.location}/>
+                <Menuitem path="/Music"    title="Music"     location={props.location}/>
+                <Menuitem path="/Settings" title="Settings"  location={props.location}/>
+                <Menuitem path="/Photos"   title="Photos"    location={props.location}/>
             </div>
         );
     };

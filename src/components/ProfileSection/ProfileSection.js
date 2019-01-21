@@ -2,7 +2,6 @@ import React  from 'react';
 import './ProfileSection.css';
 import Post                  from '../Post/Post.js';
 import UserInfoSection       from "../UserInfoSection/UserInfoSection";
-import {connect} from "react-redux";
 import MessageCreationForm from "../MessageCreationForm/MessageCreationForm";
 import {Redirect} from "react-router";
 

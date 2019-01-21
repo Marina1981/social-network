@@ -15,7 +15,7 @@
                             minmax(auto, 20%);
     grid-template-columns:  minmax(auto, 30%)
                             minmax(auto, 70%);
-    margin: auto;
+    /*margin: auto;*/
 
     background: bisque;
     /*box-shadow: 0 0 2rem sandybrown;*/
