@@ -1,5 +1,5 @@
 import React from 'react';
-import {actions as action} from "../../redux/modules/dialogsRedux";
+import {actions as dialogsActions} from "../../redux/modules/dialogsRedux";
 import {connect} from "react-redux";
 import DialogsSection from "../../components/DialogSection/DialogsSection";
 
@@ -22,13 +22,13 @@ const mapDispatchToProps = (dispatch) => {
 
     return{
         onFriendSelected: (friendId) => {
-            dispatch(action.setSelectedFriendId(friendId))
+            dispatch(dialogsActions.setSelectedFriendId(friendId))
         },
         onCreatingMessageChanged: (message) => {
-            dispatch(action.setCreatingMessage(message))
+            dispatch(dialogsActions.setCreatingMessage(message))
         },
         onCreatingMessageFinishCommitted: (friendId,messageId,messageFinishCommittedTime) => {
-            dispatch(action.addCreatingMessageToFriendChatLog(friendId,messageId,messageFinishCommittedTime));
+            dispatch(dialogsActions.addCreatingMessageToFriendChatLog(friendId,messageId,messageFinishCommittedTime));
         }
     }
 

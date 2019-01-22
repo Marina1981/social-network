@@ -15,6 +15,7 @@ let initialState = {
 
 
 //-----
+
 export const actions = {
     setLogInToTrue: () => ({type: types.SET_LOGIN}),
     changeLanguage:   (language) => {
@@ -30,11 +31,13 @@ export const actions = {
 const authReducer = (state = initialState, action) => {
      let newState= {...state};
      switch (action.type) {
-         case actions.SET_LOGIN:
-             newState.isLoggedIn = true;
-             return newState;
-         case actions.CHANGE_LANGUAGE:
-             newState.language = actions.language;
+         case types.SET_LOGIN:
+              newState.isLoggedIn = true;
+              return newState;
+
+         case types.CHANGE_LANGUAGE:
+              newState.language = actions.language;
+              return newState;
 
          default:
             return state;

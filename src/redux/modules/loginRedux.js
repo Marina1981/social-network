@@ -1,3 +1,4 @@
+import {actions as authActions} from "./authReducer";
 
 
 export const types = {
@@ -32,9 +33,8 @@ export const actions = {
     },
     changeStatus: (status) => {
         return {
-            type:   types.CHANGE_STATUS,
-            loginStatus: status.loginStatus,
-            preloadingStatus: status.preloadingStatus
+            type:        types.CHANGE_STATUS,
+            loginStatus: status
         }
     }
 
@@ -44,21 +44,21 @@ export const actions = {
 //--- thunkCreator -------//
 export const login= () => {
     return (dispatch) => {
-        dispatch(actions.changeStatus({loginStatus: false, preloadingStatus: true}));
+        dispatch(actions.changeStatus('in progress'));
         setTimeout(() => {
-            dispatch(actions.changeStatus({loginStatus: true, preloadingStatus: false}));
-            dispatch(actions.setLogInToTrue());
+            dispatch(authActions.setLogInToTrue());
         }, 3000);
        // dispatch(actions.changeStatus('error'))
     };
 };
+
 //---
 
 const initialStateForLoginPage = {
     userLogin:          '',
     userPassword:       '',
     isRememberMe:       true,
-    status:             {loginStatus: false, preloadingStatus: false} //'in progress'
+    status:             null
 };
 
 
@@ -66,55 +66,28 @@ const initialStateForLoginPage = {
 export const reducer = (state = initialStateForLoginPage, action) => {
     switch (action.type) {
         case types.REMEMBER_USER:
-            let newState = {
-                ...state,
-                status: {
-                    ...state.status
-                }
-            };
+            let newState = {...state};
             newState.isRememberMe = action.isRememberMe;
             return newState;
 
         case types.USER_LOGIN_ONCHANGE:
-            newState = {
-                ...state,
-                status: {
-                    ...state.status
-                }
-            };
+            newState = {...state};
             newState.userLogin = action.userLogin;
             return newState;
 
         case types.USER_PASSWORD_ONCHANGE:
-            newState = {
-                ...state,
-                status: {
-                    ...state.status
-                }
-            };
+            newState = {...state};
             newState.userPassword = action.userPassword;
             return newState;
 
         case types.SET_FLAG:
-            newState = {
-                ...state,
-                status: {
-                    ...state.status
-                }
-            };
+            newState = {...state};
             newState.isRememberMe = action.isRememberMe;
             return newState;
 
         case types.CHANGE_STATUS:
-            newState = {
-                ...state,
-                status: {
-                    ...state.status
-                }
-            };
-            newState.status.loginStatus = action.loginStatus;
-            newState.status.preloadingStatus = action.preloadingStatus;
-
+            newState = {...state};
+            newState.status = action.status;
             return newState;
 
         default:

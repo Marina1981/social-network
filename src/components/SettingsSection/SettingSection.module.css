@@ -13,7 +13,7 @@
 
 }
 .userSettingsSection{
-    width: 80%;
+    width:  70%;
     height: 80%;
 
     display: grid;
@@ -45,6 +45,7 @@
     display: flex;
     /*justify-content: space-around;*/
     border-bottom: 0.05rem solid bisque;
+    align-items: flex-end;
 }
 
 .userDataLabel,
@@ -73,6 +74,7 @@
     font-size: 0.7rem;
     font-family: Verdana;
     color: sandybrown;
+    align-items: flex-end;
 
 }
 /*------------------------------------------------------------------*/
@@ -86,6 +88,7 @@
     display: flex;
     /*justify-content: space-around;*/
     border-bottom: 0.05rem solid bisque;
+    align-items: flex-end;
 }
 .settingsButtonUserBirthDate{
     justify-self: stretch;
@@ -96,10 +99,12 @@
 
     display: flex;
     justify-content: center;
+    align-items: flex-end;
 
     font-size: 0.7rem;
     font-family: Verdana;
     color: sandybrown;
+
 }
 /*------------------------------------------------------------------*/
 .userCityBlock{
@@ -112,6 +117,7 @@
     display: flex;
     /*justify-content: space-around;*/
     border-bottom: 0.05rem solid bisque;
+    align-items: flex-end;
 }
 
 .settingsButtonUserCity{
@@ -123,10 +129,12 @@
 
     display: flex;
     justify-content: center;
+    align-items: flex-end;
 
     font-size: 0.7rem;
     font-family: Verdana;
     color: sandybrown;
+
 }
 /*------------------------------------------------------------------*/
 .userEducationBlock{
@@ -137,6 +145,7 @@
     grid-column: 1 / span 2;
 
     display: flex;
+    align-items: flex-end;
     /*justify-content: space-around;*/
     border-bottom: 0.05rem solid bisque;
 }
@@ -150,6 +159,7 @@
 
     display: flex;
     justify-content: center;
+    align-items: flex-end;
 
     font-size: 0.7rem;
     font-family: Verdana;
@@ -164,6 +174,7 @@
     grid-column: 1 / span 2;
 
     display: flex;
+    align-items: flex-end;
     /*justify-content: space-around;*/
     border-bottom: 0.05rem solid bisque;
 }
@@ -176,6 +187,7 @@
 
     display: flex;
     justify-content: center;
+    align-items: flex-end;
 
     font-size: 0.7rem;
     font-family: Verdana;
@@ -190,6 +202,7 @@
     grid-column: 1 / span 2;
 
     display: flex;
+    align-items: flex-end;
     /*justify-content: space-around;*/
     border-bottom: 0.05rem solid bisque;
 }
@@ -202,6 +215,7 @@
 
     display: flex;
     justify-content: center;
+    align-items: flex-end;
 
     font-size: 0.7rem;
     font-family: Verdana;

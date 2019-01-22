@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {actions as action, login} from "../../redux/modules/loginRedux";
+import {actions as loginActions, login} from "../../redux/modules/loginRedux";
 import LoginSection from "../../components/LoginSection/LoginSection";
 
 //----
@@ -18,13 +18,13 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return{
         onChangeLogin: (userLogin) => {
-            dispatch(action.userLoginOnChange(userLogin))
+            dispatch(loginActions.userLoginOnChange(userLogin))
         },
         onChangePassword: (userPassword) => {
-            dispatch(action.userPasswordOnChange(userPassword))
+            dispatch(loginActions.userPasswordOnChange(userPassword))
         },
         onChangeFlag: () => {
-            dispatch(action.setFlag())
+            dispatch(loginActions.setFlag())
         },
         onLoginButtonClick: () => {
             dispatch(login())

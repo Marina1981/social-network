@@ -8,7 +8,6 @@ import DialogsSectionContainer from "./containers/DialogsSectionContainer/Dialog
 import LoginSectionContainer   from "./containers/LoginSectionContainer/LoginSectionContainer";
 import MainHeaderContainer     from "./containers/MainHeaderContainer/MainHeaderContainer";
 import ProfileSectionContainer from "./containers/ProfileSectionContainer/ProfileSectionContainer";
-import SettingsSection from "./components/SettingsSection/SettingSection";
 import SettingsSectionContainer from "./containers/SettingsSectionContainer/SettingsSectionContainer";
 
 
