@@ -6,8 +6,7 @@ export const types = {
     USER_LOGIN_ONCHANGE:        'NETWORK/LOGIN_PAGE/USER_LOGIN_ONCHANGE',
     USER_PASSWORD_ONCHANGE:     'NETWORK/LOGIN_PAGE/USER_PASSWORD_ONCHANGE',
     SET_FLAG:                   'NETWORK/LOGIN_PAGE/SET_FLAG',
-    CHANGE_STATUS:              'NETWORK/LOGIN_PAGE/CHANGE_STATUS',
-    ADD_USER_DATA:              'NETWORK/LOGIN_PAGE/ADD_USER_DATA'
+    CHANGE_STATUS:              'NETWORK/LOGIN_PAGE/CHANGE_STATUS'
 };
 
 //---- actionCreators--------//
@@ -17,7 +16,6 @@ export const actions = {
             type:      types.USER_LOGIN_ONCHANGE,
             userLogin: userLogin
         }
-
     },
     userPasswordOnChange: (userPassword) => {
         return {
@@ -25,45 +23,32 @@ export const actions = {
             userPassword: userPassword
         }
     },
-    setFlag: () => {
+    setFlag: (flag) => {
         return {
             type: types.SET_FLAG,
-            flag: false
+            flag: flag
         }
     },
     changeStatus: (status) => {
         return {
             type:        types.CHANGE_STATUS,
-            loginStatus: status
+            status:      status
         }
     }
-
 };
-
-
-//--- thunkCreator -------//
-export const login= () => {
-    return (dispatch) => {
-        dispatch(actions.changeStatus('in progress'));
-        setTimeout(() => {
-            dispatch(authActions.setLogInToTrue());
-        }, 3000);
-       // dispatch(actions.changeStatus('error'))
-    };
-};
-
-//---
+//----
 
 const initialStateForLoginPage = {
     userLogin:          '',
     userPassword:       '',
     isRememberMe:       true,
-    status:             null
+    status:             null //'in progress', 'error'
 };
 
-
+//----
 
 export const reducer = (state = initialStateForLoginPage, action) => {
+
     switch (action.type) {
         case types.REMEMBER_USER:
             let newState = {...state};
@@ -93,8 +78,17 @@ export const reducer = (state = initialStateForLoginPage, action) => {
         default:
             return state;
     }
-
 };
 
+//--- thunkCreator -------//
+export const login= () => {
+    return (dispatch) => {
+        dispatch(actions.changeStatus('in progress'));
+        setTimeout(() => {
+            dispatch(authActions.setLogInToTrue());
+        }, 3000);
+         // dispatch(actions.changeStatus('error'))
+    };
+};
 
-//----
+//---

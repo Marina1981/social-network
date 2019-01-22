@@ -10,6 +10,8 @@ const LoginSection = (props) => {
     }
     //---------------------------
     return (
+        <>
+            {props.status !== 'in progress' ?
         <div className="c-login-section">
             <div className="c-login-section__index-login-form--positioned">
                 <div className="input-form">
@@ -50,37 +52,13 @@ const LoginSection = (props) => {
                         remember me
                 </span>
                 {/*------------------------------------------------*/}
-                {props.status !== 'in progress' ?
                     <button className="button-box__button" onClick={
                         (e) => {
-                            props.onLoginButtonClick(e.currentTarget.value)
+                            props.onLoginButtonClick(e.currentTarget.value);
                         }}
                             disabled={props.status === 'in progress'}>
                         Login
-                    </button> :
-                    <div className="container"  aria-busy="true"
-                         aria-label="Loading" role="progressbar">
-                        <div className="swing">
-                            <div className="swing-l"/>
-                            <div/>
-                            <div/>
-                            <div/>
-                            <div/>
-                            <div/>
-                            <div className="swing-r"/>
-                        </div>
-                        <div className="shadow">
-                            <div className="shadow-l"/>
-                            <div/>
-                            <div/>
-                            <div/>
-                            <div/>
-                            <div/>
-                            <div className="shadow-r"/>
-                        </div>
-                    </div>
-                }
-
+                    </button>
                 {/*------------------------------------------------*/}
                 <span>{props.isLoggedIn.toString()}</span>
             </div>
@@ -90,7 +68,30 @@ const LoginSection = (props) => {
                     Invalid login or password
                 </div> : null}
             {/*------------------------------------------------*/}
-        </div>
+                </div> :
+
+                <div className="container"  aria-busy="true"
+            aria-label="Loading" role="progressbar">
+                <div className="swing">
+                <div className="swing-l"/>
+                <div/>
+                <div/>
+                <div/>
+                <div/>
+                <div/>
+                <div className="swing-r"/>
+                </div>
+            <div className="shadow">
+                <div className="shadow-l"/>
+                <div/>
+                <div/>
+                <div/>
+                <div/>
+                <div/>
+                <div className="shadow-r"/>
+            </div>
+            </div>}
+    </>
     );
 };
 
