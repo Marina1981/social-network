@@ -2,6 +2,7 @@ import React from 'react';
 import {actions as dialogsActions} from "../../redux/modules/dialogsRedux";
 import {connect} from "react-redux";
 import DialogsSection from "../../components/DialogSection/DialogsSection";
+import {withRouter} from "react-router";
 
 
 
@@ -40,4 +41,4 @@ const DialogsSectionContainer = connect(
     mapStateToProps,
     mapDispatchToProps)(DialogsSection);
 //---
-export default  DialogsSectionContainer;
+export default  withRouter(DialogsSectionContainer);

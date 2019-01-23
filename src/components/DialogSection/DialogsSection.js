@@ -6,62 +6,65 @@ import {NavLink} from "react-router-dom";
 
 const DialogsSection = (props) => {
     //---
-    // if (!props.isLoggedIn){
-    //     return <Redirect to="/login"/>
-    // }
-
-    //---
     let selectedFriendId = props.friendsChatLog[props.selectedFriendId];
-
-    // if(undefined === selectedFriendId){
-    //     selectedFriendId = [];
-    // }
     //---
+    let idFromUrl = +props.match.params.friendId;
+    console.log(idFromUrl);
+    console.log(props.selectedFriendId);
+
+    let unsyncState = (!props.selectedFriendId && !!idFromUrl) ||
+        (!!props.selectedFriendId && !!idFromUrl && idFromUrl != props.selectedFriendId);
+
+    if (unsyncState) {
+        return <div/>
+    }
 
     return (
         <div className="c-dialog-section">
-            <span className="c-dialog-section__label-dialogs
-                                 c-dialog-section__label-dialogs--positioned">
-                    Dialogs
+                <span className="c-dialog-section__label-friends
+                                     c-dialog-section__label-friends--positioned">
+                    Friend
                 </span>
             <div className="c-dialog-section__border-line"/>
-            <div className="c-dialog-section__dialogs
+                <div className="c-dialog-section__dialogs
                                 c-dialog-section__dialogs--positioned">
-                {
-                    props.friendsList.map((el) => {
-
-                        let clss = "c-friend" + ' ' + ((el.friendId === props.selectedFriendId) ? ("c-friend__selected") : (""));
-
-                        return <div className={clss}
-                                    key={el.friendId}
-                                    onClick={(e) => {
-                                        props.onFriendSelected(el.friendId);
-                                    }}>
-                            <div className="c-friend__userpic">
-                                <img className="userpic-friend" src={el.friendUserPicURL}/>
-                            </div>
-                            <span className="c-friend__name">{el.friendName}</span>
-                        </div>
-                    })
-                }
-
                 {/*{*/}
-                {/*props.friendsList.map((el) => {*/}
-                {/*return <NavLink to='/fiendId' activeClassName="c-friend__selected"*/}
-                {/*key={el.friendId}*/}
-                {/*onClick={(e) => {*/}
-                {/*props.onFriendSelected(el.friendId);*/}
-                {/*}}>*/}
-                {/*<div className="c-friend__userpic">*/}
-                {/*<img className="userpic-friend" src={el.friendUserPicURL}/>*/}
-                {/*</div>*/}
-                {/*<span className="c-friend__name">{el.friendName}</span>*/}
-                {/*</NavLink>*/}
-                {/*})*/}
+                    {/*props.friendsList.map((el) => {*/}
+
+                        {/*let clss = "c-friend" + ' ' + ((el.friendId === props.selectedFriendId) ? ("c-friend__selected") : (""));*/}
+
+                        {/*return <div className={clss}*/}
+                                    {/*key={el.friendId}*/}
+                                    {/*onClick={(e) => {*/}
+                                        {/*props.onFriendSelected(el.friendId);*/}
+                                    {/*}}>*/}
+                            {/*<div className="c-friend__userpic">*/}
+                                {/*<img className="userpic-friend" src={el.friendUserPicURL}/>*/}
+                            {/*</div>*/}
+                            {/*<span className="c-friend__name">{el.friendName}</span>*/}
+                        {/*</div>*/}
+                    {/*})*/}
                 {/*}*/}
 
 
-            </div>
+                    {
+                        props.friendsList.map((el) => {
+                            return <NavLink to={'/dialog/' + el.friendId} className ="c-friend"
+                                            activeClassName="c-friend__selected"
+                                            key={el.friendId}
+                                            onClick={(e) => {
+                                                props.onFriendSelected(el.friendId);
+                                            }}>
+                                        <div className="c-friend__userpic">
+                                            <img className="userpic-friend" src={el.friendUserPicURL}/>
+                                        </div>
+                                        <div className="c-friend__name">{el.friendName}</div>
+                                  </NavLink>
+                            })
+                    }
+
+
+                </div>
             {
                 props.selectedFriendId ?
                     <div className="c-dialog-section__messages
@@ -98,20 +101,18 @@ const DialogsSection = (props) => {
                         }
 
                     </div> :
-                    <span className="c-dialog-section__label-friends
-                                     c-dialog-section__label-friends--positioned">
-                       Select friend
+                    <span className="c-dialog-section__label-dialogs
+                                     c-dialog-section__label-dialogs--positioned">
+                         Select friend
                     </span>
             }
 
             <div className="c-dialog-section__record-form
                                 c-dialog-section__record-form--positioned">
-
-                <MessageCreationForm selectedFriendId={props.selectedFriendId}
-                                     creatingMessage={props.creatingMessage}
-                                     onCreatingMessageChanged={props.onCreatingMessageChanged}
-                                     onCreatingMessageFinishCommitted={props.onCreatingMessageFinishCommitted}
-
+                <MessageCreationForm selectedFriendId                 = {props.selectedFriendId}
+                                     creatingMessage                  = {props.creatingMessage}
+                                     onCreatingMessageChanged         = {props.onCreatingMessageChanged}
+                                     onCreatingMessageFinishCommitted = {props.onCreatingMessageFinishCommitted}
                 />
             </div>
         </div>

@@ -29,7 +29,7 @@ const App = () => {
                        path='/profile'
                        render={() => <ProfileSectionContainer/>}/>
                 <Route exact
-                       path='/dialog'
+                       path='/dialog/:friendId?'
                        render={() => <DialogsSectionContainer/>}/>
                 <Route exact
                        path='/news'

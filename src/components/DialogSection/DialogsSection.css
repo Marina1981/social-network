@@ -57,9 +57,9 @@
     grid-row:    1 / span 2;
     grid-column: 1;
 
-    background-color: #ffc349;
+    background-color: gold;
     height: 60vh;
-    width: 0.1rem;
+    width: 0.01rem;
 
     display: flex;
     justify-self: flex-end;
@@ -134,6 +134,7 @@
                             minmax(auto, 80%);
 
     height: 4rem;
+    text-decoration: none;
 
 }
 .c-friend__userpic{
@@ -277,7 +278,6 @@
 /*------------------------------------------------------------------*/
 .c-friend__selected{
     background: #b3ff66;
-
 }
 /*------------------------------------------------------------------*/
 /*------------------------------------------------------------------*/
