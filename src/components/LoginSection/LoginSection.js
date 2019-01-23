@@ -6,7 +6,7 @@ import Redirect from "react-router/es/Redirect";
 const LoginSection = (props) => {
     //---------------------------
     if (props.isLoggedIn) {
-        return <Redirect to="/Profile"/>
+        return <Redirect to="/profile"/>
     }
     //---------------------------
     return (
@@ -60,7 +60,7 @@ const LoginSection = (props) => {
                         Login
                     </button>
                 {/*------------------------------------------------*/}
-                <span>{props.isLoggedIn.toString()}</span>
+                {/*<span>{props.isLoggedIn.toString()}</span>*/}
             </div>
 
             {props.status === 'error' ?

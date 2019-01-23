@@ -87,7 +87,8 @@ export const login= () => {
         setTimeout(() => {
             dispatch(authActions.setLogInToTrue());
         }, 3000);
-         // dispatch(actions.changeStatus('error'))
+         // dispatch(actions.changeStatus('error'));
+        //dispatch(actions.changeStatus('output'));
     };
 };
 

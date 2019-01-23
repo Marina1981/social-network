@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
 import MainHeader from "../../components/MainHeader/MainHeader";
+import {actions as loginActions, login} from "../../redux/modules/loginRedux";
 
 
 
@@ -15,7 +16,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-
+        onOutputButtonClick: () => {
+            dispatch(login());
+        }
     }
 };
 //----

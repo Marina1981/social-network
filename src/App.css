@@ -25,5 +25,15 @@
 
 }
 .path-error{
-  color: red;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Verdana;
+  font-size: 10rem;
+  color: #dc341d;
+}
+.header-error{
+  display: none;
 }

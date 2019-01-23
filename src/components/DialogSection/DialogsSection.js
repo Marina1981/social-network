@@ -1,6 +1,7 @@
 import React from 'react';
 import './DialogsSection.css';
 import MessageCreationForm from "../MessageCreationForm/MessageCreationForm";
+import {NavLink} from "react-router-dom";
 
 
 
@@ -8,11 +9,11 @@ import MessageCreationForm from "../MessageCreationForm/MessageCreationForm";
 const DialogsSection = (props) => {
     //---
     // if (!props.isLoggedIn){
-    //     return <Redirect to="/Login"/>
+    //     return <Redirect to="/login"/>
     // }
 
         //---
-        let selectedFriendChatLogMessagesList = props.friendsChatLog[props.selectedFriendId];//get(props.selectedFriendId);
+        let selectedFriendChatLogMessagesList = props.friendsChatLog[props.selectedFriendId];
 
         if(undefined === selectedFriendChatLogMessagesList){
             selectedFriendChatLogMessagesList = [];
@@ -38,14 +39,29 @@ const DialogsSection = (props) => {
                             let clss = "c-friend" + ' ' + ((el.friendId ===  props.selectedFriendId)?("c-friend__selected"):(""));
 
                             return  <div className = {clss}
-                                             key       = {el.friendId}
-                                             onClick   = {(e)=>{props.onFriendSelected(el.friendId);}} >
+                                         key       = {el.friendId}
+                                         onClick   = {(e)=>{props.onFriendSelected(el.friendId);}} >
                                         <div className="c-friend__userpic">
                                              <img className="userpic-friend" src={el.friendUserPicURL}/>
                                          </div>
                                         <span className="c-friend__name">{el.friendName}</span>
                             </div>})
                     }
+
+                    {/*{*/}
+                        {/*props.friendsList.map((el) => {*/}
+                            {/*return <NavLink to='/fiendId' activeClassName="c-friend__selected"*/}
+                                            {/*key={el.friendId}*/}
+                                            {/*onClick={(e) => {*/}
+                                                {/*props.onFriendSelected(el.friendId);*/}
+                                            {/*}}>*/}
+                                {/*<div className="c-friend__userpic">*/}
+                                    {/*<img className="userpic-friend" src={el.friendUserPicURL}/>*/}
+                                {/*</div>*/}
+                                {/*<span className="c-friend__name">{el.friendName}</span>*/}
+                            {/*</NavLink>*/}
+                        {/*})*/}
+                    {/*}*/}
 
 
                 </div>
