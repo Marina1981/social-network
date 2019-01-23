@@ -81,9 +81,9 @@ export const initialStateForDialogsPage = {
         ],
         friendsChatLog: {
             '1': [{messageId: '5',
-                isUserMessage: false,
-                text: 'Hi',
-                time:'22:00'}],
+                   isUserMessage: false,
+                   text: 'Hi',
+                   time:'22:00'}],
             '2': []
         },
         selectedFriendId: null,
@@ -110,7 +110,7 @@ export const reducer = (state=initialStateForDialogsPage, action) => {
 
         case types.ADD_FRIEND_CHAT_LOG_MESSAGE:
 
-            let oldImmutableChatMessageList = immutableState.get('friendsChatLog').get(action.friendId);//getIn(['friendsChatLog', action.friendId]);
+            let oldImmutableChatMessageList = immutableState.get('friendsChatLog').get(action.friendId);
 
             if (oldImmutableChatMessageList !== undefined) {
 
@@ -129,7 +129,7 @@ export const reducer = (state=initialStateForDialogsPage, action) => {
 
                 return newImmutableState.toJS();
 
-            };
+            }
 
             return state;
 
@@ -154,7 +154,7 @@ export const reducer = (state=initialStateForDialogsPage, action) => {
 
                 return newImmutableState.toJS();
 
-            };
+            }
 
             return state;
 

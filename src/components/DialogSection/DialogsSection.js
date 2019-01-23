@@ -13,11 +13,11 @@ const DialogsSection = (props) => {
     // }
 
         //---
-        let selectedFriendChatLogMessagesList = props.friendsChatLog[props.selectedFriendId];
+        let selectedFriendId = props.friendsChatLog[props.selectedFriendId];
 
-        if(undefined === selectedFriendChatLogMessagesList){
-            selectedFriendChatLogMessagesList = [];
-        }
+        // if(undefined === selectedFriendId){
+        //     selectedFriendId = [];
+        // }
         //---
 
         return (
@@ -65,12 +65,14 @@ const DialogsSection = (props) => {
 
 
                 </div>
+                {
+                    props.selectedFriendId ?
                 <div className="c-dialog-section__messages
                                 c-dialog-section__messages--positioned">
 
 
                     {
-                        selectedFriendChatLogMessagesList.map( (el) => {
+                        selectedFriendId.map( (el) => {
 
                             let authorPicURL;
                             let authorName;
@@ -99,7 +101,9 @@ const DialogsSection = (props) => {
                                     </div>)} )
                     }
 
-                </div>
+                </div> :
+                null
+                }
 
                 <div className="c-dialog-section__record-form
                                 c-dialog-section__record-form--positioned">
