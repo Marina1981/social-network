@@ -27,7 +27,7 @@
     align-self:   stretch;
 
     font-family: Verdana;
-    font-size: 1rem;
+    font-size: 1.3rem;
     color: gray;
     /*background: linear-gradient(to top, #fefcea,#f1da366e);*/
     /*border: 0.1rem solid bisque;*/
@@ -35,11 +35,11 @@
     /*padding: 1rem;*/
 }
 
-/*.c-dialog-section__label-friends:hover,*/
-/*.c-dialog-section__label-dialogs:hover{*/
-    /*background: linear-gradient(to top, #fefcea, #b3ff66);*/
-    /*cursor: pointer;*/
-/*}*/
+.c-dialog-section__label-friends:hover,
+.c-dialog-section__label-dialogs:hover{
+    color: white;
+    cursor: pointer;
+}
 
 .c-dialog-section__label-friends--positioned{
     align-self:   stretch;
