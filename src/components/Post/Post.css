@@ -3,7 +3,7 @@
     align-self:   stretch;
 
     height: 30%;
-    width:  70%;
+    width:  65%;
 
     display: grid;
     grid-template-rows:     minmax(auto, 70%)

@@ -15,14 +15,14 @@
     justify-content: center;
     align-self: center;
     width: 4.5rem;
-    border: 0.1rem solid #db412c;
+    border: 0.1rem solid #88d23d;
     padding: 10px;
     margin: 10px;
     border-radius: 20px;
 }
 
 .menu-item__decorated{
-    color: white;
+    color: #db412c;
     text-decoration: none;
 }
 .c-sidebar__menu-item:hover{

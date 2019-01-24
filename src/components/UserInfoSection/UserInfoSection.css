@@ -10,6 +10,8 @@
 
     grid-template-columns:  minmax(auto, 30%)
                             minmax(auto, 70%);
+
+    min-height: 10rem;
 }
 
 .c-info--positioned{
@@ -72,7 +74,7 @@
 /*------------------------------------------------------------------*/
 .c-info__user-name{
     font-family: Verdana;
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: coral;
 }
 /*------------------------------------------------------------------*/

@@ -27,7 +27,7 @@
     background-image: url("images/skinali_frukty.jpg");
     background-position: center;
     background-size:cover;
-    /*min-height: 6rem;*/
+    min-height: 6rem;
 }
 .c-profile-section__head-image--positioned{
     grid-row:    1;
@@ -36,11 +36,8 @@
 
 /*------------------------------------------------------------------*/
 .c-profile-section__wall-block{
-    display: grid;
-    grid-template-rows: minmax(auto, 30%)
-                        minmax(auto, 1fr);
-    grid-template-columns:  100%;
-    min-height: 15rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .c-profile-section__wall-block--positioned{
@@ -57,17 +54,21 @@
 
     justify-self: stretch;
     align-self:   stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 /*------------------------------------------------------------------*/
 /*------------------------------------------------------------------*/
 .wall-block__posts-block{
-    justify-self: stretch;
-    align-self:   stretch;
-    display: flex;
-    flex-direction: column;
+    /*justify-self: stretch;*/
+    /*align-self:   stretch;*/
+    /*display: flex;*/
+    /*flex-direction: column;*/
 
     overflow-y: auto;
-    max-height: 20rem;;
+    max-height: 15rem;;
 }
 .wall-block__posts-block--positioned{
     grid-row:    2;
@@ -92,4 +93,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.wall-block__notes{
+    font-family: Verdana;
+    font-size: 2rem;
+    color: #bb4034;
 }

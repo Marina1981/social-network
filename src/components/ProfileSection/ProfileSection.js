@@ -25,6 +25,9 @@ const ProfileSection = (props) =>{
                                 c-profile-section__wall-block--positioned">
                 <div className="wall-block__record-form
                                      wall-block__record-form--positioned">
+                    <div className="wall-block__notes">
+                        My notes
+                    </div>
                     <MessageCreationForm  selectedFriendId                  = {props.selectedFriendId}
                                           creatingMessage                   = {props.creatingMessage}
                                           onCreatingMessageChanged          = {props.onCreatingMessageChanged}
