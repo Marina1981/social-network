@@ -9,41 +9,51 @@ import LoginSectionContainer from "./containers/LoginSectionContainer/LoginSecti
 import MainHeaderContainer from "./containers/MainHeaderContainer/MainHeaderContainer";
 import ProfileSectionContainer from "./containers/ProfileSectionContainer/ProfileSectionContainer";
 import SettingsSectionContainer from "./containers/SettingsSectionContainer/SettingsSectionContainer";
-import MainFooter from "./components/MainFooter/MainFooter";
+import TemplateWithoutSideBar from "./components/TemplateWithoutSideBar/TemplateWithoutSideBar";
+import TemplateWithSideBar from "./components/TemplateWithSideBar/TemplateWithSideBar";
 
 
 const App = () => {
     return (
 
         <div className="App">
-            <div className="wraper-header">
-                <MainHeaderContainer/>
-            </div>
-            <div className="wraper-sidebar">
-                <MainSidebar/>
-            </div>
             <Switch>
                 <Route exact
                        path='/login'
-                       render={() => <LoginSectionContainer/>}/>
+                       render={() =>
+                           <TemplateWithoutSideBar>
+                               <LoginSectionContainer/>
+                           </TemplateWithoutSideBar>}/>
                 <Route exact
                        path='/profile'
-                       render={() => <ProfileSectionContainer/>}/>
+                       render={() =>
+                           <TemplateWithSideBar>
+                               <ProfileSectionContainer/>
+                           </TemplateWithSideBar>}/>
                 <Route exact
                        path='/dialog/:friendId?'
-                       render={() => <DialogsSectionContainer/>}/>
+                       render={() =>
+                           <TemplateWithSideBar>
+                               <DialogsSectionContainer/>
+                           </TemplateWithSideBar>}/>
                 <Route exact
                        path='/news'
-                       render={() => <NewsSection/>}/>
+                       render={() =>
+                           <TemplateWithSideBar>
+                               <NewsSection/>
+                           </TemplateWithSideBar>}/>
                 <Route exact
                        path='/settings'
-                       render={() => <SettingsSectionContainer/>}/>
+                       render={() =>
+                           <TemplateWithSideBar>
+                               <SettingsSectionContainer/>
+                           </TemplateWithSideBar>}/>
                 <Route path='/'
-                       render={() => <div className="path-error">404</div>}/>
+                       render={() =>
+                           <TemplateWithoutSideBar>
+                               <div className="path-error">404</div>
+                           </TemplateWithoutSideBar>}/>
             </Switch>
-            <div className="wraper-footer">
-                <MainFooter/>
-            </div>
         </div>
 
 

@@ -17,6 +17,7 @@
     height: 80%;
     width: 80%;
     min-height: 15rem;
+    min-width: 40rem;
 
     margin: auto;
     background: white;
