@@ -9,6 +9,7 @@ import LoginSectionContainer from "./containers/LoginSectionContainer/LoginSecti
 import MainHeaderContainer from "./containers/MainHeaderContainer/MainHeaderContainer";
 import ProfileSectionContainer from "./containers/ProfileSectionContainer/ProfileSectionContainer";
 import SettingsSectionContainer from "./containers/SettingsSectionContainer/SettingsSectionContainer";
+import MainFooter from "./components/MainFooter/MainFooter";
 
 
 const App = () => {
@@ -40,6 +41,9 @@ const App = () => {
                 <Route path='/'
                        render={() => <div className="path-error">404</div>}/>
             </Switch>
+            <div className="wraper-footer">
+                <MainFooter/>
+            </div>
         </div>
 
 

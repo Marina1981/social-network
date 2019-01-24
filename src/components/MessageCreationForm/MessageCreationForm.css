@@ -38,6 +38,7 @@
     min-height: 3rem;
 
     outline: none;
+    resize: none;
 }
 .record-form-textarea:hover{
 

@@ -10,9 +10,9 @@
 
 
     display: grid;
-    grid-template-rows:     minmax(auto, 10%)
-                            minmax(auto, 70%)
-                            minmax(auto, 20%);
+    grid-template-rows:     minmax(auto, 5%)
+                            minmax(auto, 65%)
+                            minmax(auto, 30%);
     grid-template-columns:  minmax(auto, 30%)
                             minmax(auto, 70%);
     /*margin: auto;*/
@@ -59,7 +59,7 @@
 
     background-color: gold;
     height: 60vh;
-    width: 0.01rem;
+    width: 0.05rem;;
 
     display: flex;
     justify-self: flex-end;
@@ -195,7 +195,6 @@
 }
 /*------------------------------------------------------------------*/
 .message__userpic{
-
     grid-row:    1;
     grid-column: 1;
 

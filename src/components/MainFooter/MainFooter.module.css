@@ -1,0 +1,12 @@
+.footerSection{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #db412c;
+}
+.footerCopyright{
+    font-size: 1rem;
+    color: goldenrod;
+}

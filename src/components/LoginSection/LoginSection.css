@@ -68,7 +68,7 @@
     width: 10rem;
     height: 3rem;
     border: none;
-    background-color: #ffc349;
+    background-color: #b3ff66;
     color: white;
     font-family: Verdana;
     font-size: 1.3rem;
@@ -78,7 +78,7 @@
 
 }
 .button-box__button:hover{
-    color: #b3ff66;
+    color:  #ffc349;
     cursor: pointer;
 }
 /*------------------------------------------------------------------*/
@@ -161,6 +161,32 @@
     cursor: pointer;
 }
 
+/*------------------------------------------------------------------*/
+.c-login-section__registration-button{
+    width: 13rem;
+    height: 2rem;
+
+    grid-row:    5 / span 1;
+    grid-column: 1 / span 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    align-self: center;
+    background: #ffc349;
+    color: white;
+    font-family: Verdana;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    outline: none;
+}
+
+.c-login-section__registration-button:hover{
+    color: #b3ff66;
+}
+/*------------------------------------------------------------------*/
 .error-block{
     width: 13rem;
     height: 2rem;
@@ -359,3 +385,8 @@
     -webkit-animation: shadow-r-n .425s ease-in-out infinite alternate;
     animation: shadow-r-n .425s ease-in-out infinite alternate;
 }
+
+
+
+
+

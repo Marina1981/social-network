@@ -1,7 +1,8 @@
 
 export const types = {
     SET_LOGIN:          'NETWORK/LOGIN_PAGE/SET_LOGIN',
-    CHANGE_LANGUAGE:    'NETWORK/SETTINGS_PAGE/CHANGE_LANGUAGE'
+    CHANGE_LANGUAGE:    'NETWORK/SETTINGS_PAGE/CHANGE_LANGUAGE',
+    LOGOUT:             'NETWORK/LOGIN_PAGE/LOGOUT'
 };
 
 
@@ -18,12 +19,13 @@ let initialState = {
 
 export const actions = {
     setLogInToTrue: () => ({type: types.SET_LOGIN}),
+    logout: () => ({type: types.LOGOUT}),
     changeLanguage:   (language) => {
         return {
             type:      types.CHANGE_LANGUAGE,
             userName:  language
         }
-    },
+    }
 };
 
 
@@ -34,6 +36,13 @@ const authReducer = (state = initialState, action) => {
          case types.SET_LOGIN:
               newState.isLoggedIn = true;
               return newState;
+
+         case types.LOGOUT:
+             newState.isLoggedIn = false;
+             newState.userId     = null;
+             newState.userName   = null;
+             newState.userPic    = null;
+             return newState;
 
          case types.CHANGE_LANGUAGE:
               newState.language = actions.language;

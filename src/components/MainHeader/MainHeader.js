@@ -8,9 +8,9 @@ import Redirect from "../LoginSection/LoginSection";
 
 const MainHeader = (props) =>{
     //---------------------------
-    // if (props.status === 'output') {
-    //     return <Redirect to="/Login"/>
-    // }
+    if (props.status === 'logout') {
+        return <Redirect to="/Login"/>
+    }
     //---------------------------
         return (
                 <header className="c-header-section">
@@ -22,10 +22,7 @@ const MainHeader = (props) =>{
                             <div className="user-info-block__user-name"> {props.userName} </div>
                             <img src={props.userPic} className="user-info-block__userPic"/>
                     </div> : null}
-                    <div className="c-header-section__output" onClick={
-                        (e) => {
-                            props.onOutputButtonClick(e.currentTarget.value);
-                        }}>
+                    <div className="c-header-section__output" onClick={props.logout}>
                         output
                     </div>
                 </header>

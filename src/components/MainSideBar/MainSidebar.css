@@ -1,19 +1,21 @@
 .c-sidebar{
     display: flex;
-    /*justify-content: space-evenly;*/
+    justify-content: space-evenly;
     flex-direction: column;
     height: 100%;
     width:  100%;
     background-color: #ffc349;
-    font-size: 20px;
+    font-size: 1.3rem;
 
     min-height: 0;
 }
 
 .c-sidebar__menu-item {
     display: flex;
+    justify-content: center;
     align-self: center;
-    border: 1px solid white;
+    width: 4.5rem;
+    border: 0.1rem solid #db412c;
     padding: 10px;
     margin: 10px;
     border-radius: 20px;
@@ -24,8 +26,8 @@
     text-decoration: none;
 }
 .c-sidebar__menu-item:hover{
-    border: 1px solid #171e231f;
+    border: 0.1rem solid #b3ff66;
 }
 .active-item{
-    background: linear-gradient(to top, #fefcea,#171e231f);
+    background: linear-gradient(to top, #eed3ca,#db412c);
 }

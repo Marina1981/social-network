@@ -1,12 +1,13 @@
 
 .App{
-  height: 100%;
+  height: 120vh;
   width: 100%;
   display: grid;
   grid-template-columns: minmax(auto, 15%)
                          minmax(auto, 85%);
   grid-template-rows: minmax(auto, 10%)
-                      minmax(auto, 1fr);
+                      minmax(auto, 1fr)
+                      minmax(auto, 13%);
   /*background: bisque;*/
   min-height: 0;
 }
@@ -23,6 +24,11 @@
   display: flex;
 
 
+}
+.wraper-footer{
+  grid-row: 3;
+  grid-column: 1 / span 2;
+  display: flex;
 }
 .path-error{
   height: 100%;

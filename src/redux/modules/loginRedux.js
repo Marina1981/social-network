@@ -81,12 +81,19 @@ export const reducer = (state = initialStateForLoginPage, action) => {
 };
 
 //--- thunkCreator -------//
-export const login= () => {
+export const login = (login, password, rememberMe, captcha) => {
     return (dispatch) => {
         dispatch(actions.changeStatus('in progress'));
         setTimeout(() => {
             dispatch(authActions.setLogInToTrue());
         }, 3000);
+         // dispatch(actions.changeStatus('error'));
+        //dispatch(actions.changeStatus('output'));
+    };
+};
+export const logout = () => {
+    return (dispatch) => {
+        dispatch(authActions.logout());
          // dispatch(actions.changeStatus('error'));
         //dispatch(actions.changeStatus('output'));
     };
