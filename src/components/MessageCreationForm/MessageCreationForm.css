@@ -21,7 +21,7 @@
 }*/
 /*------------------------------------------------------------------*/
 .record-form-textarea{
-    height: 3rem;
+    height: 5rem;
     width: 90%;
 
     display: flex;
@@ -29,16 +29,12 @@
     align-self: center;
 
 
-    border: 0.2rem solid bisque;;
-    /*background: linear-gradient(to top, #fefcea,#171e231f);*/
-    background: white;
+    border: 1px solid #ececec;
+    background: linear-gradient(to top, #fefcea,#171e231f);
     color: gray;
     font-family: Verdana, serif;
     font-size: 1rem;
     min-height: 3rem;
-
-    outline: none;
-    resize: none;
 }
 .record-form-textarea:hover{
 
@@ -63,8 +59,6 @@
     margin-right: 3rem;
     margin-top: 1rem;
     min-height: 2rem;
-
-    outline: none;
 }
 .wall-block__record-form-button:hover{
     background-color: #b3ff66;

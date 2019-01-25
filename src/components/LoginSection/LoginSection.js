@@ -1,105 +1,71 @@
 import React from 'react';
 import './LoginSection.css';
-import Redirect from "react-router/es/Redirect";
+import InputForm from "../InputForm/InputForm";
 
 
-const LoginSection = (props) => {
-    //---------------------------
-    if (props.isLoggedIn) {
-        return <Redirect to="/profile"/>
-    }
-    //---------------------------
-    return (
-        <>
-            {props.status !== 'in progress' ?
-                <div className="c-login-section">
-                    <div className="c-login-section__index-login-form--positioned">
-                        <div className="input-form">
-                        <span className="input-form__label">
-                            Login
-                        </span>
-                            <input className="input-form__input" placeholder='login'
-                                   value={props.userLogin}
-                                   onChange={
-                                       (e) => {
-                                           props.onChangeLogin(e.currentTarget.value)
-                                       }
-                                   }/>
-                        </div>
-                    </div>
-                    <div className="c-login-section__index-password-form--positioned">
-                        <div className="input-form">
-                        <span className="input-form__label">
-                            Password
-                        </span>
-                            <input className="input-form__input" placeholder='password' type="password"
-                                   value={props.userPassword}
-                                   onChange={
-                                       (e) => {
-                                           props.onChangePassword(e.currentTarget.value)
-                                       }
-                                   }/>
-                        </div>
-                    </div>
-                    <div className="c-login-section__button-box">
-                        <input className="button-box__checkbox" type="checkbox" checkbox={props.isRememberMe}
-                               onChange={
-                                   (e) => {
-                                       props.onChangeFlag(e.currentTarget.value)
-                                   }
-                               }/>
-                        <span className="checkbox-label">
-                            remember me
-                        </span>
-                        {/*------------------------------------------------*/}
-                        <button className="button-box__button" onClick={
-                            (e) => {
-                                props.onLoginButtonClick(e.currentTarget.value);
-                            }}
-                                disabled={props.status === 'in progress'}>
-                            Login
-                        </button>
-                        {/*------------------------------------------------*/}
-                        {/*<span>{props.isLoggedIn.toString()}</span>*/}
-                    </div>
 
-                    {props.status === 'error' ?
-                        <div className="error-block">
-                            Invalid login or password
-                        </div> : null}
-                    {/*------------------------------------------------*/}
-                    <button className="c-login-section__registration-button">
-                        registration
+
+let inputMailText = [
+        {
+            text:     'Mail'
+        }
+   ];
+
+let inputMail  = inputMailText.map ( (el) => {
+    return  <InputForm text={el.text} />
+} );
+
+/*---------------------------------------------------------------*/
+let inputPasswordText = [
+    {
+        text:     'Password'
+     }
+
+    ];
+
+
+let inputPassword  = inputPasswordText.map( (el) => {
+    return  <InputForm text={el.text} />
+} );
+
+/*---------------------------------------------------------------*/
+
+
+const LoginSection = () =>{
+
+        return (
+            <div className="c-login-section">
+                <div className="c-login-section__index-column
+                                c-login-section__index-column--positioned">
+                    <span className='index-column__index-login'>
+                        Login
+                    </span>
+                    <span className='index-column__index-registration'>
+                        Registration
+                     </span>
+                </div>
+                <div className="c-login-section__index-login-form--positioned">
+
+                    {inputMail}
+
+                </div>
+                <div className="c-login-section__index-password-form--positioned">
+
+                    {inputPassword}
+
+                </div>
+                <div className="c-login-section__button-box">
+                    <input className="button-box__checkbox" type="checkbox"  checked />
+                    <span className="checkbox-label">
+                        remember me
+                    </span>
+                    <button className="button-box__button">
+                        Login
                     </button>
-                </div> :
-                <div className="container"  aria-busy="true"
-                     aria-label="Loading" role="progressbar">
-                    <div className="swing">
-                        <div className="swing-l"/>
-                        <div/>
-                        <div/>
-                        <div/>
-                        <div/>
-                        <div/>
-                        <div className="swing-r"/>
-                    </div>
-                    <div className="shadow">
-                        <div className="shadow-l"/>
-                        <div/>
-                        <div/>
-                        <div/>
-                        <div/>
-                        <div/>
-                        <div className="shadow-r"/>
-                    </div>
-                </div>}
+                </div>
+            </div>
+        );
+    };
 
-        </>
-    );
-};
 
 export default LoginSection;
-
-
-
-

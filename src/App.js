@@ -1,62 +1,30 @@
-import React from 'react';
+import React  from 'react';
 import './App.css';
-import Route from "react-router/es/Route";
-import {Switch, withRouter} from "react-router";
-import NewsSection from "./components/NewsSection/NewsSection";
-import DialogsSectionContainer from "./containers/DialogsSectionContainer/DialogsSectionContainer";
-import LoginSectionContainer from "./containers/LoginSectionContainer/LoginSectionContainer";
-import ProfileSectionContainer from "./containers/ProfileSectionContainer/ProfileSectionContainer";
-import SettingsSectionContainer from "./containers/SettingsSectionContainer/SettingsSectionContainer";
-import TemplateWithoutSideBar from "./components/TemplateWithoutSideBar/TemplateWithoutSideBar";
-import TemplateWithSideBar from "./components/TemplateWithSideBar/TemplateWithSideBar";
-import NotFoundSection from "./components/NotFoundSection/NotFoundSection";
-
+import Route         from "react-router/es/Route";
+import ProfilePage   from "./components/ProfilePage/ProfilePage";
+import DialogsPage   from "./components/DialogsPage/DialogsPage";
+import {withRouter}  from "react-router";
+import NewsPage      from "./components/NewsPage/NewsPage";
+import LoginPage     from "./components/LoginPage/LoginPage";
 
 
 const App = () => {
     return (
+            <div className="App">
+                <Route exact
+                       path='/'
+                       render={() => <LoginPage />} />
+                <Route exact
+                       path='/Profile'
+                       render={ () => <ProfilePage/>} />
+                <Route exact
+                       path='/Dialog'
+                       render={ () => <DialogsPage/>} />
+                <Route exact
+                       path='/News'
+                       render={ () => <NewsPage />} />
 
-        <div className="App">
-            <Switch>
-                <Route exact
-                       path='/login'
-                       render={() =>
-                           <TemplateWithoutSideBar>
-                               <LoginSectionContainer/>
-                           </TemplateWithoutSideBar>}/>
-                <Route exact
-                       path='/profile'
-                       render={() =>
-                           <TemplateWithSideBar>
-                               <ProfileSectionContainer/>
-                           </TemplateWithSideBar>}/>
-                <Route exact
-                       path='/dialog/:friendId?'
-                       render={() =>
-                           <TemplateWithSideBar>
-                               <DialogsSectionContainer/>
-                           </TemplateWithSideBar>}/>
-                <Route exact
-                       path='/news'
-                       render={() =>
-                           <TemplateWithSideBar>
-                               <NewsSection/>
-                           </TemplateWithSideBar>}/>
-                <Route exact
-                       path='/settings'
-                       render={() =>
-                           <TemplateWithSideBar>
-                               <SettingsSectionContainer/>
-                           </TemplateWithSideBar>}/>
-                <Route path='/'
-                       render={() =>
-                           <TemplateWithoutSideBar>
-                               {/*<div className="path-error">404, page not found.</div>*/}
-                               <NotFoundSection/>
-                           </TemplateWithoutSideBar>}/>
-            </Switch>
-        </div>
-
+            </div>
 
     )
 

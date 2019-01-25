@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 
 
 const UserInfoSection = (props) =>{
+
         return (
             <div className="c-info
                                 c-info__c-info--positioned">
