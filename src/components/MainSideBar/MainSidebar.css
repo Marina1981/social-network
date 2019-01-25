@@ -22,12 +22,12 @@
 }
 
 .menu-item__decorated{
-    color: #db412c;
+    color: white;
     text-decoration: none;
 }
 .c-sidebar__menu-item:hover{
     border: 0.1rem solid #b3ff66;
 }
 .active-item{
-    background: linear-gradient(to top, #eed3ca,#db412c);
+    background:#db412c ;
 }
