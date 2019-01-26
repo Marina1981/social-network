@@ -24,10 +24,11 @@
 .menu-item__decorated{
     color: white;
     text-decoration: none;
+    font-family: cursive;
 }
 .c-sidebar__menu-item:hover{
     border: 0.1rem solid #b3ff66;
 }
 .active-item{
-    background:#db412c ;
+    background: #63b946f5;
 }

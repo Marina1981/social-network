@@ -15,7 +15,7 @@
 }
 
 .c-info--positioned{
-    grid-row:    1 / span 1;
+    grid-row:    1;
     grid-column: 1 / span 2;
 
     justify-self: stretch;
@@ -35,8 +35,8 @@
     cursor: pointer;
 }
 .c-info__userpic--positioned{
-    grid-row:    1 / span 1;
-    grid-column: 1 / span 1;
+    grid-row:    1;
+    grid-column: 1;
 
     justify-self: stretch;
     align-self:   stretch;
@@ -63,8 +63,8 @@
 }
 
 .c-info__short-info--positioned{
-    grid-row:    1 / span 1;
-    grid-column: 2 / span 1;
+    grid-row:    1;
+    grid-column: 2;
 
     justify-self: stretch;
     align-self:   stretch;
@@ -73,13 +73,13 @@
 
 /*------------------------------------------------------------------*/
 .c-info__user-name{
-    font-family: Verdana;
+    font-family: cursive;
     font-size: 2rem;
     color: coral;
 }
 /*------------------------------------------------------------------*/
 .c-info__decorated-label{
-    font-family: Verdana;
+    font-family: cursive;
     font-size: 1rem;
     color: gray;
 }

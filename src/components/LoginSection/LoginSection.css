@@ -1,10 +1,17 @@
-.c-login-section{
+.c-login-section-wrapper{
     justify-self: stretch;
     align-self:   stretch;
 
-    grid-row:    2 / span 1;
-    grid-column: 2 / span 1;
-
+    grid-row:    2;
+    grid-column: 2;
+    height: 100%;
+    width:  100%;
+    background: #f7c284c2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.c-login-section{
     display: grid;
 
     grid-template-rows:     minmax(auto, 15%)
@@ -24,26 +31,6 @@
     box-shadow: 0 0 2rem sandybrown;
 }
 /*------------------------------------------------------------------*/
-
-/*.c-login-section__index-column{*/
-    /*font-family: Verdana;*/
-    /*font-size: 2.4rem;*/
-    /*color: gray;*/
-/*}*/
-
-/*.c-login-section__index-column--positioned{*/
-    /*justify-self: stretch;*/
-    /*align-self:   stretch;*/
-
-    /*grid-row:    1 / span 1;*/
-    /*grid-column: 1 / span 1;*/
-
-    /*display: flex;*/
-    /*justify-content: space-around;*/
-    /*align-self: center;*/
-/*}*/
-/*------------------------------------------------------------------*/
-
 .c-login-section__index-login-form--positioned{
     grid-row:    2 / span 1;
     grid-column: 1 / span 1;
@@ -71,7 +58,7 @@
     border: none;
     background-color: #b3ff66;
     color: white;
-    font-family: Verdana;
+    font-family: cursive;
     font-size: 1.3rem;
     border-radius: 0.5rem;
 
@@ -87,8 +74,8 @@
     justify-self: stretch;
     align-self:   stretch;
 
-    grid-row:    4 / span 1;
-    grid-column: 1 / span 1;
+    grid-row:    4;
+    grid-column: 1;
 
     display: flex;
     justify-content: center;
@@ -98,7 +85,7 @@
 }
 /*------------------------------------------------------------------*/
 .checkbox-label{
-    font-family: Verdana;
+    font-family: cursive;
     font-size: 0.8rem;
     color: gray;
     margin-right: 5rem;
@@ -130,7 +117,7 @@
     justify-content: center;
     align-self: center;
 
-    font-family: Verdana;
+    font-family: cursive;
     font-size: 1.3rem;
     color: gray;
 
@@ -167,8 +154,8 @@
     width: 13rem;
     height: 2rem;
 
-    grid-row:    5 / span 1;
-    grid-column: 1 / span 1;
+    grid-row:    5;
+    grid-column: 1;
 
     display: flex;
     justify-content: center;
@@ -177,7 +164,7 @@
     align-self: center;
     background: #ffc349;
     color: white;
-    font-family: Verdana;
+    font-family: cursive;
     font-size: 1rem;
     border-radius: 0.5rem;
     border: none;
@@ -192,8 +179,8 @@
     width: 13rem;
     height: 2rem;
 
-    grid-row: 5 / span 1;
-    grid-column: 1 / span 1;
+    grid-row: 5;
+    grid-column: 1;
 
     display: flex;
     justify-content: center;
@@ -203,15 +190,12 @@
 
     background: #fd0606cc;
     color: white;
-    font-family: Verdana;
+    font-family: cursive;
     font-size: 0.9rem;
 
     border-radius: 1rem;
 }
 /*-----------animation-----------------------------*/
-/*body {*/
-    /*background: #ede9de;*/
-/*}*/
 .container {
     left: 50%;
     margin: auto -50px;

@@ -17,7 +17,7 @@
 
    /* min-width: 50rem;*/
     /*min-height: 30rem;*/
-    background: bisque;
+    background: #f7c284c2;
 }
 
 /*------------------------------------------------------------------*/
@@ -49,8 +49,8 @@
 }
 /*------------------------------------------------------------------*/
 .wall-block__record-form--positioned{
-    grid-row:    1 / span 1;
-    grid-column: 1 / span 1;
+    grid-row:    1;
+    grid-column: 1;
 
     justify-self: stretch;
     align-self:   stretch;
@@ -62,17 +62,12 @@
 /*------------------------------------------------------------------*/
 /*------------------------------------------------------------------*/
 .wall-block__posts-block{
-    /*justify-self: stretch;*/
-    /*align-self:   stretch;*/
-    /*display: flex;*/
-    /*flex-direction: column;*/
-
     overflow-y: auto;
     max-height: 15rem;;
 }
 .wall-block__posts-block--positioned{
     grid-row:    2;
-    grid-column: 1 / span 1;
+    grid-column: 1;
 
     justify-self: stretch;
     align-self:   stretch;
@@ -96,7 +91,7 @@
 }
 
 .wall-block__notes{
-    font-family: Verdana;
-    font-size: 2rem;
-    color: #bb4034;
+    font-family: cursive;
+    font-size: 1.6rem;
+    color: #4bc323f5;
 }

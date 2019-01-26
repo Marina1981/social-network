@@ -12,8 +12,7 @@ const mapStateToProps = (state) => {
         userBirthDate:    state.profilePage.userInfo.userBirthDate,
         userCity:         state.profilePage.userInfo.userCity,
         userEducation:    state.profilePage.userInfo.userEducation,
-        userWebSite:      state.profilePage.userInfo.userWebSite,
-        language:         state.auth.language
+        userWebSite:      state.profilePage.userInfo.userWebSite
     }
 };
 
@@ -26,13 +25,13 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(profileActions.setUserBirthDate(userBirthDate));
         },
         onUserCityChanged: (userCity) => {
-            dispatch(profileActions.setUserName(userCity));
+            dispatch(profileActions.setUserCity(userCity));
         },
         onUserEducationChanged: (userEducation) => {
-            dispatch(profileActions.setUserName(userEducation));
+            dispatch(profileActions.setUserEducation(userEducation));
         },
         onUserWebSiteChanged: (userWebSite) => {
-            dispatch(profileActions.setUserName(userWebSite));
+            dispatch(profileActions.setUserWebSite(userWebSite));
         },
     }
 };

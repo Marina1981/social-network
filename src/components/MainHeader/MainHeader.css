@@ -11,8 +11,6 @@
                             minmax(auto, 10%)
                             minmax(auto,  5%);
 
-    /*justify-content: start;*/
-    /*align-items: center;*/
     background-color: #b3ff66;
 }
 /*------------------------------------------------------------------*/
@@ -50,7 +48,7 @@
     padding: 0.2rem;
 }
 .user-info-block__user-name{
-    font-family: Verdana;
+    font-family: cursive;
     font-size: 1rem;
     color: goldenrod;
 }
@@ -63,7 +61,7 @@
     justify-content: center;
     align-items: center;
 
-    font-family: Verdana;
+    font-family: cursive;
     font-size: 1rem;
     color: goldenrod;
 }

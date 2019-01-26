@@ -63,17 +63,6 @@ const SettingsSection = (props) => {
               <NavLink to='/' className={style.settingsButtonUserWebSite}>
                   Изменить
               </NavLink>
-              <div className={style.languageBlock}>
-                  <div className={style.userDataLabel}>
-                      Язык :
-                  </div>
-                  <div className={style.language}>
-                      {props.language}
-                  </div>
-              </div>
-              <NavLink to='/' className={style.settingsButtonLanguage}>
-                  Изменить
-              </NavLink>
           </div>
       </div>
   )

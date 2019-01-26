@@ -17,7 +17,7 @@
                             minmax(auto, 70%);
     /*margin: auto;*/
 
-    background: bisque;
+    background: #f7c284c2;
     /*box-shadow: 0 0 2rem sandybrown;*/
 }
 /*------------------------------------------------------------------*/
@@ -26,9 +26,9 @@
     justify-self: stretch;
     align-self:   stretch;
 
-    font-family: Verdana;
+    font-family: cursive;
     font-size: 1.3rem;
-    color: gray;
+    color: orange;
     /*background: linear-gradient(to top, #fefcea,#f1da366e);*/
     /*border: 0.1rem solid bisque;*/
     /*border-radius: 2rem;*/
@@ -57,9 +57,9 @@
     grid-row:    1 / span 2;
     grid-column: 1;
 
-    background-color: gold;
+    background: white;
     height: 60vh;
-    width: 0.05rem;;
+    width: 0.1rem;
 
     display: flex;
     justify-self: flex-end;
@@ -172,7 +172,7 @@
     justify-content: flex-start;
     align-items: center;
 
-    font-family: Verdana;
+    font-family: cursive;
     font-size: 1.2rem;
     color: gray;
 }
@@ -234,7 +234,7 @@
     justify-content: flex-start;
     align-items:     flex-end;
 
-    font-family: Verdana;
+    font-family: cursive;
     font-size: 1rem;
     color: gray;
 
@@ -254,7 +254,7 @@
     justify-content: center;
     align-items: center;
 
-    font-family: Verdana;
+    font-family: cursive;
     font-size: 0.7rem;
     color: black;
 
@@ -272,7 +272,7 @@
     justify-content: center;
     align-items: center;
 
-    font-family: Verdana;
+    font-family: cursive;
     font-size: 0.8rem;
     color: black;
 }
