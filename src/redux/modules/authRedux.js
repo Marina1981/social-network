@@ -1,3 +1,4 @@
+
 export const types = {
     LOAD:             'NETWORK/AUTH/LOAD',
     LOAD_SUCCESS:     'NETWORK/AUTH/LOAD_SUCCESS',
@@ -15,18 +16,16 @@ const initialState = {
     // userId: '23',
     // userName: 'Orange',
     // userPic: 'https://99px.ru/sstorage/86/2018/04/image_86290418140829606047.gif',
-    user:   null,
-    loaded: false,
-    error:  null
+    userInfo: {
+       userId: null,
+       userName: null,
+       userPicURl: ''
+    },
+    loaded: false
 };
 //----
 export const actions = {
-    loading: () => {
-        return{
-            type: types.LOAD,
-        }
-    },
-
+    setLogInToTrue: () => ({type: types.LOAD_SUCCESS})
 };
 
 //----

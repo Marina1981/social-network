@@ -5,4 +5,13 @@ const axios = axiosLib.create({
     withCredentials: true
 });
 
-export default axios;
+//----
+export const statuses = {
+    INIT:              'INIT',       //start
+    ERROR:             'ERROR',
+    INPROGRESS:        'INPROGRESS', //идет запрос
+    CAPTCHA_REQUIRED:  'CAPTCHA_REQUIRED',
+    SUCCESS:           'SUCCESS'
+};
+
+export  default axios;

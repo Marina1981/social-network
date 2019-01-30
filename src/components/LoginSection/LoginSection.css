@@ -14,11 +14,13 @@
 .c-login-section{
     display: grid;
 
-    grid-template-rows:     minmax(auto, 15%)
+    grid-template-rows:     minmax(auto, 5%)
                             minmax(auto, 20%)
                             minmax(auto, 20%)
                             minmax(auto, 10%)
-                            minmax(auto, 35%);
+                            minmax(auto, 15%)
+                            minmax(auto, 30%);
+
     grid-template-columns:  minmax(auto, 100%);
 
     height: 80%;
@@ -155,14 +157,14 @@
     width: 13rem;
     height: 2rem;
 
-    grid-row:    5;
+    grid-row:    6;
     grid-column: 1;
 
     display: flex;
     justify-content: center;
     align-items: center;
     justify-self: center;
-    align-self: center;
+    /*align-self: center;*/
     background: #ffc349;
     color: white;
     font-family: cursive;
@@ -177,7 +179,7 @@
 }
 /*------------------------------------------------------------------*/
 .error-block{
-    width: 13rem;
+    width:  25rem;
     height: 2rem;
 
     grid-row: 5;

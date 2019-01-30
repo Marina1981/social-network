@@ -1,6 +1,10 @@
 import React from 'react';
 import './LoginSection.css';
 import Redirect from "react-router/es/Redirect";
+import {statuses} from "../../dal/axios-instance";
+
+
+
 
 
 const LoginSection = (props) => {
@@ -9,11 +13,11 @@ const LoginSection = (props) => {
         return <Redirect to="/profile"/>
     }
     //---------------------------
-    let errorloginOrPassword = props.status === 'ERROR' ?
-        <div className="error-block">
-            Invalid login or password
-        </div> : null;
-    //---------------------------
+    let errorMessageBlock =  props.status === statuses.ERROR &&
+    <div className="error-block">
+        {props.message}
+    </div>
+
     //---------------------------
     return (
         <>
@@ -23,9 +27,9 @@ const LoginSection = (props) => {
                         <div className="c-login-section__index-login-form--positioned">
                             <div className="input-form">
                         <span className="input-form__label">
-                            Login
+                            Email
                         </span>
-                                <input className="input-form__input" placeholder='login'
+                                <input className="input-form__input" placeholder='email'
                                        value={props.userLogin}
                                        onChange={
                                            (e) => {
@@ -63,14 +67,14 @@ const LoginSection = (props) => {
                                 (e) => {
                                     props.onLoginButtonClick();
                                 }}
-                                    disabled={props.status === 'INPROGRESS'}>
+                                    disabled={props.status === statuses.INPROGRESS}>
                                 Login
                             </button>
                             {/*------------------------------------------------*/}
                             {/*<span>{props.isLoggedIn.toString()}</span>*/}
                         </div>
 
-                        {errorloginOrPassword}
+                        {errorMessageBlock}
                         {/*------------------------------------------------*/}
                         <button className="c-login-section__registration-button">
                             registration
