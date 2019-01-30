@@ -5,23 +5,26 @@ import LoginSection from "../../components/LoginSection/LoginSection";
 
 //----
 const mapStateToProps = (state) => {
+
     return{
+        isLoggedIn:   state.auth.isLoggedIn,
+        status:       state.loginPage.status,
+        message:      state.loginPage.message,
+        captchaUrl:   state.loginPage.captchaUrl,
+
         userLogin:    state.loginPage.userLogin,
         userPassword: state.loginPage.userPassword,
-        checkbox:     state.loginPage.isRememberMe,
-        isLoggedIn:   state.auth.isLoggedIn,
-        status:       state.loginPage.status
+        rememberMe:   state.loginPage.isRememberMe
     }
-
 };
-
 const mapDispatchToProps = (dispatch) => {
+
     return{
         onChangeLogin: (userLogin) => {
-            dispatch(loginActions.userLoginOnChange(userLogin))
+            dispatch(loginActions.setUserLogin(userLogin))
         },
         onChangePassword: (userPassword) => {
-            dispatch(loginActions.userPasswordOnChange(userPassword))
+            dispatch(loginActions.setUserPassword(userPassword))
         },
         onChangeFlag: () => {
             dispatch(loginActions.setFlag())

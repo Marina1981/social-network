@@ -14,75 +14,20 @@ export const types = {
 
 
 export const actions = {
-    setUserpicURL: (userPicURL) => {
-        return {
-            type:       types.SET_USERPIC_URL,
-            userPicURL: userPicURL
-        }
-    },
-    setUserName:   (userName) => {
-        return {
-            type:      types.SET_USER_NAME,
-            userName:  userName
-        }
-    },
-    setUserBirthDate: (userBirthDate) => {
-        return {
-            type:          types.SET_USER_BIRTH_DATE,
-            userBirthDate: userBirthDate
-        }
-    },
-    setUserCity: (userCity) => {
-        return {
-            type:     types.SET_USER_CITY,
-            userCity: userCity
-        }
-    },
-    setUserEducation: (userEducation) => {
-        return {
-            type: types.SET_USER_EDUCATION,
-            userEducation: userEducation
-        }
-
-
-
-    },
-    setUserWebSite: (userWebSite) => {
-        return {
-            type:       types.SET_USER_WEBSITE,
-            userWebSite: userWebSite
-        }
-    },
-    addPost: (message, messageId) => {
-        return {
-            type: types.ADD_POST,
-            message: message,
-            messageId: messageId
-        }
-    },
-    setCreatingPost: (message) => {
-        return {
-            type: types.SET_CREATING_POST,
-            message: message
-        }
-    },
-    incrementPostLikeCount: (messageId) => {
-        return {
-            type:      types.INCREMENT_POST_LIKE_COUNT,
-            messageId: messageId
-        }
-    },
-    addCreatingMessageAsPost: (messageId) => {
-        return {
-            type:      types.ADD_CREATING_MESSAGE_AS_POST,
-            messageId: messageId
-        }
-    }
-
+    setUserpicURL:            (userPicURL)         => ({type: types.SET_USERPIC_URL, userPicURL}),
+    setUserName:              (userName)           => ({type: types.SET_USER_NAME, userName}),
+    setUserBirthDate:         (userBirthDate)      => ({type: types.SET_USER_BIRTH_DATE, userBirthDate}),
+    setUserCity:              (userCity)           => ({type: types.SET_USER_CITY, userCity}),
+    setUserEducation:         (userEducation)      => ({type: types.SET_USER_EDUCATION, userEducation}),
+    setUserWebSite:           (userWebSite)        => ({type: types.SET_USER_WEBSITE, userWebSite}),
+    addPost:                  (message, messageId) => ({type: types.ADD_POST, message, messageId}),
+    setCreatingPost:          (message)            => ({type: types.SET_CREATING_POST, message}),
+    incrementPostLikeCount:   (messageId)          => ({type: types.INCREMENT_POST_LIKE_COUNT, messageId}),
+    addCreatingMessageAsPost: (messageId)          => ({type: types.ADD_CREATING_MESSAGE_AS_POST, messageId})
 };
 
 //----
-export const initialStateForProfilePage = {
+export const initialState = {
         userInfo:{
                 userID: '',
                 userPicURL: '',
@@ -98,7 +43,7 @@ export const initialStateForProfilePage = {
         }
 };
 //-------
-export const reducer = (state = initialStateForProfilePage, action) => {
+export const reducer = (state = initialState, action) => {
     //----
     const newState = {
         ...state,

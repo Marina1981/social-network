@@ -66,7 +66,7 @@ export const actions = {
 
 //----
 
-export const initialStateForDialogsPage = {
+export const initialState = {
         friendsList: [
             {
                 friendId: '1',
@@ -93,7 +93,7 @@ export const initialStateForDialogsPage = {
 //----
 
 //----
-export const reducer = (state=initialStateForDialogsPage, action) => {
+export const reducer = (state=initialState, action) => {
 
     let immutableState    = Immutable.fromJS(state);
     let newImmutableState = immutableState;
@@ -225,57 +225,4 @@ export const reducer = (state=initialStateForDialogsPage, action) => {
 
 
 
-//export let dialogsPageAttrsVal = {
-    // dialogs: {
-    //     userInfo: {
-    //         userID:         state.profilePage.model.userInfo.userID,
-    //         userPicURL:     state.profilePage.model.userInfo.userPicURL,
-    //         userName:       state.profilePage.model.userInfo.userName,
-    //         userBirthDate:  state.profilePage.model.userInfo.userBirthDate,
-    //         userCity:       state.profilePage.model.userInfo.userCity,
-    //         userEducation:  state.profilePage.model.userInfo.userEducation,
-    //         userWebSite:    state.profilePage.model.userInfo.userWebSite
-    //     },
-    //
-    //     friendsList:      state.dialogsPage.model.friendsList,
-    //     friendsChatLog:   state.dialogsPage.model.friendsChatLog,
-    //     selectedFriendId: state.dialogsPage.view.selectedFriendId,
-    //     creatingMessage:  state.dialogsPage.view.creatingMessage,
-    //
-    //
-    //     onFriendSelected: (friendId) => {
-    //         const action = {
-    //             type:     SET_SELECTED_FRIEND_ID,
-    //             friendId: friendId
-    //         };
-    //         store.dispatch(action);
-    //     },
-    //     onCreatingMessageChanged: (message)=>{
-    //         const action = {
-    //             type:    SET_CREATING_MESSAGE,
-    //             message: message
-    //         };
-    //         store.dispatch(action);
-    //     },
-    //     onCreatingMessageFinishCommitted: (messageId,messageFinishCommittedTime)=>{
-    //         const action_1 = {
-    //             type:           ADD_FRIEND_CHAT_LOG_MESSAGE,
-    //             friendId:       state.dialogsPage.view.selectedFriendId,
-    //             isUserMessage:  true,
-    //             userMessage:    state.dialogsPage.view.creatingMessage,
-    //             messageTime:    messageFinishCommittedTime,
-    //             messageId:      messageId
-    //
-    //
-    //         };
-    //         store.dispatch(action_1);
-    //
-    //         const action_2 = {
-    //             type:    SET_CREATING_MESSAGE,
-    //             message: ''
-    //         };
-    //         store.dispatch(action_2);
-    //     }
-    // }
-//};
-//----
+

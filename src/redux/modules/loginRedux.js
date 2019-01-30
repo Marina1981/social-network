@@ -1,66 +1,58 @@
-import {actions as authActions} from "./authReducer";
+import {actions as authActions} from "./authRedux";
+import axios from "../../dal/axios-instance";
 
 
 export const types = {
     REMEMBER_USER:              'NETWORK/LOGIN_PAGE/REMEMBER_USER',
-    USER_LOGIN_ONCHANGE:        'NETWORK/LOGIN_PAGE/USER_LOGIN_ONCHANGE',
-    USER_PASSWORD_ONCHANGE:     'NETWORK/LOGIN_PAGE/USER_PASSWORD_ONCHANGE',
+    SET_USER_LOGIN:             'NETWORK/LOGIN_PAGE/SET_USER_LOGIN',
+    SET_USER_PASSWORD:          'NETWORK/LOGIN_PAGE/SET_USER_PASSWORD',
     SET_FLAG:                   'NETWORK/LOGIN_PAGE/SET_FLAG',
-    CHANGE_STATUS:              'NETWORK/LOGIN_PAGE/CHANGE_STATUS'
+    SET_STATUS:                 'NETWORK/LOGIN_PAGE/SET_STATUS',
+    SET_MESSAGES:               'NETWORK/LOGIN_PAGE/SET_MESSAGES'
 };
 
+const statuses = {
+    INIT:              'INIT',       //start
+    ERROR:             'ERROR',
+    INPROGRESS:        'INPROGRESS', //идет запрос
+    CAPTCHA_REQUIRED:  'CAPTCHA_REQUIRED',
+    SUCCESS:           'SUCCESS'
+};
 //---- actionCreators--------//
 export const actions = {
-    userLoginOnChange: (userLogin) => {
-        return {
-            type:      types.USER_LOGIN_ONCHANGE,
-            userLogin: userLogin
-        }
-    },
-    userPasswordOnChange: (userPassword) => {
-        return {
-            type:         types.USER_PASSWORD_ONCHANGE,
-            userPassword: userPassword
-        }
-    },
-    setFlag: (flag) => {
-        return {
-            type: types.SET_FLAG,
-            flag: flag
-        }
-    },
-    changeStatus: (status) => {
-        return {
-            type:        types.CHANGE_STATUS,
-            status:      status
-        }
-    }
+    setUserLogin:     (userLogin)     => ({type: types.SET_USER_LOGIN, userLogin}),
+    setUserPassword:  (userPassword)  => ({type: types.SET_USER_PASSWORD, userPassword}),
+    setFlag:          (flag)          => ({type: types.SET_FLAG, flag}),
+    setStatus:        (status)        => ({type: types.SET_STATUS, status}),
+    setMessage:       (message)       => ({type: types.SET_MESSAGES, message})
 };
 //----
 
-const initialStateForLoginPage = {
-    userLogin:          '',
-    userPassword:       '',
+const initialState = {
+    userLogin:          'sdfsdfdfdfsf@sdfsdf.sdf',
+    userPassword:       'sdfsdf',
     isRememberMe:       true,
-    status:             null //'in progress', 'error'
+    status:             statuses.INIT,
+    captchaUrl:         ''
 };
 
 //----
 
-export const reducer = (state = initialStateForLoginPage, action) => {
+export const reducer = (state = initialState, action) => {
 
     switch (action.type) {
+
         case types.REMEMBER_USER:
             let newState = {...state};
             newState.isRememberMe = action.isRememberMe;
             return newState;
 
-        case types.USER_LOGIN_ONCHANGE:
+        case types.SET_USER_LOGIN:
             newState = {...state};
             newState.userLogin = action.userLogin;
             return newState;
 
-        case types.USER_PASSWORD_ONCHANGE:
+        case types.SET_USER_PASSWORD:
             newState = {...state};
             newState.userPassword = action.userPassword;
             return newState;
@@ -70,9 +62,15 @@ export const reducer = (state = initialStateForLoginPage, action) => {
             newState.isRememberMe = action.isRememberMe;
             return newState;
 
-        case types.CHANGE_STATUS:
+
+
+        case types.SET_STATUS:
             newState = {...state};
             newState.status = action.status;
+            return newState;
+        case types.SET_MESSAGES:
+            newState = {...state};
+            newState.message = action.message;
             return newState;
 
         default:
@@ -81,22 +79,24 @@ export const reducer = (state = initialStateForLoginPage, action) => {
 };
 
 //--- thunkCreator -------//
-export const login = (login, password, rememberMe, captcha) => {
-    return (dispatch) => {
-        dispatch(actions.changeStatus('in progress'));
-        setTimeout(() => {
-            dispatch(authActions.setLogInToTrue());
-        }, 3000);
-         // dispatch(actions.changeStatus('error'));
-        //dispatch(actions.changeStatus('output'));
-    };
-};
-export const logout = () => {
-    return (dispatch) => {
-        dispatch(authActions.logout());
-         // dispatch(actions.changeStatus('error'));
-        //dispatch(actions.changeStatus('output'));
-    };
-};
+export const login = () => (dispatch, getState) =>{
+        let fullState = getState();
+        let loginState = fullState.loginPage;
 
-//---
+        axios.post('auth/login', {
+            email:      loginState.userLogin,
+            password:   loginState.userPassword,
+            rememberMe: loginState.rememberMe
+        }).then((result) => {
+            if (result.data.resultCode === 0) {
+               dispatch(actions.setStatus(statuses.SUCCESS));
+               alert('ok')
+            } else {
+                dispatch(actions.setStatus(statuses.ERROR));
+                alert(result.data.messages[0]);
+                dispatch(actions.setMessage(result.data.messages[0]));
+            }
+        })
+    };
+
+

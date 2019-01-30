@@ -9,6 +9,12 @@ const LoginSection = (props) => {
         return <Redirect to="/profile"/>
     }
     //---------------------------
+    let errorloginOrPassword = props.status === 'ERROR' ?
+        <div className="error-block">
+            Invalid login or password
+        </div> : null;
+    //---------------------------
+    //---------------------------
     return (
         <>
             {props.status !== 'in progress' ?
@@ -43,10 +49,10 @@ const LoginSection = (props) => {
                             </div>
                         </div>
                         <div className="c-login-section__button-box">
-                            <input className="button-box__checkbox" type="checkbox" checkbox={props.isRememberMe}
+                            <input className="button-box__checkbox" type="checkbox"
                                    onChange={
                                        (e) => {
-                                           props.onChangeFlag(e.currentTarget.value)
+                                           props.onChangeFlag(e.currentTarget.checked)
                                        }
                                    }/>
                             <span className="checkbox-label">
@@ -55,19 +61,16 @@ const LoginSection = (props) => {
                             {/*------------------------------------------------*/}
                             <button className="button-box__button" onClick={
                                 (e) => {
-                                    props.onLoginButtonClick(e.currentTarget.value);
+                                    props.onLoginButtonClick();
                                 }}
-                                    disabled={props.status === 'in progress'}>
+                                    disabled={props.status === 'INPROGRESS'}>
                                 Login
                             </button>
                             {/*------------------------------------------------*/}
                             {/*<span>{props.isLoggedIn.toString()}</span>*/}
                         </div>
 
-                        {props.status === 'error' ?
-                            <div className="error-block">
-                                Invalid login or password
-                            </div> : null}
+                        {errorloginOrPassword}
                         {/*------------------------------------------------*/}
                         <button className="c-login-section__registration-button">
                             registration
@@ -95,7 +98,6 @@ const LoginSection = (props) => {
                         <div className="shadow-r"/>
                     </div>
                 </div>}
-
         </>
     );
 };

@@ -15,11 +15,11 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        logout: () => {
-            dispatch(logout());
-        }
-    }
+    // return {
+    //     logout: () => {
+    //         dispatch(logout());
+    //     }
+    // }
 };
 //----
 const MainHeaderContainer = connect(
