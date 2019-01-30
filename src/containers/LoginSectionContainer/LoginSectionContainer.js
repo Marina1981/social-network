@@ -7,7 +7,7 @@ import LoginSection from "../../components/LoginSection/LoginSection";
 const mapStateToProps = (state) => {
 
     return{
-        isLoggedIn:   state.auth.isLoggedIn,
+        isLoggedIn:   state.auth.loaded,
         status:       state.loginPage.status,
         message:      state.loginPage.message,
         captchaUrl:   state.loginPage.captchaUrl,
