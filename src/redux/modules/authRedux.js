@@ -1,95 +1,79 @@
+import {statuses} from "../../dal/axios-instance";
+import  axios      from "../../dal/axios-instance";
 
 export const types = {
-    LOAD:             'NETWORK/AUTH/LOAD',
-    LOAD_SUCCESS:     'NETWORK/AUTH/LOAD_SUCCESS',
-    LOAD_FAIL:        'NETWORK/AUTH/LOAD_FAIL',
-    LOGIN:            'NETWORK/AUTH/LOGIN',
-    LOGIN_SUCCESS:    'NETWORK/AUTH/LOGIN_SUCCESS',
-    LOGIN_FAIL:       'NETWORK/AUTH/LOAD_FAIL',
-    LOGOUT:           'NETWORK/AUTH/LOGOUT',
-    LOGOUT_SUCCESS:   'NETWORK/AUTH/LOGOUT_SUCCESS',
-    LOGOUT_FAIL:      'NETWORK/AUTH/LOGOUT_FAIL'
+    SET_IS_AUTH:       'NETWORK/AUTH/SET_IS_AUTH',
+    SET_STATUS:        'NETWORK/AUTH/SET_STATUS',
+    SET_MESSAGE:       'NETWORK/AUTH/SET_MESSAGE',
+    SET_USER_INFO:     'NETWORK/AUTH/SET_USER_INFO'
 };
 
 //----
 const initialState = {
-    // userId: '23',
-    // userName: 'Orange',
-    // userPic: 'https://99px.ru/sstorage/86/2018/04/image_86290418140829606047.gif',
     userInfo: {
-       userId: null,
+       userId:   null,
        userName: null,
-       userPicURl: ''
+       userPicURl: '' //'https://99px.ru/sstorage/86/2018/04/image_86290418140829606047.gif'
     },
-    loaded: false
+    status:       statuses.INIT,
+    isAuth:       false,
+    message:  '',
+    captchaUrl:    ''
 };
-//----
+//---- actionCreators--------//
 export const actions = {
-    setLogInToTrue: () => ({type: types.LOAD_SUCCESS})
+    setLogInToTrue:   (value)            => ({type: types.SET_IS_AUTH, value}),
+    setStatus:        (status)           => ({type: types.SET_STATUS,  status}),
+    setMessage:       (message)          => ({type: types.SET_MESSAGE, message}),
+    setUserInfo:      (userId, userName) => ({type: types.SET_USER_INFO, userId, userName})
 };
 
 //----
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case types.LOAD:
+        case types.SET_IS_AUTH:
             return {
                 ...state,
-                loading: true
+                isAuth: action.value
             };
-        case types.LOAD_SUCCESS:
+
+        case types.SET_STATUS:
             return {
                 ...state,
-                loading: false,
-                loaded:  true,
-                user:    action.result
+                status: action.status
             };
-        case types.LOAD_FAIL:
+
+        case types.SET_MESSAGE:
             return {
                 ...state,
-                loading: false,
-                loaded:  false,
-                error:   action.error
+                message: action.message
             };
-        case types.LOGIN:
+        case types.SET_USER_INFO:
             return {
-                ...state,
-                loggingIn: true
+              ...state,
+                userInfo: {
+                  ...state.userInfo,
+                    userId:   action.userId,
+                    userName: action.userName
+                }
             };
-        case types.LOGIN_SUCCESS:
-            return {
-                ...state,
-                loggingIn: false,
-                user:      action.result
-            };
-        case types.LOGIN_FAIL:
-            return {
-                ...state,
-                loggingIn:  false,
-                user:       null,
-                loginError: action.error
-            };
-        case types.LOGOUT:
-            return {
-                ...state,
-                loggingOut: true
-            };
-        case types.LOGOUT_SUCCESS:
-            return {
-                ...state,
-                loggingOut: false,
-                user:       null
-            };
-        case types.LOGOUT_FAIL:
-            return {
-                ...state,
-                loggingOut:  false,
-                logoutError: action.error
-            };
+
         default:
             return state;
     }
 };
-//----
+//--- thunkCreator -------//
+export const me = () => (dispatch) => {
+
+  axios.get('auth/me').then(result => {
+      if (result.data.resultCode === 0) {
+          dispatch(actions.setLogInToTrue(true))
+      }
+      dispatch(actions.setUserInfo(result.data.data.userId, result.data.data.login));
+  })
+};
+
+
 
 export default reducer;
 
@@ -99,46 +83,4 @@ export default reducer;
 
 
 
-
-// export const types = {
-//     SET_LOGIN:          'NETWORK/LOGIN_PAGE/SET_LOGIN',
-//     LOGOUT:             'NETWORK/LOGIN_PAGE/LOGOUT'
-// };
-
-
-// let initialState = {
-//     userId: '23',
-//     userName: 'Orange',
-//     userPic: 'https://99px.ru/sstorage/86/2018/04/image_86290418140829606047.gif',
-//     isLoggedIn: false,
-// };
-
-
-//-----
-
-// export const actions = {
-//     setLogInToTrue: () => ({type: types.SET_LOGIN}),
-//     logout: () => ({type: types.LOGOUT}),
-// };
-
-
-//----
-// const authRedux = (state = initialState, action) => {
-//      let newState= {...state};
-//      switch (action.type) {
-//          case types.SET_LOGIN:
-//               newState.isLoggedIn = true;
-//               return newState;
-//
-//          case types.LOGOUT:
-//              newState.isLoggedIn = false;
-//              newState.userId     = null;
-//              newState.userName   = null;
-//              newState.userPic    = null;
-//              return newState;
-//
-//          default:
-//             return state;
-//     }
-// };
 

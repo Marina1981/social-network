@@ -3,14 +3,18 @@ import {connect} from "react-redux";
 import {actions as loginActions, login} from "../../redux/modules/loginRedux";
 import LoginSection from "../../components/LoginSection/LoginSection";
 
+
+const LoginSectionContainer = (props) => {
+    return <LoginSection {...props}/>
+};
+
 //----
 const mapStateToProps = (state) => {
-
     return{
-        isLoggedIn:   state.auth.loaded,
-        status:       state.loginPage.status,
-        message:      state.loginPage.message,
-        captchaUrl:   state.loginPage.captchaUrl,
+        isAuth:       state.auth.isAuth,
+        status:       state.auth.status,
+        message:      state.auth.message,
+        captchaUrl:   state.auth.captchaUrl,
 
         userLogin:    state.loginPage.userLogin,
         userPassword: state.loginPage.userPassword,
@@ -18,7 +22,6 @@ const mapStateToProps = (state) => {
     }
 };
 const mapDispatchToProps = (dispatch) => {
-
     return{
         onChangeLogin: (userLogin) => {
             dispatch(loginActions.setUserLogin(userLogin))
@@ -36,8 +39,8 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 //----
-const LoginSectionContainer = connect(
+export  default connect(
     mapStateToProps,
-    mapDispatchToProps)(LoginSection);
+    mapDispatchToProps)(LoginSectionContainer);
 //---
-export default LoginSectionContainer;
+// export default LoginSectionContainer;

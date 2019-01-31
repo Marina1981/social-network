@@ -37,6 +37,9 @@
     flex-direction:  row;
     justify-content: space-between;
     align-items: center;
+
+    width:  4rem;
+    height: 4rem;
 }
 .user-info-block__userPic{
     height: 100%;
@@ -53,7 +56,7 @@
     color: goldenrod;
 }
 /*------------------------------------------------------------------*/
-.c-header-section__output{
+.c-header-section__sugnin{
     grid-row:    1;
     grid-column: 4;
 
@@ -64,8 +67,9 @@
     font-family: cursive;
     font-size: 1rem;
     color: goldenrod;
+    width: 6rem;
 }
-.c-header-section__output:hover{
+.c-header-section__sugnin:hover{
     cursor: pointer;
     color: white;
 }

@@ -4,6 +4,10 @@ import {connect} from "react-redux";
 import ProfileSection from "../../components/ProfileSection/ProfileSection";
 
 
+const ProfileSectionContainer = (props) => {
+  return <ProfileSection {...props} />
+};
+
 //---
 const mapStateToProps = (state) => {
     return {
@@ -30,9 +34,6 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-const ProfileSectionContainer = connect(
+export default connect(
     mapStateToProps,
-    mapDispatchToProps)(ProfileSection);
-//---
-
-export default ProfileSectionContainer;
+    mapDispatchToProps)(ProfileSectionContainer);

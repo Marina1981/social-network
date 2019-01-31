@@ -9,7 +9,7 @@ import {statuses} from "../../dal/axios-instance";
 
 const LoginSection = (props) => {
     //---------------------------
-    if (props.isLoggedIn) {
+    if (props.isAuth) {
         return <Redirect to="/profile"/>
     }
     //---------------------------
@@ -21,7 +21,7 @@ const LoginSection = (props) => {
     //---------------------------
     return (
         <>
-            {props.status !== 'in progress' ?
+            {props.status !== statuses.INPROGRESS ?
                 <div className="c-login-section-wrapper">
                     <div className="c-login-section">
                         <div className="c-login-section__index-login-form--positioned">

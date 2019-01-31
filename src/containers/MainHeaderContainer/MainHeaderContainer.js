@@ -1,30 +1,38 @@
 import React from 'react';
 import {connect} from "react-redux";
 import MainHeader from "../../components/MainHeader/MainHeader";
-import {logout} from "../../redux/modules/loginRedux";
+import {me} from "../../redux/modules/authRedux";
 
 
+class MainHeaderContainer extends React.Component {
+    //---
+    componentWillUnmount() {
+        this.props.me();
+    }
 
+    //---
+    render() {
+        return <MainHeader {...this.props} />
+    }
+}
+
+
+//---
 const mapStateToProps = (state) => {
-    return{
-        status:       state.loginPage.status,
-        isLoggedIn:   state.auth.isLoggedIn,
-        userPic:      state.auth.userPic,
-        userName:     state.auth.userName
+    return {
+        isAuth: state.auth.isAuth,
+        userId: state.auth.userInfo.userId,
+        userName: state.auth.userInfo.userName,
+        userPic: state.auth.userInfo.userPic
     }
 };
 
-const mapDispatchToProps = (dispatch) => {
-    // return {
-    //     logout: () => {
-    //         dispatch(logout());
-    //     }
-    // }
-};
+const mapDispatchToProps = (dispatch) => ({
+    me: () => {
+        dispatch(me());
+    }
+});
 //----
-const MainHeaderContainer = connect(
+export default connect(
     mapStateToProps,
-    mapDispatchToProps)(MainHeader);
-//---
-
-export default MainHeaderContainer;
+    mapDispatchToProps)(MainHeaderContainer);
