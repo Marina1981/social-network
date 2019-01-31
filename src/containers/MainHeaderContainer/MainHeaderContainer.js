@@ -1,12 +1,12 @@
-import React from 'react';
-import {connect} from "react-redux";
+import React      from 'react';
+import {connect}  from "react-redux";
 import MainHeader from "../../components/MainHeader/MainHeader";
-import {me} from "../../redux/modules/authRedux";
+import {me}       from "../../redux/modules/authRedux";
 
 
 class MainHeaderContainer extends React.Component {
     //---
-    componentWillUnmount() {
+    componentWillMount() {
         this.props.me();
     }
 
@@ -16,14 +16,13 @@ class MainHeaderContainer extends React.Component {
     }
 }
 
-
 //---
 const mapStateToProps = (state) => {
     return {
-        isAuth: state.auth.isAuth,
-        userId: state.auth.userInfo.userId,
+        isAuth:   state.auth.isAuth,
+        userId:   state.auth.userInfo.userId,
         userName: state.auth.userInfo.userName,
-        userPic: state.auth.userInfo.userPic
+        userPic:  state.auth.userInfo.userPic
     }
 };
 

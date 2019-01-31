@@ -13,12 +13,14 @@ const LoginSection = (props) => {
         return <Redirect to="/profile"/>
     }
     //---------------------------
+    
     let errorMessageBlock =  props.status === statuses.ERROR &&
     <div className="error-block">
         {props.message}
     </div>
 
     //---------------------------
+
     return (
         <>
             {props.status !== statuses.INPROGRESS ?

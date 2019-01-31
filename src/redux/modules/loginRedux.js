@@ -1,6 +1,6 @@
 
 import axios, {statuses} from "../../dal/axios-instance";
-import {actions as actionsAuth} from "./authRedux";
+import {actions as actionsAuth, me} from "./authRedux";
 
 
 export const types = {
@@ -52,7 +52,7 @@ export const reducer = (state = initialState, action) => {
 //--- thunkCreator -------//
 export const login = () => (dispatch, getState) =>{
         let globalState = getState();
-        let loginState = globalState.loginPage;
+        let loginState  = globalState.loginPage;
         actionsAuth.setStatus(statuses.INPROGRESS);
 
         axios.post('auth/login', {
@@ -63,9 +63,9 @@ export const login = () => (dispatch, getState) =>{
             if (result.data.resultCode === 0) {
                dispatch(actionsAuth.setStatus(statuses.SUCCESS));
                dispatch(actionsAuth.setLogInToTrue(true));
+               dispatch(me());
             } else {
                 dispatch(actionsAuth.setStatus(statuses.ERROR));
-                debugger
                 dispatch(actionsAuth.setMessage(result.data.messages[0]));
             }
         })
