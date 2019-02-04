@@ -38,7 +38,7 @@
     justify-content: space-between;
     align-items: center;
 
-    width:  4rem;
+    width:  8rem;
     height: 4rem;
 }
 .user-info-block__userPic{
@@ -53,10 +53,12 @@
 .user-info-block__user-name{
     font-family: cursive;
     font-size: 1rem;
+    padding-right: 1rem;
     color: goldenrod;
 }
 /*------------------------------------------------------------------*/
-.c-header-section__sugnin{
+.c-header-section__signin,
+.c-header-section__logout{
     grid-row:    1;
     grid-column: 4;
 
@@ -69,7 +71,8 @@
     color: goldenrod;
     width: 6rem;
 }
-.c-header-section__sugnin:hover{
+.c-header-section__signin:hover{
     cursor: pointer;
     color: white;
 }
+/*------------------------------------------------------------------*/

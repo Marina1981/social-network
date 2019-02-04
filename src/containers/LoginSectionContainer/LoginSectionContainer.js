@@ -1,7 +1,8 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {actions as loginActions, login} from "../../redux/modules/loginRedux";
+import {actions as loginActions} from "../../redux/modules/loginRedux";
 import LoginSection from "../../components/LoginSection/LoginSection";
+import {getCaptcha, login} from "../../redux/modules/loginAxiosRedux";
 
 
 const LoginSectionContainer = (props) => {
@@ -11,30 +12,34 @@ const LoginSectionContainer = (props) => {
 //----
 const mapStateToProps = (state) => {
     return{
-        isAuth:       state.auth.isAuth,
-        status:       state.auth.status,
-        message:      state.auth.message,
-        captchaUrl:   state.auth.captchaUrl,
+        isAuth:                state.auth.userAuthData.userId !== null, // true / false
+        loginingStatus:        state.loginPage.loginingStatus,
+        loginingError:         state.loginPage.loginingError,
+        loginingErrorMessage:  state.loginPage.loginingErrorMessage,
+        captchaUrl:            state.loginPage.captchaUrl,
 
-        userLogin:    state.loginPage.userLogin,
-        userPassword: state.loginPage.userPassword,
-        rememberMe:   state.loginPage.isRememberMe
+        creatingUserLogin:    state.loginPage.creatingUserLogin,
+        creatingUserPassword: state.loginPage.creatingUserPassword,
+        rememberMe:           state.loginPage.isRememberMe
     }
 };
 const mapDispatchToProps = (dispatch) => {
     return{
-        onChangeLogin: (userLogin) => {
-            dispatch(loginActions.setUserLogin(userLogin))
+        onChangeCreatingLogin: (userLogin) => {
+            dispatch(loginActions.setCreatingUserLogin(userLogin))
         },
-        onChangePassword: (userPassword) => {
-            dispatch(loginActions.setUserPassword(userPassword))
+        onChangeCreatingPassword: (userPassword) => {
+            dispatch(loginActions.setCreatingUserPassword(userPassword))
         },
-        onChangeFlag: () => {
-            dispatch(loginActions.setFlag())
+        onChangeRememberMeFlag: () => {
+            dispatch(loginActions.setRememberMeFlag())
         },
         onLoginButtonClick: () => {
             dispatch(login())
-        }
+        },
+        // onCaptchaRequiredError: () => {
+        //     dispatch(getCaptcha())
+        // }
     }
 };
 

@@ -15,7 +15,7 @@ const mapStateToProps = (state) => {
         selectedFriendId: state.dialogsPage.selectedFriendId,
         messagesList:     state.profilePage.wall.messagesList,
         creatingMessage:  state.profilePage.wall.creatingMessage,
-        status:           state.auth.isLoggedIn
+        loginingStatus:           state.auth.isLoggedIn
 
     }
 };

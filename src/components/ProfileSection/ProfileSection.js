@@ -9,7 +9,7 @@ import {Redirect} from "react-router";
 
 const ProfileSection = (props) =>{
     //---
-    // if (!props.isLoggedIn){
+    // if (!props.isAuth){
     //     return <Redirect to="/Login"/>
     // }
     //---

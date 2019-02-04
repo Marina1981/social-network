@@ -1,10 +1,7 @@
 import React from 'react';
 import './LoginSection.css';
 import Redirect from "react-router/es/Redirect";
-import {statuses} from "../../dal/axios-instance";
-
-
-
+import {loginingProcessResults, loginingProcessStatuses} from "../../dal/axios-instance";
 
 
 const LoginSection = (props) => {
@@ -12,18 +9,31 @@ const LoginSection = (props) => {
     if (props.isAuth) {
         return <Redirect to="/profile"/>
     }
+   
     //---------------------------
-    
-    let errorMessageBlock =  props.status === statuses.ERROR &&
-    <div className="error-block">
-        {props.message}
-    </div>
+    let errorMessageBlock = (props.loginingError !== loginingProcessResults.SUCCESS) ?
+        (<div className="error-block">
+            <div className="error-message">
+                {props.loginingErrorMessage}
+            </div>
+                {(props.loginingError === loginingProcessResults.CAPTCHA_REQUIRED_ERROR) ?
+                    (<div className="captcha-block">
+                            <img className="captcha-block__images" src={props.captchaUrl} alt="captcha"/>
+                            <input className="captcha-block__input"/>
+                            <button className="captcha-block__button">
+                                add
+                            </button>
+                        </div>
+
+                    ) : null
+                }
+        </div>) : null;
+    //---------------------------
 
     //---------------------------
-
     return (
         <>
-            {props.status !== statuses.INPROGRESS ?
+            {props.loginingStatus !== loginingProcessStatuses.IN_PROGRESS ?
                 <div className="c-login-section-wrapper">
                     <div className="c-login-section">
                         <div className="c-login-section__index-login-form--positioned">
@@ -32,10 +42,10 @@ const LoginSection = (props) => {
                             Email
                         </span>
                                 <input className="input-form__input" placeholder='email'
-                                       value={props.userLogin}
+                                       value={props.creatingUserLogin}
                                        onChange={
                                            (e) => {
-                                               props.onChangeLogin(e.currentTarget.value)
+                                               props.onChangeCreatingLogin(e.currentTarget.value)
                                            }
                                        }/>
                             </div>
@@ -46,10 +56,10 @@ const LoginSection = (props) => {
                             Password
                         </span>
                                 <input className="input-form__input" placeholder='password' type="password"
-                                       value={props.userPassword}
+                                       value={props.creatingUserPassword}
                                        onChange={
                                            (e) => {
-                                               props.onChangePassword(e.currentTarget.value)
+                                               props.onChangeCreatingPassword(e.currentTarget.value)
                                            }
                                        }/>
                             </div>
@@ -58,7 +68,7 @@ const LoginSection = (props) => {
                             <input className="button-box__checkbox" type="checkbox"
                                    onChange={
                                        (e) => {
-                                           props.onChangeFlag(e.currentTarget.checked)
+                                           props.onChangeRememberMeFlag(e.currentTarget.checked)
                                        }
                                    }/>
                             <span className="checkbox-label">
@@ -69,19 +79,21 @@ const LoginSection = (props) => {
                                 (e) => {
                                     props.onLoginButtonClick();
                                 }}
-                                    disabled={props.status === statuses.INPROGRESS}>
+                                    disabled={props.loginingStatus === loginingProcessStatuses.IN_PROGRESS}>
                                 Login
                             </button>
-                            {/*------------------------------------------------*/}
                             {/*<span>{props.isLoggedIn.toString()}</span>*/}
                         </div>
-
+                        {/*------------------------------------------------*/}
                         {errorMessageBlock}
                         {/*------------------------------------------------*/}
-                        <button className="c-login-section__registration-button">
-                            registration
-                        </button>
+                        {/*<button className="c-login-section__registration-button">*/}
+                        {/*registration*/}
+                        {/*</button>*/}
                     </div>
+                    {/*------------------------------------------------*/}
+
+                    {/*------------------------------------------------*/}
                 </div> :
                 <div className="container" aria-busy="true"
                      aria-label="Loading" role="progressbar">

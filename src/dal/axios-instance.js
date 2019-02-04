@@ -6,12 +6,15 @@ const axios = axiosLib.create({
 });
 
 //----
-export const statuses = {
-    INIT:              'INIT',       //start
-    ERROR:             'ERROR',
-    INPROGRESS:        'INPROGRESS', //идет запрос
-    CAPTCHA_REQUIRED:  'CAPTCHA_REQUIRED',
-    SUCCESS:           'SUCCESS'
+export const loginingProcessStatuses = {
+    READY:        'READY',       //no process
+    IN_PROGRESS:  'IN_PROGRESS',
+};
+//----
+export const loginingProcessResults = {
+    COMMON_ERROR:             'COMMON_ERROR',
+    CAPTCHA_REQUIRED_ERROR:   'CAPTCHA_REQUIRED_ERROR',
+    SUCCESS:                  'SUCCESS'
 };
 
 export  default axios;

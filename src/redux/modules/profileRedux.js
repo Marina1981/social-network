@@ -1,14 +1,14 @@
 export const types = {
-     SET_USERPIC_URL:              'NETWORK/PROFILE_PAGE/SET_USERPIC_URL',
-     SET_USER_NAME:                'NETWORK/PROFILE_PAGE/SET_USER_NAME',
-     SET_USER_BIRTH_DATE:          'NETWORK/PROFILE_PAGE/SET_USER_BIRTH_DATE',
-     SET_USER_CITY:                'NETWORK/PROFILE_PAGE/SET_USER_CITY',
-     SET_USER_EDUCATION:           'NETWORK/PROFILE_PAGE/SET_USER_EDUCATION',
-     SET_USER_WEBSITE:             'NETWORK/PROFILE_PAGE/SET_USER_WEBSITE',
-     ADD_POST:                     'NETWORK/PROFILE_PAGE/ADD_POST',
-     SET_CREATING_POST:            'NETORK/PROFILE_PAGE/SET_CREATING_POST',
-     INCREMENT_POST_LIKE_COUNT:    'NETWORK/PROFILE_PAGE/INCREMENT_POST_LIKE_COUNT',
-     ADD_CREATING_MESSAGE_AS_POST: 'NETWORK/PROFILE_PAGE/ADD_CREATING_MESSAGE_AS_POST'
+    SET_USERPIC_URL:              'NETWORK/PROFILE_PAGE/SET_USERPIC_URL',
+    SET_USER_NAME:                'NETWORK/PROFILE_PAGE/SET_USER_NAME',
+    SET_USER_BIRTH_DATE:          'NETWORK/PROFILE_PAGE/SET_USER_BIRTH_DATE',
+    SET_USER_CITY:                'NETWORK/PROFILE_PAGE/SET_USER_CITY',
+    SET_USER_EDUCATION:           'NETWORK/PROFILE_PAGE/SET_USER_EDUCATION',
+    SET_USER_WEBSITE:             'NETWORK/PROFILE_PAGE/SET_USER_WEBSITE',
+    ADD_POST:                     'NETWORK/PROFILE_PAGE/ADD_POST',
+    SET_CREATING_POST:            'NETORK/PROFILE_PAGE/SET_CREATING_POST',
+    INCREMENT_POST_LIKE_COUNT:    'NETWORK/PROFILE_PAGE/INCREMENT_POST_LIKE_COUNT',
+    ADD_CREATING_MESSAGE_AS_POST: 'NETWORK/PROFILE_PAGE/ADD_CREATING_MESSAGE_AS_POST'
 };
 
 
@@ -28,19 +28,19 @@ export const actions = {
 
 //----
 export const initialState = {
-        userInfo:{
-                userID: '',
-                userPicURL: '',
-                userName:'',
-                userBirthDate:'',
-                userCity: '',
-                userEducation: '',
-                userWebSite: ''
-        },
-        wall:{
-            messagesList:[],
-            creatingMessage: ''
-        }
+    userInfo:{
+        userID: '',
+        userPicURL: '',
+        userName:'',
+        userBirthDate:'',
+        userCity: '',
+        userEducation: '',
+        userWebSite: ''
+    },
+    wall:{
+        messagesList:[],
+        creatingMessage: ''
+    }
 };
 //-------
 export const reducer = (state = initialState, action) => {
@@ -83,9 +83,9 @@ export const reducer = (state = initialState, action) => {
 
         case types.ADD_POST:
             newState.wall.messagesList = [...newState.wall.messagesList,
-                                                {text:      action.message,
-                                                 likeCount: 0,
-                                                 messageId: action.messageId}];
+                {text:      action.message,
+                    likeCount: 0,
+                    messageId: action.messageId}];
             return newState;
 
         case types.SET_CREATING_POST:
@@ -102,9 +102,9 @@ export const reducer = (state = initialState, action) => {
         case types.ADD_CREATING_MESSAGE_AS_POST:
 
             newState.wall.messagesList = [...newState.wall.messagesList,
-                                               {text:      state.wall.creatingMessage,
-                                                likeCount: 0,
-                                                messageId: action.messageId}];
+                {text:      state.wall.creatingMessage,
+                    likeCount: 0,
+                    messageId: action.messageId}];
             return newState;
 
         default:

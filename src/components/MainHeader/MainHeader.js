@@ -2,9 +2,11 @@ import React from 'react';
 import './MainHeader.css';
 import logoIcon from './images/apelsin.png';
 import {NavLink} from "react-router-dom";
+import {Redirect} from "react-router";
 
 
 const MainHeader = (props) => {
+
     return (
         <header className="c-header-section">
             <div className="c-header-section__logo-icon">
@@ -12,14 +14,19 @@ const MainHeader = (props) => {
             </div>
             {
                 props.isAuth &&
-                <div className="c-header-section__user-info-block">
-                    <div className="user-info-block__user-name"> {props.userName} </div>
-                    <img src={props.userPic} className="user-info-block__userPic" alt="userPic"/>
-                </div>
+                <>
+                    <div className="c-header-section__user-info-block">
+                        <div className="user-info-block__user-name"> {props.userName} </div>
+                        <img src={props.userPic} className="user-info-block__userPic" alt="userPic"/>
+                    </div>
+                    <div  className="c-header-section__logout" onClick={props.onLogOut}>
+                        Log Out
+                    </div>
+                </>
             }
             {
                 !props.isAuth &&
-                <NavLink to="/Login" className="c-header-section__sugnin">
+                <NavLink to="/Login" className="c-header-section__signin">
                     Sign In
                 </NavLink>
             }

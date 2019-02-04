@@ -14,7 +14,7 @@ const mapStateToProps = (state) => {
         friendsChatLog:   state.dialogsPage.friendsChatLog,
         selectedFriendId: state.dialogsPage.selectedFriendId,
         creatingMessage:  state.dialogsPage.creatingMessage,
-        status:           state.auth.isLoggedIn
+        loginingStatus:           state.auth.isLoggedIn
     }
 };
 

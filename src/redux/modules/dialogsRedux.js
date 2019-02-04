@@ -22,7 +22,7 @@ export const actions = {
         setCreatingMessage: (message) => {
             return {
                 type:    types.SET_CREATING_MESSAGE,
-                message: message
+                loginingError: message
             }
         },
         addFriendsChatLogMessage: (friendId, messageId, isUserMessage, text, time) => {
@@ -46,10 +46,10 @@ export const actions = {
     };
 //---------
 
-// export const onCreatingMessageChanged = (message) => {
+// export const onCreatingMessageChanged = (loginingError) => {
 //     return {
 //         type:    SET_CREATING_MESSAGE,
-//         message: message
+//         loginingError: loginingError
 //     }
 // };
 // //---------
@@ -104,8 +104,8 @@ export const reducer = (state=initialState, action) => {
             return newImmutableState.toJS();
 
         case types.SET_CREATING_MESSAGE:
-           // newState.creatingMessage = action.message;
-            newImmutableState  = immutableState.set('creatingMessage',action.message);
+           // newState.creatingMessage = action.loginingError;
+            newImmutableState  = immutableState.set('creatingMessage',action.loginingError);
             return newImmutableState.toJS();
 
         case types.ADD_FRIEND_CHAT_LOG_MESSAGE:
@@ -183,7 +183,7 @@ export const reducer = (state=initialState, action) => {
 //             return newState;
 //
 //         case types.SET_CREATING_MESSAGE:
-//             newState.creatingMessage = action.message;
+//             newState.creatingMessage = action.loginingError;
 //             return newState;
 //
 //         case types.ADD_FRIEND_CHAT_LOG_MESSAGE:
@@ -250,10 +250,10 @@ export const reducer = (state=initialState, action) => {
     //         };
     //         store.dispatch(action);
     //     },
-    //     onCreatingMessageChanged: (message)=>{
+    //     onCreatingMessageChanged: (loginingError)=>{
     //         const action = {
     //             type:    SET_CREATING_MESSAGE,
-    //             message: message
+    //             loginingError: loginingError
     //         };
     //         store.dispatch(action);
     //     },
@@ -272,7 +272,7 @@ export const reducer = (state=initialState, action) => {
     //
     //         const action_2 = {
     //             type:    SET_CREATING_MESSAGE,
-    //             message: ''
+    //             loginingError: ''
     //         };
     //         store.dispatch(action_2);
     //     }
