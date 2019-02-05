@@ -17,10 +17,10 @@ const mapStateToProps = (state) => {
         loginingError:         state.loginPage.loginingError,
         loginingErrorMessage:  state.loginPage.loginingErrorMessage,
         captchaUrl:            state.loginPage.captchaUrl,
-
-        creatingUserLogin:    state.loginPage.creatingUserLogin,
-        creatingUserPassword: state.loginPage.creatingUserPassword,
-        rememberMe:           state.loginPage.isRememberMe
+        creatingCaptcha:       state.loginPage.creatingCaptcha,
+        creatingUserLogin:     state.loginPage.creatingUserLogin,
+        creatingUserPassword:  state.loginPage.creatingUserPassword,
+        rememberMe:            state.loginPage.isRememberMe
     }
 };
 const mapDispatchToProps = (dispatch) => {
@@ -37,6 +37,12 @@ const mapDispatchToProps = (dispatch) => {
         onLoginButtonClick: () => {
             dispatch(login())
         },
+        onChangeCreatingCaptcha: (creatingCaptcha) => {
+            dispatch(loginActions.setCreatingCaptcha(creatingCaptcha))
+        },
+        addCreatingCaptcha: () => {
+
+        }
         // onCaptchaRequiredError: () => {
         //     dispatch(getCaptcha())
         // }

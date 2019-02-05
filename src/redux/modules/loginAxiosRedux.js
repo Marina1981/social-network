@@ -62,8 +62,8 @@ export const logOut = () => (dispatch) => {
 // export const setServerCaptcha = () => (dispatch) => {
 //     axios.get('security/get-captcha-url')
 //         .then(result => {
-//             if (result.data.resultCode === 10) {
+//
 //                 dispatch(actionsLogin.setCaptchaUrl(result.data.url))
-//             }
+//
 //         })
 // };

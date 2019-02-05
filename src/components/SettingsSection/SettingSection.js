@@ -1,10 +1,16 @@
 import React  from 'react';
 import style from './SettingSection.module.css';
 import {NavLink} from "react-router-dom";
+import {Redirect} from "react-router";
 
 
 
 const SettingsSection = (props) => {
+    //---
+    if (!props.isAuth){
+        return <Redirect to="/Login"/>
+    }
+    //---
   return (
       <div className={style.wraperUserSettingsSection}>
           <div className={style.userSettingsSection}>

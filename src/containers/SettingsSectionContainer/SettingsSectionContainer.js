@@ -8,6 +8,7 @@ import {actions as profileActions} from "../../redux/modules/profileRedux";
 //---
 const mapStateToProps = (state) => {
     return {
+        isAuth:           state.auth.userAuthData.userId !== null, // true / false
         userName:         state.profilePage.userInfo.userName,
         userBirthDate:    state.profilePage.userInfo.userBirthDate,
         userCity:         state.profilePage.userInfo.userCity,

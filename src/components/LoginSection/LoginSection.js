@@ -19,8 +19,18 @@ const LoginSection = (props) => {
                 {(props.loginingError === loginingProcessResults.CAPTCHA_REQUIRED_ERROR) ?
                     (<div className="captcha-block">
                             <img className="captcha-block__images" src={props.captchaUrl} alt="captcha"/>
-                            <input className="captcha-block__input"/>
-                            <button className="captcha-block__button">
+                            <input className="captcha-block__input" value={props.creatingCaptcha}
+                                   onChange={
+                                       (e) => {
+                                           props.onChangeCreatingCaptcha(e.currentTarget.value)
+                                       }
+                            }/>
+                            <button className="captcha-block__button"
+                                    onClick={
+                                        (e) => {
+                                            props.addCreatingCaptcha()
+                                        }
+                                    }>
                                 add
                             </button>
                         </div>
@@ -82,7 +92,6 @@ const LoginSection = (props) => {
                                     disabled={props.loginingStatus === loginingProcessStatuses.IN_PROGRESS}>
                                 Login
                             </button>
-                            {/*<span>{props.isLoggedIn.toString()}</span>*/}
                         </div>
                         {/*------------------------------------------------*/}
                         {errorMessageBlock}

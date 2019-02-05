@@ -2,9 +2,15 @@ import React from 'react';
 import './DialogsSection.css';
 import MessageCreationForm from "../MessageCreationForm/MessageCreationForm";
 import {NavLink} from "react-router-dom";
+import {Redirect} from "react-router";
 
 
 const DialogsSection = (props) => {
+    //---
+    if (!props.isAuth){
+        return <Redirect to="/Login"/>
+    }
+    //---
     //---
     let selectedFriendId = props.friendsChatLog[props.selectedFriendId];
     //---

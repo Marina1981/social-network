@@ -11,11 +11,12 @@ const ProfileSectionContainer = (props) => {
 //---
 const mapStateToProps = (state) => {
     return {
+        isAuth:           state.auth.userAuthData.userId !== null, // true / false
         userInfo:         state.profilePage.userInfo,
         selectedFriendId: state.dialogsPage.selectedFriendId,
         messagesList:     state.profilePage.wall.messagesList,
         creatingMessage:  state.profilePage.wall.creatingMessage,
-        loginingStatus:           state.auth.isLoggedIn
+        // loginingStatus:   state.auth.isLoggedIn
 
     }
 };

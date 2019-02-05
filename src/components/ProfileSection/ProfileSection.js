@@ -9,9 +9,9 @@ import {Redirect} from "react-router";
 
 const ProfileSection = (props) =>{
     //---
-    // if (!props.isAuth){
-    //     return <Redirect to="/Login"/>
-    // }
+    if (!props.isAuth){
+        return <Redirect to="/Login"/>
+    }
     //---
     return (
         <article className="c-profile-section">
