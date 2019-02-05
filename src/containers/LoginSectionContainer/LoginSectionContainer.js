@@ -39,13 +39,7 @@ const mapDispatchToProps = (dispatch) => {
         },
         onChangeCreatingCaptcha: (creatingCaptcha) => {
             dispatch(loginActions.setCreatingCaptcha(creatingCaptcha))
-        },
-        addCreatingCaptcha: () => {
-
         }
-        // onCaptchaRequiredError: () => {
-        //     dispatch(getCaptcha())
-        // }
     }
 };
 

@@ -25,16 +25,7 @@ const LoginSection = (props) => {
                                        props.onChangeCreatingCaptcha(e.currentTarget.value)
                                    }
                                }/>
-                        <button className="captcha-block__button"
-                                onClick={
-                                    (e) => {
-                                        props.addCreatingCaptcha()
-                                    }
-                                }>
-                            add
-                        </button>
                     </div>
-
                 ) : null
             }
         </div>) : null;
