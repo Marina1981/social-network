@@ -84,8 +84,8 @@ export const reducer = (state = initialState, action) => {
         case types.ADD_POST:
             newState.wall.messagesList = [...newState.wall.messagesList,
                 {text:      action.message,
-                    likeCount: 0,
-                    messageId: action.messageId}];
+                 likeCount: 0,
+                 messageId: action.messageId}];
             return newState;
 
         case types.SET_CREATING_POST:
@@ -102,9 +102,9 @@ export const reducer = (state = initialState, action) => {
         case types.ADD_CREATING_MESSAGE_AS_POST:
 
             newState.wall.messagesList = [...newState.wall.messagesList,
-                {text:      state.wall.creatingMessage,
-                    likeCount: 0,
-                    messageId: action.messageId}];
+                {text:     state.wall.creatingMessage,
+                 likeCount: 0,
+                 messageId: action.messageId}];
             return newState;
 
         default:

@@ -2,7 +2,7 @@ import {actions as actionsAuth} from "./authRedux";
 import {actions as actionsLogin} from "./loginRedux";
 import {loginingProcessResults, loginingProcessStatuses} from "../../dal/axios-instance";
 import axios from "../../dal/axios-instance";
-import {actions as actionDialogs} from "./dialogsRedux";
+
 
 
 //--- thunkCreator -------//
@@ -62,10 +62,11 @@ export const logOut = () => (dispatch) => {
 };
 //---
 export const setReceivedServerUsers = () => (dispatch) => {
+    debugger;
     axios.get('users')
         .then(result => {
             dispatch(actionsLogin.setLoginingProcessStatus(loginingProcessStatuses.READY));
-            // dispatch(actionDialogs.setFriendsList(result.data.items))
+            dispatch(actionsAuth.setUsersList(result.data.items.map( u => ({userName: u.name, userPicURL: u.photo}))))
                 })
 };
 
