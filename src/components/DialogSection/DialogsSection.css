@@ -153,6 +153,7 @@
 
 .userpic-friend{
     max-height: 4rem;
+    min-width: 3rem;
     border: 0.1rem solid #88d23de6;
     border-radius: 2rem;
     height: 3rem;

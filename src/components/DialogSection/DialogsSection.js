@@ -34,24 +34,6 @@ const DialogsSection = (props) => {
             <div className="c-dialog-section__border-line"/>
                 <div className="c-dialog-section__dialogs
                                 c-dialog-section__dialogs--positioned">
-                {/*{*/}
-                    {/*props.friendsList.map((el) => {*/}
-
-                        {/*let clss = "c-friend" + ' ' + ((el.friendId === props.selectedFriendId) ? ("c-friend__selected") : (""));*/}
-
-                        {/*return <div className={clss}*/}
-                                    {/*key={el.friendId}*/}
-                                    {/*onClick={(e) => {*/}
-                                        {/*props.onFriendSelected(el.friendId);*/}
-                                    {/*}}>*/}
-                            {/*<div className="c-friend__userpic">*/}
-                                {/*<img className="userpic-friend" src={el.friendUserPicURL}/>*/}
-                            {/*</div>*/}
-                            {/*<span className="c-friend__name">{el.friendName}</span>*/}
-                        {/*</div>*/}
-                    {/*})*/}
-                {/*}*/}
-
 
                     {
                         props.friendsList.map((el) => {

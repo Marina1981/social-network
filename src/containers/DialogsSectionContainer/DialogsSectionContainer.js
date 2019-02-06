@@ -8,14 +8,14 @@ import {withRouter} from "react-router";
 
 
 const mapStateToProps = (state) => {
+
     return {
         isAuth:           state.auth.userAuthData.userId !== null, // true / false
         userInfo:         state.profilePage.userInfo,
         friendsList:      state.dialogsPage.friendsList,
         friendsChatLog:   state.dialogsPage.friendsChatLog,
         selectedFriendId: state.dialogsPage.selectedFriendId,
-        creatingMessage:  state.dialogsPage.creatingMessage,
-        // loginingStatus:           state.auth.isLoggedIn
+        creatingMessage:  state.dialogsPage.creatingMessage
     }
 };
 
@@ -32,6 +32,7 @@ const mapDispatchToProps = (dispatch) => {
         onCreatingMessageFinishCommitted: (friendId,messageId,messageFinishCommittedTime) => {
             dispatch(dialogsActions.addCreatingMessageToFriendChatLog(friendId,messageId,messageFinishCommittedTime));
         }
+
     }
 
 };

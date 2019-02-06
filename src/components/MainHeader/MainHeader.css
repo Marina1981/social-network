@@ -7,7 +7,8 @@
     display: grid;
     grid-template-rows:     1fr;
     grid-template-columns:  minmax(auto, 15%)
-                            minmax(auto, 70%)
+                            minmax(auto, 45%)
+                            minmax(auto, 25%)
                             minmax(auto, 10%)
                             minmax(auto,  5%);
 
@@ -29,9 +30,46 @@
 
 }
 /*------------------------------------------------------------------*/
-.c-header-section__user-info-block{
+.c-header-section__search-block{
     grid-row:    1;
     grid-column: 3;
+
+    display: flex;
+
+}
+.search-block__label{
+    justify-content: center;
+    align-self: center;
+    font-family: cursive;
+    font-size: 1rem;
+    color: #bb4034;
+    padding-right: 1rem;
+
+}
+.search-block__title:hover{
+    cursor: pointer;
+    color: white;
+}
+.search-block__input{
+    justify-content: center;
+    align-self: center;
+
+    width: 10rem;
+    height: 1.5rem;
+    border: none;
+    background-color: white;
+    font-size: 1.4rem;
+    color: grey;
+    text-align: center;
+    outline:none;
+}
+.search-block__input:hover{
+    cursor: pointer;
+}
+/*------------------------------------------------------------------*/
+.c-header-section__user-info-block{
+    grid-row:    1;
+    grid-column: 4;
 
     display: flex;
     flex-direction:  row;
@@ -39,7 +77,7 @@
     align-items: center;
 
     width:  8rem;
-    height: 4rem;
+    height: 6rem;
 }
 .user-info-block__userPic{
     height: 100%;
@@ -54,13 +92,13 @@
     font-family: cursive;
     font-size: 1rem;
     padding-right: 1rem;
-    color: goldenrod;
+    color: #bb4034;
 }
 /*------------------------------------------------------------------*/
 .c-header-section__signin,
 .c-header-section__logout{
     grid-row:    1;
-    grid-column: 4;
+    grid-column: 5;
 
     display: flex;
     justify-content: center;
@@ -68,7 +106,7 @@
 
     font-family: cursive;
     font-size: 1rem;
-    color: goldenrod;
+    color: #bb4034;
     width: 6rem;
 }
 .c-header-section__signin:hover{

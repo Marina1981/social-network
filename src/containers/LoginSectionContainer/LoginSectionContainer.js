@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from "react-redux";
 import {actions as loginActions} from "../../redux/modules/loginRedux";
 import LoginSection from "../../components/LoginSection/LoginSection";
-import {getCaptcha, login} from "../../redux/modules/loginAxiosRedux";
+import {login} from "../../redux/modules/loginAxiosRedux";
 
 
 const LoginSectionContainer = (props) => {
@@ -48,4 +48,4 @@ export  default connect(
     mapStateToProps,
     mapDispatchToProps)(LoginSectionContainer);
 //---
-// export default LoginSectionContainer;
+

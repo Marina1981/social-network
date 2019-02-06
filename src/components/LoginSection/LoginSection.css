@@ -58,7 +58,7 @@
     width: 10rem;
     height: 3rem;
     border: none;
-    background-color: #b3ff66;
+    background-color: #ffc349;
     color: white;
     font-family: cursive;
     font-size: 1.3rem;
@@ -67,8 +67,8 @@
     outline:none;
 
 }
-.button-box__button:hover{
-    color:  #ffc349;
+.button-box__button:hover {
+    color:  #b3ff66;
     cursor: pointer;
 }
 /*------------------------------------------------------------------*/
@@ -89,7 +89,7 @@
 .checkbox-label{
     font-family: cursive;
     font-size: 0.8rem;
-    color: gray;
+    color: #bb4034;
     margin-right: 5rem;
 }
 /*------------------------------------------------------------------*/
@@ -121,7 +121,7 @@
 
     font-family: cursive;
     font-size: 1.3rem;
-    color: gray;
+    color: #bb4034;
 
 }
 /*------------------------------------------------------------------*/
@@ -199,7 +199,7 @@
     color: white;
     font-family: cursive;
     font-size: 0.9rem;
-
+    margin-bottom: 1rem;
     border-radius: 1rem;
 }
 /*------------------------------------------------------------------*/
@@ -229,7 +229,7 @@
     color: grey;
     text-align: center;
     outline:none;
-    margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 .captcha-block__button{
     display: flex;

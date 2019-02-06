@@ -2,7 +2,7 @@ import React from 'react';
 import './MainHeader.css';
 import logoIcon from './images/apelsin.png';
 import {NavLink} from "react-router-dom";
-import {Redirect} from "react-router";
+
 
 
 const MainHeader = (props) => {
@@ -12,6 +12,11 @@ const MainHeader = (props) => {
             <div className="c-header-section__logo-icon">
                 <img className='logo-img' src={logoIcon} alt='logo'/>
             </div>
+            <div className="c-header-section__search-block">
+                <NavLink to="/Users" className="search-block__label">search</NavLink>
+                <input className="search-block__input"/>
+            </div>
+
             {
                 props.isAuth &&
                 <>

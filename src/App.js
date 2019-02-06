@@ -10,6 +10,7 @@ import SettingsSectionContainer from "./containers/SettingsSectionContainer/Sett
 import TemplateWithoutSideBar from "./components/TemplateWithoutSideBar/TemplateWithoutSideBar";
 import TemplateWithSideBar from "./components/TemplateWithSideBar/TemplateWithSideBar";
 import NotFoundSection from "./components/NotFoundSection/NotFoundSection";
+import UsersSectionContainer from "./containers/UsersSectionContainer/UsersSectionContainer";
 
 
 
@@ -48,10 +49,15 @@ const App = () => {
                            <TemplateWithSideBar>
                                <SettingsSectionContainer/>
                            </TemplateWithSideBar>}/>
+                <Route exact
+                       path='/users'
+                       render={() =>
+                           <TemplateWithSideBar>
+                               <UsersSectionContainer/>
+                           </TemplateWithSideBar>}/>
                 <Route path='/'
                        render={() =>
                            <TemplateWithoutSideBar>
-                               {/*<div className="path-error">404, page not found.</div>*/}
                                <NotFoundSection/>
                            </TemplateWithoutSideBar>}/>
             </Switch>
