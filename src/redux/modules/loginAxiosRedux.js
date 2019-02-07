@@ -2,6 +2,7 @@ import {actions as actionsAuth} from "./authRedux";
 import {actions as actionsLogin} from "./loginRedux";
 import {loginingProcessResults, loginingProcessStatuses} from "../../dal/axios-instance";
 import axios from "../../dal/axios-instance";
+import {actions as actionsUsers} from "./usersRedux";
 
 
 
@@ -41,11 +42,10 @@ export const login = () => (dispatch, getState) => {
 };
 //--- thunkCreator -------//
 export const setServerSubmittedAuth = () => (dispatch) => {
-    axios
-        .get('auth/me')
-        .then(result => {
+    axios.get('auth/me')
+         .then(result => {
             if (result.data.resultCode === 0) {
-                dispatch(actionsAuth.setUserAuthData(result.data.data.userId, result.data.data.login, result.data.data.email));
+                dispatch(actionsAuth.setUserAuthData(result.data.data.id, result.data.data.login, result.data.data.email));
             } else {
                 dispatch(actionsAuth.clearUserAuthData())
             }
@@ -62,11 +62,10 @@ export const logOut = () => (dispatch) => {
 };
 //---
 export const setReceivedServerUsers = () => (dispatch) => {
-    debugger;
     axios.get('users')
         .then(result => {
             dispatch(actionsLogin.setLoginingProcessStatus(loginingProcessStatuses.READY));
-            dispatch(actionsAuth.setUsersList(result.data.items.map( u => ({userName: u.name, userPicURL: u.photo}))))
+            dispatch(actionsUsers.setUsersList(result.data.items.map( u => ({userName: u.name, userPicURL: u.photo, userStatus: u.status, userUniqueUrlName: u.uniqueUrlName}))))
                 })
 };
 

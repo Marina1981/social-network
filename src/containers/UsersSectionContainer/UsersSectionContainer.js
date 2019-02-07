@@ -1,7 +1,7 @@
 import React from 'react';
 import connect from "react-redux/es/connect/connect";
 import UsersSection from "../../components/UsersSection/UsersSection";
-import {logOut, setReceivedServerUsers} from "../../redux/modules/loginAxiosRedux";
+import {setReceivedServerUsers} from "../../redux/modules/loginAxiosRedux";
 
 
 
@@ -25,7 +25,7 @@ class UsersSectionContainer extends React.Component {
 const mapStateToProps = (state) => {
     return{
         isAuth:    state.auth.userAuthData.userId !== null, // true / false
-        usersList: state.auth.usersList
+        usersList: state.usersPage.usersList
     }
 };
 const mapDispatchToProps = (dispatch) => ({

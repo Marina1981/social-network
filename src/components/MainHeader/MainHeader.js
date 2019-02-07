@@ -12,14 +12,14 @@ const MainHeader = (props) => {
             <div className="c-header-section__logo-icon">
                 <img className='logo-img' src={logoIcon} alt='logo'/>
             </div>
-            <div className="c-header-section__search-block">
-                <NavLink to="/Users" className="search-block__label">search</NavLink>
-                <input className="search-block__input"/>
-            </div>
 
             {
                 props.isAuth &&
                 <>
+                    <div className="c-header-section__search-block">
+                        <NavLink to="/Users" className="search-block__label">search</NavLink>
+                        <input className="search-block__input"/>
+                    </div>
                     <div className="c-header-section__user-info-block">
                         <div className="user-info-block__user-name"> {props.userName} </div>
                         <img src={props.userPic} className="user-info-block__userPic" alt="userPic"/>
