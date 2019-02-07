@@ -7,18 +7,18 @@ import PropTypes from 'prop-types';
 
 
 
-const UserInfoSection = (userPicURL, userName, userBirthDate, userCity, userEducation, userWebSite) =>{
+const UserInfoSection = (props) =>{
         return (
             <div className="c-info
                                 c-info__c-info--positioned">
                 <div className="c-info__userpic
                                     c-info__userpic--positioned">
-                    <img className="c-info__userpic-img" src={userPicURL} alt="userpic"/>
+                    <img className="c-info__userpic-img" src={props.userPicURL} alt="userpic"/>
                 </div>
                 <div className="c-info__short-info
                                     c-info__short-info--positioned">
                     <div className="c-info__user-name">
-                        {userName}
+                        {props.userName}
                     </div>
                     <div className="c-info__birth-date">
                                 <span className="c-info__birth-date-label
@@ -26,7 +26,7 @@ const UserInfoSection = (userPicURL, userName, userBirthDate, userCity, userEduc
                                     Дата рождения :
                                 </span>
                         <span className="c-info__birth-date-value">
-                                  {userBirthDate}
+                                  {props.userBirthDate}
                                 </span>
                     </div>
                     <div className="c-info__residence">
@@ -35,7 +35,7 @@ const UserInfoSection = (userPicURL, userName, userBirthDate, userCity, userEduc
                                     Город :
                                 </span>
                         <span className="c-info__residence-value">
-                                   {userCity}
+                                   {props.userCity}
                                 </span>
                     </div>
                     <div className="c-info__education">
@@ -44,7 +44,7 @@ const UserInfoSection = (userPicURL, userName, userBirthDate, userCity, userEduc
                                     Образование :
                                 </span>
                         <span className="c-info__education-value">
-                                   {userEducation}
+                                   {props.userEducation}
                                 </span>
                     </div>
                     <div className="c-info__website">
@@ -53,8 +53,13 @@ const UserInfoSection = (userPicURL, userName, userBirthDate, userCity, userEduc
                                     Веб-сайт :
                                 </span>
                         <Link to='/' className="c-info__website-value">
-                            {userWebSite}
+                            {props.userWebSite}
                         </Link>
+                    </div>
+                    <div className="c-info__status">
+                        <div className="c-info__status-value">
+                            {props.userStatus}
+                        </div>
                     </div>
                 </div>
             </div>

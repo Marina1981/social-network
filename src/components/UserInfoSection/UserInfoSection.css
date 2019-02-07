@@ -70,7 +70,14 @@
     align-self:   stretch;
 }
 /*------------------------------------------------------------------*/
-
+.c-info__status{
+   display: flex;
+}
+.c-info__status-value{
+    font-family: cursive;
+    font-size: 1.2rem;
+    color: #bb4034;
+}
 /*------------------------------------------------------------------*/
 .c-info__user-name{
     font-family: cursive;

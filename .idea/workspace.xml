@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc362f95-17c0-44b3-a3cb-2fae7517dc0d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/components/ProfileSection/ProfileSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProfileSection/ProfileSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UserInfoSection/UserInfoSection.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserInfoSection/UserInfoSection.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/UserInfoSection/UserInfoSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserInfoSection/UserInfoSection.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/UserInfoSectionContainer/UserInfoSectionContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/UserInfoSectionContainer/UserInfoSectionContainer.js" afterDir="false" />
     </list>
@@ -17,15 +17,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/redux/modules/loginRedux.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="35" column="58" selection-start-line="35" selection-start-column="58" selection-end-line="35" selection-end-column="58" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/redux/modules/loginAxiosRedux.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -53,17 +44,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/redux/modules/profileRedux.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="118" column="25" lean-forward="true" selection-start-line="118" selection-start-column="25" selection-end-line="118" selection-end-column="25" />
+            <state relative-caret-position="221">
+              <caret line="40" column="22" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/UserInfoSection/UserInfoSection.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="55" selection-start-line="55" selection-end-line="56" />
+            <state relative-caret-position="526">
+              <caret line="59" column="60" selection-start-line="59" selection-start-column="40" selection-end-line="59" selection-end-column="60" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -71,11 +62,20 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/UserInfoSection/UserInfoSection.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="519">
+              <caret line="77" column="22" lean-forward="true" selection-start-line="77" selection-start-column="22" selection-end-line="77" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/containers/UserInfoSectionContainer/UserInfoSectionContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="42" column="48" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="48" />
+            <state relative-caret-position="374">
+              <caret line="31" column="60" selection-start-line="31" selection-start-column="60" selection-end-line="31" selection-end-column="60" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -171,7 +171,6 @@
         <option value="$PROJECT_DIR$/src/components/NewsSection/NewsSection.css" />
         <option value="$PROJECT_DIR$/src/components/Post/Post.css" />
         <option value="$PROJECT_DIR$/src/components/ProfileSection/ProfileSection.css" />
-        <option value="$PROJECT_DIR$/src/components/UserInfoSection/UserInfoSection.css" />
         <option value="$PROJECT_DIR$/src/components/TemplateWithoutSideBar/TemplateWithoutSideBar.module.css" />
         <option value="$PROJECT_DIR$/src/components/NotFoundSection/NotFoundSection.js" />
         <option value="$PROJECT_DIR$/src/components/NotFoundSection/NotFoundSection.module.css" />
@@ -205,11 +204,12 @@
         <option value="$PROJECT_DIR$/src/redux/modules/authRedux.js" />
         <option value="$PROJECT_DIR$/src/containers/UsersSectionContainer/UsersSectionContainer.js" />
         <option value="$PROJECT_DIR$/src/redux/reducer.js" />
-        <option value="$PROJECT_DIR$/src/redux/modules/profileRedux.js" />
         <option value="$PROJECT_DIR$/src/redux/modules/usersRedux.js" />
-        <option value="$PROJECT_DIR$/src/containers/UserInfoSectionContainer/UserInfoSectionContainer.js" />
         <option value="$PROJECT_DIR$/src/components/ProfileSection/ProfileSection.js" />
         <option value="$PROJECT_DIR$/src/components/UserInfoSection/UserInfoSection.js" />
+        <option value="$PROJECT_DIR$/src/containers/UserInfoSectionContainer/UserInfoSectionContainer.js" />
+        <option value="$PROJECT_DIR$/src/redux/modules/profileRedux.js" />
+        <option value="$PROJECT_DIR$/src/components/UserInfoSection/UserInfoSection.css" />
       </list>
     </option>
   </component>
@@ -357,12 +357,12 @@
       <workItem from="1547098595910" duration="221207000" />
       <workItem from="1549352327717" duration="1702000" />
       <workItem from="1549369685301" duration="29069000" />
-      <workItem from="1549518675746" duration="7322000" />
+      <workItem from="1549518675746" duration="8030000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="434873000" />
+    <option name="totallyTimeSpent" value="435581000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -605,13 +605,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/UserInfoSection/UserInfoSection.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="77" column="17" lean-forward="true" selection-start-line="75" selection-start-column="3" selection-end-line="77" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/LoginSection/LoginSection.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -777,13 +770,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/modules/profileRedux.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="118" column="25" lean-forward="true" selection-start-line="118" selection-start-column="25" selection-end-line="118" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/UsersSectionContainer/UsersSectionContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="577">
@@ -820,8 +806,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/UserInfoSectionContainer/UserInfoSectionContainer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="42" column="48" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="48" />
+        <state relative-caret-position="374">
+          <caret line="31" column="60" selection-start-line="31" selection-start-column="60" selection-end-line="31" selection-end-column="60" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -830,11 +816,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/UserInfoSection/UserInfoSection.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="55" selection-start-line="55" selection-end-line="56" />
+        <state relative-caret-position="526">
+          <caret line="59" column="60" selection-start-line="59" selection-start-column="40" selection-end-line="59" selection-end-column="60" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/modules/profileRedux.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="40" column="22" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/UserInfoSection/UserInfoSection.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="519">
+          <caret line="77" column="22" lean-forward="true" selection-start-line="77" selection-start-column="22" selection-end-line="77" selection-end-column="22" />
         </state>
       </provider>
     </entry>
