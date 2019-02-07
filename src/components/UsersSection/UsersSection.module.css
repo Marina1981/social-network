@@ -13,7 +13,8 @@
 
     background: bisque;
     overflow-y: auto;
-    /*max-height: 52rem;*/
+
+    max-height: 45rem;
 
 }
 
@@ -36,9 +37,9 @@
     grid-template-columns:  minmax(auto, 20%)
                             minmax(auto, 80%);
 
-    height: 10rem;
-    margin-top: 2rem;
+    height: 7rem;
     margin-left: 2rem;
+    border-bottom: 0.05rem solid #bb4034;
 }
 
 .usersName{
@@ -69,8 +70,8 @@
     min-width: 3rem;
     border: 0.1rem solid #88d23de6;
     border-radius: 2rem;
-    height: 6rem;
-    width: 6rem;
+    height: 5rem;
+    width:  5rem;
     background-size: contain;
     overflow: hidden;
     background: white;

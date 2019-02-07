@@ -1,13 +1,15 @@
 import React from "react";
 import connect from "react-redux/es/connect/connect";
 import UserInfoSection from "../../components/UserInfoSection/UserInfoSection";
+import {setReceivedServerUserStatus} from "../../redux/modules/loginAxiosRedux";
+import {actions as actionProfile} from "../../redux/modules/profileRedux";
 
 
 
 class UserInfoSectionContainer extends React.Component {
     //---
     // componentDidMount() {
-    //     this.props.onDidMount();
+    //     this.props.onDidMount(...this.props.userId);
     // }
 
     //---
@@ -23,6 +25,7 @@ class UserInfoSectionContainer extends React.Component {
 const mapStateToProps = (state) => {
     return{
         isAuth:        state.auth.userAuthData.userId !== null, // true / false
+        userId:        state.auth.userAuthData.userId,
         userPicURL:    state.profilePage.userInfo.userPicURL,
         userName:      state.profilePage.userInfo.userName,
         userBirthDate: state.profilePage.userInfo.userBirthDate,
@@ -33,8 +36,11 @@ const mapStateToProps = (state) => {
     }
 };
 const mapDispatchToProps = (dispatch) => ({
+    // onChangeSpanOfInput: (status) => {
+    //     dispatch(actionProfile.setCreatingUserStatus(status))
+    // }
     // onDidMount: () => {
-    //     dispatch(setReceivedServerUsers());
+    //     dispatch(setReceivedServerUserStatus());
     // }
 });
 

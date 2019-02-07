@@ -3,6 +3,7 @@ import {actions as actionsLogin} from "./loginRedux";
 import {loginingProcessResults, loginingProcessStatuses} from "../../dal/axios-instance";
 import axios from "../../dal/axios-instance";
 import {actions as actionsUsers} from "./usersRedux";
+import {actions as actionProfile} from "./profileRedux";
 
 
 
@@ -65,15 +66,17 @@ export const setReceivedServerUsers = () => (dispatch) => {
     axios.get('users')
         .then(result => {
             dispatch(actionsLogin.setLoginingProcessStatus(loginingProcessStatuses.READY));
-            dispatch(actionsUsers.setUsersList(result.data.items.map( u => ({userName: u.name, userPicURL: u.photo, userStatus: u.status, userUniqueUrlName: u.uniqueUrlName}))))
+            dispatch(actionsUsers.setUsersList(result.data.items.map( u => ({userName: u.name,
+                                                                             userPicURL: u.photo,
+                                                                             userStatus: u.status,
+                                                                             userUniqueUrlName: u.uniqueUrlName}))))
                 })
 };
 
-// export const setServerCaptcha = () => (dispatch) => {
-//     axios.get('security/get-captcha-url')
-//         .then(result => {
-//
-//                 dispatch(actionsLogin.setCaptchaUrl(result.data.url))
-//
-//         })
-// };
+//---
+export const setReceivedServerUserStatus = (id) => (dispatch) => {
+  axios.get('profile/status/' + id)
+      .then(result => {
+          dispatch(actionProfile.setUsersStatus(result.data))
+      })
+};

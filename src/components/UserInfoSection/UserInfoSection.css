@@ -88,6 +88,38 @@
 .c-info__decorated-label{
     font-family: cursive;
     font-size: 1rem;
-    color: gray;
+    color: #bb4034;
 }
 /*------------------------------------------------------------------*/
+.c-info__status{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 1rem;
+}
+/*------------------------------------------------------------------*/
+.status__label{
+    font-family: cursive;
+    font-size: 1rem;
+    color: #bb4034;
+}
+/*------------------------------------------------------------------*/
+.status__input{
+    width: 15rem;
+    height: 1.5rem;
+    border: none;
+    background-color: white;
+    font-size: 1rem;
+    color: grey;
+    text-align: center;
+    outline:none;
+}
+.status__input:hover{
+    cursor: pointer;
+    border: 0.1rem solid #b3ff66;
+}
+/*------------------------------------------------------------------*/
+::-webkit-input-placeholder {color:#ffc349;}
+::-moz-placeholder          {color:#ffc349;}/* Firefox 19+ */
+:-moz-placeholder           {color:#ffc349;}/* Firefox 18- */
+:-ms-input-placeholder      {color:#ffc349;}
