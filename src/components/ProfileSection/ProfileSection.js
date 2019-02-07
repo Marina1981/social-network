@@ -1,9 +1,9 @@
 import React  from 'react';
 import './ProfileSection.css';
-import Post                  from '../Post/Post.js';
-import UserInfoSection       from "../UserInfoSection/UserInfoSection";
+import Post  from '../Post/Post.js';
 import MessageCreationForm from "../MessageCreationForm/MessageCreationForm";
 import {Redirect} from "react-router";
+import UserInfoSectionContainer from "../../containers/UserInfoSectionContainer/UserInfoSectionContainer";
 
 
 
@@ -19,7 +19,7 @@ const ProfileSection = (props) =>{
                                 c-profile-section__head-image--positioned"/>
             <div className="c-profile-section__info-block
                             c-profile-section__info-block--positioned">
-                <UserInfoSection userInfo = {props.userInfo} />
+                <UserInfoSectionContainer/>
             </div>
             <div className="c-profile-section__wall-block
                                 c-profile-section__wall-block--positioned">

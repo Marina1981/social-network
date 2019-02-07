@@ -22,8 +22,13 @@ class UserInfoSectionContainer extends React.Component {
 //----
 const mapStateToProps = (state) => {
     return{
-        isAuth:    state.auth.userAuthData.userId !== null, // true / false
-
+        isAuth:        state.auth.userAuthData.userId !== null, // true / false
+        userPicURL:    state.profilePage.userInfo.userPicURL,
+        userName:      state.profilePage.userInfo.userName,
+        userBirthDate: state.profilePage.userInfo.userBirthDate,
+        userCity:      state.profilePage.userInfo.userCity,
+        userEducation: state.profilePage.userInfo.userEducation,
+        userWebSite:   state.profilePage.userInfo.userWebSite
     }
 };
 const mapDispatchToProps = (dispatch) => ({
