@@ -14,7 +14,7 @@
     background: bisque;
     overflow-y: auto;
 
-    max-height: 45rem;
+    /*max-height: 45rem;*/
 
 }
 
@@ -37,7 +37,7 @@
     grid-template-columns:  minmax(auto, 20%)
                             minmax(auto, 80%);
 
-    height: 7rem;
+    height: 8rem;
     margin-left: 2rem;
     border-bottom: 0.05rem solid #bb4034;
 }
