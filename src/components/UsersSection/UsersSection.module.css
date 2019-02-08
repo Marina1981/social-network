@@ -9,15 +9,26 @@
     align-self:   stretch;
 
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     background: bisque;
-    overflow-y: auto;
+    /*overflow-y: auto;*/
 
     /*max-height: 45rem;*/
 
 }
+.bbb{
+    width: 100%;
+    height: 100%;
 
+    display: flex;
+    flex-direction: column;
+
+    background: bisque;
+    overflow-y: auto;
+    max-height: 44rem;
+}
 .userLabel{
     margin-top: 1rem;
     display: flex;
@@ -37,7 +48,7 @@
     grid-template-columns:  minmax(auto, 20%)
                             minmax(auto, 80%);
 
-    height: 8rem;
+    /*height: 7rem;*/
     margin-left: 2rem;
     border-bottom: 0.05rem solid #bb4034;
 }

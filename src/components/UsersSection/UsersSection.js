@@ -12,10 +12,11 @@ const UserSection = (props) => {
     //---
 
     return (
-        <div className={style.usersListSection}>
-            <div className={style.userLabel}>
-                Users :
-            </div>
+      <div className={style.usersListSection}>
+        <div className={style.bbb}>
+            {/*<div className={style.userLabel}>*/}
+                {/*Users :*/}
+            {/*</div>*/}
             {props.usersList.map((user) => {
                 return (
                     <div className={style.usersList}>
@@ -36,6 +37,7 @@ const UserSection = (props) => {
             })
             }
         </div>
+      </div>
     )
 };
 
