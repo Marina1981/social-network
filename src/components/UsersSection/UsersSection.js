@@ -12,8 +12,8 @@ const UserSection = (props) => {
     //---
 
     return (
-      <div className={style.usersListSection}>
-        <div className={style.bbb}>
+      <div className={style.usersWrapper}>
+        <div className={style.usersListSection}>
             {/*<div className={style.userLabel}>*/}
                 {/*Users :*/}
             {/*</div>*/}

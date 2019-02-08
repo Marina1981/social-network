@@ -13,6 +13,7 @@
                             minmax(auto,  5%);
 
     background-color: #b3ff66;
+    min-width: 58rem;
 }
 /*------------------------------------------------------------------*/
 .c-header-section__logo-icon{
