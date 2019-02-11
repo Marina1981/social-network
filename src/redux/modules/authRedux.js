@@ -49,7 +49,8 @@ const reducer = (state = initialState, action) => {
 
 export default reducer;
 
-
+//----Selectors------//
+export const getUserId = (globalState) => globalState.auth.userAuthData.userId;
 
 
 

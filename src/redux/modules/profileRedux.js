@@ -8,10 +8,7 @@ export const types = {
     ADD_POST:                     'NETWORK/PROFILE_PAGE/ADD_POST',
     SET_CREATING_POST:            'NETORK/PROFILE_PAGE/SET_CREATING_POST',
     INCREMENT_POST_LIKE_COUNT:    'NETWORK/PROFILE_PAGE/INCREMENT_POST_LIKE_COUNT',
-    ADD_CREATING_MESSAGE_AS_POST: 'NETWORK/PROFILE_PAGE/ADD_CREATING_MESSAGE_AS_POST',
-    SET_USER_STATUS:              'NETWORK/PROFILE_PAGE/SET_USER_STATUS',
-    SET_CREATING_USER_STATUS:     'NETWORK/PROFILE_PAGE/SET_CREATING_USER_STATUS',
-
+    ADD_CREATING_MESSAGE_AS_POST: 'NETWORK/PROFILE_PAGE/ADD_CREATING_MESSAGE_AS_POST'
 };
 
 
@@ -26,9 +23,7 @@ export const actions = {
     addPost:                  (message, messageId) => ({type: types.ADD_POST, message, messageId}),
     setCreatingPost:          (message)            => ({type: types.SET_CREATING_POST, message}),
     incrementPostLikeCount:   (messageId)          => ({type: types.INCREMENT_POST_LIKE_COUNT, messageId}),
-    addCreatingMessageAsPost: (messageId)          => ({type: types.ADD_CREATING_MESSAGE_AS_POST, messageId}),
-    setUsersStatus:           (status)             => ({type: types.SET_USER_STATUS, status}),
-    setCreatingUserStatus:    (status)             => ({type: types.SET_CREATING_USER_STATUS, status})
+    addCreatingMessageAsPost: (messageId)          => ({type: types.ADD_CREATING_MESSAGE_AS_POST, messageId})
 };
 
 //----
@@ -40,9 +35,7 @@ export const initialState = {
         userBirthDate:'',
         userCity: '',
         userEducation: '',
-        userWebSite: '',
-        userStatus:  '',
-        creatingUserStatus: ''
+        userWebSite: ''
     },
     wall:{
         messagesList:[],
@@ -112,16 +105,6 @@ export const reducer = (state = initialState, action) => {
                 {text:     state.wall.creatingMessage,
                  likeCount: 0,
                  messageId: action.messageId}];
-            return newState;
-
-        case types.SET_USER_STATUS:
-
-            newState.userInfo.userStatus = action.userStatus;
-            return newState;
-
-        case types.SET_CREATING_USER_STATUS:
-
-            newState.userInfo.creatingUserStatus = action.creatingUserStatus;
             return newState;
 
         default:

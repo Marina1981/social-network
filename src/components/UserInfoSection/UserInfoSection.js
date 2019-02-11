@@ -2,21 +2,26 @@ import React from 'react';
 import './UserInfoSection.css';
 import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
+import UserStatusBlockContainer from "../../containers/UserStatusBlockContainer/UserStatusBlockContainer";
 
 
 const UserInfoSection = (props) => {
     return (
         <div className="c-info
-                                c-info__c-info--positioned">
+                        c-info__c-info--positioned">
+            <div className="userStatusBlock-positioned">
+                <UserStatusBlockContainer/>
+            </div>
             <div className="c-info__userpic
-                                    c-info__userpic--positioned">
+                            c-info__userpic--positioned">
                 <img className="c-info__userpic-img" src={props.userPicURL} alt="userpic"/>
             </div>
             <div className="c-info__short-info
-                                    c-info__short-info--positioned">
+                            c-info__short-info--positioned">
                 <div className="c-info__user-name">
                     {props.userName}
                 </div>
+
                 <div className="c-info__birth-date">
                                 <span className="c-info__birth-date-label
                                                  c-info__decorated-label">
@@ -53,9 +58,6 @@ const UserInfoSection = (props) => {
                         {props.userWebSite}
                     </Link>
                 </div>
-                <span className="c-info__status" onClick={ (e) => {props.onChangeSpanOfInput()}}>
-                    Change status
-                </span>
             </div>
         </div>
     );

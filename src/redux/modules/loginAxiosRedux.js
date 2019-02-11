@@ -2,8 +2,7 @@ import {actions as actionsAuth} from "./authRedux";
 import {actions as actionsLogin} from "./loginRedux";
 import {loginingProcessResults, loginingProcessStatuses} from "../../dal/axios-instance";
 import axios from "../../dal/axios-instance";
-import {actions as actionsUsers} from "./usersRedux";
-import {actions as actionProfile} from "./profileRedux";
+
 
 
 
@@ -12,7 +11,7 @@ export const login = () => (dispatch, getState) => {
     let globalState = getState();
     let loginState = globalState.loginPage;
 
-    actionsLogin.setLoginingProcessStatus(loginingProcessStatuses.IN_PROGRESS);
+    dispatch(actionsLogin.setLoginingProcessStatus(loginingProcessStatuses.IN_PROGRESS));
 
     axios.post('auth/login', {
         email:      loginState.creatingUserLogin,
@@ -61,22 +60,8 @@ export const logOut = () => (dispatch) => {
         }
     })
 };
-//---
-export const setReceivedServerUsers = () => (dispatch) => {
-    axios.get('users')
-        .then(result => {
-            dispatch(actionsLogin.setLoginingProcessStatus(loginingProcessStatuses.READY));
-            dispatch(actionsUsers.setUsersList(result.data.items.map( u => ({userName: u.name,
-                                                                             userPicURL: u.photo,
-                                                                             userStatus: u.status,
-                                                                             userUniqueUrlName: u.uniqueUrlName}))))
-                })
-};
 
-//---
-export const setReceivedServerUserStatus = (id) => (dispatch) => {
-  axios.get('profile/status/' + id)
-      .then(result => {
-          dispatch(actionProfile.setUsersStatus(result.data))
-      })
-};
+
+
+
+

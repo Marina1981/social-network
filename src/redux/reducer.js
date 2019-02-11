@@ -4,6 +4,7 @@ import {reducer as loginPageReducer}   from "./modules/loginRedux";
 import {reducer as profilePageReducer} from "./modules/profileRedux";
 import {reducer as dialogsPageReducer} from "./modules/dialogsRedux";
 import {reducer as usersPageReducer}   from "./modules/usersRedux";
+import {reducer as userStatusBlockReducer}  from "./modules/userStatusRedux";
 import authRedux from "./modules/authRedux";
 
 
@@ -14,7 +15,8 @@ const  rootReducer = combineReducers({
     loginPage:    loginPageReducer,
     profilePage:  profilePageReducer,
     dialogsPage:  dialogsPageReducer,
-    usersPage:    usersPageReducer
+    usersPage:    usersPageReducer,
+    userStatusBlock:   userStatusBlockReducer
 });
 
 export default rootReducer;

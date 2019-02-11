@@ -1,7 +1,8 @@
 import React from 'react';
 import connect from "react-redux/es/connect/connect";
 import UsersSection from "../../components/UsersSection/UsersSection";
-import {setReceivedServerUsers} from "../../redux/modules/loginAxiosRedux";
+import {setReceivedServerUsers} from "../../redux/modules/usersAxiosRedux";
+
 
 
 
