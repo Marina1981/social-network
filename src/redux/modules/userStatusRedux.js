@@ -2,6 +2,8 @@ import {
     userStatusUpdatingProcessResults,
     userStatusUpdatingProcessStatuses
 } from "../../dal/axios-instance";
+import {getUserId} from "./authRedux";
+import axios from "../../dal/axios-instance";
 
 export const types = {
     SET_USER_STATUS:                                 'NETWORK/USER_STATUS_BLOCK/SET_USER_STATUS',
@@ -86,4 +88,35 @@ export const reducer = (state = initialState, action) => {
 
 //----Selectors-------//
 export const getCreatingUserStatus = (globalState) => globalState.userStatusBlock.creatingUserStatus;
+
+//-----ThanksCreators----//
+
+// getUserStatus
+export const setReceivedServerUserStatus = () => (dispatch, getState) => {
+    const globalState = getState();
+    const userId = getUserId(globalState);
+
+    axios.get('profile/status/' + userId)
+        .then(result => {
+            dispatch(actions.setUserStatus(result.data))
+        })
+};
+
+//---
+// updateUserStatus
+export const updateUserStatusFromCreatingUserStatus = () => (dispatch, getState) => {
+    const globalState = getState();
+    const status = getCreatingUserStatus(globalState);
+
+    dispatch(actions.setUserStatusUpdatingProcessStatus(userStatusUpdatingProcessStatuses.IN_PROGRESS));
+
+    axios.put('profile/status', {status})
+        .then(result => {
+            if (result.data.resultCode === 0){
+
+                dispatch(setReceivedServerUserStatus());
+                dispatch(actions.setCreatingUserStatus(null))
+            }
+        })
+};
 
