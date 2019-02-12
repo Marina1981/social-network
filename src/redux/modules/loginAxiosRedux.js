@@ -2,6 +2,7 @@ import {actions as actionsAuth} from "./authRedux";
 import {actions as actionsLogin} from "./loginRedux";
 import {loginingProcessResults, loginingProcessStatuses} from "../../dal/axios-instance";
 import axios from "../../dal/axios-instance";
+import {actions as actionUsers} from "./usersRedux";
 
 
 
@@ -56,7 +57,8 @@ export const logOut = () => (dispatch) => {
     axios.post('auth/logout')
         .then(result => {
         if (result.data.resultCode === 0) {
-            dispatch(actionsAuth.clearUserAuthData())
+            dispatch(actionsAuth.clearUserAuthData());
+            // dispatch(actionUsers.clearUsersList(null))
         }
     })
 };

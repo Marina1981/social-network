@@ -9,6 +9,7 @@
     align-self:   stretch;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
@@ -104,4 +105,17 @@
     font-size: 1.5rem;
     font-family: cursive;
     color: orange;
+}
+
+.userButton{
+    height: 3rem;
+    width: 10rem;
+    border: none;
+    background-color: #88d23d;
+    color: #9c4543;
+    font-family: cursive;
+    font-size: 1.3rem;
+    border-radius: 0.5rem;
+    outline: none;
+    margin: 1rem 2rem;
 }

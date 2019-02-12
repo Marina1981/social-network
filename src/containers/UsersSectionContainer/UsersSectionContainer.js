@@ -2,6 +2,7 @@ import React from 'react';
 import connect from "react-redux/es/connect/connect";
 import UsersSection from "../../components/UsersSection/UsersSection";
 import {setReceivedServerUsers} from "../../redux/modules/usersAxiosRedux";
+import {actions as actionUsers, getPageSize} from "../../redux/modules/usersRedux";
 
 
 
@@ -26,12 +27,16 @@ class UsersSectionContainer extends React.Component {
 const mapStateToProps = (state) => {
     return{
         isAuth:    state.auth.userAuthData.userId !== null, // true / false
-        usersList: state.usersPage.usersList
+        usersList: state.usersPage.usersList,
+        hasNextpageFlag: getPageSize(state)
     }
 };
 const mapDispatchToProps = (dispatch) => ({
     onDidMount: () => {
         dispatch(setReceivedServerUsers());
+    },
+    clearUsersList: () => {
+        dispatch(actionUsers.clearUsersList())
     }
 });
 

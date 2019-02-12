@@ -5,14 +5,16 @@ import {loginingProcessStatuses} from "../../dal/axios-instance";
 
 
 //---
-export const setReceivedServerUsers = () => (dispatch) => {
-    axios.get('users')
+export const setReceivedServerUsers = () => (dispatch, getState) => {
+
+    const globalState = getState();
+    const {pageSize = 3, nextPage = 1} = globalState.usersPage;   //destructuring
+
+    axios.get(`users?count=${pageSize}&page=${nextPage}`)
         .then(result => {
             dispatch(actionsLogin.setLoginingProcessStatus(loginingProcessStatuses.READY));
-            dispatch(actionsUsers.setUsersList(result.data.items.map( u => ({userName: u.name,
-                userPicURL: u.photo,
-                userStatus: u.status,
-                userUniqueUrlName: u.uniqueUrlName}))))
+            dispatch(actionsUsers.incrementCurrentPage());
+            dispatch(actionsUsers.setUsersList(result.data.items, result.data.totalCount))
         })
 };
 
