@@ -3,10 +3,11 @@ import {actions as actionsUserStatus, getCreatingUserStatus} from "./userStatusR
 import {getUserId} from "./authRedux";
 
 
+// getUserStatus
 export const setReceivedServerUserStatus = () => (dispatch, getState) => {
-
     const globalState = getState();
     const userId = getUserId(globalState);
+
     axios.get('profile/status/' + userId)
         .then(result => {
             dispatch(actionsUserStatus.setUserStatus(result.data))
@@ -14,6 +15,7 @@ export const setReceivedServerUserStatus = () => (dispatch, getState) => {
 };
 
 //---
+// updateUserStatus
 export const updateUserStatusFromCreatingUserStatus = () => (dispatch, getState) => {
     const globalState = getState();
     const status = getCreatingUserStatus(globalState);
@@ -23,7 +25,7 @@ export const updateUserStatusFromCreatingUserStatus = () => (dispatch, getState)
     axios.put('profile/status', {status})
         .then(result => {
             if (result.data.resultCode === 0){
-               // dispatch(actionsUserStatus.setUsersStatus(status))
+
                 dispatch(setReceivedServerUserStatus());
                 dispatch(actionsUserStatus.setCreatingUserStatus(null))
             }

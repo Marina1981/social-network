@@ -12,8 +12,6 @@ export const setReceivedServerUsers = () => (dispatch, getState) => {
 
     axios.get(`users?count=${pageSize}&page=${pageNumber}`)
         .then(result => {
-
-            // dispatch(actionsLogin.setLoginingProcessStatus(loginingProcessStatuses.READY));
             dispatch(actionsUsers.incrementCurrentPage());
             dispatch(actionsUsers.setUsersList(result.data.items, result.data.totalCount))
         })

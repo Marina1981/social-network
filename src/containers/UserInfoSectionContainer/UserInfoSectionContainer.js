@@ -32,7 +32,8 @@ const mapStateToProps = (state) => {
         userCity:      state.profilePage.userInfo.userCity,
         userEducation: state.profilePage.userInfo.userEducation,
         userWebSite:   state.profilePage.userInfo.userWebSite,
-        userStatus:    state.profilePage.userInfo.userStatus
+        userStatus:    state.profilePage.userInfo.userStatus,
+        userInfo:      state.profilePage.userInfo
     }
 };
 const mapDispatchToProps = (dispatch) => ({

@@ -38,7 +38,9 @@ export const reducer = (state = initialState, action) => {
         case types.CLEAR_USERS_LIST:
             return {
                 ...state,
-                usersList: []
+                usersList: [],
+                totalCount: null,
+                pageNumber: 1
             };
 
         default:
@@ -48,7 +50,7 @@ export const reducer = (state = initialState, action) => {
 //-----Selectors-------//
 export const getPageSize = (globalState) => {
     const {pageSize, pageNumber, totalCount} = globalState.usersPage;
-    return totalCount > pageSize * pageNumber;
+    return totalCount > (pageSize-1) * pageNumber;
 };
 
 

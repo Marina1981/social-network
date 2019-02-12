@@ -7,7 +7,7 @@ import {logOut, setServerSubmittedAuth} from "../../redux/modules/loginAxiosRedu
 class MainHeaderContainer extends React.Component {
     //---
     componentWillMount() {
-        this.props.onWillMount();
+        // this.props.onWillMount();
     }
 
     //---

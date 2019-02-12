@@ -12,7 +12,6 @@ class UsersSectionContainer extends React.Component {
     //---
     componentDidMount() {
         if (this.props.pageNumber === 1){
-
             this.props.getUsersFromServer(this.props.pageNumber);
         }
     }
