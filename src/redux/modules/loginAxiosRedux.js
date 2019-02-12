@@ -3,6 +3,7 @@ import {actions as actionsLogin} from "./loginRedux";
 import {loginingProcessResults, loginingProcessStatuses} from "../../dal/axios-instance";
 import axios from "../../dal/axios-instance";
 import {actions as actionUsers} from "./usersRedux";
+import {updateUserStatusFromCreatingUserStatus} from "./userStatusAxiosRedux";
 
 
 
@@ -25,7 +26,6 @@ export const login = () => (dispatch, getState) => {
             dispatch(actionsLogin.setLoginingProcessStatus(loginingProcessStatuses.READY));
             dispatch(actionsLogin.setLoginingProcessError(loginingProcessResults.SUCCESS));
             dispatch(actionsAuth.setUserAuthData(result.data.data.userId, result.data.data.login, result.data.data.email));
-
             dispatch(setServerSubmittedAuth());
         } else if (result.data.resultCode === 10){
             axios.get('security/get-captcha-url')
@@ -58,7 +58,7 @@ export const logOut = () => (dispatch) => {
         .then(result => {
         if (result.data.resultCode === 0) {
             dispatch(actionsAuth.clearUserAuthData());
-            // dispatch(actionUsers.clearUsersList(null))
+            dispatch(actionUsers.clearUsersList())
         }
     })
 };

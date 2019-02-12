@@ -14,9 +14,9 @@ const initialState = {
 };
 //---- actionCreators--------//
 export const actions = {
-    setUsersList: (users, totalCount) => ({type: types.SET_USERS_LIST, users, totalCount}),
+    setUsersList:         (users, totalCount) => ({type: types.SET_USERS_LIST, users, totalCount}),
     incrementCurrentPage: (pageNumber) => ({type: types.INCREMENT_CURRENT_PAGE, nextPage: pageNumber}),
-    clearUsersList: () => ({type: types.CLEAR_USERS_LIST})
+    clearUsersList:       () => ({type: types.CLEAR_USERS_LIST})
 };
 
 //----
@@ -38,7 +38,7 @@ export const reducer = (state = initialState, action) => {
         case types.CLEAR_USERS_LIST:
             return {
                 ...state,
-                clearUsersList: action.clearUsersList
+                usersList: []
             };
 
         default:

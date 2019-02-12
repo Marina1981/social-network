@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc362f95-17c0-44b3-a3cb-2fae7517dc0d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/components/MainHeader/MainHeader.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainHeader/MainHeader.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UsersSection/UsersSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UsersSection/UsersSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/UserInfoSectionContainer/UserInfoSectionContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/UserInfoSectionContainer/UserInfoSectionContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/UsersSectionContainer/UsersSectionContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/UsersSectionContainer/UsersSectionContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/modules/loginAxiosRedux.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/modules/loginAxiosRedux.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/modules/usersAxiosRedux.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/modules/usersAxiosRedux.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/modules/usersRedux.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/modules/usersRedux.js" afterDir="false" />
     </list>
@@ -23,10 +22,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/redux/modules/loginAxiosRedux.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="62" column="6" lean-forward="true" selection-start-line="62" selection-start-column="6" selection-end-line="62" selection-end-column="6" />
+            <state relative-caret-position="434">
+              <caret line="60" column="38" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="38" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
+                <marker date="1549978470068" expanded="true" signature="2682:2720" ph="..." />
               </folding>
             </state>
           </provider>
@@ -35,8 +35,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/redux/modules/usersRedux.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+            <state relative-caret-position="374">
+              <caret line="40" column="28" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -44,8 +44,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/containers/UsersSectionContainer/UsersSectionContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="94">
-              <caret line="14" column="65" selection-start-line="14" selection-start-column="65" selection-end-line="14" selection-end-column="65" />
+            <state relative-caret-position="11">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -68,8 +68,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/redux/modules/usersAxiosRedux.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="56" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
+            <state relative-caret-position="238">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
               </folding>
@@ -80,8 +80,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/redux/modules/userStatusAxiosRedux.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="25" column="68" lean-forward="true" selection-start-line="25" selection-start-column="68" selection-end-line="25" selection-end-column="68" />
+            <state relative-caret-position="196">
+              <caret line="16" column="51" lean-forward="true" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="51" />
               <folding>
                 <element signature="e#0#82#0" expanded="true" />
               </folding>
@@ -177,11 +177,11 @@
         <option value="$PROJECT_DIR$/src/containers/UserStatusBlockContainer/UserStatusBlockContainer.js" />
         <option value="$PROJECT_DIR$/src/redux/modules/userStatusAxiosRedux.js" />
         <option value="$PROJECT_DIR$/src/components/UsersSection/UsersSection.module.css" />
-        <option value="$PROJECT_DIR$/src/redux/modules/loginAxiosRedux.js" />
         <option value="$PROJECT_DIR$/src/components/UsersSection/UsersSection.js" />
         <option value="$PROJECT_DIR$/src/components/MainHeader/MainHeader.css" />
-        <option value="$PROJECT_DIR$/src/redux/modules/usersAxiosRedux.js" />
         <option value="$PROJECT_DIR$/src/containers/UsersSectionContainer/UsersSectionContainer.js" />
+        <option value="$PROJECT_DIR$/src/redux/modules/loginAxiosRedux.js" />
+        <option value="$PROJECT_DIR$/src/redux/modules/usersAxiosRedux.js" />
         <option value="$PROJECT_DIR$/src/redux/modules/usersRedux.js" />
       </list>
     </option>
@@ -335,12 +335,12 @@
       <workItem from="1549653997279" duration="4880000" />
       <workItem from="1549706299800" duration="8433000" />
       <workItem from="1549882127793" duration="10396000" />
-      <workItem from="1549901624818" duration="22885000" />
+      <workItem from="1549901624818" duration="24965000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="492495000" />
+    <option name="totallyTimeSpent" value="494575000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -763,26 +763,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/modules/userStatusAxiosRedux.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="25" column="68" lean-forward="true" selection-start-line="25" selection-start-column="68" selection-end-line="25" selection-end-column="68" />
-          <folding>
-            <element signature="e#0#82#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/modules/loginAxiosRedux.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="62" column="6" lean-forward="true" selection-start-line="62" selection-start-column="6" selection-end-line="62" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/MainHeader/MainHeader.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -790,6 +770,16 @@
           <folding>
             <marker date="1549975825110" expanded="true" signature="440:460" ph="..." />
             <marker date="1549975825110" expanded="true" signature="443:460" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/UsersSectionContainer/UsersSectionContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -804,30 +794,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/modules/userStatusAxiosRedux.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="16" column="51" lean-forward="true" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#82#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/modules/loginAxiosRedux.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="60" column="38" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+            <marker date="1549978470068" expanded="true" signature="2682:2720" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/redux/modules/usersAxiosRedux.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="56" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
+        <state relative-caret-position="238">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/UsersSectionContainer/UsersSectionContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="14" column="65" selection-start-line="14" selection-start-column="65" selection-end-line="14" selection-end-column="65" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/redux/modules/usersRedux.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        <state relative-caret-position="374">
+          <caret line="40" column="28" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
         </state>
       </provider>
     </entry>
