@@ -2,10 +2,7 @@ import React           from 'react';
 import UserStatusBlock from "../../components/UserStatusBlock/UserStatusBlock";
 import connect         from "react-redux/es/connect/connect";
 import {actions as userStatusActions} from "../../redux/modules/userStatusRedux";
-import {
-    setReceivedServerUserStatus,
-    updateUserStatusFromCreatingUserStatus
-} from "../../redux/modules/userStatusAxiosRedux";
+import {setReceivedServerUserStatus, updateUserStatusFromCreatingUserStatus} from "../../redux/modules/userStatusAxiosRedux";
 
 
 class UserStatusBlockContainer extends React.Component {
@@ -41,7 +38,6 @@ const mapDispatchToProps = (dispatch) => {
         },
         onCreatingUserStatusFinishCommitted: () => {
             dispatch(updateUserStatusFromCreatingUserStatus());
-            // dispatch(setReceivedServerUserStatus())
         },
         getStatus: () => {
             dispatch(setReceivedServerUserStatus());

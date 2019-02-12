@@ -1,7 +1,7 @@
 import React from "react";
 import connect from "react-redux/es/connect/connect";
 import UserInfoSection from "../../components/UserInfoSection/UserInfoSection";
-import {setReceivedServerUserStatus} from "../../redux/modules/loginAxiosRedux";
+import {setReceivedServerUserStatus} from "../../redux/modules/loginThanks";
 import {actions as actionProfile} from "../../redux/modules/profileRedux";
 
 

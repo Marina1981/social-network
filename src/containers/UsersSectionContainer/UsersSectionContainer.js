@@ -1,8 +1,7 @@
 import React from 'react';
 import connect from "react-redux/es/connect/connect";
 import UsersSection from "../../components/UsersSection/UsersSection";
-import {setReceivedServerUsers} from "../../redux/modules/usersAxiosRedux";
-import {actions as actionUsers, getPageSize} from "../../redux/modules/usersRedux";
+import {actions as actionUsers, getPageSize, setReceivedServerUsers} from "../../redux/modules/usersRedux";
 
 
 

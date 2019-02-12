@@ -1,3 +1,5 @@
+import axios from "../../dal/axios-instance";
+
 export const types = {
     SET_USERS_LIST: 'NETWORK/USERS/SET_USERS_LIST',
     INCREMENT_CURRENT_PAGE: 'NETWORK/USERS/INCREMENT_CURRENT_PAGE',
@@ -53,4 +55,18 @@ export const getPageSize = (globalState) => {
     return totalCount > (pageSize-1) * pageNumber;
 };
 
+//---ThanksCreators----//
+export const setReceivedServerUsers = () => (dispatch, getState) => {
+
+    const globalState = getState();
+    const {pageSize = 3, pageNumber = 1} = globalState.usersPage;   //destructuring
+
+    axios.get(`users?count=${pageSize}&page=${pageNumber}`)
+        .then(result => {
+            dispatch(actions.incrementCurrentPage());
+            dispatch(actions.setUsersList(result.data.items, result.data.totalCount))
+        })
+};
+
+//---
 

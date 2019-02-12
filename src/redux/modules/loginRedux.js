@@ -1,5 +1,8 @@
 
 import  {loginingProcessResults, loginingProcessStatuses} from "../../dal/axios-instance";
+import axios from "../../dal/axios-instance";
+import {actions as actionsAuth} from "./authRedux";
+import {actions as actionUsers} from "./usersRedux";
 
 
 
@@ -96,6 +99,62 @@ export const reducer = (state = initialState, action) => {
             return state;
     }
 };
+
+//--- thunkCreator -------//
+export const login = () => (dispatch, getState) => {
+    let globalState = getState();
+    let loginState = globalState.loginPage;
+
+    dispatch(actions.setLoginingProcessStatus(loginingProcessStatuses.IN_PROGRESS));
+
+    axios.post('auth/login', {
+        email:      loginState.creatingUserLogin,
+        password:   loginState.creatingUserPassword,
+        rememberMe: loginState.isRememberMe,
+        captcha:    loginState.creatingCaptcha
+    }).then((result) => {
+
+        if (result.data.resultCode === 0) {
+            dispatch(actions.setLoginingProcessStatus(loginingProcessStatuses.READY));
+            dispatch(actions.setLoginingProcessError(loginingProcessResults.SUCCESS));
+            dispatch(actionsAuth.setUserAuthData(result.data.data.userId, result.data.data.login, result.data.data.email));
+            dispatch(setServerSubmittedAuth());
+        } else if (result.data.resultCode === 10){
+            axios.get('security/get-captcha-url')
+                .then(result => {
+                    dispatch(actions.setCaptchaUrl(result.data.url));
+                    dispatch(actions.setLoginingProcessStatus(loginingProcessStatuses.READY));
+                    dispatch(actions.setLoginingProcessError(loginingProcessResults.CAPTCHA_REQUIRED_ERROR));
+                })
+        } else {
+            dispatch(actions.setLoginingProcessStatus(loginingProcessStatuses.READY));
+            dispatch(actions.setLoginingProcessError(loginingProcessResults.COMMON_ERROR));
+            dispatch(actions.setLoginingProcessErrorMessage(result.data.messages[0]));
+        }
+    })
+};
+//--- thunkCreator -------//
+export const setServerSubmittedAuth = () => (dispatch) => {
+    axios.get('auth/me')
+        .then(result => {
+            if (result.data.resultCode === 0) {
+                dispatch(actionsAuth.setUserAuthData(result.data.data.id, result.data.data.login, result.data.data.email));
+            } else {
+                dispatch(actionsAuth.clearUserAuthData())
+            }
+        })
+};
+//---
+export const logOut = () => (dispatch) => {
+    axios.post('auth/logout')
+        .then(result => {
+            if (result.data.resultCode === 0) {
+                dispatch(actionsAuth.clearUserAuthData());
+                dispatch(actionUsers.clearUsersList())
+            }
+        })
+};
+
 
 
 

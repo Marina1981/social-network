@@ -1,7 +1,8 @@
 import React      from 'react';
 import {connect}  from "react-redux";
 import MainHeader from "../../components/MainHeader/MainHeader";
-import {logOut, setServerSubmittedAuth} from "../../redux/modules/loginAxiosRedux";
+import {logOut, setServerSubmittedAuth} from "../../redux/modules/loginRedux";
+
 
 
 class MainHeaderContainer extends React.Component {
