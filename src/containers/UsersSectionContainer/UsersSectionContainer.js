@@ -11,9 +11,11 @@ import {actions as actionUsers, getPageSize} from "../../redux/modules/usersRedu
 class UsersSectionContainer extends React.Component {
     //---
     componentDidMount() {
-        this.props.onDidMount();
+        if (this.props.pageNumber === 1){
+            
+            this.props.getUsersFromServer(this.props.pageNumber);
+        }
     }
-
     //---
     render() {
         return <UsersSection {...this.props} />
@@ -26,13 +28,14 @@ class UsersSectionContainer extends React.Component {
 //----
 const mapStateToProps = (state) => {
     return{
-        isAuth:    state.auth.userAuthData.userId !== null, // true / false
-        usersList: state.usersPage.usersList,
+        isAuth:          state.auth.userAuthData.userId !== null, // true / false
+        usersList:       state.usersPage.usersList,
+        pageNumber:      state.usersPage.pageNumber,
         hasNextpageFlag: getPageSize(state)
     }
 };
 const mapDispatchToProps = (dispatch) => ({
-    onDidMount: () => {
+    getUsersFromServer: () => {
         dispatch(setReceivedServerUsers());
     },
     clearUsersList: () => {

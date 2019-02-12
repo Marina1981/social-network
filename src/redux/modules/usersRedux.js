@@ -8,14 +8,14 @@ export const types = {
 const initialState = {
     usersList: [],
     pageSize: 3,
-    nextPage: 0,
+    pageNumber: 1,
     totalCount: null
 
 };
 //---- actionCreators--------//
 export const actions = {
     setUsersList: (users, totalCount) => ({type: types.SET_USERS_LIST, users, totalCount}),
-    incrementCurrentPage: (nextPage) => ({type: types.INCREMENT_CURRENT_PAGE, nextPage}),
+    incrementCurrentPage: (pageNumber) => ({type: types.INCREMENT_CURRENT_PAGE, nextPage: pageNumber}),
     clearUsersList: () => ({type: types.CLEAR_USERS_LIST})
 };
 
@@ -32,7 +32,7 @@ export const reducer = (state = initialState, action) => {
         case types.INCREMENT_CURRENT_PAGE:
             return {
                 ...state,
-                nextPage: state.nextPage + 1
+                pageNumber: state.pageNumber + 1
             };
 
         case types.CLEAR_USERS_LIST:
@@ -47,8 +47,8 @@ export const reducer = (state = initialState, action) => {
 };
 //-----Selectors-------//
 export const getPageSize = (globalState) => {
-    const {pageSize, nextPage, totalCount} = globalState.usersPage;
-    return totalCount > pageSize * nextPage;
+    const {pageSize, pageNumber, totalCount} = globalState.usersPage;
+    return totalCount > pageSize * pageNumber;
 };
 
 

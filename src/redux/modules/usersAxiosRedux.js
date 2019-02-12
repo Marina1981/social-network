@@ -8,9 +8,9 @@ import {loginingProcessStatuses} from "../../dal/axios-instance";
 export const setReceivedServerUsers = () => (dispatch, getState) => {
 
     const globalState = getState();
-    const {pageSize = 3, nextPage = 1} = globalState.usersPage;   //destructuring
+    const {pageSize = 3, pageNumber = 1} = globalState.usersPage;   //destructuring
 
-    axios.get(`users?count=${pageSize}&page=${nextPage}`)
+    axios.get(`users?count=${pageSize}&page=${pageNumber}`)
         .then(result => {
             dispatch(actionsLogin.setLoginingProcessStatus(loginingProcessStatuses.READY));
             dispatch(actionsUsers.incrementCurrentPage());

@@ -14,9 +14,9 @@ const UserSection = (props) => {
     return (
         <div className={style.usersWrapper}>
             <div className={style.usersListSection}>
-                {/*<div className={style.userLabel}>*/}
-                {/*Users :*/}
-                {/*</div>*/}
+                <div className={style.userLabel}>
+                    Users :
+                </div>
                 {props.usersList.map((user) => {
                     return (
                         <div className={style.usersList}>
@@ -39,7 +39,7 @@ const UserSection = (props) => {
             </div>
             {
                 props.hasNextpageFlag &&
-                <button className={style.userButton} onClick={props.onDidMount}>
+                <button className={style.userButton} onClick={props.getUsersFromServer}>
                     Загрузить ещё
                 </button>
             }

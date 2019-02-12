@@ -9,7 +9,7 @@ import {actions as actionProfile} from "../../redux/modules/profileRedux";
 class UserInfoSectionContainer extends React.Component {
     //---
     // componentDidMount() {
-    //     this.props.onDidMount(...this.props.userId);
+    //     this.props.getUsersFromServer(...this.props.userId);
     // }
 
     //---
@@ -39,7 +39,7 @@ const mapDispatchToProps = (dispatch) => ({
     // onChangeSpanOfInput: (status) => {
     //     dispatch(actionProfile.setCreatingUserStatus(status))
     // }
-    // onDidMount: () => {
+    // getUsersFromServer: () => {
     //     dispatch(setReceivedServerUserStatus());
     // }
 });
