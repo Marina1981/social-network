@@ -11,9 +11,10 @@
     grid-template-columns:  minmax(auto, 10%)
                             minmax(auto, 90%);
 
-    border: 1px solid #ffc34942;
-    border-radius: 2rem;
-    background: linear-gradient(to top, #fefcea,#b3ff6657);
+    /*border: 1px solid #ffc34942;*/
+    /*border-radius: 2rem;*/
+    /*background: linear-gradient(to top, #fefcea,#b3ff6657);*/
+
     margin: auto auto 1rem;
 }
 /*------------------------------------------------------------------*/

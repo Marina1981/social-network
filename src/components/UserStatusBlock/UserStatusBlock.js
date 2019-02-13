@@ -6,11 +6,13 @@ const UserStatusBlock = (props) => {
 
     return (
         <div className={style.userStatusBlock}>
-          Статус:
+         <span className={style.statusTitle}>
+             Статус:
+         </span>
             {(props.creatingUserStatus === null) ?
-                <span className={style.userStatusText} onClick={props.onUserStatusChangeRequest}>
+                <div className={style.userStatusText} onClick={props.onUserStatusChangeRequest}>
                     {props.status}
-                </span> :
+                </div> :
                 <>
                     <input className={style.inputUserStatus} placeholder='измените статус'
                            value={props.creatingUserStatus}

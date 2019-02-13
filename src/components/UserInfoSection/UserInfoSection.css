@@ -6,11 +6,13 @@
 
     display: grid;
 
-    grid-template-rows:     minmax(auto, 85%)
-                            minmax(auto, 15%);
+    grid-template-rows:     minmax(auto, 25%)
+                            minmax(auto, 50%)
+                            minmax(auto, 25%);
 
     grid-template-columns:  minmax(auto, 30%)
-                            minmax(auto, 70%);
+                            minmax(auto, 40%)
+                            minmax(auto, 30%);
 
     min-height: 10rem;
 }
@@ -36,7 +38,7 @@
     cursor: pointer;
 }
 .c-info__userpic--positioned{
-    grid-row:    1;
+    grid-row:    1/ span 2;
     grid-column: 1;
 
     justify-self: stretch;
@@ -47,10 +49,10 @@
 .c-info__userpic-img{
     height: 100%;
     width: auto;
-    max-height: 6rem;
+    max-height: 10rem;
 
-    border: 0.1rem solid #b3ff66;
-    border-radius: 2rem;
+    border: 0.1rem solid #0fc19e;
+    border-radius: 6rem;
     background: white;
     padding: 1rem;
 }
@@ -64,7 +66,7 @@
 }
 
 .c-info__short-info--positioned{
-    grid-row:    1;
+    grid-row:    2;
     grid-column: 2;
 
     justify-self: stretch;
@@ -77,19 +79,19 @@
 .c-info__status-value{
     font-family: cursive;
     font-size: 1.2rem;
-    color: #bb4034;
+    color: #4e514e;
 }
 /*------------------------------------------------------------------*/
 .c-info__user-name{
     font-family: cursive;
-    font-size: 2rem;
-    color: coral;
+    font-size: 2.5rem;
+    color: #1d9a82;
 }
 /*------------------------------------------------------------------*/
 .c-info__decorated-label{
     font-family: cursive;
     font-size: 1rem;
-    color: #bb4034;
+    color: #0fc19e;
 }
 /*------------------------------------------------------------------*/
 .c-info__status{
@@ -102,7 +104,7 @@
 .status__label{
     font-family: cursive;
     font-size: 1rem;
-    color: #bb4034;
+    color: #0fc19e;
 }
 /*------------------------------------------------------------------*/
 .status__input{
@@ -126,8 +128,8 @@
 :-ms-input-placeholder      {color:#ffc349;}
 /*------------------------------------------------------------------*/
 .userStatusBlock-positioned{
-    grid-row:    2;
-    grid-column: 1;
+    grid-row:    3;
+    grid-column: 1/ span 2;
 
     justify-self: stretch;
     align-self:   stretch;

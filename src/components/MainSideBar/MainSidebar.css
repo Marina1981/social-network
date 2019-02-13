@@ -1,10 +1,25 @@
 .c-sidebar{
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
+    /*display: flex;*/
+    /*justify-content: space-evenly;*/
+    /*flex-direction: column;*/
+    /*height: 100%;*/
+    /*width:  100%;*/
+    /*background-color: #ffc349;*/
+    /*font-size: 1.3rem;*/
+
+    /*min-height: 0;*/
+    display: grid;
+    grid-template-columns:  minmax(auto, 14.28%)
+                            minmax(auto, 14.28%)
+                            minmax(auto, 14.28%)
+                            minmax(auto, 14.28%)
+                            minmax(auto, 14.28%)
+                            minmax(auto, 14.28%)
+                            minmax(auto, 1fr);
+    grid-template-rows: minmax(auto, 100%);
     height: 100%;
     width:  100%;
-    background-color: #ffc349;
+    background-color: #4e514e;
     font-size: 1.3rem;
 
     min-height: 0;
@@ -14,20 +29,87 @@
     display: flex;
     justify-content: center;
     align-self: center;
-    width: 4.5rem;
-    border: 0.1rem solid #88d23d;
-    padding: 10px;
-    border-radius: 20px;
-}
+    /*width: 4.5rem;*/
+    /*border: 0.1rem solid #88d23d;*/
+    /*padding: 10px;*/
+    /*border-radius: 20px;*/
 
+}
 .menu-item__decorated{
     color: white;
     text-decoration: none;
     font-family: cursive;
 }
 .c-sidebar__menu-item:hover{
-    border: 0.1rem solid #b3ff66;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0fc19e;
 }
 .active-item{
-    background: #63b946f5;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0fc19e;
 }
+
+.c-sidebar__profile{
+    grid-row:    1;
+    grid-column: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.c-sidebar__dialog{
+    grid-row:    1;
+    grid-column: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.c-sidebar__news{
+    grid-row:    1;
+    grid-column: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.c-sidebar__music{
+    grid-row:    1;
+    grid-column: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.c-sidebar__photos{
+    grid-row:    1;
+    grid-column: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.c-sidebar__users{
+    grid-row:    1;
+    grid-column: 6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.c-sidebar__settings{
+    grid-row:    1;
+    grid-column: 7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+

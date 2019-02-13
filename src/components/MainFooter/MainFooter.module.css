@@ -5,9 +5,9 @@
     align-items: center;
     min-height: 5rem;
 
-    background: #db412c;
+    background: #4e514e;
 }
 .footerCopyright{
     font-size: 1rem;
-    color: goldenrod;
+    color: white;
 }

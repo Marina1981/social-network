@@ -19,10 +19,10 @@
     align-self: center;
 
 
-    border: 0.2rem solid bisque;;
+    border: 0.2rem solid #eee;
     /*background: linear-gradient(to top, #fefcea,#171e231f);*/
     background: white;
-    color: gray;
+    color: #858686;
     font-family: cursive;
     font-size: 1rem;
     min-height: 3rem;
@@ -43,7 +43,7 @@
     align-self: flex-end;
     justify-content: center;
 
-    background-color: #ffc349;
+    background-color: #0fc19e;
     color: white;
     border: none;
     border-radius: 0.5rem;
@@ -57,7 +57,7 @@
     outline: none;
 }
 .wall-block__record-form-button:hover{
-    background-color: #b3ff66;
+    background-color: #338e7c;
     cursor: pointer;
 }
 /*------------------------------------------------------------------*/

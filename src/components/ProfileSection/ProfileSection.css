@@ -9,7 +9,7 @@
     align-self:   stretch;
 
     display: grid;
-    grid-template-rows: minmax(auto, 15%)
+    grid-template-rows: minmax(auto, 25%)
                         minmax(auto, 30%)
                         minmax(auto, 1fr);
     grid-template-columns:  1fr;
@@ -17,16 +17,16 @@
 
    /* min-width: 50rem;*/
     /*min-height: 30rem;*/
-    background: #f7c284c2;
+    background: #f4f4f4;
 }
 
 /*------------------------------------------------------------------*/
 
 .c-profile-section__head-image{
     display: flex;
-    background-image: url("images/skinali_frukty.jpg");
+    background-image: url("images/skinali.jpg");
     background-position: center;
-    background-size:cover;
+    background-size: auto;
     min-height: 6rem;
 }
 .c-profile-section__head-image--positioned{

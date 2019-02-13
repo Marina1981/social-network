@@ -1,15 +1,14 @@
-import React  from 'react';
+import React from 'react';
 import './ProfileSection.css';
-import Post  from '../Post/Post.js';
+import Post from '../Post/Post.js';
 import MessageCreationForm from "../MessageCreationForm/MessageCreationForm";
 import {Redirect} from "react-router";
 import UserInfoSectionContainer from "../../containers/UserInfoSectionContainer/UserInfoSectionContainer";
 
 
-
-const ProfileSection = (props) =>{
+const ProfileSection = (props) => {
     //---
-    if (!props.isAuth){
+    if (!props.isAuth) {
         return <Redirect to="/Login"/>
     }
     //---
@@ -19,6 +18,7 @@ const ProfileSection = (props) =>{
                                 c-profile-section__head-image--positioned"/>
             <div className="c-profile-section__info-block
                             c-profile-section__info-block--positioned">
+
                 <UserInfoSectionContainer/>
             </div>
             <div className="c-profile-section__wall-block
@@ -28,18 +28,20 @@ const ProfileSection = (props) =>{
                     <div className="wall-block__notes">
                         My notes
                     </div>
-                    <MessageCreationForm  selectedFriendId                  = {props.selectedFriendId}
-                                          creatingMessage                   = {props.creatingMessage}
-                                          onCreatingMessageChanged          = {props.onCreatingMessageChanged}
-                                          onCreatingMessageFinishCommitted  = {props.onCreatingMessageFinishCommitted}/>
+                    <MessageCreationForm selectedFriendId={props.selectedFriendId}
+                                         creatingMessage={props.creatingMessage}
+                                         onCreatingMessageChanged={props.onCreatingMessageChanged}
+                                         onCreatingMessageFinishCommitted={props.onCreatingMessageFinishCommitted}/>
                 </div>
                 <div className="wall-block__posts-block
                                     wall-block__posts-block--positioned">
                     {
-                        props.messagesList.map( (el) => {return <Post  userInfo = {props.userInfo}
-                                                                                 messageDetailes = {el}
-                                                                                 key = {el.messageId}
-                                                                                 onMesaageLikeIncrementRequest = {props.onMesaageLikeIncrementRequest}/>})
+                        props.messagesList.map((el) => {
+                            return <Post userInfo={props.userInfo}
+                                         messageDetailes={el}
+                                         key={el.messageId}
+                                         onMesaageLikeIncrementRequest={props.onMesaageLikeIncrementRequest}/>
+                        })
                     }
 
                 </div>

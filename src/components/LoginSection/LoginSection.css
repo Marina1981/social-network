@@ -1,15 +1,14 @@
 .c-login-section-wrapper{
     justify-self: stretch;
-    align-self:   stretch;
-
-    grid-row:    2;
+    align-self: stretch;
+    grid-row: 2;
     grid-column: 2;
     height: 100%;
-    width:  100%;
-    background: #f7c284c2;
+    width: 100%;
+    background: white;
     display: flex;
     justify-content: center;
-    align-items: center;
+    margin-top: 5rem;
 }
 .c-login-section{
     display: grid;
@@ -22,15 +21,15 @@
 
     grid-template-columns:  minmax(auto, 100%);
 
-    height: 80%;
+    height: 50%;
     width: 50%;
     min-height: 15rem;
     min-width: 40rem;
 
-    margin: auto;
-    background: white;
+    /*margin: auto;*/
+    background:  #0fc19e;
     border-radius: 3rem;
-    box-shadow: 0 0 2rem sandybrown;
+    box-shadow: 0 0 2rem #858686;
 }
 /*------------------------------------------------------------------*/
 .c-login-section__index-login-form--positioned{
@@ -58,8 +57,8 @@
     width: 10rem;
     height: 3rem;
     border: none;
-    background-color: #ffc349;
-    color: white;
+    background-color: white;
+    color: #4e514e;
     font-family: cursive;
     font-size: 1.3rem;
     border-radius: 0.5rem;
@@ -68,7 +67,7 @@
 
 }
 .button-box__button:hover {
-    color:  #b3ff66;
+    color: #0fc19e;
     cursor: pointer;
 }
 /*------------------------------------------------------------------*/
@@ -89,12 +88,12 @@
 .checkbox-label{
     font-family: cursive;
     font-size: 0.8rem;
-    color: #bb4034;
+    color: #4e514e;
     margin-right: 5rem;
 }
 /*------------------------------------------------------------------*/
 .index-column__index-login{
-    color: #ffc349;
+    color: #858686;
 }
 
 .index-column__index-login:hover,
@@ -120,8 +119,8 @@
     align-self: center;
 
     font-family: cursive;
-    font-size: 1.3rem;
-    color: #bb4034;
+    font-size: 2rem;
+    color: #4e514e;
 
 }
 /*------------------------------------------------------------------*/
@@ -132,10 +131,10 @@
     width: 25rem;
     height: 3rem;
     border: none;
-    background-color: #e6ffcc;
+    background-color: white;
     font-family: cursive;
     font-size: 1.4rem;
-    color: grey;
+    color: #0fc19e;
     text-align: center;
     outline:none;
 }

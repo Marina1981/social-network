@@ -17,7 +17,7 @@
                             minmax(auto, 70%);
     /*margin: auto;*/
 
-    background: #f7c284c2;
+    background: #f4f4f4;
     /*box-shadow: 0 0 2rem sandybrown;*/
 }
 /*------------------------------------------------------------------*/
@@ -28,7 +28,7 @@
 
     font-family: cursive;
     font-size: 1.3rem;
-    color: orange;
+    color: #0fc19e;
     /*background: linear-gradient(to top, #fefcea,#f1da366e);*/
     /*border: 0.1rem solid bisque;*/
     /*border-radius: 2rem;*/
@@ -37,7 +37,7 @@
 
 .c-dialog-section__label-friends:hover,
 .c-dialog-section__label-dialogs:hover{
-    color: white;
+    color: #338e7c;
     cursor: pointer;
 }
 
@@ -57,7 +57,7 @@
     grid-row:    1 / span 2;
     grid-column: 1;
 
-    background: white;
+    background: #0fc19e;
     height: 60vh;
     width: 0.1rem;
 
@@ -154,7 +154,7 @@
 .userpic-friend{
     max-height: 4rem;
     min-width: 3rem;
-    border: 0.1rem solid #88d23de6;
+    border: 0.1rem solid #0fc19e;
     border-radius: 2rem;
     height: 3rem;
     width: 3rem;
@@ -207,7 +207,7 @@
     justify-content: center;
     align-content: center;
 
-    border: 0.1rem solid #88d23de6;
+    border: 0.1rem solid #0fc19e;
     border-radius: 2rem;
     height: 2rem;
     width: 2rem;
@@ -279,7 +279,7 @@
 }
 /*------------------------------------------------------------------*/
 .c-friend__selected{
-    background: #b3ff66;
+    background: #0fc19e;
 }
 /*------------------------------------------------------------------*/
 /*------------------------------------------------------------------*/

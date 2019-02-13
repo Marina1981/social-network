@@ -9,7 +9,7 @@
     align-self:   stretch;
     display: flex;
 
-    background: bisque;
+    background: #eee;
 
 }
 .userSettingsSection{
@@ -32,7 +32,7 @@
     margin: auto;
 
     background: white;
-    box-shadow: 0 0 2rem sandybrown;
+    box-shadow: 0 0 2rem #858686;
 }
 /*------------------------------------------------------------------*/
 .userNameBlock{
@@ -44,7 +44,7 @@
 
     display: flex;
     /*justify-content: space-around;*/
-    border-bottom: 0.05rem solid bisque;
+    border-bottom: 0.05rem solid #eee;
     align-items: flex-end;
 }
 
@@ -57,7 +57,7 @@
 .language{
     font-size: 1rem;
     font-family: cursive;
-    color: gray;
+    color: #858686;
     padding-left: 2rem;
 }
 /*------------------------------------------------------------------*/
@@ -73,7 +73,7 @@
 
     font-size: 0.7rem;
     font-family: cursive;
-    color: sandybrown;
+    color: #858686;
     align-items: flex-end;
 
 }
@@ -87,7 +87,7 @@
 
     display: flex;
     /*justify-content: space-around;*/
-    border-bottom: 0.05rem solid bisque;
+    border-bottom: 0.05rem solid #eee;
     align-items: flex-end;
 }
 .settingsButtonUserBirthDate{
@@ -103,7 +103,7 @@
 
     font-size: 0.7rem;
     font-family: cursive;
-    color: sandybrown;
+    color:  #858686;
 
 }
 /*------------------------------------------------------------------*/
@@ -116,7 +116,7 @@
 
     display: flex;
     /*justify-content: space-around;*/
-    border-bottom: 0.05rem solid bisque;
+    border-bottom: 0.05rem solid #eee;
     align-items: flex-end;
 }
 
@@ -133,7 +133,7 @@
 
     font-size: 0.7rem;
     font-family: cursive;
-    color: sandybrown;
+    color:  #858686;
 
 }
 /*------------------------------------------------------------------*/
@@ -147,7 +147,7 @@
     display: flex;
     align-items: flex-end;
     /*justify-content: space-around;*/
-    border-bottom: 0.05rem solid bisque;
+    border-bottom: 0.05rem solid #eee;
 }
 
 .settingsButtonUserEducation{
@@ -163,7 +163,7 @@
 
     font-size: 0.7rem;
     font-family: cursive;
-    color: sandybrown;
+    color:  #858686;
 }
 /*------------------------------------------------------------------*/
 .userWebSiteBlock{
@@ -176,7 +176,7 @@
     display: flex;
     align-items: flex-end;
     /*justify-content: space-around;*/
-    border-bottom: 0.05rem solid bisque;
+    border-bottom: 0.05rem solid #eee;
 }
 .settingsButtonUserWebSite{
     justify-self: stretch;
@@ -191,7 +191,7 @@
 
     font-size: 0.7rem;
     font-family: cursive;
-    color: sandybrown;
+    color:  #858686;
 }
 /*------------------------------------------------------------------*/
 
