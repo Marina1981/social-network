@@ -2,6 +2,7 @@ import React from 'react';
 import './MainHeader.css';
 import logoIcon from './images/logo.svg';
 import {NavLink} from "react-router-dom";
+import exit from "./images/exit.svg"
 
 
 
@@ -25,7 +26,8 @@ const MainHeader = (props) => {
                         <img src={props.userPic} className="user-info-block__userPic" alt="userPic"/>
                     </div>
                     <div  className="c-header-section__logout" onClick={props.onLogOut}>
-                        Log Out
+                        <img className="logout-img" src={exit}/>
+                        {/*Log Out*/}
                     </div>
                 </>
             }

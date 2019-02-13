@@ -112,6 +112,12 @@
     width: 6rem;
     margin: 2rem 2rem;
 }
+.logout-img{
+    z-index: 3;
+    max-height: 4rem;
+    max-width: 4rem;
+}
+
 .c-header-section__signin:hover{
     cursor: pointer;
     color: white;
