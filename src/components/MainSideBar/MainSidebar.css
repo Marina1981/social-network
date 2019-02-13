@@ -1,13 +1,4 @@
 .c-sidebar{
-    /*display: flex;*/
-    /*justify-content: space-evenly;*/
-    /*flex-direction: column;*/
-    /*height: 100%;*/
-    /*width:  100%;*/
-    /*background-color: #ffc349;*/
-    /*font-size: 1.3rem;*/
-
-    /*min-height: 0;*/
     display: grid;
     grid-template-columns:  minmax(auto, 14.28%)
                             minmax(auto, 14.28%)
@@ -29,10 +20,6 @@
     display: flex;
     justify-content: center;
     align-self: center;
-    /*width: 4.5rem;*/
-    /*border: 0.1rem solid #88d23d;*/
-    /*padding: 10px;*/
-    /*border-radius: 20px;*/
 
 }
 .menu-item__decorated{
@@ -63,36 +50,70 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
+.profile__img-block,
+.dialog__img-block,
+.news__img-block,
+.music__img-block,
+.settings__img-block,
+.photos__img-block,
+.users__img-block{
+    width: 2rem;
+    height: 2rem;
+}
+.profile-img,
+.music-img,
+.dialog-img,
+.news-img,
+.settings-img,
+.photos-img,
+.users-img{
+    z-index: 3;
+    max-height: 2rem;
+    max-width: 2rem;
 
+}
+/*------------------------------------------------------------------*/
 .c-sidebar__dialog{
     grid-row:    1;
     grid-column: 2;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 
 }
+
+/*------------------------------------------------------------------*/
 .c-sidebar__news{
     grid-row:    1;
     grid-column: 3;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
+
+/*------------------------------------------------------------------*/
 .c-sidebar__music{
     grid-row:    1;
     grid-column: 4;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
+/*------------------------------------------------------------------*/
+
+
 .c-sidebar__photos{
     grid-row:    1;
     grid-column: 5;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 .c-sidebar__users{
     grid-row:    1;
@@ -100,6 +121,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 .c-sidebar__settings{
     grid-row:    1;
@@ -107,6 +129,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 
