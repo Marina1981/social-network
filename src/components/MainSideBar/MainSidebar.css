@@ -20,6 +20,7 @@
     display: flex;
     justify-content: center;
     align-self: center;
+    flex-direction: column;
 
 }
 .menu-item__decorated{
@@ -52,23 +53,11 @@
     align-items: center;
     flex-direction: column;
 }
-.profile__img-block,
-.dialog__img-block,
-.news__img-block,
-.music__img-block,
-.settings__img-block,
-.photos__img-block,
-.users__img-block{
+.menu-item__img-block{
     width: 2rem;
     height: 2rem;
 }
-.profile-img,
-.music-img,
-.dialog-img,
-.news-img,
-.settings-img,
-.photos-img,
-.users-img{
+.img-block__images{
     z-index: 3;
     max-height: 2rem;
     max-width: 2rem;

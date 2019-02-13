@@ -14,6 +14,7 @@
 
     background-color: #eee;
     /*min-width: 58rem;*/
+
 }
 /*------------------------------------------------------------------*/
 .c-header-section__logo-icon{
@@ -85,7 +86,7 @@
     height: 100%;
     width: auto;
     max-height: 3rem;
-    /* border: 0.1rem solid orange; */
+     border: 0.1rem solid  #0fc19e;
     border-radius: 4rem;
     background: white;
     padding: 0.2rem;
@@ -109,8 +110,8 @@
     font-family: cursive;
     font-size: 1rem;
     color: #858686;
-    width: 6rem;
-    margin: 2rem 2rem;
+    /*width: 6rem;*/
+    /*margin: 2rem 2rem;*/
 }
 .logout-img{
     z-index: 3;

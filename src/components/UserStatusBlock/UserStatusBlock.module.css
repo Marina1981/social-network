@@ -1,9 +1,10 @@
 .userStatusBlock{
     height: 2rem;
     display: flex;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     align-content: center;
     align-items: center;
+    margin-left: 2rem;
 }
 
 .statusTitle{
