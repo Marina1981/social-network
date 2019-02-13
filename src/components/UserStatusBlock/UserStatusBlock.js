@@ -13,7 +13,7 @@ const UserStatusBlock = (props) => {
                 <div className={style.userStatusText} onClick={props.onUserStatusChangeRequest}>
                     {props.status}
                 </div> :
-                <>
+                <div className={style.userStatusForm}>
                     <input className={style.inputUserStatus} placeholder='измените статус'
                            value={props.creatingUserStatus}
                            onChange={
@@ -27,7 +27,7 @@ const UserStatusBlock = (props) => {
                             }}>
                         add
                     </button>
-                </>}
+                </div>}
         </div>
     )
 };

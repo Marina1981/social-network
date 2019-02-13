@@ -25,10 +25,12 @@
 
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     background: #f4f4f4;
     overflow-y: auto;
-    max-height: 55rem;
+    /*max-height: 55rem;*/
 }
 .userLabel{
     margin-top: 1rem;
@@ -50,8 +52,10 @@
                             minmax(auto, 80%);
 
     /*height: 7rem;*/
+    width: 75%;
     margin-left: 2rem;
     border-bottom: 0.05rem solid #858686;
+    word-break: break-all;
 }
 
 .usersName{

@@ -91,8 +91,8 @@ export const getCreatingUserStatus = (globalState) => globalState.userStatusBloc
 
 //-----ThanksCreators----//
 
-// getUserStatus
-export const setReceivedServerUserStatus = () => (dispatch, getState) => {
+// getUserStatus  getUserStatus
+export const getUserStatus = () => (dispatch, getState) => {
     const globalState = getState();
     const userId = getUserId(globalState);
 
@@ -103,8 +103,8 @@ export const setReceivedServerUserStatus = () => (dispatch, getState) => {
 };
 
 //---
-// updateUserStatus
-export const updateUserStatusFromCreatingUserStatus = () => (dispatch, getState) => {
+// updateUserStatus  updateUserStatus
+export const updateUserStatus = () => (dispatch, getState) => {
     const globalState = getState();
     const status = getCreatingUserStatus(globalState);
 
@@ -114,7 +114,7 @@ export const updateUserStatusFromCreatingUserStatus = () => (dispatch, getState)
         .then(result => {
             if (result.data.resultCode === 0){
 
-                dispatch(setReceivedServerUserStatus());
+                dispatch(getUserStatus());
                 dispatch(actions.setCreatingUserStatus(null))
             }
         })

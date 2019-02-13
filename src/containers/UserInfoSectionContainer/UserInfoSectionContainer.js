@@ -40,7 +40,7 @@ const mapDispatchToProps = (dispatch) => ({
     //     dispatch(actionProfile.setCreatingUserStatus(status))
     // }
     // getUsersFromServer: () => {
-    //     dispatch(setReceivedServerUserStatus());
+    //     dispatch(getUserStatus());
     // }
 });
 
