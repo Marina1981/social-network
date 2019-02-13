@@ -14,6 +14,7 @@
     /*border: 1px solid #ffc34942;*/
     /*border-radius: 2rem;*/
     /*background: linear-gradient(to top, #fefcea,#b3ff6657);*/
+    border-bottom: 0.05rem solid #0fc19e;
 
     margin: auto auto 1rem;
 }
@@ -31,7 +32,7 @@
     align-self: center;
     align-content: center;
 
-    border: 0.1rem solid #88d23de6;
+    border: 0.1rem solid #0fc19e;
     border-radius: 2rem;
     height: 2rem;
     width: 2rem;
@@ -49,7 +50,7 @@
 .c-post__text-post{
     font-family: cursive;
     font-size: 1rem;
-    color: gray;
+    color: #858686;
     word-break: break-all;
 
 }
@@ -68,7 +69,7 @@
 .c-post__like-box{
     font-family: cursive;
     font-size: 0.9rem;
-    color:gray;
+    color: #858686;
 }
 .c-post__like-box--positioned{
     justify-self: stretch;

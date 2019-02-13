@@ -9,13 +9,6 @@ const UserInfoSection = (props) => {
     return (
         <div className="c-info
                         c-info__c-info--positioned">
-            <div className="userStatusBlock-positioned">
-                <UserStatusBlockContainer/>
-            </div>
-            <div className="c-info__userpic
-                            c-info__userpic--positioned">
-                <img className="c-info__userpic-img" src={props.userPicURL} alt="userpic"/>
-            </div>
             <div className="c-info__short-info
                             c-info__short-info--positioned">
                 <div className="c-info__user-name">
@@ -58,6 +51,9 @@ const UserInfoSection = (props) => {
                         {props.userWebSite}
                     </Link>
                 </div>
+            </div>
+            <div className="userStatusBlock-positioned">
+                <UserStatusBlockContainer/>
             </div>
         </div>
     );

@@ -29,7 +29,9 @@ const mapStateToProps = (state) => {
         isAuth:          state.auth.userAuthData.userId !== null, // true / false
         usersList:       state.usersPage.usersList,
         pageNumber:      state.usersPage.pageNumber,
-        hasNextpageFlag: getPageSize(state)
+        hasNextpageFlag: getPageSize(state),
+
+        userInfo:         state.profilePage.userInfo
     }
 };
 const mapDispatchToProps = (dispatch) => ({

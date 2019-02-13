@@ -12,7 +12,7 @@ const ProfileSectionContainer = (props) => {
 const mapStateToProps = (state) => {
     return {
         isAuth:           state.auth.userAuthData.userId !== null, // true / false
-        userInfo:         state.profilePage.userInfo,
+        userPicURL:         state.profilePage.userInfo.userPicURL,
         selectedFriendId: state.dialogsPage.selectedFriendId,
         messagesList:     state.profilePage.wall.messagesList,
         creatingMessage:  state.profilePage.wall.creatingMessage,

@@ -18,16 +18,17 @@ const MainHeader = (props) => {
                 props.isAuth &&
                 <>
                     <div className="c-header-section__search-block">
-                        <NavLink to="/Users" className="search-block__label">search</NavLink>
+                        <NavLink to="/Users" className="search-block__label">
+                            search
+                        </NavLink>
                         <input className="search-block__input"/>
                     </div>
                     <div className="c-header-section__user-info-block">
                         <div className="user-info-block__user-name"> {props.userName} </div>
-                        <img src={props.userPic} className="user-info-block__userPic" alt="userPic"/>
+                        <img src={props.userPicURL} className="user-info-block__userPic" alt="userPic"/>
                     </div>
                     <div  className="c-header-section__logout" onClick={props.onLogOut}>
                         <img className="logout-img" src={exit}/>
-                        {/*Log Out*/}
                     </div>
                 </>
             }

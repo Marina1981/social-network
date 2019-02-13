@@ -14,6 +14,10 @@ const ProfileSection = (props) => {
     //---
     return (
         <article className="c-profile-section">
+            <div className="c-info__userpic
+                            c-info__userpic--positioned">
+                <img className="c-info__userpic-img" src={props.userPicURL} alt="userpic"/>
+            </div>
             <div className="c-profile-section__head-image
                                 c-profile-section__head-image--positioned"/>
             <div className="c-profile-section__info-block
