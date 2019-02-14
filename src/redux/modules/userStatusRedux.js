@@ -114,8 +114,23 @@ export const updateUserStatus = () => (dispatch, getState) => {
         .then(result => {
             if (result.data.resultCode === 0){
 
-                dispatch(getUserStatus());
-                dispatch(actions.setCreatingUserStatus(null))
+                const userId = getUserId(globalState);
+
+                axios.get('profile/status/' + userId)
+                    .then(result => {
+
+                        dispatch(actions.setUserStatusUpdatingProcessStatus(userStatusUpdatingProcessStatuses.READY));
+                        if (result.data.resultCode === 0){
+                            dispatch(actions.setUserStatus(result.data));
+                        }else {
+                           dispatch(actions.setUserStatusUpdatingProcessError(userStatusUpdatingProcessResults.COMMON_ERROR));
+                           dispatch(actions.setUserStatusUpdatingProcessErrorMessage("ERROR!!!"))
+                        }
+                    })
+                    .then(()=>
+                                    {dispatch(actions.setCreatingUserStatus(null));});
+
+
             }
         })
 };

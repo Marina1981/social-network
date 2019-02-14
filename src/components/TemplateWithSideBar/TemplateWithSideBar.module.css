@@ -1,5 +1,5 @@
 .templateWrapper{
-    height: 220vh;
+    height: 320vh;
     width: 100%;
     display: grid;
     grid-template-columns: minmax(auto, 100%);

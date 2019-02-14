@@ -1,7 +1,7 @@
 .userStatusBlock{
     font-family: cursive;
     font-size: 1.2rem;
-    width: 75rem;
+    /*width: 75rem;*/
     height: auto;
 
     display: flex;
@@ -20,7 +20,7 @@
 
 .userStatusText{
     font-family: cursive;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #4e514e;
 }
 
@@ -31,10 +31,10 @@
 }
 
 .inputUserStatus{
-    width:  66rem;
-    height: 3rem;
+    width:  40rem;
+    height: 2rem;
     border: none;
-    background-color: white;
+    background-color: #eee;
     font-family: cursive;
     font-size: 1rem;
     color: #4e514e;

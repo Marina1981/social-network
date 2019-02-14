@@ -33,7 +33,7 @@ const MessageCreationForm = (props) => {
                             (e) => {props.onCreatingMessageFinishCommitted(props.selectedFriendId ,generateGuid(), getDate());}
                         }
                 >
-                    Добавить
+                    Add
                 </button>
             </div>
         );

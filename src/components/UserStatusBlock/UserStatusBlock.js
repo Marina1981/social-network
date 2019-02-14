@@ -7,14 +7,14 @@ const UserStatusBlock = (props) => {
     return (
         <div className={style.userStatusBlock}>
          <span className={style.statusTitle}>
-             Статус:
+             Status:
          </span>
             {(props.creatingUserStatus === null) ?
                 <div className={style.userStatusText} onClick={props.onUserStatusChangeRequest}>
                     {props.status}
                 </div> :
                 <div className={style.userStatusForm}>
-                    <input className={style.inputUserStatus} placeholder='измените статус'
+                    <input className={style.inputUserStatus} placeholder='change status'
                            value={props.creatingUserStatus}
                            onChange={
                                (e) => {
