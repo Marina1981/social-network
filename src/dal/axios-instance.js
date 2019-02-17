@@ -28,4 +28,14 @@ export const userStatusUpdatingProcessResults = {
     SUCCESS:                  'SUCCESS'
 };
 
+//---
+export const userProfileUpdatingProcessProfile = {
+    READY:        'READY',       //no process
+    IN_PROGRESS:  'IN_PROGRESS'
+};
+//----
+export const userProfileUpdatingProcessResults = {
+    COMMON_ERROR:             'COMMON_ERROR',
+    SUCCESS:                  'SUCCESS'
+};
 export  default axios;

@@ -1,6 +1,7 @@
 import React from "react";
 import connect from "react-redux/es/connect/connect";
 import UserInfoSection from "../../components/UserInfoSection/UserInfoSection";
+import {getUserProfile, updateUserProfile} from "../../redux/modules/profileRedux";
 
 
 
@@ -8,7 +9,7 @@ import UserInfoSection from "../../components/UserInfoSection/UserInfoSection";
 class UserInfoSectionContainer extends React.Component {
     //---
     // componentDidMount() {
-    //     this.props.getUsersFromServer(...this.props.userId);
+    //     this.props.getUserProfile(...this.props.userId);
     // }
 
     //---
@@ -32,16 +33,14 @@ const mapStateToProps = (state) => {
         userEducation: state.profilePage.userInfo.userEducation,
         userWebSite:   state.profilePage.userInfo.userWebSite,
         userStatus:    state.profilePage.userInfo.userStatus,
-        userInfo:      state.profilePage.userInfo
+        userInfo:      state.profilePage.userInfo,
+        userProfile:   state.profilePage.userProfile
     }
 };
 const mapDispatchToProps = (dispatch) => ({
-    // onChangeSpanOfInput: (status) => {
-    //     dispatch(actionProfile.setCreatingUserStatus(status))
-    // }
-    // getUsersFromServer: () => {
-    //     dispatch(getUserStatus());
-    // }
+    getUserProfile: () => {
+        // dispatch(updateUserProfile())
+    }
 });
 
 //----

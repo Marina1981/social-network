@@ -1,11 +1,11 @@
 .templateWrapper{
-    height: 320vh;
+    height: 100%;
     width: 100%;
     display: grid;
     grid-template-columns: minmax(auto, 100%);
-    grid-template-rows: minmax(auto, 8%)
-                        minmax(auto, 1fr)
-                        minmax(auto, 8%);
+    grid-template-rows: minmax(auto, 5rem)
+                        minmax(auto, 1fr);
+                        /*minmax(auto, 8%);*/
     /*background: bisque;*/
     min-height: 0;
 }
@@ -15,14 +15,17 @@
     grid-column: 1;
     display: flex;
     /*margin-bottom: 10px;*/
+    /*min-height: 5rem;*/
+    justify-self: stretch;
+    align-self:   stretch;
 
 }
 
-.footerWrapper{
-    grid-row: 3;
-    grid-column: 1;
-    display: flex;
-}
+/*.footerWrapper{*/
+    /*grid-row: 3;*/
+    /*grid-column: 1;*/
+    /*display: flex;*/
+/*}*/
 
 .children{
     width: 100%;

@@ -1,6 +1,7 @@
 .c-header-section{
     width:  100%;
-    height: 100%;
+
+    height: 5rem;
 
     justify-self: stretch;
     align-self:   stretch;
@@ -14,6 +15,8 @@
 
     background-color: #eee;
     /*min-width: 58rem;*/
+    position: fixed;
+    z-index: 10;
 
 }
 /*------------------------------------------------------------------*/

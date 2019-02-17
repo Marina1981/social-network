@@ -11,20 +11,22 @@ const UserInfoSection = (props) => {
                         c-info__c-info--positioned">
             <div className="c-info__short-info
                             c-info__short-info--positioned">
-                <div className="c-info__user-name">
-                    {props.userName}
-                </div>
-                <div className="c-info__about-me">
-                    Welcome to the offical account of {props.userName}
-                </div>
                 <div className="contacts-block__about-me">
                     <span className="c-info__decorated-label">
                        AboutMe:
                     </span>
+
                     <span className="about-me__text">
-                        nnnnn
+                        {props.aboutMe}
                     </span>
+                    <div className="about-me__form">
+                        <input className="about-me__input" placeholder="about me"/>
+                        <button className="about-me__button">
+                            add
+                        </button>
+                    </div>
                 </div>
+
                 <div className="c-info__birth-date">
                     <span className=" c-info__decorated-label">
                         Birth date:
@@ -71,72 +73,126 @@ const UserInfoSection = (props) => {
                          Skype:
                     </span>
                     <span className="contacts-block__skype-address">
-                        "skype"
+                        {props.skype}
                     </span>
+                    <div className="contacts-block__form">
+                        <input className="contacts-block__input" placeholder="skype"/>
+                        <button className="contacts-block__button">
+                            add
+                        </button>
+                    </div>
                 </div>
                 <div className="contacts-block__vk">
                     <span className="c-info__decorated-label">
                          vk:
                     </span>
                     <span className="contacts-block__vk-address">
-                        "vk.com"
+                        {props.vk}
                     </span>
+                    <div className="contacts-block__form">
+                        <input className="contacts-block__input" placeholder="vk"/>
+                        <button className="contacts-block__button">
+                            add
+                        </button>
+                    </div>
                 </div>
                 <div className="contacts-block__facebook">
                     <span className="c-info__decorated-label">
                          Facebook:
                     </span>
                     <span className="contacts-block__facebook-address">
-                        "facebook"
+                        {props.facebook}
                     </span>
+                    <div className="contacts-block__form">
+                        <input className="contacts-block__input" placeholder="facebook"/>
+                        <button className="contacts-block__button">
+                            add
+                        </button>
+                    </div>
                 </div>
                 <div className="contacts-block__icq">
                     <span className="c-info__decorated-label">
                          icq:
                     </span>
                     <span className="contacts-block__icq-address">
-                        "icq"
+                        {props.icq}
                     </span>
+                    <div className="contacts-block__form">
+                        <input className="contacts-block__input" placeholder="icq"/>
+                        <button className="contacts-block__button">
+                            add
+                        </button>
+                    </div>
                 </div>
                 <div className="contacts-block__email">
                     <span className="c-info__decorated-label">
                          email:
                     </span>
                     <span className="contacts-block__email-address">
-                        "email.ru"
+                        {props.email}
                     </span>
+                    <div className="contacts-block__form">
+                        <input className="contacts-block__input" placeholder="email"/>
+                        <button className="contacts-block__button">
+                            add
+                        </button>
+                    </div>
                 </div>
                 <div className="contacts-block__googlePlus">
                     <span className="c-info__decorated-label">
                          googlePlus:
                     </span>
                     <span className="contacts-block__googlePlus-address">
-                        "googlePlus"
+                        {props.googlePlus}
                     </span>
+                    <div className="contacts-block__form">
+                        <input className="contacts-block__input" placeholder="googlePlus"/>
+                        <button className="contacts-block__button">
+                            add
+                        </button>
+                    </div>
                 </div>
                 <div className="contacts-block__twitter">
                     <span className="c-info__decorated-label">
                          twitter:
                     </span>
                     <span className="contacts-block__twitter-address">
-                        "twitter.com"
+                        {props.twitter}
                     </span>
+                    <div className="contacts-block__form">
+                        <input className="contacts-block__input" placeholder="twitter"/>
+                        <button className="contacts-block__button">
+                            add
+                        </button>
+                    </div>
                 </div>
                 <div className="contacts-block__instagram">
                     <span className="c-info__decorated-label">
                          instagram:
                     </span>
                     <span className="contacts-block__instagram-address">
-                        "instagram"
+                        {props.instagram}
                     </span>
+                    <div className="contacts-block__form">
+                        <input className="contacts-block__input" placeholder="instagram"/>
+                        <button className="contacts-block__button">
+                            add
+                        </button>
+                    </div>
                 </div>
                 <div className="contacts-block__wwhatsApp">
                     <span className="c-info__decorated-label">
-                         wwhatsApp:
+                         whatsApp:
                     </span>
                     <span className="contacts-block__wwhatsApp-address">
-                        "wwhatsApp"
+                        {props.whatsApp}
                     </span>
+                    <div className="contacts-block__form">
+                        <input className="contacts-block__input" placeholder="whatsApp"/>
+                        <button className="contacts-block__button">
+                            add
+                        </button>
+                    </div>
                 </div>
                 <div className="contacts-block__job-searches-block">
                     <span className="c-info__decorated-label">
@@ -149,7 +205,13 @@ const UserInfoSection = (props) => {
                         Description of work:
                     </span>
                     <div className="description-job__value">
-                        bla bla bla
+                        {props.lookingForAJobDescription}
+                    </div>
+                    <div className="description-job__form">
+                        <input className="description-job__input" placeholder="description"/>
+                        <button className="description-job__button">
+                            add
+                        </button>
                     </div>
                 </div>
             </div>

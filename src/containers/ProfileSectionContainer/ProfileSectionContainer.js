@@ -12,10 +12,11 @@ const ProfileSectionContainer = (props) => {
 const mapStateToProps = (state) => {
     return {
         isAuth:           state.auth.userAuthData.userId !== null, // true / false
-        userPicURL:         state.profilePage.userInfo.userPicURL,
+        userPicURL:       state.profilePage.userInfo.userPicURL,
         selectedFriendId: state.dialogsPage.selectedFriendId,
         messagesList:     state.profilePage.wall.messagesList,
         creatingMessage:  state.profilePage.wall.creatingMessage,
+        userName:         state.auth.userAuthData.userLogin
         // loginingStatus:   state.auth.isLoggedIn
 
     }
@@ -23,6 +24,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
+
+
+
         onCreatingMessageChanged: (message) => {
             dispatch(profileActions.setCreatingPost(message));
         },

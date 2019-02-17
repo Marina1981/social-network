@@ -1,23 +1,12 @@
 .c-info{
-    width: 100%;
     height: 100%;
     justify-self: stretch;
-    align-self:   stretch;
-
-    display: grid;
-
-    grid-template-rows:     minmax(auto, 70%)
-                            minmax(auto, 30%);
-
-    grid-template-columns:  minmax(auto, 100%);
-
-    min-height: 10rem;
+    align-self: stretch;
+    display: flex;
+    justify-content: space-between;
 }
 
 .c-info--positioned{
-    grid-row:    1;
-    grid-column: 1 / span 2;
-
     justify-self: stretch;
     align-self:   stretch;
     justify-content: center;
@@ -34,32 +23,14 @@
 }
 
 .c-info__short-info--positioned{
-    grid-row: 1/span 2;
-    grid-column: 1/ span 3;
-    justify-self: stretch;
-    align-self: stretch;
     background: white;
-    width: 60rem;
-    margin: auto;
-
+    width: 30rem;
+    height: 20rem;
     display: flex;
-    flex-direction: column;
+    margin-left: 5rem;
+    margin-right: 5rem;
 }
 
-/*------------------------------------------------------------------*/
-.c-info__user-name{
-    font-family: cursive;
-    font-size: 2.5rem;
-    color: #1d9a82;
-    margin: auto;
-}
-
-.c-info__about-me{
-    font-family: cursive;
-    font-size: 1.3rem;
-    color: #858686;
-    margin: auto;
-}
 /*------------------------------------------------------------------*/
 .c-info__decorated-label{
     font-family: cursive;
@@ -110,16 +81,14 @@
 }
 /*------------------------------------------------------------------*/
 .c-info__contacts-block{
-    grid-row: 3;
-    grid-column: 1/ span 3;
-    justify-self: stretch;
-    align-self: stretch;
-    width: 60rem;
+    width: 30rem;
+    height: 20rem;
     display: flex;
     flex-direction: column;
     background: white;
-    margin: 2rem auto auto;
     word-break: break-all;
+    margin-left: 5rem;
+    margin-right: 5rem;
 }
 .contacts-block__decorated-label{
     display: flex;
@@ -149,7 +118,22 @@
 }
 
 .contacts-block__job-searches-block{
-    width: 10rem;
-   display: flex;
-   justify-content: space-between;
+    width: 20rem;
+    display: flex;
+    justify-content: space-between;
+}
+.contacts-block__about-me,
+.contacts-block__wwhatsApp,
+.contacts-block__instagram,
+.contacts-block__twitter,
+.contacts-block__googlePlus,
+.contacts-block__email,
+.contacts-block__icq,
+.contacts-block__facebook,
+.contacts-block__vk,
+.contacts-block__skype,
+.c-info__contacts-block,
+.contacts-block__description-job{
+    display: flex;
+    justify-content: space-between;
 }

@@ -18,6 +18,14 @@ const ProfileSection = (props) => {
                             c-info__userpic--positioned">
                 <img className="c-info__userpic-img" src={props.userPicURL} alt="userpic"/>
             </div>
+            <div className="c-profile-section__greeting-block">
+                <div className="greeting-block__user-name">
+                    {props.userName}
+                </div>
+                <div className="greeting-block__about-me">
+                    Welcome to the offical account of {props.userName}
+                </div>
+            </div>
             <div className="c-profile-section__head-image
                                 c-profile-section__head-image--positioned"/>
             <div className="c-profile-section__info-block

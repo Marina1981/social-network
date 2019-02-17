@@ -16,9 +16,9 @@ const TemplateWithSideBar = (props) => {
                 <MainSidebar/>
             </div>
             <div className={style.children}>{props.children}</div>
-            <div className={style.footerWrapper}>
-                <MainFooter/>
-            </div>
+            {/*<div className={style.footerWrapper}>*/}
+                {/*<MainFooter/>*/}
+            {/*</div>*/}
         </div>
     )
 };
