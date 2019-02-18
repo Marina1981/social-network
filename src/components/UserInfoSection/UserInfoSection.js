@@ -15,24 +15,34 @@ const UserInfoSection = (props) => {
                     <span className="c-info__decorated-label">
                        AboutMe:
                     </span>
-
-                    <span className="about-me__text">
-                        {props.aboutMe}
-                    </span>
-                    <div className="about-me__form">
-                        <input className="about-me__input" placeholder="about me"/>
-                        <button className="about-me__button">
-                            add
-                        </button>
-                    </div>
+                    {
+                        (props.creatingUserProfileAboutMe === null) ?
+                            <div className="about-me__text" onClick={props.onAboutMeChangeRequest}>
+                               {props.userProfile.aboutMe}
+                            </div> :
+                            <div className="about-me__form">
+                                <input className="about-me__input" placeholder="about me"
+                                       value={props.creatingUserProfileAboutMe}
+                                       onChange={
+                                           (e) => {
+                                               props.onChangeCreatingProfileAboutMe(e.currentTarget.value)
+                                           }}/>
+                                <button className="about-me__button"
+                                        onClick={
+                                            (e) =>
+                                            {props.onCreatingUserProfileFinishCommitted()}
+                                        }>
+                                    add
+                                </button>
+                            </div>
+                    }
                 </div>
-
                 <div className="c-info__birth-date">
                     <span className=" c-info__decorated-label">
                         Birth date:
                     </span>
                     <span className="c-info__birth-date-value">
-                      {props.userBirthDate}
+                      {props.userInfo.userBirthDate}
                     </span>
                 </div>
                 <div className="c-info__residence">
@@ -40,7 +50,7 @@ const UserInfoSection = (props) => {
                          City:
                     </span>
                     <span className="c-info__residence-value">
-                           {props.userCity}
+                           {props.userInfo.userCity}
                     </span>
                 </div>
                 <div className="c-info__education">
@@ -48,7 +58,7 @@ const UserInfoSection = (props) => {
                         Education:
                     </span>
                     <span className="c-info__education-value">
-                           {props.userEducation}
+                           {props.userInfo.userEducation}
                     </span>
                 </div>
                 <div className="c-info__website">
@@ -56,7 +66,7 @@ const UserInfoSection = (props) => {
                         Website:
                     </span>
                     <Link to='/' className="c-info__website-value">
-                        {props.userWebSite}
+                        {props.userInfo.userWebSite}
                     </Link>
                 </div>
                 <div className="userStatusBlock-positioned">
@@ -66,153 +76,288 @@ const UserInfoSection = (props) => {
 
             <div className="c-info__contacts-block">
                 <div className="contacts-block__decorated-label">
-                       My contacts:
+                    My contacts:
                 </div>
                 <div className="contacts-block__skype">
                     <span className="c-info__decorated-label">
                          Skype:
                     </span>
-                    <span className="contacts-block__skype-address">
-                        {props.skype}
-                    </span>
-                    <div className="contacts-block__form">
-                        <input className="contacts-block__input" placeholder="skype"/>
-                        <button className="contacts-block__button">
-                            add
-                        </button>
-                    </div>
+                    {
+                        (props.creatingUserProfileSkype === null) ?
+                            <div className="contacts-block__skype-address" onClick={props.onSkypeChangeRequest}>
+                                {props.userProfile.skype}
+                            </div> :
+                            <div className="contacts-block__form">
+                                <input className="contacts-block__input" placeholder="skype"
+                                       value={props.creatingUserProfileSkype}
+                                       onChange={
+                                           (e) => {
+                                               props.onChangeCreatingProfileSkype(e.currentTarget.value)
+                                           }
+                                       }/>
+                                <button className="contacts-block__button"
+                                        onClick={
+                                            (e) =>
+                                            {props.onCreatingUserProfileFinishCommitted()}
+                                        }>>
+                                    add
+                                </button>
+                            </div>
+                    }
                 </div>
                 <div className="contacts-block__vk">
-                    <span className="c-info__decorated-label">
+                    <div className="c-info__decorated-label" onClick={props.onVkChangeRequest}>
                          vk:
-                    </span>
-                    <span className="contacts-block__vk-address">
-                        {props.vk}
-                    </span>
-                    <div className="contacts-block__form">
-                        <input className="contacts-block__input" placeholder="vk"/>
-                        <button className="contacts-block__button">
-                            add
-                        </button>
                     </div>
+                    {
+                        (props.creatingUserProfileVk === null) ?
+                            <span className="contacts-block__vk-address">
+                                {props.userProfile.vk}
+                            </span> :
+                            <div className="contacts-block__form">
+                                <input className="contacts-block__input" placeholder="vk"
+                                       value={props.creatingUserProfileVk}
+                                       onChange={
+                                           (e) => {
+                                               props.onChangeCreatingProfileVk(e.currentTarget.value)
+                                           }
+                                       }/>
+                                <button className="contacts-block__button"
+                                        onClick={
+                                            (e) =>
+                                            {props.onCreatingUserProfileFinishCommitted()}
+                                        }>>
+                                    add
+                                </button>
+                            </div>
+                    }
                 </div>
                 <div className="contacts-block__facebook">
                     <span className="c-info__decorated-label">
                          Facebook:
                     </span>
-                    <span className="contacts-block__facebook-address">
-                        {props.facebook}
-                    </span>
-                    <div className="contacts-block__form">
-                        <input className="contacts-block__input" placeholder="facebook"/>
-                        <button className="contacts-block__button">
-                            add
-                        </button>
-                    </div>
+                    {
+                        (props.creatingUserProfileFacebook === null) ?
+                            <div className="contacts-block__facebook-address" onClick={props.onFacebookChangeRequest}>
+                                 {props.userProfile.facebook}
+                            </div> :
+                            <div className="contacts-block__form">
+                                <input className="contacts-block__input" placeholder="facebook"
+                                       value={props.creatingUserProfileFacebook}
+                                       onChange={
+                                           (e) => {
+                                               props.onChangeCreatingProfileFacebook(e.currentTarget.value)
+                                           }
+                                       }/>
+                                <button className="contacts-block__button"
+                                        onClick={
+                                            (e) =>
+                                            {props.onCreatingUserProfileFinishCommitted()}
+                                        }>>
+                                    add
+                                </button>
+                            </div>
+                    }
                 </div>
                 <div className="contacts-block__icq">
                     <span className="c-info__decorated-label">
                          icq:
                     </span>
-                    <span className="contacts-block__icq-address">
-                        {props.icq}
-                    </span>
-                    <div className="contacts-block__form">
-                        <input className="contacts-block__input" placeholder="icq"/>
-                        <button className="contacts-block__button">
-                            add
-                        </button>
-                    </div>
+                    {
+                        (props.creatingUserProfileIcq === null) ?
+                            <div className="contacts-block__icq-address" onClick={props.onIcqChangeRequest}>
+                                 {props.userProfile.icq}
+                            </div> :
+                            <div className="contacts-block__form">
+                                <input className="contacts-block__input" placeholder="icq"
+                                       value={props.creatingUserProfileIcq}
+                                       onChange={
+                                           (e) => {
+                                               props.onChangeCreatingProfileIcq(e.currentTarget.value)
+                                           }
+                                       }/>
+                                <button className="contacts-block__button"
+                                        onClick={
+                                            (e) =>
+                                            {props.onCreatingUserProfileFinishCommitted()}
+                                        }>>
+                                    add
+                                </button>
+                            </div>
+                    }
                 </div>
                 <div className="contacts-block__email">
                     <span className="c-info__decorated-label">
                          email:
                     </span>
-                    <span className="contacts-block__email-address">
-                        {props.email}
-                    </span>
-                    <div className="contacts-block__form">
-                        <input className="contacts-block__input" placeholder="email"/>
-                        <button className="contacts-block__button">
-                            add
-                        </button>
-                    </div>
+                    {
+                        (props.creatingUserProfileEmail === null) ?
+                            <div className="contacts-block__email-address" onClick={props.onEmailChangeRequest}>
+                                {props.userProfile.email}
+                            </div> :
+                            <div className="contacts-block__form">
+                                <input className="contacts-block__input" placeholder="email"
+                                       value={props.creatingUserProfileEmail}
+                                       onChange={
+                                           (e) => {
+                                               props.onChangeCreatingProfileEmail(e.currentTarget.value)
+                                           }
+                                       }/>
+                                <button className="contacts-block__button"
+                                        onClick={
+                                            (e) =>
+                                            {props.onCreatingUserProfileFinishCommitted()}
+                                        }>>
+                                    add
+                                </button>
+                            </div>
+                    }
                 </div>
                 <div className="contacts-block__googlePlus">
                     <span className="c-info__decorated-label">
                          googlePlus:
                     </span>
-                    <span className="contacts-block__googlePlus-address">
-                        {props.googlePlus}
-                    </span>
-                    <div className="contacts-block__form">
-                        <input className="contacts-block__input" placeholder="googlePlus"/>
-                        <button className="contacts-block__button">
-                            add
-                        </button>
-                    </div>
+                    {
+                        (props.creatingUserProfileGooglePlus === null) ?
+                            <div className="contacts-block__googlePlus-address" onClick={props.onGooglePlusChangeRequest}>
+                                {props.userProfile.googlePlus}
+                            </div> :
+                            <div className="contacts-block__form">
+                                <input className="contacts-block__input" placeholder="googlePlus"
+                                       value={props.creatingUserProfileGooglePlus}
+                                       onChange={
+                                           (e) => {
+                                               props.onChangeCreatingProfileGooglePlus(e.currentTarget.value)
+                                           }
+                                       }/>
+                                <button className="contacts-block__button"
+                                        onClick={
+                                            (e) =>
+                                            {props.onCreatingUserProfileFinishCommitted()}
+                                        }>>
+                                    add
+                                </button>
+                            </div>
+                    }
                 </div>
                 <div className="contacts-block__twitter">
                     <span className="c-info__decorated-label">
                          twitter:
                     </span>
-                    <span className="contacts-block__twitter-address">
-                        {props.twitter}
-                    </span>
-                    <div className="contacts-block__form">
-                        <input className="contacts-block__input" placeholder="twitter"/>
-                        <button className="contacts-block__button">
-                            add
-                        </button>
-                    </div>
+                    {
+                        (props.creatingUserProfileTwitter === null) ?
+                            <div className="contacts-block__twitter-address" onClick={props.onTwitterChangeRequest}>
+                                {props.userProfile.twitter}
+                            </div> :
+                            <div className="contacts-block__form">
+                                <input className="contacts-block__input" placeholder="twitter"
+                                       value={props.creatingUserProfileTwitter}
+                                       onChange={
+                                           (e) => {
+                                               props.onChangeCreatingProfileTwitter(e.currentTarget.value)
+                                           }
+                                       }/>
+                                <button className="contacts-block__button"
+                                        onClick={
+                                            (e) =>
+                                            {props.onCreatingUserProfileFinishCommitted()}
+                                        }>>
+                                    add
+                                </button>
+                            </div>
+                    }
                 </div>
                 <div className="contacts-block__instagram">
                     <span className="c-info__decorated-label">
                          instagram:
                     </span>
-                    <span className="contacts-block__instagram-address">
-                        {props.instagram}
-                    </span>
-                    <div className="contacts-block__form">
-                        <input className="contacts-block__input" placeholder="instagram"/>
-                        <button className="contacts-block__button">
-                            add
-                        </button>
-                    </div>
+                    {
+                        (props.creatingUserProfileInstagram === null) ?
+                            <div className="contacts-block__instagram-address" onClick={props.onInstagramChangeRequest}>
+                                {props.userProfile.instagram}
+                            </div> :
+                            <div className="contacts-block__form">
+                                <input className="contacts-block__input" placeholder="instagram"
+                                       value={props.creatingUserProfileInstagram}
+                                       onChange={
+                                           (e) => {
+                                               props.onChangeCreatingProfileInstagram(e.currentTarget.value)
+                                           }
+                                       }/>
+                                <button className="contacts-block__button"
+                                        onClick={
+                                            (e) =>
+                                            {props.onCreatingUserProfileFinishCommitted()}
+                                        }>>
+                                    add
+                                </button>
+                            </div>
+                    }
                 </div>
                 <div className="contacts-block__wwhatsApp">
                     <span className="c-info__decorated-label">
                          whatsApp:
                     </span>
-                    <span className="contacts-block__wwhatsApp-address">
-                        {props.whatsApp}
-                    </span>
-                    <div className="contacts-block__form">
-                        <input className="contacts-block__input" placeholder="whatsApp"/>
-                        <button className="contacts-block__button">
-                            add
-                        </button>
-                    </div>
+                    {
+                        (props.creatingUserProfileWhatsApp === null) ?
+                            <div className="contacts-block__wwhatsApp-address" onClick={props.onWhatsAppChangeRequest}>
+                                {props.userProfile.whatsApp}
+                            </div> :
+                            <div className="contacts-block__form">
+                                <input className="contacts-block__input" placeholder="whatsApp"
+                                       value={props.creatingUserProfileWhatsApp}
+                                       onChange={
+                                           (e) => {
+                                               props.onChangeCreatingProfileWhatsApp(e.currentTarget.value)
+                                           }
+                                       }/>
+                                <button className="contacts-block__button"
+                                        onClick={
+                                            (e) =>
+                                            {props.onCreatingUserProfileFinishCommitted()}
+                                        }>>
+                                    add
+                                </button>
+                            </div>
+                    }
                 </div>
                 <div className="contacts-block__job-searches-block">
-                    <span className="c-info__decorated-label">
+                    <div className="c-info__decorated-label">
                         looking For A Job
-                    </span>
-                    <input type="checkbox" className="job-searches-block__checkbox"/>
+                    </div>
+                    <input type="checkbox" className="job-searches-block__checkbox"
+                           onChange={
+                               (e) => {
+                                   {props.onChangeRememberMeFlag(e.currentTarget.checked)}
+                               }
+                           }/>
                 </div>
                 <div className="contacts-block__description-job">
                     <span className="c-info__decorated-label">
                         Description of work:
                     </span>
-                    <div className="description-job__value">
-                        {props.lookingForAJobDescription}
-                    </div>
-                    <div className="description-job__form">
-                        <input className="description-job__input" placeholder="description"/>
-                        <button className="description-job__button">
-                            add
-                        </button>
-                    </div>
+                    {
+                        (props.creatingLookingForAJobDescription === null) ?
+                            <div className="description-job__value" onClick={props.onLookingForAJobDescriptionChangeRequest}>
+                                {props.userProfile.lookingForAJobDescription}
+                            </div> :
+                            <div className="description-job__form">
+                                <input className="description-job__input" placeholder="description"
+                                       value={props.creatingLookingForAJobDescription}
+                                       onChange={
+                                           (e) => {
+                                               props.onChangeCreatingProfileLookingForAJobDescription(e.currentTarget.value)
+                                           }
+                                       }/>
+                                <button className="description-job__button"
+                                        onClick={
+                                            (e) =>
+                                            {props.onCreatingUserProfileFinishCommitted()}
+                                        }>>
+                                    add
+                                </button>
+                            </div>
+                    }
                 </div>
             </div>
         </div>
@@ -230,11 +375,3 @@ UserInfoSection.propTypes = {
 
 export default UserInfoSection;
 
-// <input className="status__input" placeholder='change status'
-//        value={props.creatingUserStatus}
-{/*onChange={*/
-}
-//            (e) => {
-//                props.onChangeCreatingUserStatus(e.currentTarget.value)
-//            }
-//        }/>

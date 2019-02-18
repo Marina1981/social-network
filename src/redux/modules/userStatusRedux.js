@@ -6,23 +6,32 @@ import {getUserId} from "./authRedux";
 import axios from "../../dal/axios-instance";
 
 export const types = {
-    SET_USER_STATUS:                                 'NETWORK/USER_STATUS_BLOCK/SET_USER_STATUS',
+    SET_USER_STATUS: 'NETWORK/USER_STATUS_BLOCK/SET_USER_STATUS',
     // CLEAR_USER_STATUS:                               'NETWORK/USER_STATUS_BLOCK/CLEAR_USER_STATUS',
-    SET_CREATING_USER_STATUS:                        'NETWORK/USER_STATUS_BLOCK/SET_CREATING_USER_STATUS',
-    SET_USER_STATUS_UPDATING_PROCESS_STATUS:         'NETWORK/USER_STATUS_BLOCK/SET_USER_STATUS_UPDATING_PROCESS_STATUS',
-    SET_USER_STATUS_UPDATING_PROCESS_ERROR:          'NETWORK/USER_STATUS_BLOCK/SET_USER_STATUS_UPDATING_PROCESS_ERROR',
-    SET_USER_STATUS_UPDATING_PROCESS_ERROR_MESSAGE:  'NETWORK/USER_STATUS_BLOCK/SET_USER_STATUS_UPDATING_PROCESS_ERROR_MESSAGE',
-    COPY_USER_STATUS_TO_CREATING_USER_STATUS:        'NETWORK/USER_STATUS_BLOCK/COPY_USER_STATUS_TO_CREATING_USER_STATUS'
+    SET_CREATING_USER_STATUS: 'NETWORK/USER_STATUS_BLOCK/SET_CREATING_USER_STATUS',
+    SET_USER_STATUS_UPDATING_PROCESS_STATUS: 'NETWORK/USER_STATUS_BLOCK/SET_USER_STATUS_UPDATING_PROCESS_STATUS',
+    SET_USER_STATUS_UPDATING_PROCESS_ERROR: 'NETWORK/USER_STATUS_BLOCK/SET_USER_STATUS_UPDATING_PROCESS_ERROR',
+    SET_USER_STATUS_UPDATING_PROCESS_ERROR_MESSAGE: 'NETWORK/USER_STATUS_BLOCK/SET_USER_STATUS_UPDATING_PROCESS_ERROR_MESSAGE',
+    COPY_USER_STATUS_TO_CREATING_USER_STATUS: 'NETWORK/USER_STATUS_BLOCK/COPY_USER_STATUS_TO_CREATING_USER_STATUS'
 };
 
 
 export const actions = {
-    setUserStatus: (userStatus)  => ({type: types.SET_USER_STATUS, userStatus}),
+    setUserStatus: (userStatus) => ({type: types.SET_USER_STATUS, userStatus}),
     setCreatingUserStatus: (creatingUserStatus) => ({type: types.SET_CREATING_USER_STATUS, creatingUserStatus}),
-    setUserStatusUpdatingProcessStatus: (processStatus) => ({type: types.SET_USER_STATUS_UPDATING_PROCESS_STATUS, processStatus}),
-    setUserStatusUpdatingProcessError: (processError)   => ({type: types.SET_USER_STATUS_UPDATING_PROCESS_ERROR, processError}),
-    setUserStatusUpdatingProcessErrorMessage: (processErrorMessage)  => ({type: types.SET_USER_STATUS_UPDATING_PROCESS_ERROR_MESSAGE, processErrorMessage}),
-    copyUserStatusToCreatingUserStatus:   () => ({type: types.COPY_USER_STATUS_TO_CREATING_USER_STATUS})
+    setUserStatusUpdatingProcessStatus: (processStatus) => ({
+        type: types.SET_USER_STATUS_UPDATING_PROCESS_STATUS,
+        processStatus
+    }),
+    setUserStatusUpdatingProcessError: (processError) => ({
+        type: types.SET_USER_STATUS_UPDATING_PROCESS_ERROR,
+        processError
+    }),
+    setUserStatusUpdatingProcessErrorMessage: (processErrorMessage) => ({
+        type: types.SET_USER_STATUS_UPDATING_PROCESS_ERROR_MESSAGE,
+        processErrorMessage
+    }),
+    copyUserStatusToCreatingUserStatus: () => ({type: types.COPY_USER_STATUS_TO_CREATING_USER_STATUS})
 };
 
 //----
@@ -30,10 +39,10 @@ export const initialState = {
     userStatus: 'мой статус',
     creatingUserStatus: null,
 
-    userStatusUpdatingStatus:        userStatusUpdatingProcessStatuses.READY,
+    userStatusUpdatingStatus: userStatusUpdatingProcessStatuses.READY,
 
-    userStatusUpdatingProcessError:  userStatusUpdatingProcessResults.SUCCESS,
-    userStatusUpdatingErrorMessage:  ''
+    userStatusUpdatingProcessError: userStatusUpdatingProcessResults.SUCCESS,
+    userStatusUpdatingErrorMessage: ''
 };
 //-------
 export const reducer = (state = initialState, action) => {
@@ -59,24 +68,24 @@ export const reducer = (state = initialState, action) => {
 
         case types.SET_USER_STATUS_UPDATING_PROCESS_STATUS:
             return {
-              ...state,
+                ...state,
                 userStatusUpdatingStatus: action.processStatus
             };
         case types.SET_USER_STATUS_UPDATING_PROCESS_ERROR:
             return {
-              ...state,
+                ...state,
                 userStatusUpdatingProcessError: action.processError
             };
 
         case types.SET_USER_STATUS_UPDATING_PROCESS_ERROR_MESSAGE:
             return {
-              ...state,
+                ...state,
                 userStatusUpdatingErrorMessage: action.processErrorMessage
             };
 
         case types.COPY_USER_STATUS_TO_CREATING_USER_STATUS:
             return {
-              ...state,
+                ...state,
                 creatingUserStatus: state.userStatus
             };
 
@@ -112,7 +121,7 @@ export const updateUserStatus = () => (dispatch, getState) => {
 
     axios.put('profile/status', {status})
         .then(result => {
-            if (result.data.resultCode === 0){
+            if (result.data.resultCode === 0) {
 
                 const userId = getUserId(globalState);
 
@@ -120,17 +129,16 @@ export const updateUserStatus = () => (dispatch, getState) => {
                     .then(result => {
 
                         dispatch(actions.setUserStatusUpdatingProcessStatus(userStatusUpdatingProcessStatuses.READY));
-                        if (result.data.resultCode === 0){
+                        if (result.data.resultCode === 0) {
                             dispatch(actions.setUserStatus(result.data));
-                        }else {
-                           dispatch(actions.setUserStatusUpdatingProcessError(userStatusUpdatingProcessResults.COMMON_ERROR));
-                           dispatch(actions.setUserStatusUpdatingProcessErrorMessage("ERROR!!!"))
+                        } else {
+                            dispatch(actions.setUserStatusUpdatingProcessError(userStatusUpdatingProcessResults.COMMON_ERROR));
+                            dispatch(actions.setUserStatusUpdatingProcessErrorMessage("ERROR!!!"))
                         }
                     })
-                    .then(()=>
-                                    {dispatch(actions.setCreatingUserStatus(null));});
-
-
+                    .then(() => {
+                        dispatch(actions.setCreatingUserStatus(null));
+                    });
             }
         })
 };

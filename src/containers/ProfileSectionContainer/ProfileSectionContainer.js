@@ -17,7 +17,7 @@ const mapStateToProps = (state) => {
         messagesList:     state.profilePage.wall.messagesList,
         creatingMessage:  state.profilePage.wall.creatingMessage,
         userName:         state.auth.userAuthData.userLogin
-        // loginingStatus:   state.auth.isLoggedIn
+
 
     }
 };
