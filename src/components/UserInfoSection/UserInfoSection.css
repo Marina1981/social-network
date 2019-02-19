@@ -27,8 +27,8 @@
     width: 35rem;
     height: 25rem;
     display: flex;
-    margin-left: 5rem;
-    margin-right: 5rem;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
 }
 
 /*------------------------------------------------------------------*/
@@ -87,8 +87,8 @@
     flex-direction: column;
     background: white;
     word-break: break-all;
-    margin-left: 5rem;
-    margin-right: 5rem;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
 }
 .contacts-block__decorated-label{
     display: flex;
@@ -198,4 +198,8 @@
     color: #4e514e;
     background:  #eee;
     border: none;
+}
+.job-searches-block__checkbox{
+    display: flex;
+    margin-right: 14rem;
 }

@@ -80,14 +80,14 @@ const mapDispatchToProps = (dispatch) => {
         },
 
         onIcqChangeRequest: () => {
-            dispatch(actionsProfile.copyIcqToCreatingIcq)
+            dispatch(actionsProfile.copyIcqToCreatingIcq())
         },
         onChangeCreatingProfileIcq: (icq) => {
             dispatch(actionsProfile.setCreatingIcq(icq))
         },
 
         onEmailChangeRequest: () => {
-            dispatch(actionsProfile.copyEmailToCreatingEmail)
+            dispatch(actionsProfile.copyEmailToCreatingEmail())
         },
         onChangeCreatingProfileEmail: (email) => {
             dispatch(actionsProfile.setCreatingEmail(email))
@@ -107,7 +107,7 @@ const mapDispatchToProps = (dispatch) => {
         },
 
         onInstagramChangeRequest: () => {
-            dispatch(actionsProfile.copyInstagramToCreatingInstagram)
+            dispatch(actionsProfile.copyInstagramToCreatingInstagram())
         },
         onChangeCreatingProfileInstagram: (instagram) => {
             dispatch(actionsProfile.setCratingInstagram(instagram))
