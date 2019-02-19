@@ -100,8 +100,8 @@ export const getCreatingUserStatus = (globalState) => globalState.userStatusBloc
 
 //-----ThanksCreators----//
 
-// getUserStatus  getUserStatus
-export const getUserStatus = () => (dispatch, getState) => {
+//setReceivedServerUserStatus  setReceivedServerUserStatus
+export const setReceivedServerUserStatus = () => (dispatch, getState) => {
     const globalState = getState();
     const userId = getUserId(globalState);
 
@@ -112,8 +112,8 @@ export const getUserStatus = () => (dispatch, getState) => {
 };
 
 //---
-// updateUserStatus  updateUserStatus
-export const updateUserStatus = () => (dispatch, getState) => {
+// updateUserStatusFromCreatingUserStatus  updateUserStatusFromCreatingUserStatus
+export const updateUserStatusFromCreatingUserStatus = () => (dispatch, getState) => {
     const globalState = getState();
     const status = getCreatingUserStatus(globalState);
 
@@ -129,17 +129,21 @@ export const updateUserStatus = () => (dispatch, getState) => {
                     .then(result => {
 
                         dispatch(actions.setUserStatusUpdatingProcessStatus(userStatusUpdatingProcessStatuses.READY));
-                        if (result.data.resultCode === 0) {
+                        // if (result.data.resultCode === 0) {
                             dispatch(actions.setUserStatus(result.data));
-                        } else {
-                            dispatch(actions.setUserStatusUpdatingProcessError(userStatusUpdatingProcessResults.COMMON_ERROR));
-                            dispatch(actions.setUserStatusUpdatingProcessErrorMessage("ERROR!!!"))
-                        }
+                        // } else {
+                        //     dispatch(actions.setUserStatusUpdatingProcessError(userStatusUpdatingProcessResults.COMMON_ERROR));
+                        //     dispatch(actions.setUserStatusUpdatingProcessErrorMessage("ERROR!!!"))
+                        // }
                     })
                     .then(() => {
                         dispatch(actions.setCreatingUserStatus(null));
                     });
             }
+            else {
+                    dispatch(actions.setUserStatusUpdatingProcessError(userStatusUpdatingProcessResults.COMMON_ERROR));
+                     dispatch(actions.setUserStatusUpdatingProcessErrorMessage("ERROR!!!"))
+                 }
         })
 };
 

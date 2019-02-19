@@ -24,8 +24,8 @@
 
 .c-info__short-info--positioned{
     background: white;
-    width: 30rem;
-    height: 20rem;
+    width: 35rem;
+    height: 25rem;
     display: flex;
     margin-left: 5rem;
     margin-right: 5rem;
@@ -81,8 +81,8 @@
 }
 /*------------------------------------------------------------------*/
 .c-info__contacts-block{
-    width: 30rem;
-    height: 20rem;
+    width: 35rem;
+    height: 25rem;
     display: flex;
     flex-direction: column;
     background: white;
@@ -98,23 +98,12 @@
     font-size: 1.6rem;
     color: #0fc19e;
 }
-.about-me__text,
-.c-info__residence-value,
-.c-info__education-value,
-.c-info__website-value,
-.contacts-block__skype-address,
-.contacts-block__vk-address,
-.contacts-block__facebook-address,
-.contacts-block__icq-address,
-.contacts-block__email-address,
-.contacts-block__googlePlus-address,
-.contacts-block__twitter-address,
-.contacts-block__instagram-address,
-.contacts-block__wwhatsApp-address,
-.description-job__value {
+.contacts-block__text{
     font-family: cursive;
     font-size: 1rem;
     color: #858686;
+    width: 15rem;
+    height: 1rem;
 }
 
 .contacts-block__job-searches-block{
@@ -122,18 +111,91 @@
     display: flex;
     justify-content: space-between;
 }
-.contacts-block__about-me,
-.contacts-block__wwhatsApp,
-.contacts-block__instagram,
-.contacts-block__twitter,
-.contacts-block__googlePlus,
-.contacts-block__email,
-.contacts-block__icq,
-.contacts-block__facebook,
-.contacts-block__vk,
-.contacts-block__skype,
-.c-info__contacts-block,
-.contacts-block__description-job{
+
+.contacts-block__about-me{
     display: flex;
     justify-content: space-between;
+}
+
+.c-info__birth-date,
+.c-info__city,
+.c-info__education,
+.c-info__website,
+.contacts-block__form{
+    /*width: 100%;*/
+    height: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.c-info__birth-date-value,
+.c-info__city-value,
+.c-info__education-value,
+.c-info__website-value{
+    font-family: cursive;
+    font-size: 1rem;
+    color: #858686;
+    width: 15rem;
+    height: 1rem;
+}
+
+
+
+
+.contacts-block__input,
+.about-me__input{
+    width:  18rem;
+    height: 1.5rem;
+    border: none;
+    background-color: #eee;
+    font-family: cursive;
+    font-size: 1rem;
+    color: #4e514e;
+    text-align: center;
+    outline: none;
+}
+
+.about-me__button,
+.contacts-block__button,
+.description-job__button{
+    width: 3rem;
+    height: 1.8rem;
+    border: none;
+    background-color: #0fc19e;
+    color: white;
+    font-family: cursive;
+    font-size: 0.8rem;
+    border-radius: 0.5rem;
+    outline: none;
+}
+
+.contacts-block{
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+.contacts-block__skype-address{
+    background: #0fc19e;
+    height: 6rem;
+    width: 20rem;
+}
+
+.contacts-block__description-job{
+    height: 6rem;
+    /* width: 30rem; */
+    display: flex;
+    justify-content: space-between;
+}
+.description-job__form{
+  display: flex;
+}
+.description-job__textarea{
+    height: 4rem;
+    width: 15rem;
+    font-family: cursive;
+    font-size: 1rem;
+    color: #4e514e;
+    background:  #eee;
+    border: none;
 }

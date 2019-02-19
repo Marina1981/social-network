@@ -6,6 +6,7 @@ import UserStatusBlockContainer from "../../containers/UserStatusBlockContainer/
 
 
 const UserInfoSection = (props) => {
+
     return (
         <div className="c-info
                         c-info__c-info--positioned">
@@ -17,8 +18,8 @@ const UserInfoSection = (props) => {
                     </span>
                     {
                         (props.creatingUserProfileAboutMe === null) ?
-                            <div className="about-me__text" onClick={props.onAboutMeChangeRequest}>
-                               {props.userProfile.aboutMe}
+                            <div className="contacts-block__text" onClick={props.onAboutMeChangeRequest}>
+                                {props.userProfile.aboutMe}
                             </div> :
                             <div className="about-me__form">
                                 <input className="about-me__input" placeholder="about me"
@@ -29,10 +30,11 @@ const UserInfoSection = (props) => {
                                            }}/>
                                 <button className="about-me__button"
                                         onClick={
-                                            (e) =>
-                                            {props.onCreatingUserProfileFinishCommitted()}
+                                            (e) => {
+                                                props.onCreatingUserProfileFinishCommitted()
+                                            }
                                         }>
-                                    add
+                                    ok
                                 </button>
                             </div>
                     }
@@ -45,11 +47,11 @@ const UserInfoSection = (props) => {
                       {props.userInfo.userBirthDate}
                     </span>
                 </div>
-                <div className="c-info__residence">
+                <div className="c-info__city">
                     <span className="c-info__decorated-label">
                          City:
                     </span>
-                    <span className="c-info__residence-value">
+                    <span className="c-info__city-value">
                            {props.userInfo.userCity}
                     </span>
                 </div>
@@ -78,14 +80,14 @@ const UserInfoSection = (props) => {
                 <div className="contacts-block__decorated-label">
                     My contacts:
                 </div>
-                <div className="contacts-block__skype">
+                <div className="contacts-block">
                     <span className="c-info__decorated-label">
                          Skype:
                     </span>
                     {
                         (props.creatingUserProfileSkype === null) ?
-                            <div className="contacts-block__skype-address" onClick={props.onSkypeChangeRequest}>
-                                {props.userProfile.skype}
+                            <div className="contacts-block__text" onClick={props.onSkypeChangeRequest}>
+                                {props.userProfile.contacts.skype}
                             </div> :
                             <div className="contacts-block__form">
                                 <input className="contacts-block__input" placeholder="skype"
@@ -97,23 +99,24 @@ const UserInfoSection = (props) => {
                                        }/>
                                 <button className="contacts-block__button"
                                         onClick={
-                                            (e) =>
-                                            {props.onCreatingUserProfileFinishCommitted()}
+                                            (e) => {
+                                                props.onCreatingUserProfileFinishCommitted()
+                                            }
                                         }>>
-                                    add
+                                    ok
                                 </button>
                             </div>
                     }
                 </div>
-                <div className="contacts-block__vk">
-                    <div className="c-info__decorated-label" onClick={props.onVkChangeRequest}>
-                         vk:
+                <div className="contacts-block">
+                    <div className="c-info__decorated-label">
+                        vk:
                     </div>
                     {
                         (props.creatingUserProfileVk === null) ?
-                            <span className="contacts-block__vk-address">
-                                {props.userProfile.vk}
-                            </span> :
+                            <div className="contacts-block__text" onClick={props.onVkChangeRequest}>
+                                {props.userProfile.contacts.vk}
+                            </div> :
                             <div className="contacts-block__form">
                                 <input className="contacts-block__input" placeholder="vk"
                                        value={props.creatingUserProfileVk}
@@ -124,22 +127,23 @@ const UserInfoSection = (props) => {
                                        }/>
                                 <button className="contacts-block__button"
                                         onClick={
-                                            (e) =>
-                                            {props.onCreatingUserProfileFinishCommitted()}
+                                            (e) => {
+                                                props.onCreatingUserProfileFinishCommitted()
+                                            }
                                         }>>
-                                    add
+                                    ok
                                 </button>
                             </div>
                     }
                 </div>
-                <div className="contacts-block__facebook">
+                <div className="contacts-block">
                     <span className="c-info__decorated-label">
                          Facebook:
                     </span>
                     {
                         (props.creatingUserProfileFacebook === null) ?
-                            <div className="contacts-block__facebook-address" onClick={props.onFacebookChangeRequest}>
-                                 {props.userProfile.facebook}
+                            <div className="contacts-block__text" onClick={props.onFacebookChangeRequest}>
+                                {props.userProfile.contacts.facebook}
                             </div> :
                             <div className="contacts-block__form">
                                 <input className="contacts-block__input" placeholder="facebook"
@@ -151,22 +155,23 @@ const UserInfoSection = (props) => {
                                        }/>
                                 <button className="contacts-block__button"
                                         onClick={
-                                            (e) =>
-                                            {props.onCreatingUserProfileFinishCommitted()}
+                                            (e) => {
+                                                props.onCreatingUserProfileFinishCommitted()
+                                            }
                                         }>>
-                                    add
+                                    ok
                                 </button>
                             </div>
                     }
                 </div>
-                <div className="contacts-block__icq">
+                <div className="contacts-block">
                     <span className="c-info__decorated-label">
                          icq:
                     </span>
                     {
                         (props.creatingUserProfileIcq === null) ?
-                            <div className="contacts-block__icq-address" onClick={props.onIcqChangeRequest}>
-                                 {props.userProfile.icq}
+                            <div className="contacts-block__text" onClick={props.onIcqChangeRequest}>
+                                {props.userProfile.contacts.icq}
                             </div> :
                             <div className="contacts-block__form">
                                 <input className="contacts-block__input" placeholder="icq"
@@ -178,22 +183,23 @@ const UserInfoSection = (props) => {
                                        }/>
                                 <button className="contacts-block__button"
                                         onClick={
-                                            (e) =>
-                                            {props.onCreatingUserProfileFinishCommitted()}
+                                            (e) => {
+                                                props.onCreatingUserProfileFinishCommitted()
+                                            }
                                         }>>
-                                    add
+                                    ok
                                 </button>
                             </div>
                     }
                 </div>
-                <div className="contacts-block__email">
+                <div className="contacts-block">
                     <span className="c-info__decorated-label">
                          email:
                     </span>
                     {
                         (props.creatingUserProfileEmail === null) ?
-                            <div className="contacts-block__email-address" onClick={props.onEmailChangeRequest}>
-                                {props.userProfile.email}
+                            <div className="contacts-block__text" onClick={props.onEmailChangeRequest}>
+                                {props.userProfile.contacts.email}
                             </div> :
                             <div className="contacts-block__form">
                                 <input className="contacts-block__input" placeholder="email"
@@ -205,22 +211,24 @@ const UserInfoSection = (props) => {
                                        }/>
                                 <button className="contacts-block__button"
                                         onClick={
-                                            (e) =>
-                                            {props.onCreatingUserProfileFinishCommitted()}
+                                            (e) => {
+                                                props.onCreatingUserProfileFinishCommitted()
+                                            }
                                         }>>
-                                    add
+                                    ok
                                 </button>
                             </div>
                     }
                 </div>
-                <div className="contacts-block__googlePlus">
+                <div className="contacts-block">
                     <span className="c-info__decorated-label">
                          googlePlus:
                     </span>
                     {
                         (props.creatingUserProfileGooglePlus === null) ?
-                            <div className="contacts-block__googlePlus-address" onClick={props.onGooglePlusChangeRequest}>
-                                {props.userProfile.googlePlus}
+                            <div className="contacts-block__text"
+                                 onClick={props.onGooglePlusChangeRequest}>
+                                {props.userProfile.contacts.googlePlus}
                             </div> :
                             <div className="contacts-block__form">
                                 <input className="contacts-block__input" placeholder="googlePlus"
@@ -232,22 +240,23 @@ const UserInfoSection = (props) => {
                                        }/>
                                 <button className="contacts-block__button"
                                         onClick={
-                                            (e) =>
-                                            {props.onCreatingUserProfileFinishCommitted()}
+                                            (e) => {
+                                                props.onCreatingUserProfileFinishCommitted()
+                                            }
                                         }>>
-                                    add
+                                    ok
                                 </button>
                             </div>
                     }
                 </div>
-                <div className="contacts-block__twitter">
+                <div className="contacts-block">
                     <span className="c-info__decorated-label">
                          twitter:
                     </span>
                     {
                         (props.creatingUserProfileTwitter === null) ?
-                            <div className="contacts-block__twitter-address" onClick={props.onTwitterChangeRequest}>
-                                {props.userProfile.twitter}
+                            <div className="contacts-block__text" onClick={props.onTwitterChangeRequest}>
+                                {props.userProfile.contacts.twitter}
                             </div> :
                             <div className="contacts-block__form">
                                 <input className="contacts-block__input" placeholder="twitter"
@@ -259,22 +268,23 @@ const UserInfoSection = (props) => {
                                        }/>
                                 <button className="contacts-block__button"
                                         onClick={
-                                            (e) =>
-                                            {props.onCreatingUserProfileFinishCommitted()}
+                                            (e) => {
+                                                props.onCreatingUserProfileFinishCommitted()
+                                            }
                                         }>>
-                                    add
+                                    ok
                                 </button>
                             </div>
                     }
                 </div>
-                <div className="contacts-block__instagram">
+                <div className="contacts-block">
                     <span className="c-info__decorated-label">
                          instagram:
                     </span>
                     {
                         (props.creatingUserProfileInstagram === null) ?
-                            <div className="contacts-block__instagram-address" onClick={props.onInstagramChangeRequest}>
-                                {props.userProfile.instagram}
+                            <div className="contacts-block__text" onClick={props.onInstagramChangeRequest}>
+                                {props.userProfile.contacts.instagram}
                             </div> :
                             <div className="contacts-block__form">
                                 <input className="contacts-block__input" placeholder="instagram"
@@ -286,22 +296,23 @@ const UserInfoSection = (props) => {
                                        }/>
                                 <button className="contacts-block__button"
                                         onClick={
-                                            (e) =>
-                                            {props.onCreatingUserProfileFinishCommitted()}
+                                            (e) => {
+                                                props.onCreatingUserProfileFinishCommitted()
+                                            }
                                         }>>
-                                    add
+                                    ok
                                 </button>
                             </div>
                     }
                 </div>
-                <div className="contacts-block__wwhatsApp">
+                <div className="contacts-block">
                     <span className="c-info__decorated-label">
                          whatsApp:
                     </span>
                     {
                         (props.creatingUserProfileWhatsApp === null) ?
-                            <div className="contacts-block__wwhatsApp-address" onClick={props.onWhatsAppChangeRequest}>
-                                {props.userProfile.whatsApp}
+                            <div className="contacts-block__text" onClick={props.onWhatsAppChangeRequest}>
+                                {props.userProfile.contacts.whatsApp}
                             </div> :
                             <div className="contacts-block__form">
                                 <input className="contacts-block__input" placeholder="whatsApp"
@@ -313,22 +324,25 @@ const UserInfoSection = (props) => {
                                        }/>
                                 <button className="contacts-block__button"
                                         onClick={
-                                            (e) =>
-                                            {props.onCreatingUserProfileFinishCommitted()}
+                                            (e) => {
+                                                props.onCreatingUserProfileFinishCommitted()
+                                            }
                                         }>>
-                                    add
+                                    ok
                                 </button>
                             </div>
                     }
                 </div>
-                <div className="contacts-block__job-searches-block">
+                <div className="contacts-block">
                     <div className="c-info__decorated-label">
                         looking For A Job
                     </div>
                     <input type="checkbox" className="job-searches-block__checkbox"
                            onChange={
                                (e) => {
-                                   {props.onChangeRememberMeFlag(e.currentTarget.checked)}
+                                   {
+                                       props.onChangeRememberMeFlag(e.currentTarget.checked)
+                                   }
                                }
                            }/>
                 </div>
@@ -338,11 +352,11 @@ const UserInfoSection = (props) => {
                     </span>
                     {
                         (props.creatingLookingForAJobDescription === null) ?
-                            <div className="description-job__value" onClick={props.onLookingForAJobDescriptionChangeRequest}>
+                            <div className="contacts-block__text" onClick={props.onLookingForAJobDescriptionChangeRequest}>
                                 {props.userProfile.lookingForAJobDescription}
                             </div> :
                             <div className="description-job__form">
-                                <input className="description-job__input" placeholder="description"
+                                <textarea className="description-job__textarea" placeholder="description"
                                        value={props.creatingLookingForAJobDescription}
                                        onChange={
                                            (e) => {
@@ -351,10 +365,11 @@ const UserInfoSection = (props) => {
                                        }/>
                                 <button className="description-job__button"
                                         onClick={
-                                            (e) =>
-                                            {props.onCreatingUserProfileFinishCommitted()}
+                                            (e) => {
+                                                props.onCreatingUserProfileFinishCommitted()
+                                            }
                                         }>>
-                                    add
+                                    ok
                                 </button>
                             </div>
                     }

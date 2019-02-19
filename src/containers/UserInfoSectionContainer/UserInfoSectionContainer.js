@@ -1,9 +1,11 @@
 import React from "react";
 import connect from "react-redux/es/connect/connect";
 import UserInfoSection from "../../components/UserInfoSection/UserInfoSection";
-import {actions as actionProfile, getUserProfile, updateUserProfile} from "../../redux/modules/profileRedux";
-import {actions as userStatusActions, updateUserStatus} from "../../redux/modules/userStatusRedux";
-import {actions as loginActions} from "../../redux/modules/loginRedux";
+import {
+    actions as actionsProfile,
+    setReceivedServerUserProfile,
+    updateUserProfileFromCreatingUserProfile
+} from "../../redux/modules/profileRedux";
 
 
 
@@ -11,7 +13,7 @@ import {actions as loginActions} from "../../redux/modules/loginRedux";
 class UserInfoSectionContainer extends React.Component {
     //---
     componentDidMount() {
-        this.props.getUserProfile();
+        this.props.onDidMount();
     }
 
     //---
@@ -30,11 +32,6 @@ const mapStateToProps = (state) => {
         userId:        state.auth.userAuthData.userId,
         // userPicURL:    state.profilePage.userInfo.userPicURL,
         userName:      state.auth.userAuthData.userLogin,
-        // userBirthDate: state.profilePage.userInfo.userBirthDate,
-        // userCity:      state.profilePage.userInfo.userCity,
-        // userEducation: state.profilePage.userInfo.userEducation,
-        // userWebSite:   state.profilePage.userInfo.userWebSite,
-        userStatus:    state.profilePage.userInfo.userStatus,
         userInfo:      state.profilePage.userInfo,
         userProfile:   state.profilePage.userProfile,
 
@@ -54,85 +51,94 @@ const mapStateToProps = (state) => {
 
     }
 };
-const mapDispatchToProps = (dispatch) => ({
-    onChangeCreatingProfileAboutMe: (text) => {
-      dispatch(actionProfile.setCreatingAboutMe(text))
-    },
-    onChangeCreatingProfileSkype: (skype) => {
-      dispatch(actionProfile.setCreatingSkype(skype))
-    },
-    onChangeCreatingProfileVk: (vk) => {
-      dispatch(actionProfile.setCreatingVk(vk))
-    },
-    onChangeCreatingProfileFacebook: (facebook) => {
-      dispatch(actionProfile.setCreatingFacebook(facebook))
-    },
-    onChangeCreatingProfileIcq: (icq) => {
-      dispatch(actionProfile.setCreatingIcq(icq))
-    },
-    onChangeCreatingProfileEmail: (email) => {
-      dispatch(actionProfile.setCreatingEmail(email))
-    },
-    onChangeCreatingProfileGooglePlus: (googlePlus) => {
-      dispatch(actionProfile.setCreatingGooglePlus(googlePlus))
-    },
-    onChangeCreatingProfileTwitter: (twitter) => {
-      dispatch(actionProfile.setCreatingTwitter(twitter))
-    },
-    onChangeCreatingProfileInstagram: (instagram) => {
-      dispatch(actionProfile.setCratingInstagram(instagram))
-    },
-    onChangeCreatingProfileWhatsApp: (whatsApp) => {
-      dispatch(actionProfile.setCreatingWhatsApp(whatsApp))
-    },
-    onChangeCreatingProfileLookingForAJobDescription: (text) => {
-      dispatch(actionProfile.setCreatingLookingForAJobDescription(text))
-    },
-    onChangeRememberMeFlag: () => {
-        dispatch(actionProfile.setCreatingLookingForAJobFlag())
-    },
+const mapDispatchToProps = (dispatch) => {
+    return {
 
-    onAboutMeChangeRequest: () => {
-      dispatch(actionProfile.copyAboutMeToCreatingAboutMe())
-    },
-    onSkypeChangeRequest: () => {
-      dispatch(actionProfile.copySkypeToCreatingSkype())
-    },
-    onVkChangeRequest: () => {
-      dispatch(actionProfile.copyVkToCreatingVk())
-    },
-    onFacebookChangeRequest: () => {
-      dispatch(actionProfile.copyFacebookToCreatingFacebook())
-    },
-    onIcqChangeRequest: () => {
-      dispatch(actionProfile.copyIcqToCreatingIcq)
-    },
-    onEmailChangeRequest: () => {
-      dispatch(actionProfile.copyEmailToCreatingEmail)
-    },
-    onGooglePlusChangeRequest: () => {
-      dispatch(actionProfile.copyGooglePlusToCreatingGooglePlus())
-    },
-    onTwitterChangeRequest: () => {
-      dispatch(actionProfile.copyTwitterToCreatingTwitter())
-    },
-    onInstagramChangeRequest: () => {
-      dispatch(actionProfile.copyInstagramToCreatingInstagram)
-    },
-    onWhatsAppChangeRequest: () => {
-      dispatch(actionProfile.copyWhatsAppToCreatingWhatsApp())
-    },
-    onLookingForAJobDescriptionChangeRequest: () => {
-      dispatch(actionProfile.copyLookingForAJobDescriptionCreatingLookingForAJobDescription())
-    },
+        onAboutMeChangeRequest: () => {
+            dispatch(actionsProfile.copyAboutMeToCreatingAboutMe())
+        },
+        onChangeCreatingProfileAboutMe: (text) => {
+            dispatch(actionsProfile.setCreatingAboutMe(text))
+        },
+        onSkypeChangeRequest: () => {
+            dispatch(actionsProfile.copySkypeToCreatingSkype())
+        },
+        onChangeCreatingProfileSkype: (skype) => {
+            dispatch(actionsProfile.setCreatingSkype(skype))
+        },
+        onVkChangeRequest: () => {
+            dispatch(actionsProfile.copyVkToCreatingVk())
+        },
+        onChangeCreatingProfileVk: (vk) => {
+            dispatch(actionsProfile.setCreatingVk(vk))
+        },
+        onFacebookChangeRequest: () => {
+            dispatch(actionsProfile.copyFacebookToCreatingFacebook())
+        },
+        onChangeCreatingProfileFacebook: (facebook) => {
+            dispatch(actionsProfile.setCreatingFacebook(facebook))
+        },
 
-    getUserProfile: () => {
-        dispatch(getUserProfile())
-    },
-    onCreatingUserProfileFinishCommitted: () => {
-        dispatch(updateUserProfile())
+        onIcqChangeRequest: () => {
+            dispatch(actionsProfile.copyIcqToCreatingIcq)
+        },
+        onChangeCreatingProfileIcq: (icq) => {
+            dispatch(actionsProfile.setCreatingIcq(icq))
+        },
+
+        onEmailChangeRequest: () => {
+            dispatch(actionsProfile.copyEmailToCreatingEmail)
+        },
+        onChangeCreatingProfileEmail: (email) => {
+            dispatch(actionsProfile.setCreatingEmail(email))
+        },
+        onGooglePlusChangeRequest: () => {
+            dispatch(actionsProfile.copyGooglePlusToCreatingGooglePlus())
+        },
+        onChangeCreatingProfileGooglePlus: (googlePlus) => {
+            dispatch(actionsProfile.setCreatingGooglePlus(googlePlus))
+        },
+
+        onTwitterChangeRequest: () => {
+            dispatch(actionsProfile.copyTwitterToCreatingTwitter())
+        },
+        onChangeCreatingProfileTwitter: (twitter) => {
+            dispatch(actionsProfile.setCreatingTwitter(twitter))
+        },
+
+        onInstagramChangeRequest: () => {
+            dispatch(actionsProfile.copyInstagramToCreatingInstagram)
+        },
+        onChangeCreatingProfileInstagram: (instagram) => {
+            dispatch(actionsProfile.setCratingInstagram(instagram))
+        },
+
+        onWhatsAppChangeRequest: () => {
+            dispatch(actionsProfile.copyWhatsAppToCreatingWhatsApp())
+        },
+        onChangeCreatingProfileWhatsApp: (whatsApp) => {
+            dispatch(actionsProfile.setCreatingWhatsApp(whatsApp))
+        },
+
+        onLookingForAJobDescriptionChangeRequest: () => {
+            dispatch(actionsProfile.copyLookingForAJobDescriptionCreatingLookingForAJobDescription())
+        },
+        onChangeCreatingProfileLookingForAJobDescription: (text) => {
+            dispatch(actionsProfile.setCreatingLookingForAJobDescription(text))
+        },
+        onChangeRememberMeFlag: () => {
+            dispatch(actionsProfile.setCreatingLookingForAJobFlag())
+        },
+
+        onDidMount: () => {
+            dispatch(setReceivedServerUserProfile())
+        },
+
+        onCreatingUserProfileFinishCommitted: () => {
+            dispatch(updateUserProfileFromCreatingUserProfile())
+        }
     }
-});
+};
 
 //----
 export  default connect(

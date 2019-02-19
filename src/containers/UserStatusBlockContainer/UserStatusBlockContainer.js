@@ -2,8 +2,8 @@ import React           from 'react';
 import UserStatusBlock from "../../components/UserStatusBlock/UserStatusBlock";
 import connect         from "react-redux/es/connect/connect";
 import {
-    actions as userStatusActions, getUserStatus,
-    updateUserStatus
+    actions as actionsUserStatus, setReceivedServerUserStatus,
+    updateUserStatusFromCreatingUserStatus
 } from "../../redux/modules/userStatusRedux";
 
 
@@ -33,17 +33,17 @@ const mapDispatchToProps = (dispatch) => {
 
     return{
         onUserStatusChangeRequest: () => {
-            dispatch(userStatusActions.copyUserStatusToCreatingUserStatus())
+            dispatch(actionsUserStatus.copyUserStatusToCreatingUserStatus())
         },
 
         onChangeCreatingUserStatus: (creatingUserStatus) => {
-            dispatch(userStatusActions.setCreatingUserStatus(creatingUserStatus))
+            dispatch(actionsUserStatus.setCreatingUserStatus(creatingUserStatus))
         },
         onCreatingUserStatusFinishCommitted: () => {
-            dispatch(updateUserStatus());
+            dispatch(updateUserStatusFromCreatingUserStatus());
         },
         getStatus: () => {
-            dispatch(getUserStatus());
+            dispatch(setReceivedServerUserStatus());
         }
     }
 };

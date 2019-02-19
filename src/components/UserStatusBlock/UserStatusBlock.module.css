@@ -5,7 +5,6 @@
     height: auto;
 
     display: flex;
-    flex-direction: column;
     color: #4e514e;
 
     word-break: break-all;
@@ -31,7 +30,7 @@
 }
 
 .inputUserStatus{
-    width:  40rem;
+    width:  18rem;
     height: 2rem;
     border: none;
     background-color: #eee;
@@ -44,13 +43,13 @@
 }
 
 .buttonUserStatus{
-    width: 6rem;
-    height: 2.5rem;
+    width: 3rem;
+    height: 1.8rem;
     border: none;
     background-color: #0fc19e;
     color: white;
     font-family: cursive;
-    font-size: 1.3rem;
+    font-size: 0.8rem;
     border-radius: 0.5rem;
     outline: none;
 }
