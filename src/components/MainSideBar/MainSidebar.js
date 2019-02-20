@@ -14,7 +14,7 @@ import users from "./images/users.svg"
 let Menuitem = (props) => {
 
     return (
-        <div className={"c-sidebar__menu-item" + ' ' + (props.location.pathname == props.path ? 'active-item' : ' ')}>
+        <div className={"c-sidebar__menu-item" + ' ' + (props.location.pathname === props.path ? 'active-item' : ' ')}>
             <div className="menu-item__img-block">
                 <img src={props.images} className="img-block__images"/>
             </div>
@@ -28,7 +28,6 @@ const MainSidebar = (props) => {
 
     return (
         <div className="c-sidebar">
-
             <div className="c-sidebar__profile">
                 <Menuitem path="/profile" title="profile" images={thumbs} location={props.location}/>
             </div>

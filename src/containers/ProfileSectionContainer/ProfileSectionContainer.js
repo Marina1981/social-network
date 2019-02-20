@@ -4,9 +4,11 @@ import {connect} from "react-redux";
 import ProfileSection from "../../components/ProfileSection/ProfileSection";
 
 
-const ProfileSectionContainer = (props) => {
-  return <ProfileSection {...props} />
-};
+class ProfileSectionContainer extends React.Component {
+    render() {
+        return <ProfileSection {...this.props} />
+    }
+}
 
 //---
 const mapStateToProps = (state) => {
@@ -17,16 +19,11 @@ const mapStateToProps = (state) => {
         messagesList:     state.profilePage.wall.messagesList,
         creatingMessage:  state.profilePage.wall.creatingMessage,
         userName:         state.auth.userAuthData.userLogin
-
-
     }
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-
-
-
         onCreatingMessageChanged: (message) => {
             dispatch(profileActions.setCreatingPost(message));
         },
