@@ -101,9 +101,10 @@ export const getCreatingUserStatus = (globalState) => globalState.userStatusBloc
 //-----ThanksCreators----//
 
 //setReceivedServerUserStatus  setReceivedServerUserStatus
-export const setReceivedServerUserStatus = () => (dispatch, getState) => {
+export const setReceivedServerUserStatus = (userId) => (dispatch, getState) => {
     const globalState = getState();
-    const userId = getLogginedUserId(globalState);
+    userId = userId ? userId : getLogginedUserId(globalState);
+    // const userId = getLogginedUserId(globalState);
 
     axios.get('profile/status/' + userId)
         .then(result => {
@@ -113,7 +114,7 @@ export const setReceivedServerUserStatus = () => (dispatch, getState) => {
 
 //---
 // updateUserStatusFromCreatingUserStatus  updateUserStatusFromCreatingUserStatus
-export const updateUserStatusFromCreatingUserStatus = () => (dispatch, getState) => {
+export const updateUserStatusFromCreatingUserStatus = (userId) => (dispatch, getState) => {
     const globalState = getState();
     const status = getCreatingUserStatus(globalState);
 
@@ -123,7 +124,8 @@ export const updateUserStatusFromCreatingUserStatus = () => (dispatch, getState)
         .then(result => {
             if (result.data.resultCode === 0) {
 
-                const userId = getLogginedUserId(globalState);
+                // const userId = getLogginedUserId(globalState);
+                const userId = userId ? userId : getLogginedUserId(globalState);
 
                 axios.get('profile/status/' + userId)
                     .then(result => {

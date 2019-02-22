@@ -2,8 +2,6 @@ import React from 'react';
 import './UserInfoSection.css';
 import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
-import UserStatusBlockContainer from "../../containers/UserStatusBlockContainer/UserStatusBlockContainer";
-import style from "../UserStatusBlock/UserStatusBlock.module.css";
 
 
 const UserInfoSection = (props) => {

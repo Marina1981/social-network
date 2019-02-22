@@ -62,7 +62,8 @@ const App = () => {
                                <NotFoundSection/>
                            </TemplateWithoutSideBar>}/>
                 <Route path='/profile/users/:userId?'
-                       render={() => <TemplateWithSideBar>
+                       render={() =>
+                           <TemplateWithSideBar>
                            <ProfileSectionContainer/>
                        </TemplateWithSideBar>
                        }/>

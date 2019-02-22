@@ -1,26 +1,22 @@
 import React from "react";
 import connect from "react-redux/es/connect/connect";
 import UserInfoSection from "../../components/UserInfoSection/UserInfoSection";
-import {
-    actions as actionsProfile, isUserProfileOwner,
-    setReceivedServerUserProfile, setReceivedServerUsersProfile,
-    updateUserProfileFromCreatingUserProfile
-} from "../../redux/modules/profileRedux";
+import {actions as actionsProfile, isUserProfileOwner, setReceivedServerUserProfile,
+    updateUserProfileFromCreatingUserProfile} from "../../redux/modules/profileRedux";
 import withRouter from "react-router/es/withRouter";
-import {
-    actions as actionsUserStatus, setReceivedServerUserStatus,
-    updateUserStatusFromCreatingUserStatus
-} from "../../redux/modules/userStatusRedux";
+import {actions as actionsUserStatus, setReceivedServerUserStatus,
+    updateUserStatusFromCreatingUserStatus} from "../../redux/modules/userStatusRedux";
 
 
 class UserInfoSectionContainer extends React.Component {
     //---
     componentDidMount() {
-        this.props.onDidMount();
-        this.props.getStatus();
+        const userId = this.props.match.params.userId;
+        this.props.onDidMount(userId);
 
-        let userId = this.props.match.params.userId;
-        this.props.getUserProfile(userId);
+
+        // this.props.getUserProfile(userId);
+        // this.props.getStatus(userId);
     }
 
     //---
@@ -61,6 +57,13 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch, props) => {
     return {
+
+        onDidMount: (userId) => {
+            dispatch(setReceivedServerUserProfile(userId));
+            dispatch(setReceivedServerUserStatus(userId));
+        },
+
+
         onAboutMeChangeRequest: () => {
                 dispatch(actionsProfile.copyAboutMeToCreatingAboutMe())
         },
@@ -142,19 +145,17 @@ const mapDispatchToProps = (dispatch, props) => {
         onChangeRememberMeFlag: () => {
             dispatch(actionsProfile.setCreatingLookingForAJobFlag())
         },
-        onDidMount: () => {
-            dispatch(setReceivedServerUserProfile())
+
+        onCreatingUserProfileFinishCommitted: (userId) => {
+            dispatch(updateUserProfileFromCreatingUserProfile(userId))
         },
-        onCreatingUserProfileFinishCommitted: () => {
-            dispatch(updateUserProfileFromCreatingUserProfile())
-        },
-        getUserProfile: (userId) => {
-            dispatch(setReceivedServerUserProfile(userId))
-        },
+        // getUserProfile: (userId) => {
+        //     dispatch(setReceivedServerUserProfile(userId))
+        // },
 
 
-        onUserStatusChangeRequest: () => {
-            dispatch(actionsUserStatus.copyUserStatusToCreatingUserStatus())
+        onUserStatusChangeRequest: (userId) => {
+            dispatch(actionsUserStatus.copyUserStatusToCreatingUserStatus(userId))
         },
 
         onChangeCreatingUserStatus: (creatingUserStatus) => {
@@ -163,9 +164,9 @@ const mapDispatchToProps = (dispatch, props) => {
         onCreatingUserStatusFinishCommitted: () => {
             dispatch(updateUserStatusFromCreatingUserStatus());
         },
-        getStatus: () => {
-            dispatch(setReceivedServerUserStatus());
-        }
+        // getStatus: () => {
+        //     dispatch(setReceivedServerUserStatus());
+        // }
     }
 };
 

@@ -430,8 +430,6 @@ export const reducer = (state = initialState, action) => {
 //----
 //----Selectors-------//
 export const getCreatingUserProfile = (globalState) => {
-    debugger
-
     const creatingUserProfile = {
         aboutMe: globalState.profilePage.creatingUserProfile_aboutMe !== null ?
                 globalState.profilePage.creatingUserProfile_aboutMe :
@@ -491,24 +489,22 @@ export const getCreatingUserProfile = (globalState) => {
 export const setReceivedServerUserProfile = (userId) => (dispatch, getState) => {
     const globalState = getState();
     userId = userId ? userId : getLogginedUserId(globalState);
-
     axios.get('profile/' + userId)
         .then(result => {
             dispatch(actions.setUserProfile(result.data))
         })
 };
 
-export const updateUserProfileFromCreatingUserProfile = () => (dispatch, getState) => {
+export const updateUserProfileFromCreatingUserProfile = (userId) => (dispatch, getState) => {
     const globalState = getState();
     const userProfile = getCreatingUserProfile(globalState);
 
     dispatch(actions.setUserProfileUpdatingProcessStatus(userProfileUpdatingProcessProfile.IN_PROGRESS));
-
     axios.put('profile', userProfile)
         .then(result => {
-debugger
             if (result.data.resultCode === 0) {
-                const userId = getLogginedUserId(globalState);
+                // const userId = getLogginedUserId(globalState);
+                const userId = userId ? userId : getLogginedUserId(globalState);
                 axios.get('profile/' + userId)
                     .then(result => {
                         dispatch(actions.setUserProfileUpdatingProcessStatus(userProfileUpdatingProcessProfile.READY));
@@ -534,10 +530,6 @@ debugger
                 dispatch(actions.setUserProfileUpdatingProcessErrorMessage('ERROR!'))
             }
         })
-    // .catch(err => {
-    //     debugger
-    //     console.error(`Error received from axios.post: ${JSON.stringify(err)}`)
-    // });
 };
 
 // selectors
