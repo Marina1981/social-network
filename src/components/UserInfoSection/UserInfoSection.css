@@ -101,14 +101,7 @@
     color: #0fc19e;
     margin: 1rem 2rem;
 }
-.contacts-block__decorated-label{
-    /*display: flex;*/
-    /*align-items: center;*/
-    /*justify-content: center;*/
-    /*font-family: cursive;*/
-    /*font-size: 1.6rem;*/
-    /*color: #0fc19e;*/
-}
+
 .contacts-block__text{
     font-family: cursive;
     font-size: 1rem;
@@ -129,7 +122,7 @@
 
 .contacts-block__about-me{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .c-info__birth-date,
@@ -217,4 +210,61 @@
 .job-searches-block__checkbox{
     display: flex;
     margin-right: 14rem;
+}
+
+/*---------------------------------------------*/
+.user-status__status-block{
+    font-family: cursive;
+    font-size: 1.2rem;
+    /*width: 75rem;*/
+    height: auto;
+
+    display: flex;
+    color: #4e514e;
+
+    word-break: break-all;
+    margin-left: 4rem;
+}
+
+.status-block__status-title{
+    font-family: cursive;
+    font-size: 1.2rem;
+    color: #0fc19e;
+}
+
+.user_status__text{
+    font-family: cursive;
+    font-size: 1rem;
+    color: #4e514e;
+}
+
+.user-status__form{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.user-status__input{
+    width:  18rem;
+    height: 2rem;
+    border: none;
+    background-color: #eee;
+    font-family: cursive;
+    font-size: 1rem;
+    color: #4e514e;
+    text-align: center;
+    outline: none;
+    /*margin: 1rem 1rem;*/
+}
+
+.user-status__button{
+    width: 3rem;
+    height: 1.8rem;
+    border: none;
+    background-color: #0fc19e;
+    color: white;
+    font-family: cursive;
+    font-size: 0.8rem;
+    border-radius: 0.5rem;
+    outline: none;
 }

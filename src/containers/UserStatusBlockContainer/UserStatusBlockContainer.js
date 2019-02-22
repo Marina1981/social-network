@@ -8,47 +8,47 @@ import {
 
 
 
-class UserStatusBlockContainer extends React.Component {
-
-    componentWillMount() {
-        this.props.getStatus();
-    }
-
-    render() {
-        return <UserStatusBlock {...this.props} />
-    }
-}
-
-//---
-
-
-//----
-const mapStateToProps = (state) => {
-    return {
-        status:             state.userStatusBlock.userStatus,
-        creatingUserStatus: state.userStatusBlock.creatingUserStatus
-    }
-};
-const mapDispatchToProps = (dispatch) => {
-
-    return{
-        onUserStatusChangeRequest: () => {
-            dispatch(actionsUserStatus.copyUserStatusToCreatingUserStatus())
-        },
-
-        onChangeCreatingUserStatus: (creatingUserStatus) => {
-            dispatch(actionsUserStatus.setCreatingUserStatus(creatingUserStatus))
-        },
-        onCreatingUserStatusFinishCommitted: () => {
-            dispatch(updateUserStatusFromCreatingUserStatus());
-        },
-        getStatus: () => {
-            dispatch(setReceivedServerUserStatus());
-        }
-    }
-};
-//----
-export  default connect(
-    mapStateToProps,
-    mapDispatchToProps)(UserStatusBlockContainer);
-//---
+// class UserStatusBlockContainer extends React.Component {
+//
+//     componentWillMount() {
+//         this.props.getStatus();
+//     }
+//
+//     render() {
+//         return <UserStatusBlock {...this.props} />
+//     }
+// }
+//
+// //---
+//
+//
+// //----
+// const mapStateToProps = (state) => {
+//     return {
+//         status:             state.userStatusBlock.userStatus,
+//         creatingUserStatus: state.userStatusBlock.creatingUserStatus
+//     }
+// };
+// const mapDispatchToProps = (dispatch) => {
+//
+//     return{
+//         // onUserStatusChangeRequest: () => {
+//         //     dispatch(actionsUserStatus.copyUserStatusToCreatingUserStatus())
+//         // },
+//         //
+//         // onChangeCreatingUserStatus: (creatingUserStatus) => {
+//         //     dispatch(actionsUserStatus.setCreatingUserStatus(creatingUserStatus))
+//         // },
+//         // onCreatingUserStatusFinishCommitted: () => {
+//         //     dispatch(updateUserStatusFromCreatingUserStatus());
+//         // },
+//         // getStatus: () => {
+//         //     dispatch(setReceivedServerUserStatus());
+//         // }
+//     }
+// };
+// //----
+// export  default connect(
+//     mapStateToProps,
+//     mapDispatchToProps)(UserStatusBlockContainer);
+// //---

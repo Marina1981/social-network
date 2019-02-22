@@ -7,12 +7,17 @@ import {
     updateUserProfileFromCreatingUserProfile
 } from "../../redux/modules/profileRedux";
 import withRouter from "react-router/es/withRouter";
+import {
+    actions as actionsUserStatus, setReceivedServerUserStatus,
+    updateUserStatusFromCreatingUserStatus
+} from "../../redux/modules/userStatusRedux";
 
 
 class UserInfoSectionContainer extends React.Component {
     //---
     componentDidMount() {
         this.props.onDidMount();
+        this.props.getStatus();
 
         let userId = this.props.match.params.userId;
         this.props.getUserProfile(userId);
@@ -29,23 +34,26 @@ class UserInfoSectionContainer extends React.Component {
 //----
 const mapStateToProps = (state) => {
     return {
-        isAuth: state.auth.userAuthData.userId !== null, // true / false
-        userId: state.auth.userAuthData.userId,
+        isAuth:             state.auth.userAuthData.userId !== null, // true / false
+        userId:             state.auth.userAuthData.userId,
         // userPicURL:    state.profilePage.userInfo.userPicURL,
-        userName: state.auth.userAuthData.userLogin,
-        userInfo: state.profilePage.userInfo,
-        userProfile: state.profilePage.userProfile,
+        userName:           state.auth.userAuthData.userLogin,
+        userInfo:           state.profilePage.userInfo,
+        userProfile:        state.profilePage.userProfile,
 
-        creatingUserProfile_aboutMe: state.profilePage.creatingUserProfile_aboutMe,
-        creatingUserProfile_skype: state.profilePage.creatingUserProfile_skype,
-        creatingUserProfile_vk: state.profilePage.creatingUserProfile_vk,
-        creatingUserProfile_facebook: state.profilePage.creatingUserProfile_facebook,
-        creatingUserProfile_icq: state.profilePage.creatingUserProfile_icq,
-        creatingUserProfile_email: state.profilePage.creatingUserProfile_email,
-        creatingUserProfile_googlePlus: state.profilePage.creatingUserProfile_googlePlus,
-        creatingUserProfile_twitter: state.profilePage.creatingUserProfile_twitter,
-        creatingUserProfile_instagram: state.profilePage.creatingUserProfile_instagram,
-        creatingUserProfile_whatsApp: state.profilePage.creatingUserProfile_whatsApp,
+        status:             state.userStatusBlock.userStatus,
+        creatingUserStatus: state.userStatusBlock.creatingUserStatus,
+
+        creatingUserProfile_aboutMe:        state.profilePage.creatingUserProfile_aboutMe,
+        creatingUserProfile_skype:          state.profilePage.creatingUserProfile_skype,
+        creatingUserProfile_vk:             state.profilePage.creatingUserProfile_vk,
+        creatingUserProfile_facebook:       state.profilePage.creatingUserProfile_facebook,
+        creatingUserProfile_icq:            state.profilePage.creatingUserProfile_icq,
+        creatingUserProfile_email:          state.profilePage.creatingUserProfile_email,
+        creatingUserProfile_googlePlus:     state.profilePage.creatingUserProfile_googlePlus,
+        creatingUserProfile_twitter:        state.profilePage.creatingUserProfile_twitter,
+        creatingUserProfile_instagram:      state.profilePage.creatingUserProfile_instagram,
+        creatingUserProfile_whatsApp:       state.profilePage.creatingUserProfile_whatsApp,
         creating_lookingForAJobDescription: state.profilePage.creating_lookingForAJobDescription,
         isOwner: isUserProfileOwner(state)
     }
@@ -142,6 +150,21 @@ const mapDispatchToProps = (dispatch, props) => {
         },
         getUserProfile: (userId) => {
             dispatch(setReceivedServerUserProfile(userId))
+        },
+
+
+        onUserStatusChangeRequest: () => {
+            dispatch(actionsUserStatus.copyUserStatusToCreatingUserStatus())
+        },
+
+        onChangeCreatingUserStatus: (creatingUserStatus) => {
+            dispatch(actionsUserStatus.setCreatingUserStatus(creatingUserStatus))
+        },
+        onCreatingUserStatusFinishCommitted: () => {
+            dispatch(updateUserStatusFromCreatingUserStatus());
+        },
+        getStatus: () => {
+            dispatch(setReceivedServerUserStatus());
         }
     }
 };

@@ -1,15 +1,15 @@
-.userStatusBlock{
-    font-family: cursive;
-    font-size: 1.2rem;
-    /*width: 75rem;*/
-    height: auto;
+.user-status__block{
+     font-family: cursive;
+     font-size: 1.2rem;
+     /*width: 75rem;*/
+     height: auto;
 
-    display: flex;
-    color: #4e514e;
+     display: flex;
+     color: #4e514e;
 
-    word-break: break-all;
-    margin-left: 4rem;
-}
+     word-break: break-all;
+     margin-left: 4rem;
+ }
 
 .statusTitle{
     font-family: cursive;

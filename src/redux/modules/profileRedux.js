@@ -430,11 +430,12 @@ export const reducer = (state = initialState, action) => {
 //----
 //----Selectors-------//
 export const getCreatingUserProfile = (globalState) => {
+    debugger
 
     const creatingUserProfile = {
         aboutMe: globalState.profilePage.creatingUserProfile_aboutMe !== null ?
-            globalState.profilePage.creatingUserProfile_aboutMe :
-            globalState.profilePage.userProfile.aboutMe,
+                globalState.profilePage.creatingUserProfile_aboutMe :
+                globalState.profilePage.userProfile.aboutMe,
         contacts: {
             skype: globalState.profilePage.creatingUserProfile_skype !== null ?
                 globalState.profilePage.creatingUserProfile_skype :
@@ -445,44 +446,44 @@ export const getCreatingUserProfile = (globalState) => {
                 globalState.profilePage.userProfile.contacts.vk,
 
             facebook: globalState.profilePage.creatingUserProfile_facebook !== null ?
-                globalState.profilePage.creatingUserProfile_facebook :
-                globalState.profilePage.userProfile.contacts.facebook,
+                      globalState.profilePage.creatingUserProfile_facebook :
+                      globalState.profilePage.userProfile.contacts.facebook,
 
             icq: globalState.profilePage.creatingUserProfile_icq !== null ?
-                globalState.profilePage.creatingUserProfile_icq :
-                globalState.profilePage.userProfile.contacts.icq,
+                 globalState.profilePage.creatingUserProfile_icq :
+                 globalState.profilePage.userProfile.contacts.icq,
 
             email: globalState.profilePage.creatingUserProfile_email !== null ?
-                globalState.profilePage.creatingUserProfile_email :
-                globalState.profilePage.userProfile.contacts.email,
+                   globalState.profilePage.creatingUserProfile_email :
+                   globalState.profilePage.userProfile.contacts.email,
 
             googlePlus: globalState.profilePage.creatingUserProfile_googlePlus !== null ?
-                globalState.profilePage.creatingUserProfile_googlePlus :
-                globalState.profilePage.userProfile.contacts.googlePlus,
+                        globalState.profilePage.creatingUserProfile_googlePlus :
+                        globalState.profilePage.userProfile.contacts.googlePlus,
 
             twitter: globalState.profilePage.creatingUserProfile_twitter !== null ?
-                globalState.profilePage.creatingUserProfile_twitter :
-                globalState.profilePage.userProfile.contacts.twitter,
+                     globalState.profilePage.creatingUserProfile_twitter :
+                     globalState.profilePage.userProfile.contacts.twitter,
 
-            instagram: globalState.profilePage.creatingUserProfile_instagram !== null ?
-                globalState.profilePage.creatingUserProfile_instagram :
-                globalState.profilePage.userProfile.contacts.instagram,
+            instagram:  globalState.profilePage.creatingUserProfile_instagram !== null ?
+                        globalState.profilePage.creatingUserProfile_instagram :
+                        globalState.profilePage.userProfile.contacts.instagram,
 
-            whatsApp: globalState.profilePage.creatingUserProfile_whatsApp !== null ?
-                globalState.profilePage.creatingUserProfile_whatsApp :
-                globalState.profilePage.userProfile.contacts.whatsApp
+            whatsApp:   globalState.profilePage.creatingUserProfile_whatsApp !== null ?
+                        globalState.profilePage.creatingUserProfile_whatsApp :
+                        globalState.profilePage.userProfile.contacts.whatsApp
         },
         lookingForAJob: globalState.profilePage.creation_lookingForAJob !== null ?
-            globalState.profilePage.creation_lookingForAJob :
-            globalState.profilePage.userProfile.lookingForAJob,
+                        globalState.profilePage.creation_lookingForAJob :
+                        globalState.profilePage.userProfile.lookingForAJob,
 
-        lookingForAJobDescription: globalState.profilePage.creating_lookingForAJobDescription !== null ?
-            globalState.profilePage.creating_lookingForAJobDescription :
-            globalState.profilePage.userProfile.lookingForAJobDescription,
+        lookingForAJobDescription:  globalState.profilePage.creating_lookingForAJobDescription !== null ?
+                                    globalState.profilePage.creating_lookingForAJobDescription :
+                                    globalState.profilePage.userProfile.lookingForAJobDescription,
 
-        fullName: globalState.profilePage.creating_fullName !== null ?
-            globalState.profilePage.creating_fullName :
-            globalState.profilePage.userProfile.fullName
+        fullName:   globalState.profilePage.creating_fullName !== null ?
+                    globalState.profilePage.creating_fullName :
+                    globalState.profilePage.userProfile.fullName
     };
     return creatingUserProfile;
 };
@@ -505,7 +506,7 @@ export const updateUserProfileFromCreatingUserProfile = () => (dispatch, getStat
 
     axios.put('profile', userProfile)
         .then(result => {
-
+debugger
             if (result.data.resultCode === 0) {
                 const userId = getLogginedUserId(globalState);
                 axios.get('profile/' + userId)
@@ -515,15 +516,15 @@ export const updateUserProfileFromCreatingUserProfile = () => (dispatch, getStat
                     })
                     .then(() => {
                         dispatch(actions.setCreatingAboutMe(null));
-                        dispatch(actions.setCreatingSkype(null));
-                        dispatch(actions.setCreatingVk(null));
-                        dispatch(actions.setCreatingFacebook(null));
-                        dispatch(actions.setCreatingIcq(null));
-                        dispatch(actions.setCreatingEmail(null));
-                        dispatch(actions.setCreatingGooglePlus(null));
-                        dispatch(actions.setCreatingTwitter(null));
-                        dispatch(actions.setCratingInstagram(null));
-                        dispatch(actions.setCreatingWhatsApp(null));
+                        dispatch(actions.setCreatingContact(null));
+                        // dispatch(actions.setCreatingVk(null));
+                        // dispatch(actions.setCreatingFacebook(null));
+                        // dispatch(actions.setCreatingIcq(null));
+                        // dispatch(actions.setCreatingEmail(null));
+                        // dispatch(actions.setCreatingGooglePlus(null));
+                        // dispatch(actions.setCreatingTwitter(null));
+                        // dispatch(actions.setCratingInstagram(null));
+                        // dispatch(actions.setCreatingWhatsApp(null));
                         dispatch(actions.setCreatingLookingForAJobFlag(null));
                         dispatch(actions.setCreatingLookingForAJobDescription(null));
                         dispatch(actions.setCreatingFullName(null));

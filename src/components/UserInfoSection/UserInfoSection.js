@@ -3,6 +3,7 @@ import './UserInfoSection.css';
 import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
 import UserStatusBlockContainer from "../../containers/UserStatusBlockContainer/UserStatusBlockContainer";
+import style from "../UserStatusBlock/UserStatusBlock.module.css";
 
 
 const UserInfoSection = (props) => {
@@ -73,7 +74,30 @@ const UserInfoSection = (props) => {
                     </Link>
                 </div>
                 <div className="userStatusBlock-positioned">
-                    <UserStatusBlockContainer/>
+                    <div className="user-status__status-block">
+                         <span className="status-block__status-title">
+                             Status:
+                         </span>
+                        {(props.creatingUserStatus === null) ?
+                            <div className="user_status__text" onClick={props.onUserStatusChangeRequest}>
+                                {props.status}
+                            </div> :
+                            <div className="user-status__form">
+                                <input className="user-status__input" placeholder='change status'
+                                       value={props.creatingUserStatus}
+                                       onChange={
+                                           (e) => {
+                                               props.onChangeCreatingUserStatus(e.currentTarget.value)
+                                           }
+                                       }/>
+                                <button className="user-status__button"
+                                        onClick={(e) => {
+                                            props.onCreatingUserStatusFinishCommitted();
+                                        }}>
+                                    add
+                                </button>
+                            </div>}
+                    </div>
                 </div>
             </div>
 
