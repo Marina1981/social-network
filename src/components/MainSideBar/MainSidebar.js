@@ -25,7 +25,6 @@ let Menuitem = (props) => {
 
 
 const MainSidebar = (props) => {
-
     return (
         <div className="c-sidebar">
             <div className="c-sidebar__profile">
@@ -36,24 +35,24 @@ const MainSidebar = (props) => {
                 <Menuitem path="/dialog" title="dialog"  images={message} location={props.location}/>
             </div>
 
-            <div className="c-sidebar__news">
-                <Menuitem path="/news" title="news" images={news} location={props.location}/>
-            </div>
-
-            <div className="c-sidebar__music">
-                <Menuitem path="/music" title="music" images={music} location={props.location}/>
-            </div>
-
-            <div className="c-sidebar__settings">
-                <Menuitem path="/settings" title="settings" images={settings} location={props.location}/>
+            <div className="c-sidebar__users">
+                <Menuitem path="/users" title="users" images={users} location={props.location}/>
             </div>
 
             <div className="c-sidebar__photos">
                 <Menuitem path="/photos" title="photos" images={photos} location={props.location}/>
             </div>
 
-            <div className="c-sidebar__users">
-                <Menuitem path="/users" title="users" images={users} location={props.location}/>
+            <div className="c-sidebar__music">
+                <Menuitem path="/music" title="music" images={music} location={props.location}/>
+            </div>
+
+            <div className="c-sidebar__news">
+                <Menuitem path="/news" title="news" images={news} location={props.location}/>
+            </div>
+
+            <div className="c-sidebar__settings">
+                <Menuitem path="/settings" title="settings" images={settings} location={props.location}/>
             </div>
         </div>
     );

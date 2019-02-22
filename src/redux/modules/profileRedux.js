@@ -1,41 +1,46 @@
-import {getUserId} from "./authRedux";
+import {getLogginedUserId} from "./authRedux";
 import axios, {userStatusUpdatingProcessStatuses} from "../../dal/axios-instance";
 import {
     userProfileUpdatingProcessProfile, userProfileUpdatingProcessResults,
 } from "../../dal/axios-instance";
 
+
 export const types = {
     SET_USER_PROFILE: 'NETWORK/PROFILE_PAGE/SET_USER_PROFILE',
     SET_CREATING_ABOUT_ME: 'NETWORK/PROFILE_PAGE/SET_CREATING_ABOUT_ME',
-    SET_CREATING_SKYPE: 'NETWORK/PROFILE_PAGE/SET_CREATING_SKYPE',
-    SET_CREATING_VK: 'NETWORK/PROFILE_PAGE/SET_CREATING_VK',
-    SET_CREATING_FACEBOOK: 'NETWORK/PROFILE_PAGE/SET_CREATING_FACEBOOK',
-    SET_CREATING_ICQ: 'NETWORK/PROFILE_PAGE/SET_CREATING_ICQ',
-    SET_CREATING_EMAIL: 'NETWORK/PROFILE_PAGE/SET_CREATING_EMAIL',
-    SET_CREATING_GOOGLE_PLUS: 'NETWORK/PROFILE_PAGE/SET_CREATING_GOOGLE_PLUS',
-    SET_CREATING_TWITTER: 'NETWORK/PROFILE_PAGE/SET_CREATING_TWITTER',
-    SET_CREATING_INSTAGRAM: 'NETWORK/PROFILE_PAGE/SET_CREATING_INSTAGRAM',
-    SET_CREATING_WATS_APP: 'NETWORK/PROFILE_PAGE/SET_CREATING_WATS_APP',
+    // SET_CREATING_SKYPE: 'NETWORK/PROFILE_PAGE/SET_CREATING_SKYPE',
+    // SET_CREATING_VK: 'NETWORK/PROFILE_PAGE/SET_CREATING_VK',
+    // SET_CREATING_FACEBOOK: 'NETWORK/PROFILE_PAGE/SET_CREATING_FACEBOOK',
+    // SET_CREATING_ICQ: 'NETWORK/PROFILE_PAGE/SET_CREATING_ICQ',
+    // SET_CREATING_EMAIL: 'NETWORK/PROFILE_PAGE/SET_CREATING_EMAIL',
+    // SET_CREATING_GOOGLE_PLUS: 'NETWORK/PROFILE_PAGE/SET_CREATING_GOOGLE_PLUS',
+    // SET_CREATING_TWITTER: 'NETWORK/PROFILE_PAGE/SET_CREATING_TWITTER',
+    // SET_CREATING_INSTAGRAM: 'NETWORK/PROFILE_PAGE/SET_CREATING_INSTAGRAM',
+    // SET_CREATING_WATS_APP: 'NETWORK/PROFILE_PAGE/SET_CREATING_WATS_APP',
     SET_LOOKING_FOR_A_JOB_FLAG: 'NETWORK/PROFILE_PAGE/SET_LOOKING_FOR_A_JOB_FLAG',
     SET_CREATING_LOOKING_FOR_A_JOB_DESCRIPTION: 'NETWORK/PROFILE_PAGE/SET_CREATING_LOOKING_FOR_A_JOB_DESCRIPTION',
     SET_CREATING_FULLL_NAME: 'NETWORK/PROFILE_PAGE/SET_CREATING_FULL_NAME',
+
+    SET_CREATING_CONTACT: 'NETWORK/PROFILE_PAGE/SET_CREATING_CONTACT',
 
     SET_USER_PROFILE_UPDATING_PROCESS_STATUS: 'NETWORK/PROFILE_PAGE/SET_USER_PROFILE_UPDATING_PROCESS_STATUS',
     SET_USER_PROFILE_UPDATING_PROCESS_ERROR: 'NETWORK/PROFILE_PAGE/SET_USER_PROFILE_UPDATING_PROCESS_ERROR',
     SET_USER_PROFILE_UPDATING_PROCESS_ERROR_MESSAGE: 'NETWORK/PROFILE_PAGE/SET_USER_PROFILE_UPDATING_PROCESS_ERROR_MESSAGE',
 
     COPY_ABOUT_ME_TO_CREATING_ABOUT_ME: 'NETWORK/PROFILE_PAGE/COPY_ABOUT_ME_TO_CREATING_ABOUT_ME',
-    COPY_SKYPE_TO_CREATING_SKYPE: 'NETWORK/PROFILE_PAGE/COPY_SKYPE_TO_CREATING_SKYPE',
-    COPY_VK_TO_CREATING_VK: 'NETWORK/PROFILE_PAGE/COPY_VK_TO_CREATING_VK',
-    COPY_FACEBOOK_TO_CREATING_FACEBOOK: 'NETWORK/PROFILE_PAGE/COPY_FACEBOOK_TO_CREATING_FACEBOOK',
-    COPY_ICQ_TO_CREATING_ICQ: 'NETWORK/PROFILE_PAGE/COPY_ICQ_TO_CREATING_ICQ',
-    COPY_EMAIL_TO_CREATING_EMAIL: 'NETWORK/PROFILE_PAGE/COPY_EMAIL_TO_CREATING_EMAIL',
-    COPY_GOOGLE_PLUS_TO_CREATING_GOOGLE_PLUS: 'NETWORK/PROFILE_PAGE/COPY_GOOGLE_PLUS_TO_CREATING_GOOGLE_PLUS',
-    COPY_TWITTER_TO_CREATING_TWITTER: 'NETWORK/PROFILE_PAGE/COPY_TWITTER_TO_CREATING_TWITTER',
-    COPY_INSTAGRAM_TO_CREATING_INSTAGRAM: 'NETWORK/PROFILE_PAGE/COPY_INSTAGRAM_TO_CREATING_INSTAGRAM',
-    COPY_WATS_APP_TO_CREATING_WATS_APP: 'NETWORK/PROFILE_PAGE/COPY_WATS_APP_TO_CREATING_WATS_APP',
+    // COPY_SKYPE_TO_CREATING_SKYPE: 'NETWORK/PROFILE_PAGE/COPY_SKYPE_TO_CREATING_SKYPE',
+    // COPY_VK_TO_CREATING_VK: 'NETWORK/PROFILE_PAGE/COPY_VK_TO_CREATING_VK',
+    // COPY_FACEBOOK_TO_CREATING_FACEBOOK: 'NETWORK/PROFILE_PAGE/COPY_FACEBOOK_TO_CREATING_FACEBOOK',
+    // COPY_ICQ_TO_CREATING_ICQ: 'NETWORK/PROFILE_PAGE/COPY_ICQ_TO_CREATING_ICQ',
+    // COPY_EMAIL_TO_CREATING_EMAIL: 'NETWORK/PROFILE_PAGE/COPY_EMAIL_TO_CREATING_EMAIL',
+    // COPY_GOOGLE_PLUS_TO_CREATING_GOOGLE_PLUS: 'NETWORK/PROFILE_PAGE/COPY_GOOGLE_PLUS_TO_CREATING_GOOGLE_PLUS',
+    // COPY_TWITTER_TO_CREATING_TWITTER: 'NETWORK/PROFILE_PAGE/COPY_TWITTER_TO_CREATING_TWITTER',
+    // COPY_INSTAGRAM_TO_CREATING_INSTAGRAM: 'NETWORK/PROFILE_PAGE/COPY_INSTAGRAM_TO_CREATING_INSTAGRAM',
+    // COPY_WATS_APP_TO_CREATING_WATS_APP: 'NETWORK/PROFILE_PAGE/COPY_WATS_APP_TO_CREATING_WATS_APP',
     COPY_LOOKING_FOR_A_JOB_DESCRIPTION_TO_CREATING_LOOKING_FOR_A_JOB_DESCRIPTION: 'NETWORK/PROFILE_PAGE/COPY_LOOKING_FOR_A_JOB_DESCRIPTION_TO_CREATING_LOOKING_FOR_A_JOB_DESCRIPTION',
     COPY_FULLL_NAME_TO_CREATING_FULLL_NAME: 'NETWORK/PROFILE_PAGE/COPY_FULLL_NAME_TO_CREATING_FULLL_NAME',
+
+    COPY_CONTACT_TO_CREATING_CONTACT: 'NETWORK/PROFILE_PAGE/COPY_CONTACT_TO_CREATING_CONTACT',
 
 
     SET_USERPIC_URL: 'NETWORK/PROFILE_PAGE/SET_USERPIC_URL',
@@ -54,42 +59,36 @@ export const types = {
 export const actions = {
     setUserProfile: (data) => ({type: types.SET_USER_PROFILE, data}),
     setCreatingAboutMe: (text) => ({type: types.SET_CREATING_ABOUT_ME, text}),
-    setCreatingSkype: (skype) => ({type: types.SET_CREATING_SKYPE, skype}),
-    setCreatingVk: (vk) => ({type: types.SET_CREATING_VK, vk}),
-    setCreatingFacebook: (facebook) => ({type: types.SET_CREATING_FACEBOOK, facebook}),
-    setCreatingIcq: (icq) => ({type: types.SET_CREATING_ICQ, icq}),
-    setCreatingEmail: (email) => ({type: types.SET_CREATING_EMAIL, email}),
-    setCreatingGooglePlus: (googlePlus) => ({type: types.SET_CREATING_GOOGLE_PLUS, googlePlus}),
-    setCreatingTwitter: (twitter) => ({type: types.SET_CREATING_TWITTER, twitter}),
-    setCratingInstagram: (instagram) => ({type: types.SET_CREATING_INSTAGRAM, instagram}),
-    setCreatingWhatsApp: (whatsApp) => ({type: types.SET_CREATING_WATS_APP, whatsApp}),
+    // setCreatingSkype: (skype) => ({type: types.SET_CREATING_SKYPE, skype}),
+    // setCreatingVk: (vk) => ({type: types.SET_CREATING_VK, vk}),
+    // setCreatingFacebook: (facebook) => ({type: types.SET_CREATING_FACEBOOK, facebook}),
+    // setCreatingIcq: (icq) => ({type: types.SET_CREATING_ICQ, icq}),
+    // setCreatingEmail: (email) => ({type: types.SET_CREATING_EMAIL, email}),
+    // setCreatingGooglePlus: (googlePlus) => ({type: types.SET_CREATING_GOOGLE_PLUS, googlePlus}),
+    // setCreatingTwitter: (twitter) => ({type: types.SET_CREATING_TWITTER, twitter}),
+    // setCratingInstagram: (instagram) => ({type: types.SET_CREATING_INSTAGRAM, instagram}),
+    // setCreatingWhatsApp: (whatsApp) => ({type: types.SET_CREATING_WATS_APP, whatsApp}),
+
+    setCreatingContact: (key) => ({type: types.SET_CREATING_CONTACT, key}),
     setCreatingLookingForAJobFlag: (flag) => ({type: types.SET_LOOKING_FOR_A_JOB_FLAG, flag}),
     setCreatingLookingForAJobDescription: (text) => ({type: types.SET_CREATING_LOOKING_FOR_A_JOB_DESCRIPTION, text}),
     setCreatingFullName: (fullName) => ({type: types.SET_CREATING_FULLL_NAME, fullName}),
 
-    setUserProfileUpdatingProcessStatus: (processUserProfile) => ({
-        type: types.SET_USER_PROFILE_UPDATING_PROCESS_STATUS,
-        processUserProfile
-    }),
-    setUserProfileUpdatingProcessError: (processError) => ({
-        type: types.SET_USER_PROFILE_UPDATING_PROCESS_ERROR,
-        processError
-    }),
-    setUserProfileUpdatingProcessErrorMessage: (processErrorMessage) => ({
-        type: types.SET_USER_PROFILE_UPDATING_PROCESS_ERROR_MESSAGE,
-        processErrorMessage
-    }),
+    setUserProfileUpdatingProcessStatus: (processUserProfile) => ({type: types.SET_USER_PROFILE_UPDATING_PROCESS_STATUS, processUserProfile}),
+    setUserProfileUpdatingProcessError: (processError) => ({type: types.SET_USER_PROFILE_UPDATING_PROCESS_ERROR, processError}),
+    setUserProfileUpdatingProcessErrorMessage: (processErrorMessage) => ({type: types.SET_USER_PROFILE_UPDATING_PROCESS_ERROR_MESSAGE, processErrorMessage}),
 
+    copyContactToCreatingContact: (key) => ({type: types.COPY_ABOUT_ME_TO_CREATING_ABOUT_ME, key}),
     copyAboutMeToCreatingAboutMe: () => ({type: types.COPY_ABOUT_ME_TO_CREATING_ABOUT_ME}),
-    copySkypeToCreatingSkype: () => ({type: types.COPY_SKYPE_TO_CREATING_SKYPE}),
-    copyVkToCreatingVk: () => ({type: types.COPY_VK_TO_CREATING_VK}),
-    copyFacebookToCreatingFacebook: () => ({type: types.COPY_FACEBOOK_TO_CREATING_FACEBOOK}),
-    copyIcqToCreatingIcq: () => ({type: types.COPY_ICQ_TO_CREATING_ICQ}),
-    copyEmailToCreatingEmail: () => ({type: types.COPY_EMAIL_TO_CREATING_EMAIL}),
-    copyGooglePlusToCreatingGooglePlus: () => ({type: types.COPY_GOOGLE_PLUS_TO_CREATING_GOOGLE_PLUS}),
-    copyTwitterToCreatingTwitter: () => ({type: types.COPY_TWITTER_TO_CREATING_TWITTER}),
-    copyInstagramToCreatingInstagram: () => ({type: types.COPY_INSTAGRAM_TO_CREATING_INSTAGRAM}),
-    copyWhatsAppToCreatingWhatsApp: () => ({type: types.COPY_WATS_APP_TO_CREATING_WATS_APP}),
+    // copySkypeToCreatingSkype: () => ({type: types.COPY_SKYPE_TO_CREATING_SKYPE}),
+    // copyVkToCreatingVk: () => ({type: types.COPY_VK_TO_CREATING_VK}),
+    // copyFacebookToCreatingFacebook: () => ({type: types.COPY_FACEBOOK_TO_CREATING_FACEBOOK}),
+    // copyIcqToCreatingIcq: () => ({type: types.COPY_ICQ_TO_CREATING_ICQ}),
+    // copyEmailToCreatingEmail: () => ({type: types.COPY_EMAIL_TO_CREATING_EMAIL}),
+    // copyGooglePlusToCreatingGooglePlus: () => ({type: types.COPY_GOOGLE_PLUS_TO_CREATING_GOOGLE_PLUS}),
+    // copyTwitterToCreatingTwitter: () => ({type: types.COPY_TWITTER_TO_CREATING_TWITTER}),
+    // copyInstagramToCreatingInstagram: () => ({type: types.COPY_INSTAGRAM_TO_CREATING_INSTAGRAM}),
+    // copyWhatsAppToCreatingWhatsApp: () => ({type: types.COPY_WATS_APP_TO_CREATING_WATS_APP}),
     copyLookingForAJobDescriptionCreatingLookingForAJobDescription: () => ({type: types.COPY_LOOKING_FOR_A_JOB_DESCRIPTION_TO_CREATING_LOOKING_FOR_A_JOB_DESCRIPTION}),
     copyFullNameToCreatingFullName: () => ({type: types.COPY_FULLL_NAME_TO_CREATING_FULLL_NAME}),
 
@@ -109,9 +108,6 @@ export const actions = {
 //----
 export const initialState = {
     userInfo: {
-        userID: '',
-        userPicURL: '',
-        userName: '',
         userBirthDate: '',
         userCity: '',
         userEducation: '',
@@ -132,21 +128,26 @@ export const initialState = {
         },
         lookingForAJob: true,
         lookingForAJobDescription: '',
-        fullName: ''
+        photos: {
+            large: null,
+            small: null
+        },
+        fullName: '',
+        userId: ''
     },
-    creatingUserProfileAboutMe: null,
-    creatingUserProfileSkype: null,
-    creatingUserProfileVk: null,
-    creatingUserProfileFacebook: null,
-    creatingUserProfileIcq: null,
-    creatingUserProfileEmail: null,
-    creatingUserProfileGooglePlus: null,
-    creatingUserProfileTwitter: null,
-    creatingUserProfileInstagram: null,
-    creatingUserProfileWhatsApp: null,
-    creationLookingForAJob: null,
-    creatingLookingForAJobDescription: null,
-    creatingFullName: null,
+    creatingUserProfile_aboutMe: null,
+    creatingUserProfile_skype: null,
+    creatingUserProfile_vk: null,
+    creatingUserProfile_facebook: null,
+    creatingUserProfile_icq: null,
+    creatingUserProfile_email: null,
+    creatingUserProfile_googlePlus: null,
+    creatingUserProfile_twitter: null,
+    creatingUserProfile_instagram: null,
+    creatingUserProfile_whatsApp: null,
+    creation_lookingForAJob: null,
+    creating_lookingForAJobDescription: null,
+    creating_fullName: null,
 
     userProfileUpdatingProfile: userProfileUpdatingProcessProfile.READY,
     userProfileUpdatingProcessError: userProfileUpdatingProcessResults.SUCCESS,
@@ -171,6 +172,7 @@ export const reducer = (state = initialState, action) => {
     };
 
     //----
+    //----
     switch (action.type) {
         case types.SET_USER_PROFILE:
             return {
@@ -181,62 +183,63 @@ export const reducer = (state = initialState, action) => {
         case types.SET_CREATING_ABOUT_ME:
             return {
                 ...state,
-                creatingUserProfileAboutMe: action.text
+                creatingUserProfile_aboutMe: action.text
             };
 
-        case types.SET_CREATING_SKYPE:
-            return {
-                ...state,
-                creatingUserProfileSkype: action.skype
-            };
-
-        case types.SET_CREATING_VK:
-            return {
-              ...state,
-                creatingUserProfileVk: action.vk
-            };
-
-        case types.SET_CREATING_FACEBOOK:
-            return {
-                ...state,
-                creatingUserProfileFacebook: action.facebook
-            };
-
-        case types.SET_CREATING_ICQ:
-            return {
-                ...state,
-                creatingUserProfileIcq: action.icq
-            };
-
-        case types.SET_CREATING_EMAIL:
-            return {
-                ...state,
-                creatingUserProfileEmail: action.email
-            };
-
-        case types.SET_CREATING_GOOGLE_PLUS:
-            return {
-                ...state,
-                creatingUserProfileGooglePlus: action.googlePlus
-            };
-
-        case types.SET_CREATING_TWITTER:
-            return {
-                ...state,
-                creatingUserProfileTwitter: action.twitter
-            };
-
-        case types.SET_CREATING_INSTAGRAM:
-            return {
-                ...state,
-                creatingUserProfileInstagram: action.instagram
-            };
-
-        case types.SET_CREATING_WATS_APP:
-            return {
-                ...state,
-                creatingUserProfileWhatsApp: action.whatsApp
-            };
+        // case types.SET_CREATING_SKYPE:
+        //     return {
+        //         ...state,
+        //         creatingUserProfile_skype: action.skype
+        //     };
+        //
+        // case types.SET_CREATING_VK:
+        //     return {
+        //       ...state,
+        //         creatingUserProfile_vk: action.vk
+        //     };
+        //
+        //
+        // case types.SET_CREATING_FACEBOOK:
+        //     return {
+        //         ...state,
+        //         creatingUserProfile_facebook: action.facebook
+        //     };
+        //
+        // case types.SET_CREATING_ICQ:
+        //     return {
+        //         ...state,
+        //         creatingUserProfile_icq: action.icq
+        //     };
+        //
+        // case types.SET_CREATING_EMAIL:
+        //     return {
+        //         ...state,
+        //         creatingUserProfile_email: action.email
+        //     };
+        //
+        // case types.SET_CREATING_GOOGLE_PLUS:
+        //     return {
+        //         ...state,
+        //         creatingUserProfile_googlePlus: action.googlePlus
+        //     };
+        //
+        // case types.SET_CREATING_TWITTER:
+        //     return {
+        //         ...state,
+        //         creatingUserProfile_twitter: action.twitter
+        //     };
+        //
+        // case types.SET_CREATING_INSTAGRAM:
+        //     return {
+        //         ...state,
+        //         creatingUserProfile_instagram: action.instagram
+        //     };
+        //
+        // case types.SET_CREATING_WATS_APP:
+        //     return {
+        //         ...state,
+        //         creatingUserProfile_whatsApp: action.whatsApp
+        //     };
 
         case types.SET_LOOKING_FOR_A_JOB_FLAG:
             return {
@@ -247,13 +250,13 @@ export const reducer = (state = initialState, action) => {
         case types.SET_CREATING_LOOKING_FOR_A_JOB_DESCRIPTION:
             return {
                 ...state,
-                creatingLookingForAJobDescription: action.text
+                creating_lookingForAJobDescription: action.text
             };
 
         case types.SET_CREATING_FULLL_NAME:
             return {
                 ...state,
-                creatingFullName: action.fullName
+                creating_fullName: action.fullName
             };
         //-------
 
@@ -276,76 +279,89 @@ export const reducer = (state = initialState, action) => {
             };
         //-------
 
+        case types.SET_CREATING_CONTACT:
+                return {
+                    ...state,
+                    ["creatingUserProfile_" + action.key]: state.userProfile.contacts[action.key]
+                };
+        //-------
+        case types.COPY_CONTACT_TO_CREATING_CONTACT:
+                return {
+                    ...state,
+                    ["creatingUserProfile_" + action.key]: state.userProfile.contacts[action.key]
+                };
+        //-------
+
         case types.COPY_ABOUT_ME_TO_CREATING_ABOUT_ME:
             return {
                 ...state,
-                creatingUserProfileAboutMe: state.userProfile.aboutMe
+                creatingUserProfile_aboutMe: state.userProfile.aboutMe
             };
 
-        case types.COPY_SKYPE_TO_CREATING_SKYPE:
-            return {
-                ...state,
-                creatingUserProfileSkype: state.userProfile.contacts.skype
-            };
-
-        case types.COPY_VK_TO_CREATING_VK:
-            return {
-                ...state,
-                creatingUserProfileVk: state.userProfile.contacts.vk
-            };
-
-        case types.COPY_FACEBOOK_TO_CREATING_FACEBOOK:
-            return {
-                ...state,
-                creatingUserProfileFacebook: state.userProfile.contacts.facebook
-            };
-
-        case types.COPY_ICQ_TO_CREATING_ICQ:
-            return {
-                ...state,
-                creatingUserProfileIcq: state.userProfile.contacts.icq
-            };
-
-        case types.COPY_EMAIL_TO_CREATING_EMAIL:
-            return {
-                ...state,
-                creatingUserProfileEmail: state.userProfile.contacts.email
-            };
-
-        case types.COPY_GOOGLE_PLUS_TO_CREATING_GOOGLE_PLUS:
-            return {
-                ...state,
-                creatingUserProfileGooglePlus: state.userProfile.contacts.googlePlus
-            };
-
-        case types.COPY_TWITTER_TO_CREATING_TWITTER:
-            return {
-                ...state,
-                creatingUserProfileTwitter: state.userProfile.contacts.twitter
-            };
-
-        case types.COPY_INSTAGRAM_TO_CREATING_INSTAGRAM:
-            return {
-                ...state,
-                creatingUserProfileInstagram: state.userProfile.contacts.instagram
-            };
-
-        case types.COPY_WATS_APP_TO_CREATING_WATS_APP:
-            return {
-                ...state,
-                creatingUserProfileWhatsApp: state.userProfile.contacts.whatsApp
-            };
+        // case types.COPY_SKYPE_TO_CREATING_SKYPE:
+        //     return {
+        //         ...state,
+        //         creatingUserProfile_skype: state.userProfile.contacts.skype
+        //     };
+        //
+        // case types.COPY_VK_TO_CREATING_VK:
+        //     return {
+        //         ...state,
+        //         creatingUserProfile_vk: state.userProfile.contacts.vk
+        //     };
+        //
+        // case types.COPY_FACEBOOK_TO_CREATING_FACEBOOK:
+        //     return {
+        //         ...state,
+        //         creatingUserProfile_facebook: state.userProfile.contacts.facebook
+        //     };
+        //
+        // case types.COPY_ICQ_TO_CREATING_ICQ:
+        //     return {
+        //         ...state,
+        //         creatingUserProfile_icq: state.userProfile.contacts.icq
+        //     };
+        //
+        // case types.COPY_EMAIL_TO_CREATING_EMAIL:
+        //     return {
+        //         ...state,
+        //         creatingUserProfile_email: state.userProfile.contacts.email
+        //     };
+        //
+        // case types.COPY_GOOGLE_PLUS_TO_CREATING_GOOGLE_PLUS:
+        //     return {
+        //         ...state,
+        //         creatingUserProfile_googlePlus: state.userProfile.contacts.googlePlus
+        //     };
+        //
+        // case types.COPY_TWITTER_TO_CREATING_TWITTER:
+        //     return {
+        //         ...state,
+        //         creatingUserProfile_twitter: state.userProfile.contacts.twitter
+        //     };
+        //
+        // case types.COPY_INSTAGRAM_TO_CREATING_INSTAGRAM:
+        //     return {
+        //         ...state,
+        //         creatingUserProfile_instagram: state.userProfile.contacts.instagram
+        //     };
+        //
+        // case types.COPY_WATS_APP_TO_CREATING_WATS_APP:
+        //     return {
+        //         ...state,
+        //         creatingUserProfile_whatsApp: state.userProfile.contacts.whatsApp
+        //     };
 
         case types.COPY_LOOKING_FOR_A_JOB_DESCRIPTION_TO_CREATING_LOOKING_FOR_A_JOB_DESCRIPTION:
             return {
                 ...state,
-                creatingLookingForAJobDescription: state.userProfile.lookingForAJobDescription
+                creating_lookingForAJobDescription: state.userProfile.lookingForAJobDescription
             };
 
         case types.COPY_FULLL_NAME_TO_CREATING_FULLL_NAME:
             return {
                 ...state,
-                creatingFullName: state.userProfile.fullName
+                creating_fullName: state.userProfile.fullName
             };
 
         //-------
@@ -416,64 +432,64 @@ export const reducer = (state = initialState, action) => {
 export const getCreatingUserProfile = (globalState) => {
 
     const creatingUserProfile = {
-        aboutMe: globalState.profilePage.creatingUserProfileAboutMe !== null ?
-            globalState.profilePage.creatingUserProfileAboutMe :
+        aboutMe: globalState.profilePage.creatingUserProfile_aboutMe !== null ?
+            globalState.profilePage.creatingUserProfile_aboutMe :
             globalState.profilePage.userProfile.aboutMe,
         contacts: {
-            skype: globalState.profilePage.creatingUserProfileSkype !== null ?
-                globalState.profilePage.creatingUserProfileSkype :
+            skype: globalState.profilePage.creatingUserProfile_skype !== null ?
+                globalState.profilePage.creatingUserProfile_skype :
                 globalState.profilePage.userProfile.contacts.skype,
 
-            vk: globalState.profilePage.creatingUserProfileVk !== null ?
-                globalState.profilePage.creatingUserProfileVk :
+            vk: globalState.profilePage.creatingUserProfile_vk !== null ?
+                globalState.profilePage.creatingUserProfile_vk :
                 globalState.profilePage.userProfile.contacts.vk,
 
-            facebook: globalState.profilePage.creatingUserProfileFacebook !== null ?
-                globalState.profilePage.creatingUserProfileFacebook :
+            facebook: globalState.profilePage.creatingUserProfile_facebook !== null ?
+                globalState.profilePage.creatingUserProfile_facebook :
                 globalState.profilePage.userProfile.contacts.facebook,
 
-            icq: globalState.profilePage.creatingUserProfileIcq !== null ?
-                globalState.profilePage.creatingUserProfileIcq :
+            icq: globalState.profilePage.creatingUserProfile_icq !== null ?
+                globalState.profilePage.creatingUserProfile_icq :
                 globalState.profilePage.userProfile.contacts.icq,
 
-            email: globalState.profilePage.creatingUserProfileEmail !== null ?
-                globalState.profilePage.creatingUserProfileEmail :
+            email: globalState.profilePage.creatingUserProfile_email !== null ?
+                globalState.profilePage.creatingUserProfile_email :
                 globalState.profilePage.userProfile.contacts.email,
 
-            googlePlus: globalState.profilePage.creatingUserProfileGooglePlus !== null ?
-                globalState.profilePage.creatingUserProfileGooglePlus :
+            googlePlus: globalState.profilePage.creatingUserProfile_googlePlus !== null ?
+                globalState.profilePage.creatingUserProfile_googlePlus :
                 globalState.profilePage.userProfile.contacts.googlePlus,
 
-            twitter: globalState.profilePage.creatingUserProfileTwitter !== null ?
-                globalState.profilePage.creatingUserProfileTwitter :
+            twitter: globalState.profilePage.creatingUserProfile_twitter !== null ?
+                globalState.profilePage.creatingUserProfile_twitter :
                 globalState.profilePage.userProfile.contacts.twitter,
 
-            instagram: globalState.profilePage.creatingUserProfileInstagram !== null ?
-                globalState.profilePage.creatingUserProfileInstagram :
+            instagram: globalState.profilePage.creatingUserProfile_instagram !== null ?
+                globalState.profilePage.creatingUserProfile_instagram :
                 globalState.profilePage.userProfile.contacts.instagram,
 
-            whatsApp: globalState.profilePage.creatingUserProfileWhatsApp !== null ?
-                globalState.profilePage.creatingUserProfileWhatsApp :
+            whatsApp: globalState.profilePage.creatingUserProfile_whatsApp !== null ?
+                globalState.profilePage.creatingUserProfile_whatsApp :
                 globalState.profilePage.userProfile.contacts.whatsApp
         },
-        lookingForAJob: globalState.profilePage.creationLookingForAJob !== null ?
-            globalState.profilePage.creationLookingForAJob :
+        lookingForAJob: globalState.profilePage.creation_lookingForAJob !== null ?
+            globalState.profilePage.creation_lookingForAJob :
             globalState.profilePage.userProfile.lookingForAJob,
 
-        lookingForAJobDescription: globalState.profilePage.creatingLookingForAJobDescription !== null ?
-            globalState.profilePage.creatingLookingForAJobDescription :
+        lookingForAJobDescription: globalState.profilePage.creating_lookingForAJobDescription !== null ?
+            globalState.profilePage.creating_lookingForAJobDescription :
             globalState.profilePage.userProfile.lookingForAJobDescription,
 
-        fullName: globalState.profilePage.creatingFullName !== null ?
-            globalState.profilePage.creatingFullName :
+        fullName: globalState.profilePage.creating_fullName !== null ?
+            globalState.profilePage.creating_fullName :
             globalState.profilePage.userProfile.fullName
     };
     return creatingUserProfile;
 };
 //-----ThanksCreators----//
-export const setReceivedServerUserProfile = () => (dispatch, getState) => {
+export const setReceivedServerUserProfile = (userId) => (dispatch, getState) => {
     const globalState = getState();
-    const userId = getUserId(globalState);
+    userId = userId ? userId : getLogginedUserId(globalState);
 
     axios.get('profile/' + userId)
         .then(result => {
@@ -491,7 +507,7 @@ export const updateUserProfileFromCreatingUserProfile = () => (dispatch, getStat
         .then(result => {
 
             if (result.data.resultCode === 0) {
-                const userId = getUserId(globalState);
+                const userId = getLogginedUserId(globalState);
                 axios.get('profile/' + userId)
                     .then(result => {
                         dispatch(actions.setUserProfileUpdatingProcessStatus(userProfileUpdatingProcessProfile.READY));
@@ -521,5 +537,11 @@ export const updateUserProfileFromCreatingUserProfile = () => (dispatch, getStat
     //     debugger
     //     console.error(`Error received from axios.post: ${JSON.stringify(err)}`)
     // });
+};
+
+// selectors
+export const isUserProfileOwner = (fullState) => {
+    let isOwner = fullState.auth.userAuthData.userId === fullState.profilePage.userProfile.userId;
+    return isOwner;
 };
 

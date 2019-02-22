@@ -18,7 +18,7 @@ const mapStateToProps = (state) => {
         selectedFriendId: state.dialogsPage.selectedFriendId,
         messagesList:     state.profilePage.wall.messagesList,
         creatingMessage:  state.profilePage.wall.creatingMessage,
-        userName:         state.auth.userAuthData.userLogin
+        userName:         state.profilePage.userProfile.fullName
     }
 };
 

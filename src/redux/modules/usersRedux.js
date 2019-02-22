@@ -12,13 +12,12 @@ const initialState = {
     pageSize: 3,
     pageNumber: 1,
     totalCount: null
-
 };
 //---- actionCreators--------//
 export const actions = {
-    setUsersList:         (users, totalCount) => ({type: types.SET_USERS_LIST, users, totalCount}),
+    setUsersList: (users, totalCount) => ({type: types.SET_USERS_LIST, users, totalCount}),
     incrementCurrentPage: (pageNumber) => ({type: types.INCREMENT_CURRENT_PAGE, nextPage: pageNumber}),
-    clearUsersList:       () => ({type: types.CLEAR_USERS_LIST})
+    clearUsersList: () => ({type: types.CLEAR_USERS_LIST})
 };
 
 //----
@@ -52,8 +51,10 @@ export const reducer = (state = initialState, action) => {
 //-----Selectors-------//
 export const getPageSize = (globalState) => {
     const {pageSize, pageNumber, totalCount} = globalState.usersPage;
-    return totalCount > (pageSize-1) * pageNumber;
+    return totalCount > (pageSize - 1) * pageNumber;
 };
+//---
+export const getUsersId = (globalState) => globalState.usersPage.usersList.id;
 
 //---ThanksCreators----//
 export const setReceivedServerUsers = () => (dispatch, getState) => {
@@ -64,9 +65,12 @@ export const setReceivedServerUsers = () => (dispatch, getState) => {
     axios.get(`users?count=${pageSize}&page=${pageNumber}`)
         .then(result => {
             dispatch(actions.incrementCurrentPage());
+            console.log(result.data);
             dispatch(actions.setUsersList(result.data.items, result.data.totalCount))
         })
 };
+
+//---
 
 //---
 

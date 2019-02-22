@@ -2,6 +2,7 @@ import React from 'react';
 import connect from "react-redux/es/connect/connect";
 import UsersSection from "../../components/UsersSection/UsersSection";
 import {actions as actionUsers, getPageSize, setReceivedServerUsers} from "../../redux/modules/usersRedux";
+import withRouter from "react-router/es/withRouter";
 
 
 
@@ -14,6 +15,7 @@ class UsersSectionContainer extends React.Component {
             this.props.getUsersFromServer(this.props.pageNumber);
         }
     }
+
     //---
     render() {
         return <UsersSection {...this.props} />
@@ -21,7 +23,6 @@ class UsersSectionContainer extends React.Component {
 }
 
 //---
-
 
 //----
 const mapStateToProps = (state) => {
@@ -44,7 +45,5 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 //----
-export  default connect(
-    mapStateToProps,
-    mapDispatchToProps)(UsersSectionContainer);
+export  default withRouter(connect( mapStateToProps, mapDispatchToProps)(UsersSectionContainer));
 //---

@@ -7,6 +7,7 @@ import MainSidebar from "../MainSideBar/MainSidebar";
 
 
 const TemplateWithSideBar = (props) => {
+
     return (
         <div className={style.templateWrapper}>
             <div className={style.headerWrapper}>

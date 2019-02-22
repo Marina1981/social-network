@@ -20,9 +20,9 @@ class MainHeaderContainer extends React.Component {
 //---
 const mapStateToProps = (state) => {
     return {
-        isAuth:   state.auth.userAuthData.userId !== null,
-        userId:   state.auth.userAuthData.userId,
-        userName: state.auth.userAuthData.userLogin,
+        isAuth:      state.auth.userAuthData.userId !== null,
+        userId:      state.auth.userAuthData.userId,
+        userName:    state.auth.userAuthData.userLogin,
         userPicURL:  state.profilePage.userInfo.userPicURL
     }
 };

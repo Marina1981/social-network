@@ -8,13 +8,12 @@
     display: grid;
     grid-template-rows:     1fr;
     grid-template-columns:  minmax(auto, 15%)
-                            minmax(auto, 15%)
                             minmax(auto, 45%)
-                            minmax(auto, 10%)
+                            minmax(auto, 25%)
                             minmax(auto, 15%);
 
     background-color: #eee;
-    /*min-width: 58rem;*/
+    min-width: 58rem;
     position: fixed;
     z-index: 10;
 
@@ -37,9 +36,10 @@
 /*------------------------------------------------------------------*/
 .c-header-section__search-block{
     grid-row:    1;
-    grid-column: 3;
+    grid-column: 2;
 
     display: flex;
+    justify-content: center;
 
 }
 .search-block__label{
@@ -75,7 +75,7 @@
 /*------------------------------------------------------------------*/
 .c-header-section__user-info-block{
     grid-row:    1;
-    grid-column: 4;
+    grid-column: 3;
 
     display: flex;
     flex-direction:  row;
@@ -104,7 +104,7 @@
 .c-header-section__signin,
 .c-header-section__logout{
     grid-row:    1;
-    grid-column: 5;
+    grid-column: 4;
 
     display: flex;
     justify-content: center;

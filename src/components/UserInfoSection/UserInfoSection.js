@@ -12,18 +12,19 @@ const UserInfoSection = (props) => {
                         c-info__c-info--positioned">
             <div className="c-info__short-info
                             c-info__short-info--positioned">
-                <div className="contacts-block__about-me">
-                    <span className="c-info__decorated-label">
+                <span className="c-info__decorated-about-me">
                        AboutMe:
-                    </span>
+                </span>
+                <div className="contacts-block__about-me">
+
                     {
-                        (props.creatingUserProfileAboutMe === null) ?
-                            <div className="contacts-block__text" onClick={props.onAboutMeChangeRequest}>
+                        (props.creatingUserProfile_aboutMe === null) ?
+                            <div className="contacts-block__text" onClick={() => props.onAboutMeChangeRequest(props.isOwner)}>
                                 {props.userProfile.aboutMe}
                             </div> :
                             <div className="about-me__form">
                                 <input className="about-me__input" placeholder="about me"
-                                       value={props.creatingUserProfileAboutMe}
+                                       value={props.creatingUserProfile_aboutMe}
                                        onChange={
                                            (e) => {
                                                props.onChangeCreatingProfileAboutMe(e.currentTarget.value)
@@ -77,10 +78,44 @@ const UserInfoSection = (props) => {
             </div>
 
             <div className="c-info__contacts-block">
-                <div className="contacts-block__decorated-label">
+                <div className="contacts-block__decorated-my-contacts">
                     My contacts:
                 </div>
-                <div className="contacts-block">
+                {
+                    Object.keys(props.userProfile.contacts).map( key => {
+
+                      return <div className="contacts-block" key={key}>
+                                <span className="c-info__decorated-label">
+                                    {key}:
+                                </span>
+                                      {
+                                          (props["creatingUserProfile_" + key] === null) ?
+                                              <div className="contacts-block__text" onClick={() => props.onContactsChangeRequest(key)}>
+                                                  {props.userProfile.contacts[key]}
+                                              </div> :
+                                              <div className="contacts-block__form">
+                                                  <input className="contacts-block__input" placeholder={key}
+                                                         value={props["creatingUserProfile_" + key]}
+                                                         onChange={
+                                                             (e) => {
+                                                                 props.onChangeCreatingContacts(e.currentTarget.value)
+                                                             }
+                                                         }/>
+                                                  <button className="contacts-block__button"
+                                                          onClick={
+                                                              (e) => {
+                                                                  props.onCreatingUserProfileFinishCommitted()
+                                                              }
+                                                          }>>
+                                                      ok
+                                                  </button>
+                                              </div>
+                                      }
+                              </div>
+
+                    })
+                }
+            {/*    <div className="contacts-block">
                     <span className="c-info__decorated-label">
                          Skype:
                     </span>
@@ -332,7 +367,7 @@ const UserInfoSection = (props) => {
                                 </button>
                             </div>
                     }
-                </div>
+                </div>*/}
                 <div className="contacts-block">
                     <div className="c-info__decorated-label">
                         looking For A Job
@@ -351,13 +386,13 @@ const UserInfoSection = (props) => {
                         Description of work:
                     </span>
                     {
-                        (props.creatingLookingForAJobDescription === null) ?
+                        (props.creating_lookingForAJobDescription === null) ?
                             <div className="contacts-block__text" onClick={props.onLookingForAJobDescriptionChangeRequest}>
                                 {props.userProfile.lookingForAJobDescription}
                             </div> :
                             <div className="description-job__form">
                                 <textarea className="description-job__textarea" placeholder="description"
-                                       value={props.creatingLookingForAJobDescription}
+                                       value={props.creating_lookingForAJobDescription}
                                        onChange={
                                            (e) => {
                                                props.onChangeCreatingProfileLookingForAJobDescription(e.currentTarget.value)

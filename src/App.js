@@ -11,7 +11,7 @@ import TemplateWithoutSideBar from "./components/TemplateWithoutSideBar/Template
 import TemplateWithSideBar from "./components/TemplateWithSideBar/TemplateWithSideBar";
 import NotFoundSection from "./components/NotFoundSection/NotFoundSection";
 import UsersSectionContainer from "./containers/UsersSectionContainer/UsersSectionContainer";
-
+import UserInfoSectionContainer from "./containers/UserInfoSectionContainer/UserInfoSectionContainer";
 
 
 const App = () => {
@@ -55,11 +55,19 @@ const App = () => {
                            <TemplateWithSideBar>
                                <UsersSectionContainer/>
                            </TemplateWithSideBar>}/>
-                <Route path='/'
+                <Route exact
+                       path='/'
                        render={() =>
                            <TemplateWithoutSideBar>
                                <NotFoundSection/>
                            </TemplateWithoutSideBar>}/>
+                <Route path='/profile/users/:userId?'
+                       render={() => <TemplateWithSideBar>
+                           <ProfileSectionContainer/>
+                       </TemplateWithSideBar>
+                       }/>
+
+                />
             </Switch>
         </div>
 

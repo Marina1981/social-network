@@ -12,6 +12,7 @@
                        minmax(auto, 7rem)
                        minmax(auto, 25rem)
                        minmax(auto, 1fr);
+    grid-template-columns: minmax(auto, 1fr);
     background: #f4f4f4;
 }
 

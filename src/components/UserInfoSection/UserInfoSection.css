@@ -27,6 +27,7 @@
     width: 35rem;
     height: 25rem;
     display: flex;
+    justify-content: flex-start;
     margin-left: 2.5rem;
     margin-right: 2.5rem;
 }
@@ -90,20 +91,34 @@
     margin-left: 2.5rem;
     margin-right: 2.5rem;
 }
-.contacts-block__decorated-label{
+.c-info__decorated-about-me,
+.contacts-block__decorated-my-contacts{
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: cursive;
     font-size: 1.6rem;
     color: #0fc19e;
+    margin: 1rem 2rem;
+}
+.contacts-block__decorated-label{
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    /*font-family: cursive;*/
+    /*font-size: 1.6rem;*/
+    /*color: #0fc19e;*/
 }
 .contacts-block__text{
     font-family: cursive;
     font-size: 1rem;
     color: #858686;
-    width: 15rem;
+    width: 90%;
     height: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
 }
 
 .contacts-block__job-searches-block{
