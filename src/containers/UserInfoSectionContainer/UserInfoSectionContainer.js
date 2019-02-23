@@ -2,7 +2,7 @@ import React from "react";
 import connect from "react-redux/es/connect/connect";
 import UserInfoSection from "../../components/UserInfoSection/UserInfoSection";
 import {actions as actionsProfile, isUserProfileOwner, setReceivedServerUserProfile,
-    updateUserProfileFromCreatingUserProfile} from "../../redux/modules/profileRedux";
+    updateAuthUserProfileFromCreatingUserProfile} from "../../redux/modules/profileRedux";
 import withRouter from "react-router/es/withRouter";
 import {actions as actionsUserStatus, setReceivedServerUserStatus,
     updateUserStatusFromCreatingUserStatus} from "../../redux/modules/userStatusRedux";
@@ -11,12 +11,9 @@ import {actions as actionsUserStatus, setReceivedServerUserStatus,
 class UserInfoSectionContainer extends React.Component {
     //---
     componentDidMount() {
-        const userId = this.props.match.params.userId;
-        this.props.onDidMount(userId);
-
-
-        // this.props.getUserProfile(userId);
-        // this.props.getStatus(userId);
+        // const authUserId = this.props.match.params.userId ? this.props.match.params.userId : this.props.authUserId;
+        // const userId = this.props.match.params.userId;
+        // this.props.onDidMount(userId);
     }
 
     //---
@@ -31,7 +28,7 @@ class UserInfoSectionContainer extends React.Component {
 const mapStateToProps = (state) => {
     return {
         isAuth:             state.auth.userAuthData.userId !== null, // true / false
-        userId:             state.auth.userAuthData.userId,
+        authUserId:         state.auth.userAuthData.userId,
         // userPicURL:    state.profilePage.userInfo.userPicURL,
         userName:           state.auth.userAuthData.userLogin,
         userInfo:           state.profilePage.userInfo,
@@ -58,101 +55,39 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch, props) => {
     return {
 
-        onDidMount: (userId) => {
-            dispatch(setReceivedServerUserProfile(userId));
-            dispatch(setReceivedServerUserStatus(userId));
-        },
-
+        // onDidMount: (userId) => {
+        //     dispatch(setReceivedServerUserProfile(userId));
+        //     dispatch(setReceivedServerUserStatus(userId));
+        // },
 
         onAboutMeChangeRequest: () => {
-                dispatch(actionsProfile.copyAboutMeToCreatingAboutMe())
+            dispatch(actionsProfile.copyAboutMeToCreatingAboutMe())
         },
         onChangeCreatingProfileAboutMe: (text) => {
             dispatch(actionsProfile.setCreatingAboutMe(text))
         },
 
-        onContactsChangeRequest: () => {
-            dispatch(actionsProfile.copyContactToCreatingContact())
+        onContactsChangeRequest: (key) => {
+            dispatch(actionsProfile.copyContactToCreatingContact(key))
         },
-        onChangeCreatingContacts: (key) => {
-            dispatch(actionsProfile.setCreatingContact(key))
+        onChangeCreatingContacts: (text, key) => {
+            dispatch(actionsProfile.setCreatingContact(text, key))
         },
-        // onSkypeChangeRequest: () => {
-        //     dispatch(actionsProfile.copySkypeToCreatingSkype())
-        // },
-        // onContactsChangeRequest: (key) => {
-        //     dispatch(actionsProfile.copyContactToCreatingContact(key))
-        // },
-        // onChangeCreatingProfileSkype: (skype) => {
-        //     dispatch(actionsProfile.setCreatingSkype(skype))
-        // },
-        // onVkChangeRequest: () => {
-        //     dispatch(actionsProfile.copyVkToCreatingVk())
-        // },
-        // onChangeCreatingProfileVk: (vk) => {
-        //     dispatch(actionsProfile.setCreatingVk(vk))
-        // },
-        // onFacebookChangeRequest: () => {
-        //     dispatch(actionsProfile.copyFacebookToCreatingFacebook())
-        // },
-        // onChangeCreatingProfileFacebook: (facebook) => {
-        //     dispatch(actionsProfile.setCreatingFacebook(facebook))
-        // },
-        // onIcqChangeRequest: () => {
-        //     dispatch(actionsProfile.copyIcqToCreatingIcq())
-        // },
-        // onChangeCreatingProfileIcq: (icq) => {
-        //     dispatch(actionsProfile.setCreatingIcq(icq))
-        // },
-        // onEmailChangeRequest: () => {
-        //     dispatch(actionsProfile.copyEmailToCreatingEmail())
-        // },
-        // onChangeCreatingProfileEmail: (email) => {
-        //     dispatch(actionsProfile.setCreatingEmail(email))
-        // },
-        // onGooglePlusChangeRequest: () => {
-        //     dispatch(actionsProfile.copyGooglePlusToCreatingGooglePlus())
-        // },
-        // onChangeCreatingProfileGooglePlus: (googlePlus) => {
-        //     dispatch(actionsProfile.setCreatingGooglePlus(googlePlus))
-        // },
-        // onTwitterChangeRequest: () => {
-        //     dispatch(actionsProfile.copyTwitterToCreatingTwitter())
-        // },
-        // onChangeCreatingProfileTwitter: (twitter) => {
-        //     dispatch(actionsProfile.setCreatingTwitter(twitter))
-        // },
-        // onInstagramChangeRequest: () => {
-        //     dispatch(actionsProfile.copyInstagramToCreatingInstagram())
-        // },
-        // onChangeCreatingProfileInstagram: (instagram) => {
-        //     dispatch(actionsProfile.setCratingInstagram(instagram))
-        // },
-        // onWhatsAppChangeRequest: () => {
-        //     dispatch(actionsProfile.copyWhatsAppToCreatingWhatsApp())
-        // },
-        // onChangeCreatingProfileWhatsApp: (whatsApp) => {
-        //     dispatch(actionsProfile.setCreatingWhatsApp(whatsApp))
-        // },
+
         onLookingForAJobDescriptionChangeRequest: () => {
-            dispatch(actionsProfile.copyLookingForAJobDescriptionCreatingLookingForAJobDescription())
+            dispatch(actionsProfile.copyDescriptionToCreatingDescription())
         },
         onChangeCreatingProfileLookingForAJobDescription: (text) => {
             dispatch(actionsProfile.setCreatingLookingForAJobDescription(text))
         },
 
-
         onChangeRememberMeFlag: () => {
             dispatch(actionsProfile.setCreatingLookingForAJobFlag())
         },
 
-        onCreatingUserProfileFinishCommitted: (userId) => {
-            dispatch(updateUserProfileFromCreatingUserProfile(userId))
+        onCreatingUserProfileFinishCommitted: () => {
+            dispatch(updateAuthUserProfileFromCreatingUserProfile())
         },
-        // getUserProfile: (userId) => {
-        //     dispatch(setReceivedServerUserProfile(userId))
-        // },
-
 
         onUserStatusChangeRequest: (userId) => {
             dispatch(actionsUserStatus.copyUserStatusToCreatingUserStatus(userId))
@@ -163,13 +98,10 @@ const mapDispatchToProps = (dispatch, props) => {
         },
         onCreatingUserStatusFinishCommitted: () => {
             dispatch(updateUserStatusFromCreatingUserStatus());
-        },
-        // getStatus: () => {
-        //     dispatch(setReceivedServerUserStatus());
-        // }
+        }
     }
 };
 
 //----
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(UserInfoSectionContainer));
+export default connect(mapStateToProps, mapDispatchToProps)(UserInfoSectionContainer);
 //---

@@ -6,7 +6,6 @@ import exit from "./images/exit.svg"
 
 
 const MainHeader = (props) => {
-
     return (
         <header className="c-header-section">
             <div className="c-header-section__logo-icon">
@@ -17,7 +16,7 @@ const MainHeader = (props) => {
                 props.isAuth &&
                 <>
                     <div className="c-header-section__search-block">
-                        <NavLink to="/Users" className="search-block__label">
+                        <NavLink to="/ " className="search-block__label">
                             search
                         </NavLink>
                         <input className="search-block__input"/>

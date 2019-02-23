@@ -11,12 +11,13 @@ import TemplateWithoutSideBar from "./components/TemplateWithoutSideBar/Template
 import TemplateWithSideBar from "./components/TemplateWithSideBar/TemplateWithSideBar";
 import NotFoundSection from "./components/NotFoundSection/NotFoundSection";
 import UsersSectionContainer from "./containers/UsersSectionContainer/UsersSectionContainer";
-import UserInfoSectionContainer from "./containers/UserInfoSectionContainer/UserInfoSectionContainer";
+import connect from "react-redux/es/connect/connect";
+import {setReceivedServerUserProfile} from "./redux/modules/profileRedux";
+import {setReceivedServerUserStatus} from "./redux/modules/userStatusRedux";
 
 
-const App = () => {
+const App = (appProps) => {
     return (
-
         <div className="App">
             <Switch>
                 <Route exact
@@ -61,13 +62,16 @@ const App = () => {
                            <TemplateWithoutSideBar>
                                <NotFoundSection/>
                            </TemplateWithoutSideBar>}/>
-                <Route path='/profile/users/:userId?'
-                       render={() =>
-                           <TemplateWithSideBar>
-                           <ProfileSectionContainer/>
-                       </TemplateWithSideBar>
-                       }/>
+                <Route exact
+                       path='/profile/users/:userId?'
+                       render={(props) =>{
+                                       const userId = props.match.params.userId;
+                                       appProps.onUserProfileChangeRequest(userId);
 
+                                       return (<TemplateWithSideBar>
+                                                  <ProfileSectionContainer/>
+                                               </TemplateWithSideBar>)}
+                       }/>
                 />
             </Switch>
         </div>
@@ -77,5 +81,22 @@ const App = () => {
 
 };
 
-let superApp = withRouter(App);
+const mapStateToProps = (state) => {
+    return {
+
+    }
+};
+
+const mapDispatchToProps = (dispatch, props) => {
+   return {
+       onUserProfileChangeRequest: (userId) => {
+           dispatch(setReceivedServerUserProfile(userId));
+           dispatch(setReceivedServerUserStatus(userId));
+       }
+   }
+};
+
+
+let superApp = withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
+
 export default superApp;

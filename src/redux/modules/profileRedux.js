@@ -1,4 +1,4 @@
-import {getLogginedUserId} from "./authRedux";
+import {getAuthUserId} from "./authRedux";
 import axios, {userStatusUpdatingProcessStatuses} from "../../dal/axios-instance";
 import {
     userProfileUpdatingProcessProfile, userProfileUpdatingProcessResults,
@@ -8,35 +8,18 @@ import {
 export const types = {
     SET_USER_PROFILE: 'NETWORK/PROFILE_PAGE/SET_USER_PROFILE',
     SET_CREATING_ABOUT_ME: 'NETWORK/PROFILE_PAGE/SET_CREATING_ABOUT_ME',
-    // SET_CREATING_SKYPE: 'NETWORK/PROFILE_PAGE/SET_CREATING_SKYPE',
-    // SET_CREATING_VK: 'NETWORK/PROFILE_PAGE/SET_CREATING_VK',
-    // SET_CREATING_FACEBOOK: 'NETWORK/PROFILE_PAGE/SET_CREATING_FACEBOOK',
-    // SET_CREATING_ICQ: 'NETWORK/PROFILE_PAGE/SET_CREATING_ICQ',
-    // SET_CREATING_EMAIL: 'NETWORK/PROFILE_PAGE/SET_CREATING_EMAIL',
-    // SET_CREATING_GOOGLE_PLUS: 'NETWORK/PROFILE_PAGE/SET_CREATING_GOOGLE_PLUS',
-    // SET_CREATING_TWITTER: 'NETWORK/PROFILE_PAGE/SET_CREATING_TWITTER',
-    // SET_CREATING_INSTAGRAM: 'NETWORK/PROFILE_PAGE/SET_CREATING_INSTAGRAM',
-    // SET_CREATING_WATS_APP: 'NETWORK/PROFILE_PAGE/SET_CREATING_WATS_APP',
+    SET_CREATING_CONTACT: 'NETWORK/PROFILE_PAGE/SET_CREATING_CONTACT',
+    SET_ALL_CREATING_CONTACTS_TO_NULL: 'NETWORK/PROFILE_PAGE/SET_ALL_CREATING_CONTACTS_TO_NULL',
     SET_LOOKING_FOR_A_JOB_FLAG: 'NETWORK/PROFILE_PAGE/SET_LOOKING_FOR_A_JOB_FLAG',
     SET_CREATING_LOOKING_FOR_A_JOB_DESCRIPTION: 'NETWORK/PROFILE_PAGE/SET_CREATING_LOOKING_FOR_A_JOB_DESCRIPTION',
     SET_CREATING_FULLL_NAME: 'NETWORK/PROFILE_PAGE/SET_CREATING_FULL_NAME',
 
-    SET_CREATING_CONTACT: 'NETWORK/PROFILE_PAGE/SET_CREATING_CONTACT',
 
     SET_USER_PROFILE_UPDATING_PROCESS_STATUS: 'NETWORK/PROFILE_PAGE/SET_USER_PROFILE_UPDATING_PROCESS_STATUS',
     SET_USER_PROFILE_UPDATING_PROCESS_ERROR: 'NETWORK/PROFILE_PAGE/SET_USER_PROFILE_UPDATING_PROCESS_ERROR',
     SET_USER_PROFILE_UPDATING_PROCESS_ERROR_MESSAGE: 'NETWORK/PROFILE_PAGE/SET_USER_PROFILE_UPDATING_PROCESS_ERROR_MESSAGE',
 
     COPY_ABOUT_ME_TO_CREATING_ABOUT_ME: 'NETWORK/PROFILE_PAGE/COPY_ABOUT_ME_TO_CREATING_ABOUT_ME',
-    // COPY_SKYPE_TO_CREATING_SKYPE: 'NETWORK/PROFILE_PAGE/COPY_SKYPE_TO_CREATING_SKYPE',
-    // COPY_VK_TO_CREATING_VK: 'NETWORK/PROFILE_PAGE/COPY_VK_TO_CREATING_VK',
-    // COPY_FACEBOOK_TO_CREATING_FACEBOOK: 'NETWORK/PROFILE_PAGE/COPY_FACEBOOK_TO_CREATING_FACEBOOK',
-    // COPY_ICQ_TO_CREATING_ICQ: 'NETWORK/PROFILE_PAGE/COPY_ICQ_TO_CREATING_ICQ',
-    // COPY_EMAIL_TO_CREATING_EMAIL: 'NETWORK/PROFILE_PAGE/COPY_EMAIL_TO_CREATING_EMAIL',
-    // COPY_GOOGLE_PLUS_TO_CREATING_GOOGLE_PLUS: 'NETWORK/PROFILE_PAGE/COPY_GOOGLE_PLUS_TO_CREATING_GOOGLE_PLUS',
-    // COPY_TWITTER_TO_CREATING_TWITTER: 'NETWORK/PROFILE_PAGE/COPY_TWITTER_TO_CREATING_TWITTER',
-    // COPY_INSTAGRAM_TO_CREATING_INSTAGRAM: 'NETWORK/PROFILE_PAGE/COPY_INSTAGRAM_TO_CREATING_INSTAGRAM',
-    // COPY_WATS_APP_TO_CREATING_WATS_APP: 'NETWORK/PROFILE_PAGE/COPY_WATS_APP_TO_CREATING_WATS_APP',
     COPY_LOOKING_FOR_A_JOB_DESCRIPTION_TO_CREATING_LOOKING_FOR_A_JOB_DESCRIPTION: 'NETWORK/PROFILE_PAGE/COPY_LOOKING_FOR_A_JOB_DESCRIPTION_TO_CREATING_LOOKING_FOR_A_JOB_DESCRIPTION',
     COPY_FULLL_NAME_TO_CREATING_FULLL_NAME: 'NETWORK/PROFILE_PAGE/COPY_FULLL_NAME_TO_CREATING_FULLL_NAME',
 
@@ -59,17 +42,9 @@ export const types = {
 export const actions = {
     setUserProfile: (data) => ({type: types.SET_USER_PROFILE, data}),
     setCreatingAboutMe: (text) => ({type: types.SET_CREATING_ABOUT_ME, text}),
-    // setCreatingSkype: (skype) => ({type: types.SET_CREATING_SKYPE, skype}),
-    // setCreatingVk: (vk) => ({type: types.SET_CREATING_VK, vk}),
-    // setCreatingFacebook: (facebook) => ({type: types.SET_CREATING_FACEBOOK, facebook}),
-    // setCreatingIcq: (icq) => ({type: types.SET_CREATING_ICQ, icq}),
-    // setCreatingEmail: (email) => ({type: types.SET_CREATING_EMAIL, email}),
-    // setCreatingGooglePlus: (googlePlus) => ({type: types.SET_CREATING_GOOGLE_PLUS, googlePlus}),
-    // setCreatingTwitter: (twitter) => ({type: types.SET_CREATING_TWITTER, twitter}),
-    // setCratingInstagram: (instagram) => ({type: types.SET_CREATING_INSTAGRAM, instagram}),
-    // setCreatingWhatsApp: (whatsApp) => ({type: types.SET_CREATING_WATS_APP, whatsApp}),
 
-    setCreatingContact: (key) => ({type: types.SET_CREATING_CONTACT, key}),
+    setCreatingContact: (text, key) => ({type: types.SET_CREATING_CONTACT, text, key}),
+    setAllCreatingContactsToNull: () => ({type: types.SET_ALL_CREATING_CONTACTS_TO_NULL}),
     setCreatingLookingForAJobFlag: (flag) => ({type: types.SET_LOOKING_FOR_A_JOB_FLAG, flag}),
     setCreatingLookingForAJobDescription: (text) => ({type: types.SET_CREATING_LOOKING_FOR_A_JOB_DESCRIPTION, text}),
     setCreatingFullName: (fullName) => ({type: types.SET_CREATING_FULLL_NAME, fullName}),
@@ -78,18 +53,10 @@ export const actions = {
     setUserProfileUpdatingProcessError: (processError) => ({type: types.SET_USER_PROFILE_UPDATING_PROCESS_ERROR, processError}),
     setUserProfileUpdatingProcessErrorMessage: (processErrorMessage) => ({type: types.SET_USER_PROFILE_UPDATING_PROCESS_ERROR_MESSAGE, processErrorMessage}),
 
-    copyContactToCreatingContact: (key) => ({type: types.COPY_ABOUT_ME_TO_CREATING_ABOUT_ME, key}),
+    copyContactToCreatingContact: (key) => ({type: types.COPY_CONTACT_TO_CREATING_CONTACT, key}),
+
     copyAboutMeToCreatingAboutMe: () => ({type: types.COPY_ABOUT_ME_TO_CREATING_ABOUT_ME}),
-    // copySkypeToCreatingSkype: () => ({type: types.COPY_SKYPE_TO_CREATING_SKYPE}),
-    // copyVkToCreatingVk: () => ({type: types.COPY_VK_TO_CREATING_VK}),
-    // copyFacebookToCreatingFacebook: () => ({type: types.COPY_FACEBOOK_TO_CREATING_FACEBOOK}),
-    // copyIcqToCreatingIcq: () => ({type: types.COPY_ICQ_TO_CREATING_ICQ}),
-    // copyEmailToCreatingEmail: () => ({type: types.COPY_EMAIL_TO_CREATING_EMAIL}),
-    // copyGooglePlusToCreatingGooglePlus: () => ({type: types.COPY_GOOGLE_PLUS_TO_CREATING_GOOGLE_PLUS}),
-    // copyTwitterToCreatingTwitter: () => ({type: types.COPY_TWITTER_TO_CREATING_TWITTER}),
-    // copyInstagramToCreatingInstagram: () => ({type: types.COPY_INSTAGRAM_TO_CREATING_INSTAGRAM}),
-    // copyWhatsAppToCreatingWhatsApp: () => ({type: types.COPY_WATS_APP_TO_CREATING_WATS_APP}),
-    copyLookingForAJobDescriptionCreatingLookingForAJobDescription: () => ({type: types.COPY_LOOKING_FOR_A_JOB_DESCRIPTION_TO_CREATING_LOOKING_FOR_A_JOB_DESCRIPTION}),
+    copyDescriptionToCreatingDescription: () => ({type: types.COPY_LOOKING_FOR_A_JOB_DESCRIPTION_TO_CREATING_LOOKING_FOR_A_JOB_DESCRIPTION}),
     copyFullNameToCreatingFullName: () => ({type: types.COPY_FULLL_NAME_TO_CREATING_FULLL_NAME}),
 
 
@@ -114,7 +81,7 @@ export const initialState = {
         userWebSite: ''
     },
     userProfile: {
-        aboutMe: 'Marina',
+        aboutMe: '<about me>',
         contacts: {
             skype: 'skype',
             vk: 'vk',
@@ -127,7 +94,7 @@ export const initialState = {
             whatsApp: 'whatsApp'
         },
         lookingForAJob: true,
-        lookingForAJobDescription: '',
+        lookingForAJobDescription: '<',
         photos: {
             large: null,
             small: null
@@ -172,7 +139,6 @@ export const reducer = (state = initialState, action) => {
     };
 
     //----
-    //----
     switch (action.type) {
         case types.SET_USER_PROFILE:
             return {
@@ -186,60 +152,24 @@ export const reducer = (state = initialState, action) => {
                 creatingUserProfile_aboutMe: action.text
             };
 
-        // case types.SET_CREATING_SKYPE:
-        //     return {
-        //         ...state,
-        //         creatingUserProfile_skype: action.skype
-        //     };
-        //
-        // case types.SET_CREATING_VK:
-        //     return {
-        //       ...state,
-        //         creatingUserProfile_vk: action.vk
-        //     };
-        //
-        //
-        // case types.SET_CREATING_FACEBOOK:
-        //     return {
-        //         ...state,
-        //         creatingUserProfile_facebook: action.facebook
-        //     };
-        //
-        // case types.SET_CREATING_ICQ:
-        //     return {
-        //         ...state,
-        //         creatingUserProfile_icq: action.icq
-        //     };
-        //
-        // case types.SET_CREATING_EMAIL:
-        //     return {
-        //         ...state,
-        //         creatingUserProfile_email: action.email
-        //     };
-        //
-        // case types.SET_CREATING_GOOGLE_PLUS:
-        //     return {
-        //         ...state,
-        //         creatingUserProfile_googlePlus: action.googlePlus
-        //     };
-        //
-        // case types.SET_CREATING_TWITTER:
-        //     return {
-        //         ...state,
-        //         creatingUserProfile_twitter: action.twitter
-        //     };
-        //
-        // case types.SET_CREATING_INSTAGRAM:
-        //     return {
-        //         ...state,
-        //         creatingUserProfile_instagram: action.instagram
-        //     };
-        //
-        // case types.SET_CREATING_WATS_APP:
-        //     return {
-        //         ...state,
-        //         creatingUserProfile_whatsApp: action.whatsApp
-        //     };
+        //-------
+
+        case types.SET_CREATING_CONTACT:
+            return {
+                ...state,
+                ["creatingUserProfile_" + action.key]:  action.text //state.userProfile.contacts[action.key]
+            };
+        //-------
+
+        case types.SET_ALL_CREATING_CONTACTS_TO_NULL:
+
+            const arr =  Object.keys(state.userProfile.contacts).map( (key) =>  "creatingUserProfile_" + key);
+            const obj = Object.assign(...arr.map(k => ({ [k]: null })));
+
+            return {
+              ...state,
+              ...obj
+            };
 
         case types.SET_LOOKING_FOR_A_JOB_FLAG:
             return {
@@ -258,7 +188,7 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 creating_fullName: action.fullName
             };
-        //-------
+        //---------------------
 
         case types.SET_USER_PROFILE_UPDATING_PROCESS_STATUS:
             return {
@@ -277,14 +207,8 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 userProfileUpdatingProcessErrorMessage: action.processErrorMessage
             };
-        //-------
+        //---------------------
 
-        case types.SET_CREATING_CONTACT:
-                return {
-                    ...state,
-                    ["creatingUserProfile_" + action.key]: state.userProfile.contacts[action.key]
-                };
-        //-------
         case types.COPY_CONTACT_TO_CREATING_CONTACT:
                 return {
                     ...state,
@@ -297,60 +221,6 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 creatingUserProfile_aboutMe: state.userProfile.aboutMe
             };
-
-        // case types.COPY_SKYPE_TO_CREATING_SKYPE:
-        //     return {
-        //         ...state,
-        //         creatingUserProfile_skype: state.userProfile.contacts.skype
-        //     };
-        //
-        // case types.COPY_VK_TO_CREATING_VK:
-        //     return {
-        //         ...state,
-        //         creatingUserProfile_vk: state.userProfile.contacts.vk
-        //     };
-        //
-        // case types.COPY_FACEBOOK_TO_CREATING_FACEBOOK:
-        //     return {
-        //         ...state,
-        //         creatingUserProfile_facebook: state.userProfile.contacts.facebook
-        //     };
-        //
-        // case types.COPY_ICQ_TO_CREATING_ICQ:
-        //     return {
-        //         ...state,
-        //         creatingUserProfile_icq: state.userProfile.contacts.icq
-        //     };
-        //
-        // case types.COPY_EMAIL_TO_CREATING_EMAIL:
-        //     return {
-        //         ...state,
-        //         creatingUserProfile_email: state.userProfile.contacts.email
-        //     };
-        //
-        // case types.COPY_GOOGLE_PLUS_TO_CREATING_GOOGLE_PLUS:
-        //     return {
-        //         ...state,
-        //         creatingUserProfile_googlePlus: state.userProfile.contacts.googlePlus
-        //     };
-        //
-        // case types.COPY_TWITTER_TO_CREATING_TWITTER:
-        //     return {
-        //         ...state,
-        //         creatingUserProfile_twitter: state.userProfile.contacts.twitter
-        //     };
-        //
-        // case types.COPY_INSTAGRAM_TO_CREATING_INSTAGRAM:
-        //     return {
-        //         ...state,
-        //         creatingUserProfile_instagram: state.userProfile.contacts.instagram
-        //     };
-        //
-        // case types.COPY_WATS_APP_TO_CREATING_WATS_APP:
-        //     return {
-        //         ...state,
-        //         creatingUserProfile_whatsApp: state.userProfile.contacts.whatsApp
-        //     };
 
         case types.COPY_LOOKING_FOR_A_JOB_DESCRIPTION_TO_CREATING_LOOKING_FOR_A_JOB_DESCRIPTION:
             return {
@@ -488,14 +358,14 @@ export const getCreatingUserProfile = (globalState) => {
 //-----ThanksCreators----//
 export const setReceivedServerUserProfile = (userId) => (dispatch, getState) => {
     const globalState = getState();
-    userId = userId ? userId : getLogginedUserId(globalState);
+    userId = userId ? userId : getAuthUserId(globalState);
     axios.get('profile/' + userId)
         .then(result => {
             dispatch(actions.setUserProfile(result.data))
         })
 };
 
-export const updateUserProfileFromCreatingUserProfile = (userId) => (dispatch, getState) => {
+export const updateAuthUserProfileFromCreatingUserProfile = () => (dispatch, getState) => {
     const globalState = getState();
     const userProfile = getCreatingUserProfile(globalState);
 
@@ -503,8 +373,7 @@ export const updateUserProfileFromCreatingUserProfile = (userId) => (dispatch, g
     axios.put('profile', userProfile)
         .then(result => {
             if (result.data.resultCode === 0) {
-                // const userId = getLogginedUserId(globalState);
-                const userId = userId ? userId : getLogginedUserId(globalState);
+                const userId = getAuthUserId(globalState);
                 axios.get('profile/' + userId)
                     .then(result => {
                         dispatch(actions.setUserProfileUpdatingProcessStatus(userProfileUpdatingProcessProfile.READY));
@@ -512,15 +381,7 @@ export const updateUserProfileFromCreatingUserProfile = (userId) => (dispatch, g
                     })
                     .then(() => {
                         dispatch(actions.setCreatingAboutMe(null));
-                        dispatch(actions.setCreatingContact(null));
-                        // dispatch(actions.setCreatingVk(null));
-                        // dispatch(actions.setCreatingFacebook(null));
-                        // dispatch(actions.setCreatingIcq(null));
-                        // dispatch(actions.setCreatingEmail(null));
-                        // dispatch(actions.setCreatingGooglePlus(null));
-                        // dispatch(actions.setCreatingTwitter(null));
-                        // dispatch(actions.setCratingInstagram(null));
-                        // dispatch(actions.setCreatingWhatsApp(null));
+                        dispatch(actions.setAllCreatingContactsToNull());
                         dispatch(actions.setCreatingLookingForAJobFlag(null));
                         dispatch(actions.setCreatingLookingForAJobDescription(null));
                         dispatch(actions.setCreatingFullName(null));

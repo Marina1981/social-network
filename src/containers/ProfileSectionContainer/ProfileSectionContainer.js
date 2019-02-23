@@ -2,9 +2,19 @@ import React from 'react';
 import {actions as profileActions} from "../../redux/modules/profileRedux";
 import {connect} from "react-redux";
 import ProfileSection from "../../components/ProfileSection/ProfileSection";
+import withRouter from "react-router/es/withRouter";
 
 
 class ProfileSectionContainer extends React.Component {
+
+   // getUserId(){
+   //     const authUserId = this.props.match.params.userId;
+   // }
+   // componentDidMount() {
+   //     const authUserId = this.props.match.params.userId;
+   //
+   // }
+
     render() {
         return <ProfileSection {...this.props} />
     }
@@ -36,6 +46,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps)(ProfileSectionContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileSectionContainer);
