@@ -23,7 +23,7 @@ const mapStateToProps = (state) => {
         isAuth:          state.auth.userAuthData.userId !== null,
         authUserId:      state.auth.userAuthData.userId,
         userName:        state.auth.userAuthData.userLogin,
-        userPicURL:      state.profilePage.userInfo.userPicURL,
+        userPicURL:      state.profilePage.userProfile.photos.small,
         userId:          state.profilePage.userProfile.userId
     }
 };

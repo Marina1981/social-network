@@ -12,8 +12,9 @@ export const types = {
     SET_ALL_CREATING_CONTACTS_TO_NULL: 'NETWORK/PROFILE_PAGE/SET_ALL_CREATING_CONTACTS_TO_NULL',
     SET_LOOKING_FOR_A_JOB_FLAG: 'NETWORK/PROFILE_PAGE/SET_LOOKING_FOR_A_JOB_FLAG',
     SET_CREATING_LOOKING_FOR_A_JOB_DESCRIPTION: 'NETWORK/PROFILE_PAGE/SET_CREATING_LOOKING_FOR_A_JOB_DESCRIPTION',
-    SET_CREATING_FULLL_NAME: 'NETWORK/PROFILE_PAGE/SET_CREATING_FULL_NAME',
+    SET_USERPIC_URL: 'NETWORK/PROFILE_PAGE/SET_USERPIC_URL',
 
+    SET_CREATING_FULLL_NAME: 'NETWORK/PROFILE_PAGE/SET_CREATING_FULL_NAME',
 
     SET_USER_PROFILE_UPDATING_PROCESS_STATUS: 'NETWORK/PROFILE_PAGE/SET_USER_PROFILE_UPDATING_PROCESS_STATUS',
     SET_USER_PROFILE_UPDATING_PROCESS_ERROR: 'NETWORK/PROFILE_PAGE/SET_USER_PROFILE_UPDATING_PROCESS_ERROR',
@@ -26,8 +27,8 @@ export const types = {
     COPY_CONTACT_TO_CREATING_CONTACT: 'NETWORK/PROFILE_PAGE/COPY_CONTACT_TO_CREATING_CONTACT',
 
 
-    SET_USERPIC_URL: 'NETWORK/PROFILE_PAGE/SET_USERPIC_URL',
-    SET_USER_NAME: 'NETWORK/PROFILE_PAGE/SET_USER_NAME',
+
+    // SET_USER_NAME: 'NETWORK/PROFILE_PAGE/SET_USER_NAME',
     SET_USER_BIRTH_DATE: 'NETWORK/PROFILE_PAGE/SET_USER_BIRTH_DATE',
     SET_USER_CITY: 'NETWORK/PROFILE_PAGE/SET_USER_CITY',
     SET_USER_EDUCATION: 'NETWORK/PROFILE_PAGE/SET_USER_EDUCATION',
@@ -54,6 +55,8 @@ export const actions = {
     setCreatingDescription: (text) => ({type: types.SET_CREATING_LOOKING_FOR_A_JOB_DESCRIPTION, text}),
     copyDescriptionToCreatingDescription: () => ({type: types.COPY_LOOKING_FOR_A_JOB_DESCRIPTION_TO_CREATING_LOOKING_FOR_A_JOB_DESCRIPTION}),
 
+    setUserpicURL: (userPicURL) => ({type: types.SET_USERPIC_URL, userPicURL}),
+
     setCreatingFullName: (fullName) => ({type: types.SET_CREATING_FULLL_NAME, fullName}),
     copyFullNameToCreatingFullName: () => ({type: types.COPY_FULLL_NAME_TO_CREATING_FULLL_NAME}),
 
@@ -62,8 +65,8 @@ export const actions = {
     setUserProfileUpdatingProcessErrorMessage: (processErrorMessage) => ({type: types.SET_USER_PROFILE_UPDATING_PROCESS_ERROR_MESSAGE, processErrorMessage}),
 
 
-    setUserpicURL: (userPicURL) => ({type: types.SET_USERPIC_URL, userPicURL}),
-    setUserName: (userName) => ({type: types.SET_USER_NAME, userName}),
+
+    // setUserName: (userName) => ({type: types.SET_USER_NAME, userName}),
     setUserBirthDate: (userBirthDate) => ({type: types.SET_USER_BIRTH_DATE, userBirthDate}),
     setUserCity: (userCity) => ({type: types.SET_USER_CITY, userCity}),
     setUserEducation: (userEducation) => ({type: types.SET_USER_EDUCATION, userEducation}),
@@ -159,7 +162,7 @@ export const reducer = (state = initialState, action) => {
         case types.SET_CREATING_CONTACT:
             return {
                 ...state,
-                ["creatingUserProfile_" + action.key]:  action.text //state.userProfile.contacts[action.key]
+                ["creatingUserProfile_" + action.key]:  action.text
             };
         //-------
 
@@ -183,6 +186,12 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 creating_lookingForAJobDescription: action.text
+            };
+
+        case types.SET_USERPIC_URL:
+            return {
+                ...state,
+                userPicURL: action.userPicURL
             };
 
         case types.SET_CREATING_FULLL_NAME:
@@ -237,13 +246,13 @@ export const reducer = (state = initialState, action) => {
             };
 
         //-------
-        case types.SET_USERPIC_URL:
-            newState.userInfo.userPicURL = action.userPicURL;
-            return newState;
-
-        case types.SET_USER_NAME:
-            newState.userInfo.userName = action.userName;
-            return newState;
+        // case types.SET_USERPIC_URL:
+        //     newState.userInfo.userPicURL = action.userPicURL;
+        //     return newState;
+        //
+        // case types.SET_USER_NAME:
+        //     newState.userInfo.userName = action.userName;
+        //     return newState;
 
         case types.SET_USER_BIRTH_DATE:
             newState.userInfo.userBirthDate = action.userBirthDate;
@@ -394,6 +403,18 @@ export const updateAuthUserProfileFromCreatingUserProfile = () => (dispatch, get
             }
         })
 };
+
+export const uploadUserPhoto = () => (dispatch, getState)=>{
+    let formData = new FormData();
+    let imagefile = document.querySelector('#photo');
+    formData.append('image', imagefile.files[0]);
+    axios.post('profile/photo', formData, {
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        }
+    }).then(result => console.log(result.data));
+};
+
 
 // selectors
 export const isUserProfileOwner = (fullState) => {

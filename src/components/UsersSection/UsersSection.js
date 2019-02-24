@@ -32,7 +32,7 @@ const UserSection = (props) => {
                             {user.status}
                         </div>
                         <div className={style.userUniqueUrlName}>
-                            {user.userUniqueUrlName}
+                            {user.uniqueUrlName}
                         </div>
                     </div>
                 )

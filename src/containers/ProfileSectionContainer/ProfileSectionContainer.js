@@ -24,7 +24,7 @@ class ProfileSectionContainer extends React.Component {
 const mapStateToProps = (state) => {
     return {
         isAuth:           state.auth.userAuthData.userId !== null, // true / false
-        userPicURL:       state.profilePage.userInfo.userPicURL,
+        userPicURL:       state.profilePage.userProfile.photos.large,
         selectedFriendId: state.dialogsPage.selectedFriendId,
         messagesList:     state.profilePage.wall.messagesList,
         creatingMessage:  state.profilePage.wall.creatingMessage,

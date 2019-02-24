@@ -32,7 +32,7 @@
 .usersList {
     display: grid;
     grid-template-rows: minmax(auto, 20%) minmax(auto, 60%) minmax(auto, 10%);
-    grid-template-columns: minmax(auto, 20%) minmax(auto, 80%);
+    grid-template-columns: minmax(auto, 40%) minmax(auto, 60%);
 
     /*height: 7rem;*/
     width: 75%;
