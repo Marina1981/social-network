@@ -1,4 +1,4 @@
-import {getAuthUserId} from "./authRedux";
+import {getAuthUsersId, getUsersId} from "./authRedux";
 import axios, {userStatusUpdatingProcessStatuses} from "../../dal/axios-instance";
 import {
     userProfileUpdatingProcessProfile, userProfileUpdatingProcessResults,
@@ -41,23 +41,25 @@ export const types = {
 
 export const actions = {
     setUserProfile: (data) => ({type: types.SET_USER_PROFILE, data}),
+
     setCreatingAboutMe: (text) => ({type: types.SET_CREATING_ABOUT_ME, text}),
+    copyAboutMeToCreatingAboutMe: () => ({type: types.COPY_ABOUT_ME_TO_CREATING_ABOUT_ME}),
 
     setCreatingContact: (text, key) => ({type: types.SET_CREATING_CONTACT, text, key}),
+    copyContactToCreatingContact: (key) => ({type: types.COPY_CONTACT_TO_CREATING_CONTACT, key}),
     setAllCreatingContactsToNull: () => ({type: types.SET_ALL_CREATING_CONTACTS_TO_NULL}),
+
     setCreatingLookingForAJobFlag: (flag) => ({type: types.SET_LOOKING_FOR_A_JOB_FLAG, flag}),
-    setCreatingLookingForAJobDescription: (text) => ({type: types.SET_CREATING_LOOKING_FOR_A_JOB_DESCRIPTION, text}),
+
+    setCreatingDescription: (text) => ({type: types.SET_CREATING_LOOKING_FOR_A_JOB_DESCRIPTION, text}),
+    copyDescriptionToCreatingDescription: () => ({type: types.COPY_LOOKING_FOR_A_JOB_DESCRIPTION_TO_CREATING_LOOKING_FOR_A_JOB_DESCRIPTION}),
+
     setCreatingFullName: (fullName) => ({type: types.SET_CREATING_FULLL_NAME, fullName}),
+    copyFullNameToCreatingFullName: () => ({type: types.COPY_FULLL_NAME_TO_CREATING_FULLL_NAME}),
 
     setUserProfileUpdatingProcessStatus: (processUserProfile) => ({type: types.SET_USER_PROFILE_UPDATING_PROCESS_STATUS, processUserProfile}),
     setUserProfileUpdatingProcessError: (processError) => ({type: types.SET_USER_PROFILE_UPDATING_PROCESS_ERROR, processError}),
     setUserProfileUpdatingProcessErrorMessage: (processErrorMessage) => ({type: types.SET_USER_PROFILE_UPDATING_PROCESS_ERROR_MESSAGE, processErrorMessage}),
-
-    copyContactToCreatingContact: (key) => ({type: types.COPY_CONTACT_TO_CREATING_CONTACT, key}),
-
-    copyAboutMeToCreatingAboutMe: () => ({type: types.COPY_ABOUT_ME_TO_CREATING_ABOUT_ME}),
-    copyDescriptionToCreatingDescription: () => ({type: types.COPY_LOOKING_FOR_A_JOB_DESCRIPTION_TO_CREATING_LOOKING_FOR_A_JOB_DESCRIPTION}),
-    copyFullNameToCreatingFullName: () => ({type: types.COPY_FULLL_NAME_TO_CREATING_FULLL_NAME}),
 
 
     setUserpicURL: (userPicURL) => ({type: types.SET_USERPIC_URL, userPicURL}),
@@ -358,7 +360,7 @@ export const getCreatingUserProfile = (globalState) => {
 //-----ThanksCreators----//
 export const setReceivedServerUserProfile = (userId) => (dispatch, getState) => {
     const globalState = getState();
-    userId = userId ? userId : getAuthUserId(globalState);
+    userId = userId ? userId : getAuthUsersId(globalState);
     axios.get('profile/' + userId)
         .then(result => {
             dispatch(actions.setUserProfile(result.data))
@@ -373,7 +375,7 @@ export const updateAuthUserProfileFromCreatingUserProfile = () => (dispatch, get
     axios.put('profile', userProfile)
         .then(result => {
             if (result.data.resultCode === 0) {
-                const userId = getAuthUserId(globalState);
+                const userId = getAuthUsersId(globalState);
                 axios.get('profile/' + userId)
                     .then(result => {
                         dispatch(actions.setUserProfileUpdatingProcessStatus(userProfileUpdatingProcessProfile.READY));
@@ -383,7 +385,7 @@ export const updateAuthUserProfileFromCreatingUserProfile = () => (dispatch, get
                         dispatch(actions.setCreatingAboutMe(null));
                         dispatch(actions.setAllCreatingContactsToNull());
                         dispatch(actions.setCreatingLookingForAJobFlag(null));
-                        dispatch(actions.setCreatingLookingForAJobDescription(null));
+                        dispatch(actions.setCreatingDescription(null));
                         dispatch(actions.setCreatingFullName(null));
                     })
             } else {

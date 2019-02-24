@@ -18,7 +18,7 @@ const UserInfoSection = (props) => {
 
                     {
                         (props.creatingUserProfile_aboutMe === null) ?
-                            <div className="contacts-block__text"
+                            <div className="contacts-block__text-about-me"
                                  onClick={() => props.onAboutMeChangeRequest(props.isOwner)}>
                                 {props.userProfile.aboutMe}
                             </div> :
@@ -116,6 +116,7 @@ const UserInfoSection = (props) => {
                                          onClick={() => props.onContactsChangeRequest(key)}>
                                         {props.userProfile.contacts[key]}
                                     </div> :
+
                                     <div className="contacts-block__form">
                                         <input className="contacts-block__input" placeholder={key}
                                                value={props["creatingUserProfile_" + key]}
@@ -124,12 +125,12 @@ const UserInfoSection = (props) => {
                                                        props.onChangeCreatingContacts(e.currentTarget.value, key)
                                                    }
                                                }/>
-                                        <button className="contacts-block__button"
-                                                onClick={
-                                                    (e) => {
-                                                        props.onCreatingUserProfileFinishCommitted()
-                                                    }
-                                                }>>
+                                        < button className="contacts-block__button"
+                                                 onClick={
+                                                     (e) => {
+                                                         props.onCreatingUserProfileFinishCommitted()
+                                                     }
+                                                 }>>
                                             ok
                                         </button>
                                     </div>
@@ -158,7 +159,8 @@ const UserInfoSection = (props) => {
                     {
                         (props.creating_lookingForAJobDescription === null) ?
                             <div className="contacts-block__text"
-                                 onClick={props.onLookingForAJobDescriptionChangeRequest}>
+                                 onClick={() => props.onLookingForAJobDescriptionChangeRequest(props.isOwner)}>
+                                 {/*onClick={props.onLookingForAJobDescriptionChangeRequest}*/}
                                 {props.userProfile.lookingForAJobDescription}
                             </div> :
                             <div className="description-job__form">

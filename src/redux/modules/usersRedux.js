@@ -54,7 +54,7 @@ export const getPageSize = (globalState) => {
     return totalCount > (pageSize - 1) * pageNumber;
 };
 //---
-export const getUsersId = (globalState) => globalState.usersPage.usersList.id;
+// export const getUsersId = (globalState) => globalState.usersPage.usersList.id;
 
 //---ThanksCreators----//
 export const setReceivedServerUsers = () => (dispatch, getState) => {

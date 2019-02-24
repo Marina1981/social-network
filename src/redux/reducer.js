@@ -10,12 +10,13 @@ import authRedux from "./modules/authRedux";
 
 
 
+
 const  rootReducer = combineReducers({
-    auth:         authRedux,
-    loginPage:    loginPageReducer,
-    profilePage:  profilePageReducer,
-    dialogsPage:  dialogsPageReducer,
-    usersPage:    usersPageReducer,
+    auth:              authRedux,
+    loginPage:         loginPageReducer,
+    profilePage:       profilePageReducer,
+    dialogsPage:       dialogsPageReducer,
+    usersPage:         usersPageReducer,
     userStatusBlock:   userStatusBlockReducer
 });
 

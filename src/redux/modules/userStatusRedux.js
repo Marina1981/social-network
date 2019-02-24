@@ -2,7 +2,7 @@ import {
     userStatusUpdatingProcessResults,
     userStatusUpdatingProcessStatuses
 } from "../../dal/axios-instance";
-import {getAuthUserId} from "./authRedux";
+import {getAuthUsersId, getUsersId} from "./authRedux";
 import axios from "../../dal/axios-instance";
 
 export const types = {
@@ -103,8 +103,8 @@ export const getCreatingUserStatus = (globalState) => globalState.userStatusBloc
 //setReceivedServerUserStatus  setReceivedServerUserStatus
 export const setReceivedServerUserStatus = (userId) => (dispatch, getState) => {
     const globalState = getState();
-    userId = userId ? userId : getAuthUserId(globalState);
-    // const userId = getAuthUserId(globalState);
+    userId = userId ? userId : getAuthUsersId(globalState);
+    // const userId = getUsersId(globalState);
 
     axios.get('profile/status/' + userId)
         .then(result => {
@@ -124,8 +124,8 @@ export const updateUserStatusFromCreatingUserStatus = (userId) => (dispatch, get
         .then(result => {
             if (result.data.resultCode === 0) {
 
-                // const userId = getAuthUserId(globalState);
-                const userId = userId ? userId : getAuthUserId(globalState);
+                // const userId = getUsersId(globalState);
+                const userId = userId ? userId : getAuthUsersId(globalState);
 
                 axios.get('profile/status/' + userId)
                     .then(result => {

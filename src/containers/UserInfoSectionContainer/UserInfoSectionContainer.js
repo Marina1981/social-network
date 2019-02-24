@@ -47,7 +47,7 @@ const mapStateToProps = (state) => {
         creatingUserProfile_twitter:        state.profilePage.creatingUserProfile_twitter,
         creatingUserProfile_instagram:      state.profilePage.creatingUserProfile_instagram,
         creatingUserProfile_whatsApp:       state.profilePage.creatingUserProfile_whatsApp,
-        creating_lookingForAJobDescription: state.profilePage.creating_lookingForAJobDescription,
+        creating_lookingForAJobDescription:  state.profilePage.creating_lookingForAJobDescription,
         isOwner: isUserProfileOwner(state)
     }
 };
@@ -74,12 +74,18 @@ const mapDispatchToProps = (dispatch, props) => {
             dispatch(actionsProfile.setCreatingContact(text, key))
         },
 
+
+
+
         onLookingForAJobDescriptionChangeRequest: () => {
             dispatch(actionsProfile.copyDescriptionToCreatingDescription())
         },
         onChangeCreatingProfileLookingForAJobDescription: (text) => {
-            dispatch(actionsProfile.setCreatingLookingForAJobDescription(text))
+            dispatch(actionsProfile.setCreatingDescription(text))
         },
+
+
+
 
         onChangeRememberMeFlag: () => {
             dispatch(actionsProfile.setCreatingLookingForAJobFlag())
