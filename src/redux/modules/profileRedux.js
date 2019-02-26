@@ -64,9 +64,6 @@ export const actions = {
     setUserProfileUpdatingProcessError: (processError) => ({type: types.SET_USER_PROFILE_UPDATING_PROCESS_ERROR, processError}),
     setUserProfileUpdatingProcessErrorMessage: (processErrorMessage) => ({type: types.SET_USER_PROFILE_UPDATING_PROCESS_ERROR_MESSAGE, processErrorMessage}),
 
-
-
-    // setUserName: (userName) => ({type: types.SET_USER_NAME, userName}),
     setUserBirthDate: (userBirthDate) => ({type: types.SET_USER_BIRTH_DATE, userBirthDate}),
     setUserCity: (userCity) => ({type: types.SET_USER_CITY, userCity}),
     setUserEducation: (userEducation) => ({type: types.SET_USER_EDUCATION, userEducation}),
