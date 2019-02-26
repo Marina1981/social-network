@@ -1,4 +1,4 @@
-.c-profile-section{
+.c-profile-section {
     /*width: 100%;*/
     height: 100%;
     grid-row: 2;
@@ -6,32 +6,29 @@
     justify-self: stretch;
     align-self: stretch;
     display: grid;
-    grid-template-rows: minmax(auto, 20rem)
-                       minmax(auto, 7rem)
-                       minmax(auto, 7rem)
-                       minmax(auto, 7rem)
-                       minmax(auto, 25rem)
-                       minmax(auto, 1fr);
+    grid-template-rows: minmax(auto, 20rem) minmax(auto, 7rem) minmax(auto, 7rem) minmax(auto, 7rem) minmax(auto, 25rem) minmax(auto, 1fr);
     grid-template-columns: minmax(auto, 1fr);
     background: #f4f4f4;
 }
 
 /*------------------------------------------------------------------*/
 
-.c-profile-section__head-image{
+.c-profile-section__head-image {
     display: flex;
     background-image: url("images/skinali.jpg");
     background-position: center;
     background-size: auto;
     min-height: 6rem;
 }
-.c-profile-section__head-image--positioned{
-    grid-row:    1 / span 2;
+
+.c-profile-section__head-image--positioned {
+    grid-row: 1 / span 2;
     grid-column: 1;
 }
+
 /*------------------------------------------------------------------*/
-.c-profile-section__greeting-block{
-    grid-row:    4;
+.c-profile-section__greeting-block {
+    grid-row: 4;
     grid-column: 1;
     display: flex;
     flex-direction: column;
@@ -42,66 +39,70 @@
     margin: auto;
 }
 
-.greeting-block__user-name{
+.greeting-block__user-name {
     font-family: cursive;
     font-size: 2.5rem;
     color: #1d9a82;
     margin: auto;
 }
 
-.greeting-block__about-me{
+.greeting-block__about-me {
     font-family: cursive;
     font-size: 1.3rem;
     color: #858686;
     margin: auto;
     text-align: center;
 }
+
 /*------------------------------------------------------------------*/
-.c-profile-section__wall-block{
+.c-profile-section__wall-block {
     display: flex;
     flex-direction: column;
 }
 
-.c-profile-section__wall-block--positioned{
-    grid-row:    6;
+.c-profile-section__wall-block--positioned {
+    grid-row: 6;
     grid-column: 1 / span 2;
 
     justify-self: stretch;
-    align-self:   stretch;
+    align-self: stretch;
     height: 50rem;
 }
+
 /*------------------------------------------------------------------*/
-.wall-block__record-form--positioned{
-    grid-row:    1;
+.wall-block__record-form--positioned {
+    grid-row: 1;
     grid-column: 1;
 
     justify-self: stretch;
-    align-self:   stretch;
+    align-self: stretch;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
 /*------------------------------------------------------------------*/
 /*------------------------------------------------------------------*/
-.wall-block__posts-block{
+.wall-block__posts-block {
     overflow-y: auto;
     max-height: 15rem;;
 }
-.wall-block__posts-block--positioned{
-    grid-row:    2;
+
+.wall-block__posts-block--positioned {
+    grid-row: 2;
     grid-column: 1;
 
     justify-self: stretch;
-    align-self:   stretch;
+    align-self: stretch;
 }
 
 /*------------------------------------------------------------------*/
-.c-profile-section__info-block{
+.c-profile-section__info-block {
     max-height: 20rem;
 }
 
-.c-profile-section__info-block--positioned{
+.c-profile-section__info-block--positioned {
     grid-row: 5;
     grid-column: 1;
     justify-self: stretch;
@@ -113,7 +114,7 @@
     /*margin: 20rem auto auto;*/
 }
 
-.wall-block__notes{
+.wall-block__notes {
     font-family: cursive;
     font-size: 1.6rem;
     color: #0fc19e;
@@ -122,8 +123,7 @@
 
 
 /*------------------------------------------------------------------*/
-
-.c-info__userpic {
+.c-profile-section__userpic-block {
     grid-row: 2/ span 2;
     grid-column: 1;
     justify-self: stretch;
@@ -131,13 +131,24 @@
     width: 100%;
     height: 15rem;
     z-index: 2;
+}
+
+.c-info__userpic {
+    /*grid-row: 2/ span 2;*/
+    /*grid-column: 1;*/
+    /*justify-self: stretch;*/
+    /*align-self: stretch;*/
+    /*width: 100%;*/
+    /*height: 15rem;*/
+    /*z-index: 2;*/
 
 }
 
-.c-info__userpic:hover{
+.c-info__userpic:hover {
     cursor: pointer;
 }
-.c-info__userpic--positioned{
+
+.c-info__userpic--positioned {
     grid-row: 2/ span 2;
     grid-column: 1;
     justify-self: stretch;
@@ -146,8 +157,9 @@
     justify-content: center;
     /* align-items: center; */
 }
+
 /*------------------------------------------------------------------*/
-.c-info__userpic-img{
+.c-info__userpic-img {
     height: 100%;
     width: auto;
     max-height: 12rem;
@@ -156,3 +168,21 @@
     background: white;
     padding: 1rem;
 }
+
+/*------------------------------------------------------------------*/
+.c-profile-section__block-add-photos {
+    grid-row: 2/ span 2;
+    grid-column: 1;
+    display: flex;
+
+}
+
+.block-add-photos__input {
+    display: flex;
+    /*color: transparent;*/
+}
+
+.block-add-photos__button{
+
+}
+

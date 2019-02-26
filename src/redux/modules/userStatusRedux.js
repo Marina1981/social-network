@@ -99,8 +99,6 @@ export const reducer = (state = initialState, action) => {
 export const getCreatingUserStatus = (globalState) => globalState.userStatusBlock.creatingUserStatus;
 
 //-----ThanksCreators----//
-
-//setReceivedServerUserStatus  setReceivedServerUserStatus
 export const setReceivedServerUserStatus = (userId) => (dispatch, getState) => {
     const globalState = getState();
     userId = userId ? userId : getAuthUsersId(globalState);
@@ -113,7 +111,6 @@ export const setReceivedServerUserStatus = (userId) => (dispatch, getState) => {
 };
 
 //---
-// updateUserStatusFromCreatingUserStatus  updateUserStatusFromCreatingUserStatus
 export const updateUserStatusFromCreatingUserStatus = (userId) => (dispatch, getState) => {
     const globalState = getState();
     const status = getCreatingUserStatus(globalState);
@@ -129,23 +126,16 @@ export const updateUserStatusFromCreatingUserStatus = (userId) => (dispatch, get
 
                 axios.get('profile/status/' + userId)
                     .then(result => {
-
                         dispatch(actions.setUserStatusUpdatingProcessStatus(userStatusUpdatingProcessStatuses.READY));
-                        // if (result.data.resultCode === 0) {
-                            dispatch(actions.setUserStatus(result.data));
-                        // } else {
-                        //     dispatch(actions.setUserStatusUpdatingProcessError(userStatusUpdatingProcessResults.COMMON_ERROR));
-                        //     dispatch(actions.setUserStatusUpdatingProcessErrorMessage("ERROR!!!"))
-                        // }
+                        dispatch(actions.setUserStatus(result.data));
                     })
                     .then(() => {
                         dispatch(actions.setCreatingUserStatus(null));
                     });
+            } else {
+                dispatch(actions.setUserStatusUpdatingProcessError(userStatusUpdatingProcessResults.COMMON_ERROR));
+                dispatch(actions.setUserStatusUpdatingProcessErrorMessage("ERROR!!!"))
             }
-            else {
-                    dispatch(actions.setUserStatusUpdatingProcessError(userStatusUpdatingProcessResults.COMMON_ERROR));
-                     dispatch(actions.setUserStatusUpdatingProcessErrorMessage("ERROR!!!"))
-                 }
         })
 };
 

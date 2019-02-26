@@ -1,8 +1,8 @@
 import React from 'react';
-import {actions as profileActions} from "../../redux/modules/profileRedux";
+import {actions as profileActions, updateUserPic, uploadUserPhoto} from "../../redux/modules/profileRedux";
 import {connect} from "react-redux";
 import ProfileSection from "../../components/ProfileSection/ProfileSection";
-import withRouter from "react-router/es/withRouter";
+
 
 
 class ProfileSectionContainer extends React.Component {
@@ -24,7 +24,7 @@ class ProfileSectionContainer extends React.Component {
 const mapStateToProps = (state) => {
     return {
         isAuth:           state.auth.userAuthData.userId !== null, // true / false
-        userPicURL:       state.profilePage.userProfile.photos.large,
+        photos:           state.profilePage.userProfile.photos,
         selectedFriendId: state.dialogsPage.selectedFriendId,
         messagesList:     state.profilePage.wall.messagesList,
         creatingMessage:  state.profilePage.wall.creatingMessage,
@@ -42,7 +42,10 @@ const mapDispatchToProps = (dispatch) => {
         },
         onMesaageLikeIncrementRequest: (messageId) => (
             dispatch(profileActions.incrementPostLikeCount(messageId))
-        )
+        ),
+        onUserpicChangeRecuested: (imgFile) => {
+            dispatch(updateUserPic(imgFile))
+        }
     }
 };
 
