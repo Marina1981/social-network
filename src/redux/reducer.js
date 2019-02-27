@@ -17,7 +17,8 @@ const  rootReducer = combineReducers({
     profilePage:       profilePageReducer,
     dialogsPage:       dialogsPageReducer,
     usersPage:         usersPageReducer,
-    userStatusBlock:   userStatusBlockReducer
+    userStatusBlock:   userStatusBlockReducer,
+    // form: formReducer
 });
 
 export default rootReducer;
