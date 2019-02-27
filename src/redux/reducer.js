@@ -6,7 +6,7 @@ import {reducer as dialogsPageReducer} from "./modules/dialogsRedux";
 import {reducer as usersPageReducer}   from "./modules/usersRedux";
 import {reducer as userStatusBlockReducer}  from "./modules/userStatusRedux";
 import authRedux from "./modules/authRedux";
-import {reducer as formReducer} from "./modules/formRedux";
+
 
 
 

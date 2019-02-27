@@ -2,6 +2,8 @@ import React from 'react';
 import './LoginSection.css';
 import Redirect from "react-router/es/Redirect";
 import {loginingProcessResults, loginingProcessStatuses} from "../../dal/axios-instance";
+import handleSubmit from "redux-form/es/handleSubmit";
+import Field from "redux-form/es/Field";
 
 
 const LoginSection = (props) => {
@@ -9,7 +11,6 @@ const LoginSection = (props) => {
     if (props.isAuth) {
         return <Redirect to="/profile"/>
     }
-
     //---------------------------
     let errorMessageBlock = (props.loginingError !== loginingProcessResults.SUCCESS) ?
         (<div className="error-block">
@@ -30,28 +31,33 @@ const LoginSection = (props) => {
             }
         </div>) : null;
     //---------------------------
-
+    const {handleSubmit, pristine, reset, submitting} = props;
+    //---------------------------
     //---------------------------
     return (
 
         <div className="c-login-section-wrapper">
             <div className="c-login-section">
                 <div className="c-login-section__index-login-form--positioned">
-                    <div className="input-form">
-                        <span className="input-form__label">
+                    <form onSubmit={handleSubmit} className="input-form">
+                        <label className="input-form__label">
                             Email
-                        </span>
-                        <input className="input-form__input" placeholder='email'
-                               value={props.creatingUserLogin}
-                               onChange={
-                                   (e) => {
-                                       props.onChangeCreatingLogin(e.currentTarget.value)
-                                   }
-                               }/>
-                    </div>
+                        </label>
+                        <Field  name="inputEmail"
+                                component="input"
+                                type="email"
+                                className="input-form__input" placeholder='email'
+                               // value={props.creatingUserLogin}
+                               // onChange={
+                               //     (e) => {
+                               //         props.onChangeCreatingLogin(e.currentTarget.value)
+                               //     }
+                               // }
+                        />
+                    </form>
                 </div>
                 <div className="c-login-section__index-password-form--positioned">
-                    <div className="input-form">
+                    <form onSubmit={handleSubmit} className="input-form">
                         <span className="input-form__label">
                             Password
                         </span>
@@ -62,7 +68,7 @@ const LoginSection = (props) => {
                                        props.onChangeCreatingPassword(e.currentTarget.value)
                                    }
                                }/>
-                    </div>
+                    </form>
                 </div>
                 <div className="c-login-section__button-box">
                     <input className="button-box__checkbox" type="checkbox"
