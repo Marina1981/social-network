@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from "react-redux";
 import {actions as loginActions, login} from "../../redux/modules/loginRedux";
 import LoginSection from "../../components/LoginSection/LoginSection";
+import {reduxForm} from "redux-form";
 
 
 
@@ -44,8 +45,9 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 //----
-export  default connect(
-    mapStateToProps,
-    mapDispatchToProps)(LoginSectionContainer);
+export  default connect(mapStateToProps, mapDispatchToProps)
+                (reduxForm({
+                    form: 'logging'
+                })(LoginSectionContainer));
 //---
 
