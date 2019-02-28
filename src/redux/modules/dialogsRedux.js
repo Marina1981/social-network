@@ -41,26 +41,6 @@ export const actions = {
     };
 //---------
 
-// export const onCreatingMessageChanged = (loginingError) => {
-//     return {
-//         type:    SET_CREATING_MESSAGE,
-//         loginingError: loginingError
-//     }
-// };
-// //---------
-// export const onCreatingMessageFinishCommitted = (messageId,messageFinishCommittedTime) => {
-//     return {
-//         type:           ADD_FRIEND_CHAT_LOG_MESSAGE,
-//         friendId:       state.dialogsPage.selectedFriendId,
-//         isUserMessage:  true,
-//         userMessage:    state.dialogsPage.creatingMessage,
-//         messageTime:    messageFinishCommittedTime,
-//         messageId:      messageId
-//     }
-// };
-
-//----
-
 export const initialState = {
         friendsList: [
             {
@@ -108,7 +88,7 @@ export const reducer = (state=initialState, action) => {
             return newImmutableState.toJS();
 
         case types.SET_CREATING_MESSAGE:
-            newImmutableState  = immutableState.set('creatingMessage',action.loginingError);
+            newImmutableState  = immutableState.set('creatingMessage',action.message);
             return newImmutableState.toJS();
 
         case types.ADD_FRIEND_CHAT_LOG_MESSAGE:
@@ -138,15 +118,15 @@ export const reducer = (state=initialState, action) => {
 
         case  types.ADD_CREATING_MESSAGE_TO_FRIEND_CHAT_LOG:
 
-            oldImmutableChatMessageList = immutableState.get('friendsChatLog').get(action.friendId);//getIn(['friendsChatLog', action.friendId]);
-
+            oldImmutableChatMessageList = immutableState.get('friendsChatLog').get(action.friendId.toString());//getIn(['friendsChatLog', action.friendId]);
+debugger
             if (oldImmutableChatMessageList !== undefined) {
 
 
                 let messageItem = { messageId:     action.messageId,
                                     isUserMessage: true,
                                     text:          state.creatingMessage,
-                                    time:          action.time};
+                                    time:          action.time };
 
                 let newImmutableChatMessageList =
                             oldImmutableChatMessageList.push(messageItem);

@@ -30,7 +30,8 @@ const MessageCreationForm = (props) => {
                         />
                 <button className="wall-block__record-form-button"
                         onClick={
-                            (e) => {props.onCreatingMessageFinishCommitted(props.selectedFriendId ,generateGuid(), getDate());}
+                            (e) => {
+                                props.onCreatingMessageFinishCommitted(props.selectedFriendId ,generateGuid(), getDate());}
                         }
                 >
                     Add
