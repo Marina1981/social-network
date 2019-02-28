@@ -30,8 +30,8 @@ const mapDispatchToProps = (dispatch) => {
         onCreatingMessageChanged: (message) => {
             dispatch(dialogsActions.setCreatingMessage(message))
         },
-        onCreatingMessageFinishCommitted: (friendId,messageId,messageFinishCommittedTime, creatingMessage) => {
-            dispatch(dialogsActions.addCreatingMessageToFriendChatLog(friendId,messageId,messageFinishCommittedTime,creatingMessage));
+        onCreatingMessageFinishCommitted: (friendId,messageId,messageFinishCommittedTime) => {
+            dispatch(dialogsActions.addCreatingMessageToFriendChatLog(friendId,messageId,messageFinishCommittedTime));
         }
 
     }

@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc362f95-17c0-44b3-a3cb-2fae7517dc0d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DialogSection/DialogsSection.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DialogSection/DialogsSection.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DialogSection/DialogsSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DialogSection/DialogsSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Post/Post.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Post/Post.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ProfileSection/ProfileSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProfileSection/ProfileSection.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/DialogsSectionContainer/DialogsSectionContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/DialogsSectionContainer/DialogsSectionContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/modules/dialogsRedux.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/modules/dialogsRedux.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,11 +15,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/ProfileSection/ProfileSection.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
+            <state relative-caret-position="340">
               <caret line="62" column="68" selection-start-line="62" selection-start-column="68" selection-end-line="62" selection-end-column="68" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/containers/DialogsSectionContainer/DialogsSectionContainer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="33" column="49" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="49" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -36,8 +42,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/containers/ProfileSectionContainer/ProfileSectionContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="26" column="62" selection-start-line="26" selection-start-column="62" selection-end-line="26" selection-end-column="62" />
+            <state relative-caret-position="374">
+              <caret line="40" column="51" selection-start-line="40" selection-start-column="51" selection-end-line="40" selection-end-column="51" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -45,13 +51,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Post/Post.js">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/redux/modules/dialogsRedux.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="20" column="62" lean-forward="true" selection-start-line="20" selection-start-column="62" selection-end-line="20" selection-end-column="62" />
+            <state relative-caret-position="-77">
+              <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
               <folding>
-                <element signature="e#0#26#0" expanded="true" />
+                <marker date="1551371046336" expanded="true" signature="9065:9354" ph="..." />
               </folding>
             </state>
           </provider>
@@ -60,8 +66,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/redux/modules/profileRedux.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="103" column="16" lean-forward="true" selection-start-line="103" selection-start-column="8" selection-end-line="103" selection-end-column="16" />
+            <state relative-caret-position="-3086">
+              <caret line="73" column="4" selection-start-line="73" selection-start-column="4" selection-end-line="73" selection-end-column="4" />
               <folding>
                 <element signature="e#0#55#0" expanded="true" />
                 <element signature="e#4873#5159#0" />
@@ -72,22 +78,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/redux/modules/dialogsRedux.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="121" lean-forward="true" selection-start-line="121" selection-end-line="121" />
-              <folding>
-                <marker date="1551371046336" expanded="true" signature="9065:9354" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/DialogSection/DialogsSection.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+            <state relative-caret-position="77">
+              <caret line="87" column="30" lean-forward="true" selection-start-line="87" selection-start-column="30" selection-end-line="87" selection-end-column="30" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -187,11 +181,11 @@
         <option value="$PROJECT_DIR$/src/components/MessageCreationForm/MessageCreationForm.js" />
         <option value="$PROJECT_DIR$/src/redux/modules/dialogsRedux.js" />
         <option value="$PROJECT_DIR$/src/components/DialogSection/DialogsSection.css" />
-        <option value="$PROJECT_DIR$/src/containers/DialogsSectionContainer/DialogsSectionContainer.js" />
         <option value="$PROJECT_DIR$/src/components/DialogSection/DialogsSection.js" />
         <option value="$PROJECT_DIR$/src/components/Post/Post.css" />
         <option value="$PROJECT_DIR$/src/containers/ProfileSectionContainer/ProfileSectionContainer.js" />
         <option value="$PROJECT_DIR$/src/components/ProfileSection/ProfileSection.js" />
+        <option value="$PROJECT_DIR$/src/containers/DialogsSectionContainer/DialogsSectionContainer.js" />
       </list>
     </option>
   </component>
@@ -297,20 +291,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="DialogSection" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="projekts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="projekts" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Post" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="projekts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="projekts" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="ProfileSection" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="projekts" type="b2602c69:ProjectViewProjectNode" />
@@ -437,7 +417,7 @@
       <workItem from="1550129402969" duration="23705000" />
       <workItem from="1550220944841" duration="29603000" />
       <workItem from="1550431508169" duration="207331000" />
-      <workItem from="1551367352667" duration="5619000" />
+      <workItem from="1551367352667" duration="6290000" />
     </task>
     <servers />
   </component>
@@ -474,7 +454,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="807824000" />
+    <option name="totallyTimeSpent" value="808495000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -900,48 +880,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/modules/dialogsRedux.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="121" lean-forward="true" selection-start-line="121" selection-end-line="121" />
-          <folding>
-            <marker date="1551371046336" expanded="true" signature="9065:9354" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/modules/profileRedux.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="103" column="16" lean-forward="true" selection-start-line="103" selection-start-column="8" selection-end-line="103" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#55#0" expanded="true" />
-            <element signature="e#4873#5159#0" />
-            <element signature="e#5247#5307#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/DialogsSectionContainer/DialogsSectionContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="18" column="64" selection-start-line="18" selection-start-column="64" selection-end-line="18" selection-end-column="64" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/DialogSection/DialogsSection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ProfileSection/ProfileSection.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -966,10 +904,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/ProfileSectionContainer/ProfileSectionContainer.js">
+    <entry file="file://$PROJECT_DIR$/src/components/DialogSection/DialogsSection.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="26" column="62" selection-start-line="26" selection-start-column="62" selection-end-line="26" selection-end-column="62" />
+        <state relative-caret-position="77">
+          <caret line="87" column="30" lean-forward="true" selection-start-line="87" selection-start-column="30" selection-end-line="87" selection-end-column="30" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -978,10 +916,52 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ProfileSection/ProfileSection.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
+        <state relative-caret-position="340">
           <caret line="62" column="68" selection-start-line="62" selection-start-column="68" selection-end-line="62" selection-end-column="68" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/DialogsSectionContainer/DialogsSectionContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="33" column="49" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/ProfileSectionContainer/ProfileSectionContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="40" column="51" selection-start-line="40" selection-start-column="51" selection-end-line="40" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/modules/profileRedux.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3086">
+          <caret line="73" column="4" selection-start-line="73" selection-start-column="4" selection-end-line="73" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+            <element signature="e#4873#5159#0" />
+            <element signature="e#5247#5307#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/modules/dialogsRedux.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-77">
+          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
+          <folding>
+            <marker date="1551371046336" expanded="true" signature="9065:9354" ph="..." />
           </folding>
         </state>
       </provider>
