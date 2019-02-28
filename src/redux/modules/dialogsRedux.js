@@ -119,7 +119,7 @@ export const reducer = (state=initialState, action) => {
         case  types.ADD_CREATING_MESSAGE_TO_FRIEND_CHAT_LOG:
 
             oldImmutableChatMessageList = immutableState.get('friendsChatLog').get(action.friendId.toString());//getIn(['friendsChatLog', action.friendId]);
-debugger
+
             if (oldImmutableChatMessageList !== undefined) {
 
 

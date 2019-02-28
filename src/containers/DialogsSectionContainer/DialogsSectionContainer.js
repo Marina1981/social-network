@@ -11,11 +11,12 @@ const mapStateToProps = (state) => {
 
     return {
         isAuth:           state.auth.userAuthData.userId !== null, // true / false
-        userInfo:         state.profilePage.userInfo,
         friendsList:      state.dialogsPage.friendsList,
         friendsChatLog:   state.dialogsPage.friendsChatLog,
         selectedFriendId: state.dialogsPage.selectedFriendId,
-        creatingMessage:  state.dialogsPage.creatingMessage
+        creatingMessage:  state.dialogsPage.creatingMessage,
+        authorPicURL:     state.profilePage.userProfile.photos.small,
+        authorName:       state.profilePage.userProfile.fullName
     }
 };
 

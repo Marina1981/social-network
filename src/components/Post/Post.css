@@ -2,8 +2,8 @@
     justify-self: stretch;
     align-self:   stretch;
 
-    height: 30%;
-    width:  65%;
+    /*height: 30%;*/
+    width:  80%;
 
     display: grid;
     grid-template-rows:     minmax(auto, 70%)

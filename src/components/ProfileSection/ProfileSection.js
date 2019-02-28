@@ -4,7 +4,7 @@ import Post from '../Post/Post.js';
 import MessageCreationForm from "../MessageCreationForm/MessageCreationForm";
 import {Redirect} from "react-router";
 import UserInfoSectionContainer from "../../containers/UserInfoSectionContainer/UserInfoSectionContainer";
-import style from "../UsersSection/UsersSection.module.css";
+
 
 
 const ProfileSection = (props) => {
@@ -57,10 +57,10 @@ const ProfileSection = (props) => {
                                          onCreatingMessageFinishCommitted={props.onCreatingMessageFinishCommitted}/>
                 </div>
                 <div className="wall-block__posts-block
-                                    wall-block__posts-block--positioned">
+                                wall-block__posts-block--positioned">
                     {
                         props.messagesList.map((el) => {
-                            return <Post photos ={props.photos}
+                            return <Post photos ={props.photos.large}
                                          messageDetailes={el}
                                          key={el.messageId}
                                          onMesaageLikeIncrementRequest={props.onMesaageLikeIncrementRequest}/>

@@ -24,7 +24,7 @@ const DialogsSection = (props) => {
     if (unsyncState) {
         return <div/>
     }
-
+debugger
     return (
         <div className="c-dialog-section">
                 <span className="c-dialog-section__label-friends
@@ -63,8 +63,8 @@ const DialogsSection = (props) => {
                                 let authorPicURL;
                                 let authorName;
                                 if (el.isUserMessage === true) {
-                                    authorPicURL = props.userInfo.userPicURL;
-                                    authorName = props.userInfo.userName;
+                                    authorPicURL = props.authorPicURL;
+                                    authorName = props.authorName;
                                 } else {
 
                                     const predicate = (el) => {
