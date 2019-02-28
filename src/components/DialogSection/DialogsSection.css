@@ -10,9 +10,9 @@
 
 
     display: grid;
-    grid-template-rows:     minmax(auto, 5%)
-                            minmax(auto, 65%)
-                            minmax(auto, 30%);
+    grid-template-rows:     minmax(auto, 5rem)
+                            minmax(auto, 20rem)
+                            minmax(auto, 10rem);
     grid-template-columns:  minmax(auto, 30%)
                             minmax(auto, 70%);
     /*margin: auto;*/
