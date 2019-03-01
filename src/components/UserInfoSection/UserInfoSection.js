@@ -2,9 +2,11 @@ import React from 'react';
 import './UserInfoSection.css';
 import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
+import {reduxForm} from "redux-form";
+import Field from "redux-form/es/Field";
 
 
-const UserInfoSection = (props) => {
+let UserInfoSection = (props) => {
 
     return (
         <div className="c-info
@@ -22,22 +24,29 @@ const UserInfoSection = (props) => {
                                  onClick={() => props.onAboutMeChangeRequest(props.isOwner)}>
                                 {props.userProfile.aboutMe}
                             </div> :
-                            <div className="about-me__form">
-                                <input className="about-me__input" placeholder="about me"
-                                       value={props.creatingUserProfile_aboutMe}
-                                       onChange={
-                                           (e) => {
-                                               props.onChangeCreatingProfileAboutMe(e.currentTarget.value)
-                                           }}/>
-                                <button className="about-me__button"
-                                        onClick={
-                                            (e) => {
-                                                props.onCreatingUserProfileFinishCommitted()
-                                            }
-                                        }>
+                            <form className="about-me__form">
+                                <Field
+                                    name="aboutMe"
+                                    component="input"
+                                    type="text"
+                                    placeholder="about me"
+                                    className="about-me__input"
+                                    // value={props.creatingUserProfile_aboutMe}
+                                    // onChange={
+                                    //     (e) => {
+                                    //         props.onChangeCreatingProfileAboutMe(e.currentTarget.value)
+                                    //     }}
+                                />
+                                <button type="submit" className="about-me__button"
+                                        // onClick={
+                                        //     (e) => {
+                                        //         props.onCreatingUserProfileFinishCommitted()
+                                        //     }
+                                        // }
+                                >
                                     ok
                                 </button>
-                            </div>
+                            </form>
                     }
                 </div>
                 <div className="c-info__birth-date">
@@ -136,7 +145,6 @@ const UserInfoSection = (props) => {
                                     </div>
                             }
                         </div>
-
                     })
                 }
                 <div className="contacts-block">
@@ -160,7 +168,7 @@ const UserInfoSection = (props) => {
                         (props.creating_lookingForAJobDescription === null) ?
                             <div className="contacts-block__text"
                                  onClick={() => props.onLookingForAJobDescriptionChangeRequest(props.isOwner)}>
-                                 {/*onClick={props.onLookingForAJobDescriptionChangeRequest}*/}
+                                {/*onClick={props.onLookingForAJobDescriptionChangeRequest}*/}
                                 {props.userProfile.lookingForAJobDescription}
                             </div> :
                             <div className="description-job__form">
@@ -196,5 +204,7 @@ UserInfoSection.propTypes = {
 };
 
 
-export default UserInfoSection;
+export default UserInfoSection = reduxForm({
+    form: 'userProfileAboutMe'
+})(UserInfoSection);
 

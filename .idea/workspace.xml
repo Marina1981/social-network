@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc362f95-17c0-44b3-a3cb-2fae7517dc0d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/components/LoginSection/LoginSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginSection/LoginSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MessageCreationForm/MessageCreationForm.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MessageCreationForm/MessageCreationForm.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/LoginSectionContainer/LoginSectionContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/LoginSectionContainer/LoginSectionContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UserInfoSection/UserInfoSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserInfoSection/UserInfoSection.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,6 +24,19 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/UserInfoSection/UserInfoSection.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="44" column="44" lean-forward="true" selection-start-line="40" selection-start-column="39" selection-end-line="44" selection-end-column="44" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+                <marker date="1551440640749" expanded="true" signature="2333:3694" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/redux/modules/profileRedux.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -35,31 +46,6 @@
                 <element signature="e#0#55#0" expanded="true" />
                 <element signature="e#4873#5159#0" />
                 <element signature="e#11278#14415#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/LoginSection/LoginSection.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-162">
-              <caret line="58" column="30" selection-start-line="58" selection-start-column="30" selection-end-line="58" selection-end-column="30" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-                <marker date="1551439553286" expanded="true" signature="2063:2342" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/containers/LoginSectionContainer/LoginSectionContainer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="47" column="60" lean-forward="true" selection-start-line="47" selection-start-column="60" selection-end-line="47" selection-end-column="60" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -134,7 +120,6 @@
         <option value="$PROJECT_DIR$/src/containers/UserStatusBlockContainer/UserStatusBlockContainer.js" />
         <option value="$PROJECT_DIR$/src/components/UserInfoSection/UserInfoSection.css" />
         <option value="$PROJECT_DIR$/src/redux/modules/photosRedux.js" />
-        <option value="$PROJECT_DIR$/src/components/UserInfoSection/UserInfoSection.js" />
         <option value="$PROJECT_DIR$/src/containers/UserInfoSectionContainer/UserInfoSectionContainer.js" />
         <option value="$PROJECT_DIR$/src/components/UsersSection/UsersSection.module.css" />
         <option value="$PROJECT_DIR$/src/components/UsersSection/UsersSection.js" />
@@ -162,12 +147,13 @@
         <option value="$PROJECT_DIR$/src/components/MessageCreationForm/MessageCreationForm.css" />
         <option value="$PROJECT_DIR$/src/components/LoginSection/LoginSection.js" />
         <option value="$PROJECT_DIR$/src/containers/LoginSectionContainer/LoginSectionContainer.js" />
+        <option value="$PROJECT_DIR$/src/components/UserInfoSection/UserInfoSection.js" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="722" />
-    <option name="y" value="61" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="538" />
+    <option name="y" value="48" />
     <option name="width" value="955" />
     <option name="height" value="606" />
   </component>
@@ -266,41 +252,13 @@
               <item name="projekts" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="DialogSection" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="projekts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="projekts" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="LoginSection" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="projekts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="projekts" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="MessageCreationForm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="projekts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="projekts" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="ProfileSection" type="462c0819:PsiDirectoryNode" />
+              <item name="UserInfoSection" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="projekts" type="b2602c69:ProjectViewProjectNode" />
               <item name="projekts" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="containers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="projekts" type="b2602c69:ProjectViewProjectNode" />
-              <item name="projekts" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-              <item name="LoginSectionContainer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="projekts" type="b2602c69:ProjectViewProjectNode" />
@@ -421,7 +379,7 @@
       <workItem from="1550129402969" duration="23705000" />
       <workItem from="1550220944841" duration="29603000" />
       <workItem from="1550431508169" duration="207331000" />
-      <workItem from="1551367352667" duration="20533000" />
+      <workItem from="1551367352667" duration="21615000" />
     </task>
     <servers />
   </component>
@@ -458,7 +416,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="822738000" />
+    <option name="totallyTimeSpent" value="823820000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -470,10 +428,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="538" y="48" width="955" height="606" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4915254" visible="true" weight="0.15476191" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4915254" weight="0.22682661" />
       <window_info id="Structure" order="1" sideWeight="0.5084746" side_tool="true" weight="0.16666667" />
       <window_info id="Favorites" order="2" sideWeight="0.5084746" side_tool="true" weight="0.16666667" />
       <window_info id="npm" order="3" side_tool="true" />
@@ -741,17 +699,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/UserInfoSection/UserInfoSection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="29" column="78" selection-start-line="29" selection-start-column="78" selection-end-line="29" selection-end-column="78" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <marker date="1550938599556" expanded="true" signature="1934:3295" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/store/createStore.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -763,16 +710,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/redux/modules/formRedux.js" />
-    <entry file="file://$PROJECT_DIR$/src/redux/reducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="8" column="50" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/MessageCreationForm/MessageCreationForm.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -820,16 +757,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ProfileSection/ProfileSection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="62" column="65" selection-start-line="62" selection-start-column="65" selection-end-line="62" selection-end-column="65" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/MainHeader/MainHeader.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="383">
@@ -837,13 +764,6 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/modules/authRedux.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="6" lean-forward="true" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -935,14 +855,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/modules/profileRedux.js">
+    <entry file="file://$PROJECT_DIR$/src/containers/LoginSectionContainer/LoginSectionContainer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="358" column="41" selection-start-line="358" selection-start-column="13" selection-end-line="358" selection-end-column="41" />
+        <state relative-caret-position="68">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
           <folding>
-            <element signature="e#0#55#0" expanded="true" />
-            <element signature="e#4873#5159#0" />
-            <element signature="e#11278#14415#0" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -958,12 +876,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/LoginSectionContainer/LoginSectionContainer.js">
+    <entry file="file://$PROJECT_DIR$/src/redux/modules/profileRedux.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="47" column="60" lean-forward="true" selection-start-line="47" selection-start-column="60" selection-end-line="47" selection-end-column="60" />
+        <state relative-caret-position="76">
+          <caret line="358" column="41" selection-start-line="358" selection-start-column="13" selection-end-line="358" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+            <element signature="e#4873#5159#0" />
+            <element signature="e#11278#14415#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ProfileSection/ProfileSection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1003">
+          <caret line="62" column="65" selection-start-line="62" selection-start-column="65" selection-end-line="62" selection-end-column="65" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/modules/authRedux.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="6" lean-forward="true" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/reducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="50" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/UserInfoSection/UserInfoSection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="44" column="44" lean-forward="true" selection-start-line="40" selection-start-column="39" selection-end-line="44" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <marker date="1551440640749" expanded="true" signature="2333:3694" ph="..." />
           </folding>
         </state>
       </provider>
