@@ -60,7 +60,7 @@ const ProfileSection = (props) => {
                                 wall-block__posts-block--positioned">
                     {
                         props.messagesList.map((el) => {
-                            return <Post photos ={props.photos.large}
+                            return <Post photos ={props.photoAuth}
                                          messageDetailes={el}
                                          key={el.messageId}
                                          onMesaageLikeIncrementRequest={props.onMesaageLikeIncrementRequest}/>

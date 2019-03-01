@@ -1,5 +1,9 @@
 import React from 'react';
-import {actions as profileActions, updateUserPic, uploadUserPhoto} from "../../redux/modules/profileRedux";
+import {
+    actions as profileActions,
+    updateUserPic,
+    uploadUserPhoto
+} from "../../redux/modules/profileRedux";
 import {connect} from "react-redux";
 import ProfileSection from "../../components/ProfileSection/ProfileSection";
 
@@ -25,6 +29,7 @@ const mapStateToProps = (state) => {
     return {
         isAuth:           state.auth.userAuthData.userId !== null, // true / false
         photos:           state.profilePage.userProfile.photos,
+        photoAuth:        state.auth.avatar,
         selectedFriendId: state.dialogsPage.selectedFriendId,
         messagesList:     state.profilePage.wall.messagesList,
         creatingMessage:  state.profilePage.wall.creatingMessage,

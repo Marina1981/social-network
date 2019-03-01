@@ -389,15 +389,6 @@ export const updateAuthUserProfileFromCreatingUserProfile = () => (dispatch, get
                         dispatch(actions.setUserProfileUpdatingProcessStatus(userProfileUpdatingProcessProfile.READY));
                         dispatch(actions.setUserProfile(result.data))
                     })
-
-
-                // axios.get('profile/' + authUserId)
-                //     .then(result => {
-                //         dispatch(actionsAuth.setUserAvatar(result.data.photos.large))
-                //     })
-
-
-
                     .then(() => {
                         dispatch(actions.setCreatingAboutMe(null));
                         dispatch(actions.setAllCreatingContactsToNull());

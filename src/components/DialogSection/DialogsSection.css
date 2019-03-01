@@ -135,7 +135,7 @@
     grid-template-columns:  minmax(auto, 20%)
                             minmax(auto, 80%);
 
-    height: 4rem;
+    height: 5rem;
     text-decoration: none;
 
 }
@@ -156,8 +156,8 @@
     min-width: 3rem;
     border: 0.1rem solid #0fc19e;
     border-radius: 2rem;
-    height: 3rem;
-    width: 3rem;
+    height: 4rem;
+    width: 4rem;
     background-size: contain;
     overflow: hidden;
     background: white;
@@ -209,8 +209,8 @@
 
     border: 0.1rem solid #0fc19e;
     border-radius: 2rem;
-    height: 2rem;
-    width: 2rem;
+    height: 3rem;
+    width: 3rem;
     background-size: contain;
     overflow: hidden;
 
@@ -219,7 +219,7 @@
 .userpic{
     height: 100%;
     width: auto;
-    max-height: 2rem;
+    /*max-height: 2rem;*/
 
 }
 

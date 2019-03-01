@@ -15,7 +15,7 @@ const mapStateToProps = (state) => {
         friendsChatLog:   state.dialogsPage.friendsChatLog,
         selectedFriendId: state.dialogsPage.selectedFriendId,
         creatingMessage:  state.dialogsPage.creatingMessage,
-        authorPicURL:     state.profilePage.userProfile.photos.small,
+        authorPicURL:     state.auth.avatar,
         authorName:       state.profilePage.userProfile.fullName
     }
 };
