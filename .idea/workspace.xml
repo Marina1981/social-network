@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc362f95-17c0-44b3-a3cb-2fae7517dc0d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DialogSection/DialogsSection.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DialogSection/DialogsSection.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ProfileSection/ProfileSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProfileSection/ProfileSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/DialogsSectionContainer/DialogsSectionContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/DialogsSectionContainer/DialogsSectionContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/ProfileSectionContainer/ProfileSectionContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/ProfileSectionContainer/ProfileSectionContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/modules/loginRedux.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/modules/loginRedux.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/modules/profileRedux.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/modules/profileRedux.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -95,8 +89,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/redux/modules/loginRedux.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="126" column="12" selection-start-line="126" selection-start-column="12" selection-end-line="126" selection-end-column="12" />
+            <state relative-caret-position="385">
+              <caret line="129" column="21" selection-start-line="129" selection-start-column="21" selection-end-line="129" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/redux/modules/userStatusRedux.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="101" column="40" lean-forward="true" selection-start-line="101" selection-start-column="13" selection-end-line="101" selection-end-column="40" />
+              <folding>
+                <element signature="e#0#119#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -443,7 +449,7 @@
       <workItem from="1550129402969" duration="23705000" />
       <workItem from="1550220944841" duration="29603000" />
       <workItem from="1550431508169" duration="207331000" />
-      <workItem from="1551367352667" duration="19093000" />
+      <workItem from="1551367352667" duration="19337000" />
     </task>
     <servers />
   </component>
@@ -480,7 +486,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="821298000" />
+    <option name="totallyTimeSpent" value="821542000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -759,16 +765,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/modules/userStatusRedux.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-119">
-          <caret line="100" column="27" selection-start-line="100" selection-start-column="27" selection-end-line="100" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#119#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/UserInfoSectionContainer/UserInfoSectionContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
@@ -983,10 +979,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/modules/userStatusRedux.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="101" column="40" lean-forward="true" selection-start-line="101" selection-start-column="13" selection-end-line="101" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#119#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/redux/modules/loginRedux.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="126" column="12" selection-start-line="126" selection-start-column="12" selection-end-line="126" selection-end-column="12" />
+        <state relative-caret-position="385">
+          <caret line="129" column="21" selection-start-line="129" selection-start-column="21" selection-end-line="129" selection-end-column="21" />
         </state>
       </provider>
     </entry>

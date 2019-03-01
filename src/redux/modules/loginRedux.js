@@ -7,6 +7,7 @@ import axios from "../../dal/axios-instance";
 import {actions as actionsAuth, getAuthUsersId} from "./authRedux";
 import {actions as actionUsers} from "./usersRedux";
 import {setReceivedServerUserProfile} from "./profileRedux";
+import {setReceivedServerUserStatus} from "./userStatusRedux";
 
 
 export const types = {
@@ -124,8 +125,9 @@ export const login = () => (dispatch, getState) => {
             dispatch(actions.setLoginingProcessError(loginingProcessResults.SUCCESS));
             dispatch(actionsAuth.setUserAuthData(result.data.data.userId, result.data.data.login, result.data.data.email));
             dispatch(setServerSubmittedAuth());
-            
-            dispatch(setReceivedServerUserProfile())
+
+            dispatch(setReceivedServerUserProfile());
+            dispatch(setReceivedServerUserStatus())
 
         } else if (result.data.resultCode === 10) {
             axios.get('security/get-captcha-url')
