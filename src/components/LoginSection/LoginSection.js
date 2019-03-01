@@ -31,7 +31,7 @@ const LoginSection = (props) => {
             }
         </div>) : null;
     //---------------------------
-    const {handleSubmit, pristine, reset, submitting} = props;
+    // const {handleSubmit, pristine, reset, submitting} = props;
     //---------------------------
     //---------------------------
     return (
@@ -39,14 +39,12 @@ const LoginSection = (props) => {
         <div className="c-login-section-wrapper">
             <div className="c-login-section">
                 <div className="c-login-section__index-login-form--positioned">
-                    <form onSubmit={handleSubmit} className="input-form">
+                    <div  className="input-form">
                         <label className="input-form__label">
                             Email
                         </label>
-                        <Field  name="inputEmail"
-                                component="input"
-                                type="email"
-                                className="input-form__input" placeholder='email'
+                        <input type="email"
+                               className="input-form__input" placeholder='email'
                                value={props.creatingUserLogin}
                                onChange={
                                    (e) => {
@@ -54,13 +52,13 @@ const LoginSection = (props) => {
                                    }
                                }
                         />
-                    </form>
+                    </div>
                 </div>
                 <div className="c-login-section__index-password-form--positioned">
-                    <form onSubmit={handleSubmit} className="input-form">
-                        <span className="input-form__label">
+                    <div  className="input-form">
+                        <label className="input-form__label">
                             Password
-                        </span>
+                        </label>
                         <input className="input-form__input" placeholder='password' type="password"
                                value={props.creatingUserPassword}
                                onChange={
@@ -68,7 +66,7 @@ const LoginSection = (props) => {
                                        props.onChangeCreatingPassword(e.currentTarget.value)
                                    }
                                }/>
-                    </form>
+                    </div>
                 </div>
                 <div className="c-login-section__button-box">
                     <input className="button-box__checkbox" type="checkbox"
