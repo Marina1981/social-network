@@ -2,13 +2,14 @@ import React      from 'react';
 import {connect}  from "react-redux";
 import MainHeader from "../../components/MainHeader/MainHeader";
 import {logOut} from "../../redux/modules/loginRedux";
+import {setReceivedServerAuthUserProfile} from "../../redux/modules/profileRedux";
 
 
 
 class MainHeaderContainer extends React.Component {
     //---
     componentWillMount() {
-        // this.props.onWillMount();
+        this.props.onWillMount();
     }
 
     //---
@@ -23,15 +24,15 @@ const mapStateToProps = (state) => {
         isAuth:          state.auth.userAuthData.userId !== null,
         authUserId:      state.auth.userAuthData.userId,
         userName:        state.auth.userAuthData.userLogin,
-        userPicURL:      state.profilePage.userProfile.photos.small,
+        userPicURL:      state.auth.avatar,
         userId:          state.profilePage.userProfile.userId
     }
 };
 
 const mapDispatchToProps = (dispatch) => ({
-    // onWillMount: () => {
-    //     dispatch(setServerSubmittedAuth());
-    // },
+    onWillMount: () => {
+        dispatch(setReceivedServerAuthUserProfile());
+    },
 
     onLogOut: () => {
         dispatch(logOut());

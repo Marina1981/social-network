@@ -1,46 +1,51 @@
-
-import  {loginingProcessResults, loginingProcessStatuses} from "../../dal/axios-instance";
+import {
+    loginingProcessResults,
+    loginingProcessStatuses,
+    userProfileUpdatingProcessProfile
+} from "../../dal/axios-instance";
 import axios from "../../dal/axios-instance";
-import {actions as actionsAuth} from "./authRedux";
+import {actions as actionsAuth, getAuthUsersId} from "./authRedux";
 import {actions as actionUsers} from "./usersRedux";
 
 
-
 export const types = {
-    SET_CREATING_USER_LOGIN:             'NETWORK/LOGIN_PAGE/SET_CREATING_USER_LOGIN',
-    SET_CREATING_USER_PASSWORD:          'NETWORK/LOGIN_PAGE/SET_CREATING_USER_PASSWORD',
-    SET_REMEMBER_ME_FLAG:                'NETWORK/LOGIN_PAGE/SET_REMEMBER_ME_FLAG',
-    SET_LOGINING_PROCESS_STATUS:         'NETWORK/LOGIN_PAGE/SET_LOGINING_PROCESS_STATUS',
-    SET_LOGINING_PROCESS_ERROR:          'NETWORK/LOGIN_PAGE/SET_LOGINING_PROCESS_ERROR',
-    SET_LOGINING_PROCESS_ERROR_MESSAGE:  'NETWORK/LOGIN_PAGE/SET_LOGINING_PROCESS_ERROR_MESSAGE',
-    SET_CAPTCHA_URL:                     'NETWORK/LOGIN_PAGE/SET_CAPTCHA_URL',
-    SET_CREATING_CAPTCHA:                'NETWORK/LOGIN_PAGE/SET_CREATING_CAPTCHA'
+    SET_CREATING_USER_LOGIN: 'NETWORK/LOGIN_PAGE/SET_CREATING_USER_LOGIN',
+    SET_CREATING_USER_PASSWORD: 'NETWORK/LOGIN_PAGE/SET_CREATING_USER_PASSWORD',
+    SET_REMEMBER_ME_FLAG: 'NETWORK/LOGIN_PAGE/SET_REMEMBER_ME_FLAG',
+    SET_LOGINING_PROCESS_STATUS: 'NETWORK/LOGIN_PAGE/SET_LOGINING_PROCESS_STATUS',
+    SET_LOGINING_PROCESS_ERROR: 'NETWORK/LOGIN_PAGE/SET_LOGINING_PROCESS_ERROR',
+    SET_LOGINING_PROCESS_ERROR_MESSAGE: 'NETWORK/LOGIN_PAGE/SET_LOGINING_PROCESS_ERROR_MESSAGE',
+    SET_CAPTCHA_URL: 'NETWORK/LOGIN_PAGE/SET_CAPTCHA_URL',
+    SET_CREATING_CAPTCHA: 'NETWORK/LOGIN_PAGE/SET_CREATING_CAPTCHA'
 };
 
 
 //---- actionCreators--------//
 export const actions = {
-    setCreatingUserLogin:     (creatingUserLogin)           => ({type: types.SET_CREATING_USER_LOGIN,    creatingUserLogin}),
-    setCreatingUserPassword:  (creatingUserPassword)        => ({type: types.SET_CREATING_USER_PASSWORD, creatingUserPassword}),
-    setRememberMeFlag:        (flag)                        => ({type: types.SET_REMEMBER_ME_FLAG, flag}),
-    setLoginingProcessStatus: (loginingStatus)              => ({type: types.SET_LOGINING_PROCESS_STATUS, loginingStatus}),
-    setLoginingProcessError:  (loginingError)               => ({type: types.SET_LOGINING_PROCESS_ERROR, loginingError}),
-    setLoginingProcessErrorMessage: (loginingErrorMessage)  => ({type: types.SET_LOGINING_PROCESS_ERROR_MESSAGE, loginingErrorMessage}),
-    setCaptchaUrl:            (captchaUrl)                  => ({type: types.SET_CAPTCHA_URL, captchaUrl}),
-    setCreatingCaptcha:       (creatingCaptcha)             => ({type: types.SET_CREATING_CAPTCHA, creatingCaptcha})
+    setCreatingUserLogin: (creatingUserLogin) => ({type: types.SET_CREATING_USER_LOGIN, creatingUserLogin}),
+    setCreatingUserPassword: (creatingUserPassword) => ({type: types.SET_CREATING_USER_PASSWORD, creatingUserPassword}),
+    setRememberMeFlag: (flag) => ({type: types.SET_REMEMBER_ME_FLAG, flag}),
+    setLoginingProcessStatus: (loginingStatus) => ({type: types.SET_LOGINING_PROCESS_STATUS, loginingStatus}),
+    setLoginingProcessError: (loginingError) => ({type: types.SET_LOGINING_PROCESS_ERROR, loginingError}),
+    setLoginingProcessErrorMessage: (loginingErrorMessage) => ({
+        type: types.SET_LOGINING_PROCESS_ERROR_MESSAGE,
+        loginingErrorMessage
+    }),
+    setCaptchaUrl: (captchaUrl) => ({type: types.SET_CAPTCHA_URL, captchaUrl}),
+    setCreatingCaptcha: (creatingCaptcha) => ({type: types.SET_CREATING_CAPTCHA, creatingCaptcha})
 };
 //----
 
 const initialState = {
-    creatingUserLogin:     '17121981mar@gmail.com',
-    creatingUserPassword:  '13314',
-    isRememberMe:          true,
-    loginingStatus:        loginingProcessStatuses.READY,
-    loginingError:         loginingProcessResults.SUCCESS,
-    loginingErrorMessage:  '',
-    captchaUrl:            '',
-    creatingCaptcha:       ''
-} ;
+    creatingUserLogin: '17121981mar@gmail.com',
+    creatingUserPassword: '13314',
+    isRememberMe: true,
+    loginingStatus: loginingProcessStatuses.READY,
+    loginingError: loginingProcessResults.SUCCESS,
+    loginingErrorMessage: '',
+    captchaUrl: '',
+    creatingCaptcha: ''
+};
 
 //----
 
@@ -66,31 +71,31 @@ export const reducer = (state = initialState, action) => {
             };
 
         case types.SET_LOGINING_PROCESS_STATUS:
-            return{
+            return {
                 ...state,
                 loginingStatus: action.loginingStatus
             };
 
         case types.SET_LOGINING_PROCESS_ERROR:
-            return{
+            return {
                 ...state,
                 loginingError: action.loginingError
             };
 
         case types.SET_LOGINING_PROCESS_ERROR_MESSAGE:
-            return{
+            return {
                 ...state,
                 loginingErrorMessage: action.loginingErrorMessage
             };
 
         case types.SET_CAPTCHA_URL:
-            return{
+            return {
                 ...state,
                 captchaUrl: action.captchaUrl
             };
 
         case types.SET_CREATING_CAPTCHA:
-            return{
+            return {
                 ...state,
                 creatingCaptcha: action.creatingCaptcha
             };
@@ -104,14 +109,13 @@ export const reducer = (state = initialState, action) => {
 export const login = () => (dispatch, getState) => {
     let globalState = getState();
     let loginState = globalState.loginPage;
-
     dispatch(actions.setLoginingProcessStatus(loginingProcessStatuses.IN_PROGRESS));
 
     axios.post('auth/login', {
-        email:      loginState.creatingUserLogin,
-        password:   loginState.creatingUserPassword,
+        email: loginState.creatingUserLogin,
+        password: loginState.creatingUserPassword,
         rememberMe: loginState.isRememberMe,
-        captcha:    loginState.creatingCaptcha
+        captcha: loginState.creatingCaptcha
     }).then((result) => {
 
         if (result.data.resultCode === 0) {
@@ -119,7 +123,8 @@ export const login = () => (dispatch, getState) => {
             dispatch(actions.setLoginingProcessError(loginingProcessResults.SUCCESS));
             dispatch(actionsAuth.setUserAuthData(result.data.data.userId, result.data.data.login, result.data.data.email));
             dispatch(setServerSubmittedAuth());
-        } else if (result.data.resultCode === 10){
+
+        } else if (result.data.resultCode === 10) {
             axios.get('security/get-captcha-url')
                 .then(result => {
                     dispatch(actions.setCaptchaUrl(result.data.url));
@@ -131,7 +136,8 @@ export const login = () => (dispatch, getState) => {
             dispatch(actions.setLoginingProcessError(loginingProcessResults.COMMON_ERROR));
             dispatch(actions.setLoginingProcessErrorMessage(result.data.messages[0]));
         }
-    })
+    });
+
 };
 //--- thunkCreator -------//
 export const setServerSubmittedAuth = () => (dispatch) => {
@@ -142,7 +148,7 @@ export const setServerSubmittedAuth = () => (dispatch) => {
             } else {
                 dispatch(actionsAuth.clearUserAuthData())
             }
-        })
+        });
 };
 //---
 export const logOut = () => (dispatch) => {

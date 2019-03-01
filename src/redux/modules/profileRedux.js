@@ -1,4 +1,4 @@
-import {getAuthUsersId, getUsersId} from "./authRedux";
+import {actions as actionsAuth, getAuthUsersId, getUsersId} from "./authRedux";
 import axios, {userStatusUpdatingProcessStatuses} from "../../dal/axios-instance";
 import {
     userProfileUpdatingProcessProfile, userProfileUpdatingProcessResults,
@@ -365,10 +365,20 @@ export const setReceivedServerUserProfile = (userId) => (dispatch, getState) => 
         })
 };
 
+
+export const setReceivedServerAuthUserProfile = () => (dispatch, getState) => {
+    const globalState = getState();
+    let authUserId = getAuthUsersId(globalState);
+    axios.get('profile/' + authUserId)
+        .then(result => {
+            dispatch(actionsAuth.setUserAvatar(result.data.photos.large))
+        })
+};
+
+
 export const updateAuthUserProfileFromCreatingUserProfile = () => (dispatch, getState) => {
     const globalState = getState();
     const userProfile = getCreatingUserProfile(globalState);
-
     dispatch(actions.setUserProfileUpdatingProcessStatus(userProfileUpdatingProcessProfile.IN_PROGRESS));
     axios.put('profile', userProfile)
         .then(result => {
@@ -379,6 +389,15 @@ export const updateAuthUserProfileFromCreatingUserProfile = () => (dispatch, get
                         dispatch(actions.setUserProfileUpdatingProcessStatus(userProfileUpdatingProcessProfile.READY));
                         dispatch(actions.setUserProfile(result.data))
                     })
+
+
+                // axios.get('profile/' + authUserId)
+                //     .then(result => {
+                //         dispatch(actionsAuth.setUserAvatar(result.data.photos.large))
+                //     })
+
+
+
                     .then(() => {
                         dispatch(actions.setCreatingAboutMe(null));
                         dispatch(actions.setAllCreatingContactsToNull());

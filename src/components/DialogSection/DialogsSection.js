@@ -24,7 +24,7 @@ const DialogsSection = (props) => {
     if (unsyncState) {
         return <div/>
     }
-debugger
+
     return (
         <div className="c-dialog-section">
                 <span className="c-dialog-section__label-friends
@@ -75,7 +75,6 @@ debugger
                                     authorPicURL = filteredList[0].friendUserPicURL;
                                     authorName = filteredList[0].friendName;
                                 }
-
 
                                 return (<div className="friend-chat-log__message" key={el.messageId}>
                                     <div className="message__userpic">

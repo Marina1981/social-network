@@ -47,12 +47,12 @@ const LoginSection = (props) => {
                                 component="input"
                                 type="email"
                                 className="input-form__input" placeholder='email'
-                               // value={props.creatingUserLogin}
-                               // onChange={
-                               //     (e) => {
-                               //         props.onChangeCreatingLogin(e.currentTarget.value)
-                               //     }
-                               // }
+                               value={props.creatingUserLogin}
+                               onChange={
+                                   (e) => {
+                                       props.onChangeCreatingLogin(e.currentTarget.value)
+                                   }
+                               }
                         />
                     </form>
                 </div>

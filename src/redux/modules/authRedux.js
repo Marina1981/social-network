@@ -2,7 +2,8 @@
 
 export const types = {
     SET_USER_AUTH_DATA:    'NETWORK/AUTH/SET_USER_AUTH_DATA',
-    CLEAR_USER_AUTH_DATA:  'NETWORK/AUTH/CLEAR_USER_AUTH_DATA'
+    CLEAR_USER_AUTH_DATA:  'NETWORK/AUTH/CLEAR_USER_AUTH_DATA',
+    SET_USER_AVATAR:       'NETWORK/AUTH/SET_USER_AVATAR'
 };
 
 //----
@@ -10,13 +11,16 @@ const initialState = {
     userAuthData: {
         userId:    null,
         userLogin: null,
-        userEmail: null
-    }
+        userEmail: null,
+    },
+    avatar: null
+
 };
 //---- actionCreators--------//
 export const actions = {
     setUserAuthData:   (userId, userLogin, userEmail) => ({type: types.SET_USER_AUTH_DATA, userId, userLogin, userEmail}),
-    clearUserAuthData: () => ({type: types.CLEAR_USER_AUTH_DATA})
+    clearUserAuthData: () => ({type: types.CLEAR_USER_AUTH_DATA}),
+    setUserAvatar:     (url) => ({type: types.SET_USER_AVATAR, url})
 };
 
 //----
@@ -39,6 +43,12 @@ const reducer = (state = initialState, action) => {
                     userLogin: null,
                     userEmail: null
                 }
+            };
+
+        case types.SET_USER_AVATAR:
+            return{
+              ...state,
+              avatar: action.url
             };
 
         default:

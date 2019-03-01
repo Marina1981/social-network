@@ -3,7 +3,7 @@ import './MainHeader.css';
 import logoIcon from './images/logo.svg';
 import {NavLink} from "react-router-dom";
 import exit from "./images/exit.svg"
-import style from "../UsersSection/UsersSection.module.css";
+
 
 
 const MainHeader = (props) => {
@@ -29,7 +29,7 @@ const MainHeader = (props) => {
                         </div>
                     </NavLink>
                     <div className="c-header-section__logout" onClick={props.onLogOut}>
-                        <img className="logout-img" src={exit}/>
+                        <img className="logout-img" src={exit} alt="exit"/>
                     </div>
                 </>
             }

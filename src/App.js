@@ -81,13 +81,9 @@ const App = (appProps) => {
 
 };
 
-const mapStateToProps = (state) => {
-    return {
+const mapStateToProps = (state) => {};
 
-    }
-};
-
-const mapDispatchToProps = (dispatch, props) => {
+const mapDispatchToProps = (dispatch) => {
    return {
        onUserProfileChangeRequest: (userId) => {
            dispatch(setReceivedServerUserProfile(userId));
