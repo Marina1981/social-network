@@ -18,6 +18,7 @@ class UserInfoSectionContainer extends React.Component {
 
     //---
     render() {
+       /* if (this.props.isOwner) alert('i am owner')*/
         return (
             <UserInfoSection {...this.props} />
         )
@@ -61,7 +62,7 @@ const mapDispatchToProps = (dispatch, props) => {
         // },
 
         onAboutMeChangeRequest: () => {
-            dispatch(actionsProfile.copyAboutMeToCreatingAboutMe())
+                dispatch(actionsProfile.copyAboutMeToCreatingAboutMe())
         },
         onChangeCreatingProfileAboutMe: (text) => {
             dispatch(actionsProfile.setCreatingAboutMe(text))
@@ -91,8 +92,9 @@ const mapDispatchToProps = (dispatch, props) => {
             dispatch(actionsProfile.setCreatingLookingForAJobFlag())
         },
 
-        onCreatingUserProfileFinishCommitted: () => {
-            dispatch(updateAuthUserProfileFromCreatingUserProfile())
+        onCreatingUserProfileFinishCommitted: (values) => {
+            debugger;
+            dispatch(updateAuthUserProfileFromCreatingUserProfile(values))
         },
 
         onUserStatusChangeRequest: (userId) => {

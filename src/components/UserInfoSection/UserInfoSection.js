@@ -7,7 +7,10 @@ import Field from "redux-form/es/Field";
 
 
 let UserInfoSection = (props) => {
-
+    const {handleSubmit} = props;
+    const submit = (values) => {
+        props.onCreatingUserProfileFinishCommitted(values)
+    };
     return (
         <div className="c-info
                         c-info__c-info--positioned">
@@ -21,32 +24,10 @@ let UserInfoSection = (props) => {
                     {
                         (props.creatingUserProfile_aboutMe === null) ?
                             <div className="contacts-block__text-about-me"
-                                 onClick={() => props.onAboutMeChangeRequest(props.isOwner)}>
+                                 onClick={() => props.isOwner && props.onAboutMeChangeRequest(props.isOwner)}>
                                 {props.userProfile.aboutMe}
                             </div> :
-                            <form className="about-me__form">
-                                <Field
-                                    name="aboutMe"
-                                    component="input"
-                                    type="text"
-                                    placeholder="about me"
-                                    className="about-me__input"
-                                    // value={props.creatingUserProfile_aboutMe}
-                                    // onChange={
-                                    //     (e) => {
-                                    //         props.onChangeCreatingProfileAboutMe(e.currentTarget.value)
-                                    //     }}
-                                />
-                                <button type="submit" className="about-me__button"
-                                        // onClick={
-                                        //     (e) => {
-                                        //         props.onCreatingUserProfileFinishCommitted()
-                                        //     }
-                                        // }
-                                >
-                                    ok
-                                </button>
-                            </form>
+                           <AboutMeForm onSubmit={submit} {...props}/>
                     }
                 </div>
                 <div className="c-info__birth-date">
@@ -204,7 +185,35 @@ UserInfoSection.propTypes = {
 };
 
 
-export default UserInfoSection = reduxForm({
+let AboutMeForm = (props) => {
+    return  <form onSubmit={props.handleSubmit} className="about-me__form">
+        <Field
+            name="aboutMe"
+            component="input"
+            type="text"
+            placeholder="about me"
+            className="about-me__input"
+            // value={props.creatingUserProfile_aboutMe}
+            // onChange={
+            //     (e) => {
+            //         props.onChangeCreatingProfileAboutMe(e.currentTarget.value)
+            //     }}
+        />
+        <button type="submit" className="about-me__button"
+            // onClick={
+            //     (e) => {
+            //         props.onCreatingUserProfileFinishCommitted()
+            //     }
+            // }
+        >
+            ok
+        </button>
+    </form>
+}
+
+AboutMeForm = reduxForm({
     form: 'userProfileAboutMe'
-})(UserInfoSection);
+})(AboutMeForm);
+
+export default UserInfoSection;
 

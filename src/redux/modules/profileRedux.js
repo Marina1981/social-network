@@ -44,7 +44,12 @@ export const actions = {
     setUserProfile: (data) => ({type: types.SET_USER_PROFILE, data}),
 
     setCreatingAboutMe: (text) => ({type: types.SET_CREATING_ABOUT_ME, text}),
-    copyAboutMeToCreatingAboutMe: () => ({type: types.COPY_ABOUT_ME_TO_CREATING_ABOUT_ME}),
+    copyAboutMeToCreatingAboutMe: () => (dispatch, getState) => {
+        let fullState = getState();
+        let isOwner = isUserProfileOwner(fullState);
+        if (isOwner) dispatch(
+            {type: types.COPY_ABOUT_ME_TO_CREATING_ABOUT_ME});
+    },
 
     setCreatingContact: (text, key) => ({type: types.SET_CREATING_CONTACT, text, key}),
     copyContactToCreatingContact: (key) => ({type: types.COPY_CONTACT_TO_CREATING_CONTACT, key}),
@@ -376,18 +381,23 @@ export const setReceivedServerAuthUserProfile = () => (dispatch, getState) => {
 };
 
 
-export const updateAuthUserProfileFromCreatingUserProfile = () => (dispatch, getState) => {
+export const updateAuthUserProfileFromCreatingUserProfile = (profile) => (dispatch, getState) => {
+
     const globalState = getState();
     const userProfile = getCreatingUserProfile(globalState);
+    let newProfile = {...userProfile, ...profile};
     dispatch(actions.setUserProfileUpdatingProcessStatus(userProfileUpdatingProcessProfile.IN_PROGRESS));
-    axios.put('profile', userProfile)
+
+    axios.put('profile', newProfile)
         .then(result => {
             if (result.data.resultCode === 0) {
+
                 const userId = getAuthUsersId(globalState);
                 axios.get('profile/' + userId)
                     .then(result => {
                         dispatch(actions.setUserProfileUpdatingProcessStatus(userProfileUpdatingProcessProfile.READY));
-                        dispatch(actions.setUserProfile(result.data))
+                        dispatch(actions.setUserProfile(result.data));
+                        // dispatch(actionsAuth.setUserAvatar(result.data.photos.large))
                     })
                     .then(() => {
                         dispatch(actions.setCreatingAboutMe(null));

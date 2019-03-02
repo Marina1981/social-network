@@ -2,7 +2,10 @@ import React      from 'react';
 import {connect}  from "react-redux";
 import MainHeader from "../../components/MainHeader/MainHeader";
 import {logOut} from "../../redux/modules/loginRedux";
-import {setReceivedServerAuthUserProfile} from "../../redux/modules/profileRedux";
+import {
+    setReceivedServerAuthUserProfile,
+    updateAuthUserProfileFromCreatingUserProfile
+} from "../../redux/modules/profileRedux";
 
 
 
