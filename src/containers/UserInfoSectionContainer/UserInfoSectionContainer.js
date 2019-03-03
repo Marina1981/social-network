@@ -64,9 +64,9 @@ const mapDispatchToProps = (dispatch, props) => {
         onAboutMeChangeRequest: () => {
                 dispatch(actionsProfile.copyAboutMeToCreatingAboutMe())
         },
-        onChangeCreatingProfileAboutMe: (text) => {
-            dispatch(actionsProfile.setCreatingAboutMe(text))
-        },
+        // onChangeCreatingProfileAboutMe: (text) => {
+        //     dispatch(actionsProfile.setCreatingAboutMe(text))
+        // },
 
         onContactsChangeRequest: (key) => {
             dispatch(actionsProfile.copyContactToCreatingContact(key))

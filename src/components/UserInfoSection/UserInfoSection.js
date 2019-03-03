@@ -2,8 +2,8 @@ import React from 'react';
 import './UserInfoSection.css';
 import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
-import {reduxForm} from "redux-form";
-import Field from "redux-form/es/Field";
+import AboutMeForm from "./AboutMeForm";
+
 
 
 let UserInfoSection = (props) => {
@@ -183,37 +183,6 @@ let UserInfoSection = (props) => {
 UserInfoSection.propTypes = {
     userInfo: PropTypes.object.isRequired,
 };
-
-
-let AboutMeForm = (props) => {
-    return  <form onSubmit={props.handleSubmit} className="about-me__form">
-        <Field
-            name="aboutMe"
-            component="input"
-            type="text"
-            placeholder="about me"
-            className="about-me__input"
-            // value={props.creatingUserProfile_aboutMe}
-            // onChange={
-            //     (e) => {
-            //         props.onChangeCreatingProfileAboutMe(e.currentTarget.value)
-            //     }}
-        />
-        <button type="submit" className="about-me__button"
-            // onClick={
-            //     (e) => {
-            //         props.onCreatingUserProfileFinishCommitted()
-            //     }
-            // }
-        >
-            ok
-        </button>
-    </form>
-}
-
-AboutMeForm = reduxForm({
-    form: 'userProfileAboutMe'
-})(AboutMeForm);
 
 export default UserInfoSection;
 
