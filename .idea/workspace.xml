@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc362f95-17c0-44b3-a3cb-2fae7517dc0d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/_tests_/auth.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/_tests_/auth.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/_tests_/loginReducer.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/_tests_/auth.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/_tests_/authReducer.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/modules/loginRedux.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/modules/loginRedux.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,55 +18,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/_tests_/authReducer.test.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-402">
+              <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/redux/modules/authRedux.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
+            <state relative-caret-position="374">
               <caret line="22" column="66" selection-start-line="22" selection-start-column="66" selection-end-line="22" selection-end-column="66" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/UserInfoSection/UserInfoSection.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="11" column="57" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="57" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/_tests_/auth.test.js">
+        <entry file="file://$PROJECT_DIR$/src/components/_tests_/loginReducer.test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="37" column="42" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/LoginSection/LoginSection.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="36" column="16" lean-forward="true" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/UserInfoSection/AboutMeForm.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="27" column="17" lean-forward="true" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+            <state relative-caret-position="278">
+              <caret line="41" column="71" selection-start-line="41" selection-start-column="71" selection-end-line="41" selection-end-column="71" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -77,8 +50,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/redux/modules/loginRedux.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2040">
-              <caret line="129" column="21" selection-start-line="129" selection-start-column="21" selection-end-line="129" selection-end-column="21" />
+            <state relative-caret-position="204">
+              <caret line="42" column="49" lean-forward="true" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -129,7 +102,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/components/MainFooter/MainFooter.module.css" />
         <option value="$PROJECT_DIR$/src/components/SettingsSection/SettingSection.module.css" />
         <option value="$PROJECT_DIR$/src/dal/axios-instance.js" />
         <option value="$PROJECT_DIR$/src/components/TemplateWithoutSideBar/TemplateWithoutSideBar.js" />
@@ -170,7 +142,6 @@
         <option value="$PROJECT_DIR$/src/containers/DialogsSectionContainer/DialogsSectionContainer.js" />
         <option value="$PROJECT_DIR$/src/components/DialogSection/DialogsSection.css" />
         <option value="$PROJECT_DIR$/src/containers/ProfileSectionContainer/ProfileSectionContainer.js" />
-        <option value="$PROJECT_DIR$/src/redux/modules/loginRedux.js" />
         <option value="$PROJECT_DIR$/src/components/MessageCreationForm/MessageCreationForm.css" />
         <option value="$PROJECT_DIR$/src/containers/LoginSectionContainer/LoginSectionContainer.js" />
         <option value="$PROJECT_DIR$/src/containers/MainHeaderContainer/MainHeaderContainer.js" />
@@ -180,6 +151,8 @@
         <option value="$PROJECT_DIR$/src/components/LoginSection/LoginSection.js" />
         <option value="$PROJECT_DIR$/src/components/UserInfoSection/UserInfoSection.js" />
         <option value="$PROJECT_DIR$/src/components/_tests_/auth.test.js" />
+        <option value="$PROJECT_DIR$/src/redux/modules/loginRedux.js" />
+        <option value="$PROJECT_DIR$/src/components/_tests_/loginReducer.test.js" />
       </list>
     </option>
   </component>
@@ -362,51 +335,79 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Jest.avatar successfully added">
-    <configuration name="avatar successfully added" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Jest.loginingProcessResults set successfully">
+    <configuration name="creatingUserLogin added successfully" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/jest" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/components/_tests_/auth.test.js" />
+      <test-file value="$PROJECT_DIR$/src/components/_tests_/loginReducer.test.js" />
       <test-names>
-        <test-name value="avatar successfully added" />
+        <test-name value="creatingUserLogin added successfully" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="data added successfully" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="creatingUserPassword added successfully" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/jest" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/components/_tests_/auth.test.js" />
+      <test-file value="$PROJECT_DIR$/src/components/_tests_/loginReducer.test.js" />
       <test-names>
-        <test-name value="data added successfully" />
+        <test-name value="creatingUserPassword added successfully" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="data clear successfully" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="flag remember me added successfully" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/jest" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/components/_tests_/auth.test.js" />
+      <test-file value="$PROJECT_DIR$/src/components/_tests_/loginReducer.test.js" />
       <test-names>
-        <test-name value="data clear successfully" />
+        <test-name value="flag remember me added successfully" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="loginingProcessResults set successfully" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/components/_tests_/loginReducer.test.js" />
+      <test-names>
+        <test-name value="loginingProcessResults set successfully" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="loginingProcessStatuses added successfully" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/components/_tests_/loginReducer.test.js" />
+      <test-names>
+        <test-name value="loginingProcessStatuses added successfully" />
       </test-names>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.avatar successfully added" />
-        <item itemvalue="Jest.data clear successfully" />
-        <item itemvalue="Jest.data added successfully" />
+        <item itemvalue="Jest.loginingProcessResults set successfully" />
+        <item itemvalue="Jest.loginingProcessStatuses added successfully" />
+        <item itemvalue="Jest.flag remember me added successfully" />
+        <item itemvalue="Jest.creatingUserPassword added successfully" />
+        <item itemvalue="Jest.creatingUserLogin added successfully" />
       </list>
     </recent_temporary>
   </component>
@@ -444,27 +445,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="data_added_successfully - 2019.03.04 at 19h 09m 16s.xml">
-      <configuration name="data added successfully" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="data_added_successfully - 2019.03.04 at 19h 49m 18s.xml">
-      <configuration name="data added successfully" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="data_added_successfully - 2019.03.04 at 19h 49m 39s.xml">
-      <configuration name="data added successfully" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="data_added_successfully - 2019.03.04 at 19h 49m 58s.xml">
-      <configuration name="data added successfully" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="data_added_successfully - 2019.03.04 at 19h 54m 13s.xml">
-      <configuration name="data added successfully" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="data_added_successfully - 2019.03.04 at 19h 55m 33s.xml">
-      <configuration name="data added successfully" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="data_added_successfully - 2019.03.04 at 20h 00m 10s.xml">
-      <configuration name="data added successfully" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
     <history-entry file="data_added_successfully - 2019.03.04 at 20h 00m 54s.xml">
       <configuration name="data added successfully" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
@@ -474,9 +454,30 @@
     <history-entry file="avatar_successfully_added - 2019.03.04 at 21h 01m 41s.xml">
       <configuration name="avatar successfully added" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
+    <history-entry file="data_added_successfully_(1) - 2019.03.04 at 21h 12m 38s.xml">
+      <configuration name="data added successfully (1)" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="creatingUserLogin_added_successfully - 2019.03.04 at 21h 13m 44s.xml">
+      <configuration name="creatingUserLogin added successfully" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="creatingUserPassword_added_successfully - 2019.03.04 at 21h 15m 13s.xml">
+      <configuration name="creatingUserPassword added successfully" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="flag_remember_me_added_successfully - 2019.03.04 at 21h 17m 59s.xml">
+      <configuration name="flag remember me added successfully" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="flag_remember_me_added_successfully - 2019.03.04 at 21h 18m 15s.xml">
+      <configuration name="flag remember me added successfully" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="flag_remember_me_added_successfully - 2019.03.04 at 21h 18m 35s.xml">
+      <configuration name="flag remember me added successfully" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="loginingProcessStatuses_added_successfully - 2019.03.04 at 21h 46m 34s.xml">
+      <configuration name="loginingProcessStatuses added successfully" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="844276000" />
+    <option name="totallyTimeSpent" value="846733000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -583,13 +584,6 @@
     </find-history>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/components/LoginSection/LoginSection.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../profile.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="621">
@@ -925,13 +919,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/modules/loginRedux.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2040">
-          <caret line="129" column="21" selection-start-line="129" selection-start-column="21" selection-end-line="129" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/LoginSection/LoginSection.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -971,15 +958,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/redux/modules/authRedux.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
+        <state relative-caret-position="374">
           <caret line="22" column="66" selection-start-line="22" selection-start-column="66" selection-end-line="22" selection-end-column="66" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/_tests_/auth.test.js">
+    <entry file="file://$PROJECT_DIR$/src/components/_tests_/authReducer.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="37" column="42" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
+        <state relative-caret-position="-402">
+          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/modules/loginRedux.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="42" column="49" lean-forward="true" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/_tests_/loginReducer.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="41" column="71" selection-start-line="41" selection-start-column="71" selection-end-line="41" selection-end-column="71" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

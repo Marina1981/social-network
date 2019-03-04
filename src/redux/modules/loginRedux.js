@@ -29,10 +29,7 @@ export const actions = {
     setRememberMeFlag: (flag) => ({type: types.SET_REMEMBER_ME_FLAG, flag}),
     setLoginingProcessStatus: (loginingStatus) => ({type: types.SET_LOGINING_PROCESS_STATUS, loginingStatus}),
     setLoginingProcessError: (loginingError) => ({type: types.SET_LOGINING_PROCESS_ERROR, loginingError}),
-    setLoginingProcessErrorMessage: (loginingErrorMessage) => ({
-        type: types.SET_LOGINING_PROCESS_ERROR_MESSAGE,
-        loginingErrorMessage
-    }),
+    setLoginingProcessErrorMessage: (loginingErrorMessage) => ({type: types.SET_LOGINING_PROCESS_ERROR_MESSAGE, loginingErrorMessage}),
     setCaptchaUrl: (captchaUrl) => ({type: types.SET_CAPTCHA_URL, captchaUrl}),
     setCreatingCaptcha: (creatingCaptcha) => ({type: types.SET_CREATING_CAPTCHA, creatingCaptcha})
 };
