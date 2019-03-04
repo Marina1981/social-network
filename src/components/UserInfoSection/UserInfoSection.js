@@ -9,7 +9,7 @@ import AboutMeForm from "./AboutMeForm";
 let UserInfoSection = (props) => {
     const {handleSubmit} = props;
     const submit = (values) => {
-        props.onCreatingUserProfileFinishCommitted(values.aboutMe);
+        props.onCreatingUserProfileFinishCommitted(values);
     };
     return (
         <div className="c-info
