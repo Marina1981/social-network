@@ -4,9 +4,11 @@ import Redirect from "react-router/es/Redirect";
 import {loginingProcessResults, loginingProcessStatuses} from "../../dal/axios-instance";
 import handleSubmit from "redux-form/es/handleSubmit";
 import Field from "redux-form/es/Field";
+import {reduxForm} from "redux-form";
+import * as e from "redux-form";
 
 
-const LoginSection = (props) => {
+let LoginSection = (props) => {
     //---------------------------
     if (props.isAuth) {
         return <Redirect to="/profile"/>
@@ -31,74 +33,92 @@ const LoginSection = (props) => {
             }
         </div>) : null;
     //---------------------------
-    // const {handleSubmit, pristine, reset, submitting} = props;
+    const {handleSubmit, pristine, reset, submitting} = props;
+    const submit = (e, values) => {
+        e.preventDefault();
+        props.onLoginButtonClick(values);
+    };
     //---------------------------
     //---------------------------
     return (
 
         <div className="c-login-section-wrapper">
-            <div className="c-login-section">
-                <div className="c-login-section__index-login-form--positioned">
-                    <div  className="input-form">
-                        <label className="input-form__label">
-                            Email
-                        </label>
-                        <input type="email"
-                               className="input-form__input" placeholder='email'
-                               value={props.creatingUserLogin}
-                               onChange={
-                                   (e) => {
-                                       props.onChangeCreatingLogin(e.currentTarget.value)
-                                   }
-                               }
-                        />
+            <form onSubmit={submit}>
+                <div className="c-login-section">
+                    <div className="c-login-section__index-login-form--positioned">
+                        <div className="input-form">
+                            <label className="input-form__label">
+                                Email
+                            </label>
+                            <Field
+                                name="email"
+                                type="email"
+                                component="input"
+                                className="input-form__input" placeholder='email'
+                                // value={props.creatingUserLogin}
+                                // onChange={
+                                //     (e) => {
+                                //         props.onChangeCreatingLogin(e.currentTarget.value)
+                                //     }
+                                // }
+                            />
+                        </div>
                     </div>
-                </div>
-                <div className="c-login-section__index-password-form--positioned">
-                    <div  className="input-form">
-                        <label className="input-form__label">
-                            Password
-                        </label>
-                        <input className="input-form__input" placeholder='password' type="password"
-                               value={props.creatingUserPassword}
+                    <div className="c-login-section__index-password-form--positioned">
+                        <div className="input-form">
+                            <label className="input-form__label">
+                                Password
+                            </label>
+                            <Field
+                                name="password"
+                                type="password"
+                                component="input"
+                                className="input-form__input" placeholder='password'
+                                   // value={props.creatingUserPassword}
+                                   // onChange={
+                                   //     (e) => {
+                                   //         props.onChangeCreatingPassword(e.currentTarget.value)
+                                   //     }
+                                   // }
+                            />
+                        </div>
+                    </div>
+                    <div className="c-login-section__button-box">
+                        <input className="button-box__checkbox" type="checkbox"
                                onChange={
                                    (e) => {
-                                       props.onChangeCreatingPassword(e.currentTarget.value)
+                                       props.onChangeRememberMeFlag(e.currentTarget.checked)
                                    }
                                }/>
-                    </div>
-                </div>
-                <div className="c-login-section__button-box">
-                    <input className="button-box__checkbox" type="checkbox"
-                           onChange={
-                               (e) => {
-                                   props.onChangeRememberMeFlag(e.currentTarget.checked)
-                               }
-                           }/>
-                    <span className="checkbox-label">
+                        <span className="checkbox-label">
                             remember me
                         </span>
-                    <button className="button-box__button" onClick={
-                        (e) => {
-                            props.onLoginButtonClick();
-                        }}
-                            disabled={props.loginingStatus === loginingProcessStatuses.IN_PROGRESS}>
-                        Login
-                    </button>
+                        <button type="submit" className="button-box__button"
+                            //     onClick={
+                            // (e) => {
+                            //     props.onLoginButtonClick();
+                            // }}
+                                disabled={props.loginingStatus === loginingProcessStatuses.IN_PROGRESS}>
+                            Login
+                        </button>
+                    </div>
+                    {/*------------------------------------------------*/}
+                    {errorMessageBlock}
+                    {/*------------------------------------------------*/}
+                    {/*<button className="c-login-section__registration-button">*/}
+                    {/*registration*/}
+                    {/*</button>*/}
                 </div>
-                {/*------------------------------------------------*/}
-                {errorMessageBlock}
-                {/*------------------------------------------------*/}
-                {/*<button className="c-login-section__registration-button">*/}
-                {/*registration*/}
-                {/*</button>*/}
-            </div>
+            </form>
         </div>
 
     );
 };
 
-export default LoginSection;
+
+export default LoginSection = reduxForm({
+    form: 'logging'
+})(LoginSection);
 
 
 {/*<div className="container" aria-busy="true"*/

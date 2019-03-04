@@ -93,7 +93,6 @@ const mapDispatchToProps = (dispatch, props) => {
         },
 
         onCreatingUserProfileFinishCommitted: (values) => {
-            debugger;
             dispatch(updateAuthUserProfileFromCreatingUserProfile(values))
         },
 
