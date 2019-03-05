@@ -36,7 +36,7 @@ export const actions = {
 //----
 
 const initialState = {
-    creatingUserLogin: '17121981mar@gmail.com',
+    creatingUserLogin:  '17121981mar@gmail.com',
     creatingUserPassword: '13314',
     isRememberMe: true,
     loginingStatus: loginingProcessStatuses.READY,

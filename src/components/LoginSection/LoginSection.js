@@ -2,10 +2,6 @@ import React from 'react';
 import './LoginSection.css';
 import Redirect from "react-router/es/Redirect";
 import {loginingProcessResults, loginingProcessStatuses} from "../../dal/axios-instance";
-import handleSubmit from "redux-form/es/handleSubmit";
-import Field from "redux-form/es/Field";
-import {reduxForm} from "redux-form";
-import * as e from "redux-form";
 
 
 let LoginSection = (props) => {
@@ -33,34 +29,23 @@ let LoginSection = (props) => {
             }
         </div>) : null;
     //---------------------------
-    const {handleSubmit, pristine, reset, submitting} = props;
-    const submit = (e, values) => {
-        e.preventDefault();
-        props.onLoginButtonClick(values);
-    };
-    //---------------------------
     //---------------------------
     return (
 
         <div className="c-login-section-wrapper">
-            <form onSubmit={submit}>
                 <div className="c-login-section">
                     <div className="c-login-section__index-login-form--positioned">
                         <div className="input-form">
                             <label className="input-form__label">
                                 Email
                             </label>
-                            <Field
-                                name="email"
-                                type="email"
-                                component="input"
-                                className="input-form__input" placeholder='email'
-                                // value={props.creatingUserLogin}
-                                // onChange={
-                                //     (e) => {
-                                //         props.onChangeCreatingLogin(e.currentTarget.value)
-                                //     }
-                                // }
+                            <input type="email" className="input-form__input" placeholder='email'
+                                value={props.creatingUserLogin}
+                                onChange={
+                                    (e) => {
+                                        props.onChangeCreatingLogin(e.currentTarget.value)
+                                    }
+                                }
                             />
                         </div>
                     </div>
@@ -69,17 +54,13 @@ let LoginSection = (props) => {
                             <label className="input-form__label">
                                 Password
                             </label>
-                            <Field
-                                name="password"
-                                type="password"
-                                component="input"
-                                className="input-form__input" placeholder='password'
-                                   // value={props.creatingUserPassword}
-                                   // onChange={
-                                   //     (e) => {
-                                   //         props.onChangeCreatingPassword(e.currentTarget.value)
-                                   //     }
-                                   // }
+                            <input type="password" className="input-form__input" placeholder='password'
+                                   value={props.creatingUserPassword}
+                                   onChange={
+                                       (e) => {
+                                           props.onChangeCreatingPassword(e.currentTarget.value)
+                                       }
+                                   }
                             />
                         </div>
                     </div>
@@ -93,11 +74,11 @@ let LoginSection = (props) => {
                         <span className="checkbox-label">
                             remember me
                         </span>
-                        <button type="submit" className="button-box__button"
-                            //     onClick={
-                            // (e) => {
-                            //     props.onLoginButtonClick();
-                            // }}
+                        <button  className="button-box__button"
+                                onClick={
+                            (e) => {
+                                props.onLoginButtonClick();
+                            }}
                                 disabled={props.loginingStatus === loginingProcessStatuses.IN_PROGRESS}>
                             Login
                         </button>
@@ -109,16 +90,13 @@ let LoginSection = (props) => {
                     {/*registration*/}
                     {/*</button>*/}
                 </div>
-            </form>
         </div>
 
     );
 };
 
+export default LoginSection;
 
-export default LoginSection = reduxForm({
-    form: 'logging'
-})(LoginSection);
 
 
 {/*<div className="container" aria-busy="true"*/
