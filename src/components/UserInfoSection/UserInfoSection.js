@@ -2,7 +2,7 @@ import React from 'react';
 import './UserInfoSection.css';
 import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
-import AboutMeForm from "./AboutMeForm";
+import AboutMeForm from "../../containers/AboutMeForm/AboutMeForm";
 
 
 
