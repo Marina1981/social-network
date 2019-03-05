@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc362f95-17c0-44b3-a3cb-2fae7517dc0d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/_tests_/loginReducer.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/_tests_/auth.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/_tests_/authReducer.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/modules/loginRedux.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/modules/loginRedux.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/_tests_/loginReducer.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/_tests_/loginReducer.test.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,11 +33,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/_tests_/loginReducer.test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="41" column="71" selection-start-line="41" selection-start-column="71" selection-end-line="41" selection-end-column="71" />
+            <state relative-caret-position="261">
+              <caret line="47" column="54" selection-start-line="47" selection-start-column="54" selection-end-line="47" selection-end-column="54" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -47,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/redux/modules/loginRedux.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="42" column="49" lean-forward="true" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="49" />
+            <state relative-caret-position="170">
+              <caret line="31" column="57" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -335,20 +333,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Jest.loginingProcessResults set successfully">
-    <configuration name="creatingUserLogin added successfully" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/components/_tests_/loginReducer.test.js" />
-      <test-names>
-        <test-name value="creatingUserLogin added successfully" />
-      </test-names>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Jest.loginingProcessErrorMessage set successfully">
     <configuration name="creatingUserPassword added successfully" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -372,6 +357,19 @@
       <test-file value="$PROJECT_DIR$/src/components/_tests_/loginReducer.test.js" />
       <test-names>
         <test-name value="flag remember me added successfully" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="loginingProcessErrorMessage set successfully" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/components/_tests_/loginReducer.test.js" />
+      <test-names>
+        <test-name value="loginingProcessErrorMessage set successfully" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -403,11 +401,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.loginingProcessErrorMessage set successfully" />
         <item itemvalue="Jest.loginingProcessResults set successfully" />
         <item itemvalue="Jest.loginingProcessStatuses added successfully" />
         <item itemvalue="Jest.flag remember me added successfully" />
         <item itemvalue="Jest.creatingUserPassword added successfully" />
-        <item itemvalue="Jest.creatingUserLogin added successfully" />
       </list>
     </recent_temporary>
   </component>
@@ -445,12 +443,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="data_added_successfully - 2019.03.04 at 20h 00m 54s.xml">
-      <configuration name="data added successfully" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
-    <history-entry file="data_clear_successfully - 2019.03.04 at 20h 53m 40s.xml">
-      <configuration name="data clear successfully" configurationId="JavaScriptTestRunnerJest" />
-    </history-entry>
     <history-entry file="avatar_successfully_added - 2019.03.04 at 21h 01m 41s.xml">
       <configuration name="avatar successfully added" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
@@ -475,9 +467,15 @@
     <history-entry file="loginingProcessStatuses_added_successfully - 2019.03.04 at 21h 46m 34s.xml">
       <configuration name="loginingProcessStatuses added successfully" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
+    <history-entry file="loginingProcessResults_set_successfully - 2019.03.04 at 21h 57m 22s.xml">
+      <configuration name="loginingProcessResults set successfully" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
+    <history-entry file="loginingProcessErrorMessage_set_successfully - 2019.03.05 at 08h 34m 31s.xml">
+      <configuration name="loginingProcessErrorMessage set successfully" configurationId="JavaScriptTestRunnerJest" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="846733000" />
+    <option name="totallyTimeSpent" value="847504000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -970,20 +968,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/modules/loginRedux.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="42" column="49" lean-forward="true" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/_tests_/loginReducer.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="41" column="71" selection-start-line="41" selection-start-column="71" selection-end-line="41" selection-end-column="71" />
+        <state relative-caret-position="261">
+          <caret line="47" column="54" selection-start-line="47" selection-start-column="54" selection-end-line="47" selection-end-column="54" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/modules/loginRedux.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="31" column="57" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="57" />
         </state>
       </provider>
     </entry>

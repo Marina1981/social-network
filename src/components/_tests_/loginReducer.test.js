@@ -41,3 +41,10 @@ test('loginingProcessResults set successfully', () => {
     }, {type: types.SET_LOGINING_PROCESS_ERROR, loginingError: loginingProcessResults.SUCCESS,});
     expect(newState.loginingStatus).toBe(loginingProcessResults.SUCCESS);
 });
+//------------//
+test('loginingProcessErrorMessage set successfully', () => {
+    let newState = reducer ({
+        loginingErrorMessage: null
+    }, {type: types.SET_LOGINING_PROCESS_ERROR_MESSAGE, loginingErrorMessage: 'ERROR',});
+    expect(newState.loginingErrorMessage).toBe('ERROR');
+});
