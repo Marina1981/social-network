@@ -44,6 +44,7 @@ const mapDispatchToProps = (dispatch) => {
         },
         onCreatingMessageFinishCommitted: (messageId) => {
             dispatch(profileActions.addCreatingMessageAsPost(messageId));
+            dispatch(profileActions.setCreatingPost(''))
         },
         onMesaageLikeIncrementRequest: (messageId) => (
             dispatch(profileActions.incrementPostLikeCount(messageId))

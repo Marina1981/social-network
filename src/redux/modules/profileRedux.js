@@ -133,14 +133,15 @@ export const initialState = {
 };
 //-------
 export const reducer = (state = initialState, action) => {
+
     //----
     const newState = {
         ...state,
         userInfo: {...state.userInfo},
         wall: {
             ...state.wall,
-            messagesList: state.wall.messagesList.map(obj => ({...obj})),
-            creatingMessage: {...state.wall.creatingMessage}
+            messagesList: state.wall.messagesList.map(obj => ({...obj}))
+
         },
         userProfile: {...state.userProfile}
     };

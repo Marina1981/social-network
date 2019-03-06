@@ -32,6 +32,7 @@ const mapDispatchToProps = (dispatch) => {
         },
         onCreatingMessageFinishCommitted: (friendId,messageId,messageFinishCommittedTime) => {
             dispatch(dialogsActions.addCreatingMessageToFriendChatLog(friendId,messageId,messageFinishCommittedTime));
+            dispatch(dialogsActions.setCreatingMessage(''))
         }
 
     }
