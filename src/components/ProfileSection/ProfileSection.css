@@ -10,7 +10,7 @@
                         minmax(auto, 7rem)
                         minmax(auto, 10rem)
                         minmax(auto, 7rem)
-                        minmax(auto, 25rem)
+                        minmax(auto, 35rem)
                         minmax(auto, 1fr);
     grid-template-columns: minmax(auto, 1fr);
     background: #f4f4f4;
@@ -45,14 +45,14 @@
 }
 
 .greeting-block__user-name {
-    font-family: cursive;
+    font-family: "Arial Narrow";
     font-size: 2.5rem;
     color: #1d9a82;
     margin: auto;
 }
 
 .greeting-block__about-me {
-    font-family: cursive;
+    font-family: "Arial Narrow";
     font-size: 1.3rem;
     color: #858686;
     margin: auto;
@@ -120,7 +120,7 @@
 }
 
 .wall-block__notes {
-    font-family: cursive;
+    font-family: "Arial Narrow";
     font-size: 1.6rem;
     color: #0fc19e;
     /*margin-top: 4rem;*/

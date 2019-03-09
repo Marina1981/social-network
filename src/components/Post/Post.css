@@ -34,8 +34,8 @@
 
     border: 0.1rem solid #0fc19e;
     border-radius: 2rem;
-    height: 2rem;
-    width: 2rem;
+    height: 4rem;
+    width: 4rem;
     background-size: contain;
     overflow: hidden;
     margin: auto;
@@ -43,12 +43,12 @@
 .author-post__img{
     height: 100%;
     width: auto;
-    max-height: 2rem;
+    max-height: 4rem;
 
 }
 /*------------------------------------------------------------------*/
 .c-post__text-post{
-    font-family: cursive;
+    font-family: "Arial Narrow";
     font-size: 1rem;
     color: #858686;
     word-break: break-all;
@@ -67,7 +67,7 @@
 }
 /*------------------------------------------------------------------*/
 .c-post__like-box{
-    font-family: cursive;
+    font-family: "Arial Narrow";
     font-size: 0.9rem;
     color: #858686;
 }

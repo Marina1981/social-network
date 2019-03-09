@@ -14,6 +14,8 @@ import UsersSectionContainer from "./containers/UsersSectionContainer/UsersSecti
 import connect from "react-redux/es/connect/connect";
 import {setReceivedServerUserProfile} from "./redux/modules/profileRedux";
 import {setReceivedServerUserStatus} from "./redux/modules/userStatusRedux";
+import PhotosSection from "./components/PhotosSection/PhotosSection";
+import MusicSection from "./components/MusicSection/MusicSection";
 
 
 const App = (appProps) => {
@@ -55,6 +57,18 @@ const App = (appProps) => {
                        render={() =>
                            <TemplateWithSideBar>
                                <UsersSectionContainer/>
+                           </TemplateWithSideBar>}/>
+                <Route exact
+                       path='/photos'
+                       render={() =>
+                           <TemplateWithSideBar>
+                               <PhotosSection/>
+                           </TemplateWithSideBar>}/>
+                <Route exact
+                       path='/music'
+                       render={() =>
+                           <TemplateWithSideBar>
+                               <MusicSection/>
                            </TemplateWithSideBar>}/>
                 <Route exact
                        path='/'

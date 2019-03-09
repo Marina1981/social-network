@@ -25,7 +25,7 @@
 .c-info__short-info--positioned{
     background: white;
     width: 35rem;
-    height: 25rem;
+    height: 30rem;
     display: flex;
     justify-content: flex-start;
     margin-left: 2.5rem;
@@ -34,7 +34,7 @@
 
 /*------------------------------------------------------------------*/
 .c-info__decorated-label{
-    font-family: cursive;
+    font-family: "Arial Narrow";
     font-size: 1rem;
     color: #0fc19e;
     margin-left: 2rem;
@@ -49,7 +49,7 @@
 }
 /*------------------------------------------------------------------*/
 .status__label{
-    font-family: cursive;
+    font-family: "Arial Narrow";
     font-size: 1rem;
     color: #0fc19e;
 }
@@ -84,7 +84,7 @@
 /*------------------------------------------------------------------*/
 .c-info__contacts-block{
     width: 35rem;
-    height: 25rem;
+    height: 30rem;
     display: flex;
     flex-direction: column;
     background: white;
@@ -97,14 +97,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: cursive;
+    font-family: "Arial Narrow";
     font-size: 1.6rem;
     color: #0fc19e;
     margin: 1rem 2rem;
 }
 
 .contacts-block__text-about-me{
-    font-family: cursive;
+    font-family: "Arial Narrow";
     font-size: 1rem;
     color: #858686;
     width: 90%;
@@ -115,7 +115,7 @@
     margin-left: 1rem;
 }
 .contacts-block__text{
-    font-family: cursive;
+    font-family: "Arial Narrow";
     font-size: 1rem;
     color: #858686;
     width: 90%;
@@ -154,7 +154,7 @@
 .c-info__city-value,
 .c-info__education-value,
 .c-info__website-value{
-    font-family: cursive;
+    font-family: "Arial Narrow";
     font-size: 1rem;
     color: #858686;
     width: 15rem;
@@ -171,7 +171,7 @@
     height: 1.5rem;
     border: none;
     background-color: #eee;
-    font-family: cursive;
+    font-family: "Arial Narrow";
     font-size: 1rem;
     color: #4e514e;
     text-align: center;
@@ -186,7 +186,7 @@
     border: none;
     background-color: #0fc19e;
     color: white;
-    font-family: cursive;
+    font-family: "Arial Narrow";
     font-size: 0.8rem;
     border-radius: 0.5rem;
     outline: none;
@@ -207,7 +207,7 @@
 
 .contacts-block__description-job{
     height: 6rem;
-    display: flex;
+    /*display: flex;*/
     /*justify-content: space-between;*/
 }
 .description-job__form{
@@ -216,7 +216,7 @@
 .description-job__textarea{
     height: 4rem;
     width: 15rem;
-    font-family: cursive;
+    font-family: "Arial Narrow";
     font-size: 1rem;
     color: #4e514e;
     background:  #eee;
@@ -229,7 +229,7 @@
 
 /*---------------------------------------------*/
 .user-status__status-block{
-    font-family: cursive;
+    font-family: "Arial Narrow";
     font-size: 1.2rem;
     /*width: 75rem;*/
     height: auto;
@@ -242,13 +242,13 @@
 }
 
 .status-block__status-title{
-    font-family: cursive;
+    font-family: "Arial Narrow";
     font-size: 1.2rem;
     color: #0fc19e;
 }
 
 .user_status__text{
-    font-family: cursive;
+    font-family: "Arial Narrow";
     font-size: 1rem;
     color: #4e514e;
     margin-left: 1rem;
@@ -265,7 +265,7 @@
     height: 2rem;
     border: none;
     background-color: #eee;
-    font-family: cursive;
+    font-family: "Arial Narrow";
     font-size: 1rem;
     color: #4e514e;
     text-align: center;
@@ -279,7 +279,7 @@
     border: none;
     background-color: #0fc19e;
     color: white;
-    font-family: cursive;
+    font-family: "Arial Narrow";
     font-size: 0.8rem;
     border-radius: 0.5rem;
     outline: none;

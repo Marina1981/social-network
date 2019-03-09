@@ -1,6 +1,5 @@
 
-
-.c-news-section{
+.newsSection{
     grid-row:    2;
     grid-column: 2;
 
@@ -8,5 +7,11 @@
     align-self:   stretch;
 
     display: flex;
-
+    justify-content: center;
+    background: #f4f4f4;
+}
+.newsLabel{
+    font-family: "Arial Narrow";
+    font-size: 3rem;
+    color: #0fc19e;
 }

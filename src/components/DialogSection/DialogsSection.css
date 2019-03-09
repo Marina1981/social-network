@@ -12,7 +12,8 @@
     display: grid;
     grid-template-rows:     minmax(auto, 5rem)
                             minmax(auto, 20rem)
-                            minmax(auto, 10rem);
+                            minmax(auto, 10rem)
+                            minmax(auto, 5rem);
     grid-template-columns:  minmax(auto, 30%)
                             minmax(auto, 70%);
     /*margin: auto;*/
@@ -26,7 +27,7 @@
     justify-self: stretch;
     align-self:   stretch;
 
-    font-family: cursive;
+    font-family: "Arial Narrow";
     font-size: 1.3rem;
     color: #0fc19e;
     /*background: linear-gradient(to top, #fefcea,#f1da366e);*/
@@ -44,8 +45,8 @@
 .c-dialog-section__label-friends--positioned{
     align-self:   stretch;
 
-    grid-row:    1 / span 1;
-    grid-column: 1 / span 1;
+    grid-row:    1;
+    grid-column: 1;
 
     display: flex;
     justify-content: center;
@@ -54,7 +55,7 @@
 }
 /*------------------------------------------------------------------*/
 .c-dialog-section__border-line{
-    grid-row:    1 / span 2;
+    grid-row:    1 / span 3;
     grid-column: 1;
 
     background: #0fc19e;
@@ -173,7 +174,7 @@
     justify-content: flex-start;
     align-items: center;
 
-    font-family: cursive;
+    font-family: "Arial Narrow";
     font-size: 1.2rem;
     color: gray;
 }
@@ -235,7 +236,7 @@
     justify-content: flex-start;
     align-items:     center;
 
-    font-family: cursive;
+    font-family: "Arial Narrow";
     font-size: 1rem;
     color: gray;
 
@@ -255,7 +256,7 @@
     justify-content: center;
     align-items: center;
 
-    font-family: cursive;
+    font-family: "Arial Narrow";
     font-size: 0.7rem;
     color: black;
 
@@ -273,7 +274,7 @@
     justify-content: center;
     align-items: center;
 
-    font-family: cursive;
+    font-family: "Arial Narrow";
     font-size: 0.8rem;
     color: black;
 }

@@ -45,7 +45,7 @@
 .search-block__label{
     justify-content: center;
     align-self: center;
-    font-family: cursive;
+    font-family: "Arial Narrow";
     font-size: 1rem;
     color: #858686;
     padding-right: 1rem;
@@ -95,7 +95,7 @@
     padding: 0.2rem;
 }
 .user-info-block__user-name{
-    font-family: cursive;
+    font-family: "Arial Narrow";
     font-size: 1.5rem;
     padding-right: 1rem;
     color: #858686;
@@ -110,7 +110,7 @@
     justify-content: center;
     align-items: center;
 
-    font-family: cursive;
+    font-family: "Arial Narrow";
     font-size: 1rem;
     color: #858686;
     /*width: 6rem;*/

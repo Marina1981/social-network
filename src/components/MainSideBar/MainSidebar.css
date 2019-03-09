@@ -27,7 +27,7 @@
 .menu-item__decorated{
     color: white;
     text-decoration: none;
-    font-family: cursive;
+    font-family: "Arial Narrow";
 }
 .c-sidebar__menu-item:hover{
     height: 100%;

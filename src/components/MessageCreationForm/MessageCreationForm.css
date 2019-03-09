@@ -5,15 +5,15 @@
     height: 100%;
     width:  100%;
 
-    /*display: flex;*/
+    display: flex;
     /*justify-content: space-around;*/
-    /*flex-direction: column;*/
+    flex-direction: column;
    /* min-height: 5rem;*/
 }
 /*------------------------------------------------------------------*/
 .record-form-textarea{
     height: 3rem;
-    width: 55rem;
+    width: 55%;
 
     display: flex;
     justify-self: center;
@@ -23,7 +23,7 @@
     border: 0.2rem solid #eee;
     background: white;
     color: #858686;
-    font-family: cursive;
+    font-family: "Arial Narrow";
     font-size: 1rem;
     min-height: 3rem;
 
@@ -37,24 +37,21 @@
 /*------------------------------------------------------------------*/
 .wall-block__record-form-button{
     height: 2.3rem;
-    width:  7rem;
-
-    display: flex;
-    align-self: flex-end;
-    justify-content: center;
-
+    width: 55%;
+    /* display: flex; */
+    /* align-self: flex-end; */
+    /* justify-content: center; */
     background-color: #0fc19e;
     color: white;
     border: none;
     border-radius: 0.5rem;
-    font-family: cursive;
+    font-family: "Arial Narrow";
     font-size: 1.2rem;
-
-    margin-right: 3rem;
-    margin-top: 1rem;
-    min-height: 2rem;
-
+    /* margin-right: 3rem; */
+    /* margin-top: 1rem; */
+    /* min-height: 2rem; */
     outline: none;
+    margin: auto;
 }
 .wall-block__record-form-button:hover{
     background-color: #338e7c;
