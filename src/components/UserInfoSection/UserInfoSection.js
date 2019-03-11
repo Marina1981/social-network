@@ -68,7 +68,8 @@ let UserInfoSection = (props) => {
                              Status:
                          </span>
                         {(props.creatingUserStatus === null) ?
-                            <div className="user_status__text" onClick={props.onUserStatusChangeRequest}>
+                            <div className="user_status__text"
+                                 onClick={props.isOwner && props.onUserStatusChangeRequest}>
                                 {props.status}
                             </div> :
                             <div className="user-status__form">
@@ -103,7 +104,7 @@ let UserInfoSection = (props) => {
                             {
                                 (props["creatingUserProfile_" + key] === null) ?
                                     <div className="contacts-block__text"
-                                         onClick={() => props.onContactsChangeRequest(key)}>
+                                         onClick={() => props.isOwner && props.onContactsChangeRequest(key)}>
                                         {props.userProfile.contacts[key]}
                                     </div> :
 

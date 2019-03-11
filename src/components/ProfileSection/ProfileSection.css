@@ -173,7 +173,11 @@
     background: white;
     padding: 1rem;
 }
-
+.c-info__userpic-img:hover {
+    -webkit-transform: scale(1.6);
+    -ms-transform: scale(1.6);
+    transform: scale(1.6);
+}
 /*------------------------------------------------------------------*/
 .c-profile-section__block-add-photos {
     grid-row: 2/ span 2;

@@ -31,11 +31,13 @@
     margin-left: 2.5rem;
     margin-right: 2.5rem;
 }
-
+.c-info__short-info:hover {
+    box-shadow: inset 0 0 0 0.1rem #0fc19e;
+}
 /*------------------------------------------------------------------*/
 .c-info__decorated-label{
     font-family: "Arial Narrow";
-    font-size: 1rem;
+    font-size: 1.3rem;
     color: #0fc19e;
     margin-left: 2rem;
     width: 14rem;
@@ -50,7 +52,7 @@
 /*------------------------------------------------------------------*/
 .status__label{
     font-family: "Arial Narrow";
-    font-size: 1rem;
+    font-size: 1.3rem;
     color: #0fc19e;
 }
 /*------------------------------------------------------------------*/
@@ -92,6 +94,10 @@
     margin-left: 2.5rem;
     margin-right: 2.5rem;
 }
+.c-info__contacts-block:hover {
+    box-shadow: inset 0 0 0 0.1rem #0fc19e;
+}
+
 .c-info__decorated-about-me,
 .contacts-block__decorated-my-contacts{
     display: flex;
@@ -161,9 +167,6 @@
     height: 1rem;
     margin-left: 1rem;
 }
-
-
-
 
 .contacts-block__input,
 .about-me__input{
@@ -235,7 +238,8 @@
     height: auto;
 
     display: flex;
-    color: #4e514e;
+    align-items: center;
+    color:  #858686;
 
     word-break: break-all;
     margin-left: 2rem;
@@ -243,7 +247,7 @@
 
 .status-block__status-title{
     font-family: "Arial Narrow";
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: #0fc19e;
 }
 
@@ -251,7 +255,7 @@
     font-family: "Arial Narrow";
     font-size: 1rem;
     color: #4e514e;
-    margin-left: 1rem;
+    margin-left: 1.2rem;
 }
 
 .user-status__form{

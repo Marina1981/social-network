@@ -14,9 +14,6 @@ axios.get('auth/me').then(result => {
         if (result.data.resultCode === 0) {
             store.dispatch(actionsAuth.setUserAuthData(result.data.data.id, result.data.data.login, result.data.data.email));
         }
-        // else {
-        //     store.dispatch(actionsAuth.clearUserAuthData())
-        // }
     ReactDOM.render(
         <Provider store={store}>
             <BrowserRouter>
