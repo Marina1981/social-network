@@ -1,9 +1,9 @@
 import React from 'react';
 import './LoginSection.css';
 import Redirect from "react-router/es/Redirect";
-import {loginingProcessResults} from "../../dal/axios-instance";
+import {loginingProcessResults, loginingProcessStatuses} from "../../dal/axios-instance";
 import LoginForm from "../../containers/LoginForm/LoginForm";
-
+import Loading from "../Loading/Loading";
 
 
 let LoginSection = (props) => {
@@ -40,7 +40,10 @@ let LoginSection = (props) => {
 
         <div className="c-login-section-wrapper">
             <div className="c-login-section">
-                <LoginForm  onSubmit={submit} {...props}/>
+                {loginingProcessStatuses.READY ?
+                    <LoginForm onSubmit={submit} {...props}/> :
+                    <Loading/>
+                }
                 {/*------------------------------------------------*/}
                 {errorMessageBlock}
                 {/*------------------------------------------------*/}
@@ -52,49 +55,5 @@ let LoginSection = (props) => {
 
 export default LoginSection;
 
-
-
-{/*<div className="container" aria-busy="true"*/
-}
-{/*aria-label="Loading" role="progressbar">*/
-}
-{/*<div className="swing">*/
-}
-{/*<div className="swing-l"/>*/
-}
-{/*<div/>*/
-}
-{/*<div/>*/
-}
-{/*<div/>*/
-}
-{/*<div/>*/
-}
-{/*<div/>*/
-}
-{/*<div className="swing-r"/>*/
-}
-{/*</div>*/
-}
-{/*<div className="shadow">*/
-}
-{/*<div className="shadow-l"/>*/
-}
-{/*<div/>*/
-}
-{/*<div/>*/
-}
-{/*<div/>*/
-}
-{/*<div/>*/
-}
-{/*<div/>*/
-}
-{/*<div className="shadow-r"/>*/
-}
-{/*</div>*/
-}
-{/*</div>*/
-}
 
 
