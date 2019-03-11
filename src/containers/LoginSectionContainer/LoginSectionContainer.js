@@ -35,8 +35,9 @@ const mapDispatchToProps = (dispatch) => {
         onChangeRememberMeFlag: () => {
             dispatch(loginActions.setRememberMeFlag())
         },
-        onLoginButtonClick: () => {
-            dispatch(login())
+        onLoginButtonClick: (values) => {
+            dispatch(login(values));
+            dispatch(loginActions.setCreatingCaptcha(''))
         },
         onChangeCreatingCaptcha: (creatingCaptcha) => {
             dispatch(loginActions.setCreatingCaptcha(creatingCaptcha))

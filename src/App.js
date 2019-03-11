@@ -23,6 +23,12 @@ const App = (appProps) => {
         <div className="App">
             <Switch>
                 <Route exact
+                       path='/'
+                       render={() =>
+                           <TemplateWithoutSideBar>
+                               <LoginSectionContainer/>
+                           </TemplateWithoutSideBar>}/>
+                <Route exact
                        path='/login'
                        render={() =>
                            <TemplateWithoutSideBar>

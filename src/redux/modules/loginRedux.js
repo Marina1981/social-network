@@ -36,8 +36,8 @@ export const actions = {
 //----
 
 const initialState = {
-    creatingUserLogin:  '17121981mar@gmail.com',
-    creatingUserPassword: '13314',
+    creatingUserLogin: '', //'17121981mar@gmail.com',
+    creatingUserPassword: '',//'13314',
     isRememberMe: true,
     loginingStatus: loginingProcessStatuses.READY,
     loginingError: loginingProcessResults.SUCCESS,
@@ -105,15 +105,15 @@ export const reducer = (state = initialState, action) => {
 };
 
 //--- thunkCreator -------//
-export const login = () => (dispatch, getState) => {
+export const login = (values) => (dispatch, getState) => {
     let globalState = getState();
     let loginState = globalState.loginPage;
     dispatch(actions.setLoginingProcessStatus(loginingProcessStatuses.IN_PROGRESS));
 
     axios.post('auth/login', {
-        email: loginState.creatingUserLogin,
-        password: loginState.creatingUserPassword,
-        rememberMe: loginState.isRememberMe,
+        email:      values.email,
+        password:   values.password,
+        rememberMe: values.rememberMe,
         captcha: loginState.creatingCaptcha
     }).then((result) => {
 
