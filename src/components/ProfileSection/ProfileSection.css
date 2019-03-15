@@ -91,7 +91,7 @@
 /*------------------------------------------------------------------*/
 .wall-block__posts-block {
     overflow-y: auto;
-    max-height: 15rem;;
+    max-height: 35rem;;
 }
 
 .wall-block__posts-block--positioned {
