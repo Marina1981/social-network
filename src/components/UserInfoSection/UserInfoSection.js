@@ -11,6 +11,7 @@ let UserInfoSection = (props) => {
     const submit = (values) => {
         props.onCreatingUserProfileFinishCommitted(values);
     };
+
     return (
         <div className="c-info
                         c-info__c-info--positioned">
