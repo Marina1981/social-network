@@ -41,7 +41,7 @@ let LoginSection = (props) => {
         <div className="c-login-section-wrapper">
             <div className="c-login-section">
                 {loginingProcessStatuses.READY ?
-                    <LoginForm onSubmit={submit} {...props}/> :
+                    <LoginForm  onSubmit={submit} {...props}/> :
                     <Loading/>
                 }
                 {/*------------------------------------------------*/}
