@@ -30,13 +30,13 @@ let AboutMeForm = (props) => {
     )
 };
 
-export default AboutMeForm = reduxForm({
+AboutMeForm = reduxForm({
     form: 'userProfileAboutMe'
 })(AboutMeForm);
 
-// export default AboutMeForm = connect(
-//     state => ({
-//         initialValues: state.profilePage.userProfile,
-//         status: state.profilePage.userProfileUpdatingProfile// pull initial values from account reducer
-//     }), null// bind account loading action creator
-// )(AboutMeForm);
+export default AboutMeForm = connect(
+    state => ({
+        initialValues: state.profilePage.userProfile,
+        status: state.profilePage.userProfileUpdatingProfile// pull initial values from account reducer
+    }), null// bind account loading action creator
+)(AboutMeForm);

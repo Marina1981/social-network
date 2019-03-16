@@ -27,7 +27,6 @@ export const types = {
     COPY_CONTACT_TO_CREATING_CONTACT: 'NETWORK/PROFILE_PAGE/COPY_CONTACT_TO_CREATING_CONTACT',
 
 
-
     // SET_USER_NAME: 'NETWORK/PROFILE_PAGE/SET_USER_NAME',
     SET_USER_BIRTH_DATE: 'NETWORK/PROFILE_PAGE/SET_USER_BIRTH_DATE',
     SET_USER_CITY: 'NETWORK/PROFILE_PAGE/SET_USER_CITY',
@@ -52,22 +51,36 @@ export const actions = {
     },
 
     setCreatingContact: (text, key) => ({type: types.SET_CREATING_CONTACT, text, key}),
-    copyContactToCreatingContact: (key) => ({type: types.COPY_CONTACT_TO_CREATING_CONTACT, key}),
+    copyContactToCreatingContact: (key, flagInsureNotNull) => ({
+        type: types.COPY_CONTACT_TO_CREATING_CONTACT,
+        key,
+        flagInsureNotNull
+    }),
     setAllCreatingContactsToNull: () => ({type: types.SET_ALL_CREATING_CONTACTS_TO_NULL}),
 
     setCreatingLookingForAJobFlag: (flag) => ({type: types.SET_LOOKING_FOR_A_JOB_FLAG, flag}),
 
     setCreatingDescription: (text) => ({type: types.SET_CREATING_LOOKING_FOR_A_JOB_DESCRIPTION, text}),
-    copyDescriptionToCreatingDescription: () => ({type: types.COPY_LOOKING_FOR_A_JOB_DESCRIPTION_TO_CREATING_LOOKING_FOR_A_JOB_DESCRIPTION}),
+    copyDescriptionToCreatingDescription: (flagInsureNotNull) =>
+        ({type: types.COPY_LOOKING_FOR_A_JOB_DESCRIPTION_TO_CREATING_LOOKING_FOR_A_JOB_DESCRIPTION, flagInsureNotNull}),
 
     setUserPicUrl: (photos) => ({type: types.SET_USER_PIC_URL, photos}),
 
     setCreatingFullName: (fullName) => ({type: types.SET_CREATING_FULLL_NAME, fullName}),
     copyFullNameToCreatingFullName: () => ({type: types.COPY_FULLL_NAME_TO_CREATING_FULLL_NAME}),
 
-    setUserProfileUpdatingProcessStatus: (processUserProfile) => ({type: types.SET_USER_PROFILE_UPDATING_PROCESS_STATUS, processUserProfile}),
-    setUserProfileUpdatingProcessError: (processError) => ({type: types.SET_USER_PROFILE_UPDATING_PROCESS_ERROR, processError}),
-    setUserProfileUpdatingProcessErrorMessage: (processErrorMessage) => ({type: types.SET_USER_PROFILE_UPDATING_PROCESS_ERROR_MESSAGE, processErrorMessage}),
+    setUserProfileUpdatingProcessStatus: (processUserProfile) => ({
+        type: types.SET_USER_PROFILE_UPDATING_PROCESS_STATUS,
+        processUserProfile
+    }),
+    setUserProfileUpdatingProcessError: (processError) => ({
+        type: types.SET_USER_PROFILE_UPDATING_PROCESS_ERROR,
+        processError
+    }),
+    setUserProfileUpdatingProcessErrorMessage: (processErrorMessage) => ({
+        type: types.SET_USER_PROFILE_UPDATING_PROCESS_ERROR_MESSAGE,
+        processErrorMessage
+    }),
 
     setUserBirthDate: (userBirthDate) => ({type: types.SET_USER_BIRTH_DATE, userBirthDate}),
     setUserCity: (userCity) => ({type: types.SET_USER_CITY, userCity}),
@@ -79,58 +92,89 @@ export const actions = {
     addCreatingMessageAsPost: (messageId) => ({type: types.ADD_CREATING_MESSAGE_AS_POST, messageId})
 };
 
-//----
-export const initialState = {
-    userInfo: {
-        userBirthDate: '',
-        userCity: '',
-        userEducation: '',
-        userWebSite: ''
-    },
-    userProfile: {
-        aboutMe: '<about me>',
-        contacts: {
-            skype: 'skype',
-            vk: 'vk',
-            facebook: 'facebook',
-            icq: 'icq',
-            email: 'email',
-            googlePlus: 'googlePlus',
-            twitter: 'twitter',
-            instagram: 'instagram',
-            whatsApp: 'whatsApp'
+//-------
+const FormInitialState = () => {
+    let formingState = {
+        userInfo: {
+            userBirthDate: '',
+            userCity: '',
+            userEducation: '',
+            userWebSite: ''
         },
-        lookingForAJob: true,
-        lookingForAJobDescription: '<',
-        photos: {
-            large: null,
-            small: null
+        userProfile: {
+            aboutMe: '<about me>',
+            contacts: {
+                facebook: '',
+                website: '',
+                vk: '',
+                twitter: '',
+                instagram: '',
+                youtube: '',
+                github: '',
+                mainLink: ''
+            },
+            lookingForAJob: true,
+            lookingForAJobDescription: '',
+            photos: {
+                large: null,
+                small: null
+            },
+            fullName: '',
+            userId: ''
         },
-        fullName: '',
-        userId: ''
-    },
-    creatingUserProfile_aboutMe: null,
-    /* creatingUserProfile_skype: null,
-     creatingUserProfile_vk: null,
-     creatingUserProfile_facebook: null,
-     creatingUserProfile_icq: null,
-     creatingUserProfile_email: null,
-     creatingUserProfile_googlePlus: null,
-     creatingUserProfile_twitter: null,
-     creatingUserProfile_instagram: null,
-     creatingUserProfile_whatsApp: null,*/
-    creation_lookingForAJob: null,
-    creating_lookingForAJobDescription: null,
-    creating_fullName: null,
+        // creatingUserProfile_aboutMe: null,
+        // creatingUserProfile_skype: null,
+        //  creatingUserProfile_vk: null,
+        //  creatingUserProfile_facebook: null,
+        //  creatingUserProfile_icq: null,
+        //  creatingUserProfile_email: null,
+        //  creatingUserProfile_googlePlus: null,
+        //  creatingUserProfile_twitter: null,
+        //  creatingUserProfile_instagram: null,
+        //  creatingUserProfile_whatsApp: null,
+        // creatingUserProfile_lookingForAJob: null,
+        // creatingUserProfile_lookingForAJobDescription: null,
+        // creatingUserProfile_fullName: null,
 
-    userProfileUpdatingProfile: userProfileUpdatingProcessProfile.READY,
-    userProfileUpdatingProcessError: userProfileUpdatingProcessResults.SUCCESS,
-    userProfileUpdatingErrorMessage: '',
-    wall: {
-        messagesList: [],
-        creatingMessage: ''
-    }
+        userProfileUpdatingProfile: userProfileUpdatingProcessProfile.READY,
+        userProfileUpdatingProcessError: userProfileUpdatingProcessResults.SUCCESS,
+        userProfileUpdatingErrorMessage: '',
+        wall: {
+            messagesList: [],
+            creatingMessage: ''
+        }
+    };
+    //---
+    {////
+        const keys = Object.keys(formingState.userProfile.contacts).map((key) => "creatingUserProfile_" + key);
+
+        const obj = keys.reduce((acc, key) => {
+            acc[key] = null;
+            return acc;
+        }, {});
+
+        /*   const obj = {};
+           keys.forEach (key) => {       // 2-ой вариант
+               obj[key] = null;
+           });
+           */
+        formingState = {
+            ...formingState,
+            ...obj
+        };
+    }////
+     //---
+    {////
+        formingState =  {...formingState, 
+                            creatingUserProfile_aboutMe: null,
+                            creatingUserProfile_lookingForAJobDescription: null,
+                            creatingUserProfile_fullName: null};
+    }////
+    //---
+    return formingState;
 };
+//----
+const initialState = FormInitialState();
 //-------
 export const reducer = (state = initialState, action) => {
 
@@ -154,7 +198,7 @@ export const reducer = (state = initialState, action) => {
                 userProfile: action.data
             };
 
-            for (let key in action.data.contacts) {
+            for (let key in action.data) {
                 newState["creatingUserProfile_" + key] = null;
             }
 
@@ -172,29 +216,30 @@ export const reducer = (state = initialState, action) => {
         case types.SET_CREATING_CONTACT:
             return {
                 ...state,
-                ["creatingUserProfile_" + action.key]:  action.text
+                ["creatingUserProfile_" + action.key]: action.text
             };
         //-------
 
-        case types.SET_ALL_CREATING_CONTACTS_TO_NULL:
+        case types.SET_ALL_CREATING_CONTACTS_TO_NULL: {
+            const keys = Object.keys(state.userProfile.contacts).map((key) => "creatingUserProfile_" + key);
 
-            const keys =  Object.keys(state.userProfile.contacts).map( (key) =>  "creatingUserProfile_" + key);
-
-            const obj = keys.reduce( (acc, key) => {
+            const obj = keys.reduce((acc, key) => {
                 acc[key] = null;
                 return acc;
             }, {});
 
-         /*   const obj = {};
-            keys.forEach (key) => {       // 2-ой вариант
-                obj[key] = null;
-            });
-            */
+            /*   const obj = {};
+               keys.forEach (key) => {       // 2-ой вариант
+                   obj[key] = null;
+               });
+               */
 
             return {
-              ...state,
-              ...obj
+                ...state,
+                ...obj
             };
+
+        }
 
         case types.SET_LOOKING_FOR_A_JOB_FLAG:
             return {
@@ -205,7 +250,7 @@ export const reducer = (state = initialState, action) => {
         case types.SET_CREATING_LOOKING_FOR_A_JOB_DESCRIPTION:
             return {
                 ...state,
-                creating_lookingForAJobDescription: action.text
+                creatingUserProfile_lookingForAJobDescription: action.text
             };
 
         case types.SET_USER_PIC_URL:
@@ -240,12 +285,17 @@ export const reducer = (state = initialState, action) => {
             };
         //---------------------
 
-        case types.COPY_CONTACT_TO_CREATING_CONTACT:
+        case types.COPY_CONTACT_TO_CREATING_CONTACT: {
+            let contact = state.userProfile.contacts[action.key];
+            if (contact === null && action.flagInsureNotNull) {
+                contact = '';
+            }
 
-                return {
-                    ...state,
-                    ["creatingUserProfile_" + action.key]:  111// state.userProfile.contacts[action.key]
-                };
+            return {
+                ...state,
+                ["creatingUserProfile_" + action.key]: contact,
+            };
+        }
         //-------
 
         case types.COPY_ABOUT_ME_TO_CREATING_ABOUT_ME:
@@ -255,35 +305,52 @@ export const reducer = (state = initialState, action) => {
             };
 
         case types.COPY_LOOKING_FOR_A_JOB_DESCRIPTION_TO_CREATING_LOOKING_FOR_A_JOB_DESCRIPTION:
+
+            let description = state.userProfile.lookingForAJobDescription;
+            if (description === null && action.flagInsureNotNull) {
+                description = '';
+            }
+
             return {
                 ...state,
-                creating_lookingForAJobDescription: state.userProfile.lookingForAJobDescription
+                creatingUserProfile_lookingForAJobDescription: description
             };
 
-        case types.COPY_FULLL_NAME_TO_CREATING_FULLL_NAME:
+        case
+        types.COPY_FULLL_NAME_TO_CREATING_FULLL_NAME:
             return {
                 ...state,
                 creating_fullName: state.userProfile.fullName
             };
 
 
-        case types.SET_USER_BIRTH_DATE:
+        case
+        types.SET_USER_BIRTH_DATE
+        :
             newState.userInfo.userBirthDate = action.userBirthDate;
             return newState;
 
-        case types.SET_USER_CITY:
+        case
+        types.SET_USER_CITY
+        :
             newState.userInfo.userCity = action.userCity;
             return newState;
 
-        case types.SET_USER_EDUCATION:
+        case
+        types.SET_USER_EDUCATION
+        :
             newState.userInfo.userEducation = action.userEducation;
             return newState;
 
-        case types.SET_USER_WEBSITE:
+        case
+        types.SET_USER_WEBSITE
+        :
             newState.userInfo.userWebSite = action.userWebSite;
             return newState;
 
-        case types.ADD_POST:
+        case
+        types.ADD_POST
+        :
             newState.wall.messagesList = [...newState.wall.messagesList,
                 {
                     text: action.message,
@@ -292,12 +359,16 @@ export const reducer = (state = initialState, action) => {
                 }];
             return newState;
 
-        case types.SET_CREATING_POST:
+        case
+        types.SET_CREATING_POST
+        :
 
             newState.wall.creatingMessage = action.message;
             return newState;
 
-        case types.INCREMENT_POST_LIKE_COUNT:
+        case
+        types.INCREMENT_POST_LIKE_COUNT
+        :
             let filteredMessages = newState.wall.messagesList.filter((el) => {
                 return action.messageId === el.messageId;
             });
@@ -305,7 +376,9 @@ export const reducer = (state = initialState, action) => {
 
             return newState;
 
-        case types.ADD_CREATING_MESSAGE_AS_POST:
+        case
+        types.ADD_CREATING_MESSAGE_AS_POST
+        :
 
             newState.wall.messagesList = [...newState.wall.messagesList,
                 {
@@ -317,17 +390,17 @@ export const reducer = (state = initialState, action) => {
 
         default:
             return state;
-
     }
 };
 
 //----
 //----Selectors-------//
 export const getCreatingUserProfile = (globalState) => {
+
     const creatingUserProfile = {
         aboutMe: globalState.profilePage.creatingUserProfile_aboutMe !== null ?
-                globalState.profilePage.creatingUserProfile_aboutMe :
-                globalState.profilePage.userProfile.aboutMe,
+            globalState.profilePage.creatingUserProfile_aboutMe :
+            globalState.profilePage.userProfile.aboutMe,
         contacts: {
             facebook: globalState.profilePage.creatingUserProfile_facebook !== null ?
                 globalState.profilePage.creatingUserProfile_facebook :
@@ -346,29 +419,29 @@ export const getCreatingUserProfile = (globalState) => {
                 globalState.profilePage.userProfile.contacts.twitter,
 
             vk: globalState.profilePage.creatingUserProfile_vk !== null ?
-                 globalState.profilePage.creatingUserProfile_vk :
-                 globalState.profilePage.userProfile.contacts.vk,
+                globalState.profilePage.creatingUserProfile_vk :
+                globalState.profilePage.userProfile.contacts.vk,
 
             website: globalState.profilePage.creatingUserProfile_website !== null ?
-                   globalState.profilePage.creatingUserProfile_website :
-                   globalState.profilePage.userProfile.contacts.website,
+                globalState.profilePage.creatingUserProfile_website :
+                globalState.profilePage.userProfile.contacts.website,
 
             youtube: globalState.profilePage.creatingUserProfile_youtube !== null ?
-                        globalState.profilePage.creatingUserProfile_youtube :
-                        globalState.profilePage.userProfile.contacts.youtube,
+                globalState.profilePage.creatingUserProfile_youtube :
+                globalState.profilePage.userProfile.contacts.youtube,
 
         },
-        lookingForAJob: globalState.profilePage.creation_lookingForAJob !== null ?
-                        globalState.profilePage.creation_lookingForAJob :
-                        globalState.profilePage.userProfile.lookingForAJob,
+        lookingForAJob: globalState.profilePage.creatingUserProfile_lookingForAJob !== null ?
+            globalState.profilePage.creatingUserProfile_lookingForAJob :
+            globalState.profilePage.userProfile.lookingForAJob,
 
-        lookingForAJobDescription:  globalState.profilePage.creating_lookingForAJobDescription !== null ?
-                                    globalState.profilePage.creating_lookingForAJobDescription :
-                                    globalState.profilePage.userProfile.lookingForAJobDescription,
+        lookingForAJobDescription: globalState.profilePage.creatingUserProfile_lookingForAJobDescription !== null ?
+            globalState.profilePage.creatingUserProfile_lookingForAJobDescription :
+            globalState.profilePage.userProfile.lookingForAJobDescription,
 
-        fullName:   globalState.profilePage.creating_fullName !== null ?
-                    globalState.profilePage.creating_fullName :
-                    globalState.profilePage.userProfile.fullName
+        fullName: globalState.profilePage.creatingUserProfile_fullName !== null ?
+            globalState.profilePage.creatingUserProfile_fullName :
+            globalState.profilePage.fullName
     };
     return creatingUserProfile;
 };
@@ -378,7 +451,6 @@ export const setReceivedServerUserProfile = (userId) => (dispatch, getState) => 
     userId = userId ? userId : getAuthUsersId(globalState);
     axios.get('profile/' + userId)
         .then(result => {
-
             dispatch(actions.setUserProfile(result.data))
         })
 };
@@ -394,13 +466,13 @@ export const setReceivedServerAuthUserProfile = () => (dispatch, getState) => {
 };
 
 
-export const updateAuthUserProfileFromCreatingUserProfile = (profile) => (dispatch, getState) => {
+export const updateAuthUserProfileFromCreatingUserProfile = (userProfileValues) => (dispatch, getState) => {
 
     const globalState = getState();
     const userProfile = getCreatingUserProfile(globalState);
-    let newProfile = {...userProfile, ...profile};
+    let newProfile = {...userProfile, ...userProfileValues};
     dispatch(actions.setUserProfileUpdatingProcessStatus(userProfileUpdatingProcessProfile.IN_PROGRESS));
-debugger
+
     axios.put('profile', newProfile)
         .then(result => {
             if (result.data.resultCode === 0) {
@@ -424,12 +496,12 @@ debugger
                 dispatch(actions.setUserProfileUpdatingProcessErrorMessage('ERROR!'))
             }
         })
-        .catch( (e) => {
+        .catch((e) => {
             console.log(e)
         })
 };
 
-export const updateUserPic = (imgFile) => (dispatch)=>{
+export const updateUserPic = (imgFile) => (dispatch) => {
     let formData = new FormData();
     formData.append('image', imgFile);
     axios.post('profile/photo', formData, {
@@ -437,10 +509,10 @@ export const updateUserPic = (imgFile) => (dispatch)=>{
             'Content-Type': 'multipart/form-data'
         }
     }).then(result => {
-        if (result.data.resultCode === 0){
+        if (result.data.resultCode === 0) {
             dispatch(actions.setUserPicUrl(result.data));
             dispatch(setReceivedServerUserProfile())
-        }else {
+        } else {
             dispatch(actions.setUserProfileUpdatingProcessError(userProfileUpdatingProcessResults.COMMON_ERROR));
             dispatch(actions.setUserProfileUpdatingProcessErrorMessage('ERROR!'))
         }

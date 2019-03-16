@@ -27,6 +27,7 @@ class UserInfoSectionContainer extends React.Component {
 
 //----
 const mapStateToProps = (state) => {
+
     return {
         isAuth:             state.auth.userAuthData.userId !== null, // true / false
         authUserId:         state.auth.userAuthData.userId,
@@ -41,7 +42,7 @@ const mapStateToProps = (state) => {
         profilePage:        state.profilePage,
         creatingUserProfile_aboutMe:        state.profilePage.creatingUserProfile_aboutMe,
 
-        creating_lookingForAJobDescription:  state.profilePage.creating_lookingForAJobDescription,
+        creatingUserProfile_lookingForAJobDescription:  state.profilePage.creatingUserProfile_lookingForAJobDescription,
         isOwner: isUserProfileOwner(state)
     }
 };
@@ -57,12 +58,12 @@ const mapDispatchToProps = (dispatch, props) => {
         onAboutMeChangeRequest: () => {
                 dispatch(actionsProfile.copyAboutMeToCreatingAboutMe())
         },
-        // onChangeCreatingProfileAboutMe: (text) => {
-        //     dispatch(actionsProfile.setCreatingAboutMe(text))
-        // },
+        onChangeCreatingProfileAboutMe: (text) => {
+            dispatch(actionsProfile.setCreatingAboutMe(text))
+        },
 
         onContactsChangeRequest: (key) => {
-            dispatch(actionsProfile.copyContactToCreatingContact(key))
+            dispatch(actionsProfile.copyContactToCreatingContact(key, true))
         },
         onChangeCreatingContacts: (text, key) => {
             dispatch(actionsProfile.setCreatingContact(text, key))
@@ -72,7 +73,7 @@ const mapDispatchToProps = (dispatch, props) => {
 
 
         onLookingForAJobDescriptionChangeRequest: () => {
-            dispatch(actionsProfile.copyDescriptionToCreatingDescription())
+            dispatch(actionsProfile.copyDescriptionToCreatingDescription(true))
         },
         onChangeCreatingProfileLookingForAJobDescription: (text) => {
             dispatch(actionsProfile.setCreatingDescription(text))
@@ -85,8 +86,8 @@ const mapDispatchToProps = (dispatch, props) => {
             dispatch(actionsProfile.setCreatingLookingForAJobFlag())
         },
 
-        onCreatingUserProfileFinishCommitted: (values) => {
-            dispatch(updateAuthUserProfileFromCreatingUserProfile(values))
+        onCreatingUserProfileFinishCommitted: () => {
+            dispatch(updateAuthUserProfileFromCreatingUserProfile())
         },
 
         onUserStatusChangeRequest: (userId) => {

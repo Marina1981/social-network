@@ -3,7 +3,7 @@ import './UserInfoSection.css';
 import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
 import AboutMeForm from "../../containers/AboutMeForm/AboutMeForm";
-
+import Field from "redux-form/es/Field";
 
 
 let UserInfoSection = (props) => {
@@ -21,17 +21,17 @@ let UserInfoSection = (props) => {
                 <span className="c-info__decorated-about-me">
                        AboutMe:
                 </span>
-                <div className="contacts-block__about-me">
+                {/*<div className="contacts-block__about-me">*/}
 
-                    {
-                        (props.creatingUserProfile_aboutMe === null) ?
-                            <div className="contacts-block__text-about-me"
-                                 onClick={() => props.isOwner && props.onAboutMeChangeRequest(props.isOwner)}>
-                                {props.userProfile.aboutMe}
-                            </div> :
-                           <AboutMeForm onSubmit={submit} {...props}/>
-                    }
-                </div>
+                {/*{*/}
+                {/*(props.creatingUserProfile_aboutMe === null) ?*/}
+                {/*<div className="contacts-block__text-about-me"*/}
+                {/*onClick={() => props.isOwner && props.onAboutMeChangeRequest(props.isOwner)}>*/}
+                {/*{props.userProfile.aboutMe}*/}
+                {/*</div> :*/}
+                {/*<AboutMeForm onSubmit={submit} {...props}/>*/}
+                {/*}*/}
+                {/*</div>*/}
                 <div className="c-info__birth-date">
                     <span className=" c-info__decorated-label">
                         Birth date:
@@ -97,17 +97,29 @@ let UserInfoSection = (props) => {
                 <div className="contacts-block__decorated-my-contacts">
                     My contacts:
                 </div>
+                <div className="contacts-block__about-me">
+
+                    {
+                        (props.creatingUserProfile_aboutMe === null) ?
+                            <div className="contacts-block__text-about-me"
+                                 onClick={() => props.isOwner && props.onAboutMeChangeRequest(props.isOwner)}>
+                                {props.userProfile.aboutMe}
+                            </div> :
+                            <AboutMeForm onSubmit={submit} {...props}/>
+                    }
+                </div>
+
                 {
                     Object.keys(props.userProfile.contacts).map(key => {
 
-                        let currentValue = props.profilePage["creatingUserProfile_" + key];
+                        let creatingUserProfileContactValue = props.profilePage["creatingUserProfile_" + key];
 
                         return <div className="contacts-block" key={key}>
                                 <span className="c-info__decorated-label">
                                     {key}:
                                 </span>
                             {
-                                (currentValue === null) ?
+                                (creatingUserProfileContactValue === null) ?
                                     <div className="contacts-block__text"
                                          onClick={() => props.isOwner && props.onContactsChangeRequest(key)}>
                                         {props.userProfile.contacts[key] ? props.userProfile.contacts[key] : '-----'}
@@ -115,18 +127,18 @@ let UserInfoSection = (props) => {
 
                                     <div className="contacts-block__form">
                                         <input className="contacts-block__input" placeholder={key}
-                                               value={currentValue}
+                                               value={creatingUserProfileContactValue}
                                                onChange={
                                                    (e) => {
                                                        props.onChangeCreatingContacts(e.currentTarget.value, key)
                                                    }
                                                }/>
                                         <button className="contacts-block__button"
-                                                 onClick={
-                                                     (e) => {
-                                                         props.onCreatingUserProfileFinishCommitted({})
-                                                     }
-                                                 }>>
+                                                onClick={
+                                                    (e) => {
+                                                        props.onCreatingUserProfileFinishCommitted({})
+                                                    }
+                                                }>
                                             ok
                                         </button>
                                     </div>
@@ -152,7 +164,7 @@ let UserInfoSection = (props) => {
                         Description of work:
                     </span>
                     {
-                        (props.creating_lookingForAJobDescription === null) ?
+                        (props.creatingUserProfile_lookingForAJobDescription === null) ?
                             <div className="contacts-block__text"
                                  onClick={() => props.onLookingForAJobDescriptionChangeRequest(props.isOwner)}>
                                 {/*onClick={props.onLookingForAJobDescriptionChangeRequest}*/}
@@ -160,7 +172,7 @@ let UserInfoSection = (props) => {
                             </div> :
                             <div className="description-job__form">
                                 <textarea className="description-job__textarea" placeholder="description"
-                                          value={props.creating_lookingForAJobDescription}
+                                          value={props.creatingUserProfile_lookingForAJobDescription}
                                           onChange={
                                               (e) => {
                                                   props.onChangeCreatingProfileLookingForAJobDescription(e.currentTarget.value)
