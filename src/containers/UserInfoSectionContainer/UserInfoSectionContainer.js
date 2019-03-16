@@ -38,16 +38,9 @@ const mapStateToProps = (state) => {
         status:             state.userStatusBlock.userStatus,
         creatingUserStatus: state.userStatusBlock.creatingUserStatus,
 
+        profilePage:        state.profilePage,
         creatingUserProfile_aboutMe:        state.profilePage.creatingUserProfile_aboutMe,
-        creatingUserProfile_skype:          state.profilePage.creatingUserProfile_skype,
-        creatingUserProfile_vk:             state.profilePage.creatingUserProfile_vk,
-        creatingUserProfile_facebook:       state.profilePage.creatingUserProfile_facebook,
-        creatingUserProfile_icq:            state.profilePage.creatingUserProfile_icq,
-        creatingUserProfile_email:          state.profilePage.creatingUserProfile_email,
-        creatingUserProfile_googlePlus:     state.profilePage.creatingUserProfile_googlePlus,
-        creatingUserProfile_twitter:        state.profilePage.creatingUserProfile_twitter,
-        creatingUserProfile_instagram:      state.profilePage.creatingUserProfile_instagram,
-        creatingUserProfile_whatsApp:       state.profilePage.creatingUserProfile_whatsApp,
+
         creating_lookingForAJobDescription:  state.profilePage.creating_lookingForAJobDescription,
         isOwner: isUserProfileOwner(state)
     }

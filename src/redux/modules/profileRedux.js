@@ -110,15 +110,15 @@ export const initialState = {
         userId: ''
     },
     creatingUserProfile_aboutMe: null,
-    creatingUserProfile_skype: null,
-    creatingUserProfile_vk: null,
-    creatingUserProfile_facebook: null,
-    creatingUserProfile_icq: null,
-    creatingUserProfile_email: null,
-    creatingUserProfile_googlePlus: null,
-    creatingUserProfile_twitter: null,
-    creatingUserProfile_instagram: null,
-    creatingUserProfile_whatsApp: null,
+    /* creatingUserProfile_skype: null,
+     creatingUserProfile_vk: null,
+     creatingUserProfile_facebook: null,
+     creatingUserProfile_icq: null,
+     creatingUserProfile_email: null,
+     creatingUserProfile_googlePlus: null,
+     creatingUserProfile_twitter: null,
+     creatingUserProfile_instagram: null,
+     creatingUserProfile_whatsApp: null,*/
     creation_lookingForAJob: null,
     creating_lookingForAJobDescription: null,
     creating_fullName: null,
@@ -148,11 +148,18 @@ export const reducer = (state = initialState, action) => {
 
     //----
     switch (action.type) {
-        case types.SET_USER_PROFILE:
-            return {
+        case types.SET_USER_PROFILE: {
+            let newState = {
                 ...state,
                 userProfile: action.data
             };
+
+            for (let key in action.data.contacts) {
+                newState["creatingUserProfile_" + key] = null;
+            }
+
+            return newState;
+        }
 
         case types.SET_CREATING_ABOUT_ME:
             return {
@@ -171,8 +178,18 @@ export const reducer = (state = initialState, action) => {
 
         case types.SET_ALL_CREATING_CONTACTS_TO_NULL:
 
-            const arr =  Object.keys(state.userProfile.contacts).map( (key) =>  "creatingUserProfile_" + key);
-            const obj = Object.assign(...arr.map(k => ({ [k]: null })));
+            const keys =  Object.keys(state.userProfile.contacts).map( (key) =>  "creatingUserProfile_" + key);
+
+            const obj = keys.reduce( (acc, key) => {
+                acc[key] = null;
+                return acc;
+            }, {});
+
+         /*   const obj = {};
+            keys.forEach (key) => {       // 2-ой вариант
+                obj[key] = null;
+            });
+            */
 
             return {
               ...state,
@@ -224,9 +241,10 @@ export const reducer = (state = initialState, action) => {
         //---------------------
 
         case types.COPY_CONTACT_TO_CREATING_CONTACT:
+
                 return {
                     ...state,
-                    ["creatingUserProfile_" + action.key]: state.userProfile.contacts[action.key]
+                    ["creatingUserProfile_" + action.key]:  111// state.userProfile.contacts[action.key]
                 };
         //-------
 
@@ -311,41 +329,34 @@ export const getCreatingUserProfile = (globalState) => {
                 globalState.profilePage.creatingUserProfile_aboutMe :
                 globalState.profilePage.userProfile.aboutMe,
         contacts: {
-            skype: globalState.profilePage.creatingUserProfile_skype !== null ?
-                globalState.profilePage.creatingUserProfile_skype :
-                globalState.profilePage.userProfile.contacts.skype,
-
-            vk: globalState.profilePage.creatingUserProfile_vk !== null ?
-                globalState.profilePage.creatingUserProfile_vk :
-                globalState.profilePage.userProfile.contacts.vk,
-
             facebook: globalState.profilePage.creatingUserProfile_facebook !== null ?
-                      globalState.profilePage.creatingUserProfile_facebook :
-                      globalState.profilePage.userProfile.contacts.facebook,
+                globalState.profilePage.creatingUserProfile_facebook :
+                globalState.profilePage.userProfile.contacts.facebook,
 
-            icq: globalState.profilePage.creatingUserProfile_icq !== null ?
-                 globalState.profilePage.creatingUserProfile_icq :
-                 globalState.profilePage.userProfile.contacts.icq,
+            github: globalState.profilePage.creatingUserProfile_github !== null ?
+                globalState.profilePage.creatingUserProfile_github :
+                globalState.profilePage.userProfile.contacts.github,
 
-            email: globalState.profilePage.creatingUserProfile_email !== null ?
-                   globalState.profilePage.creatingUserProfile_email :
-                   globalState.profilePage.userProfile.contacts.email,
-
-            googlePlus: globalState.profilePage.creatingUserProfile_googlePlus !== null ?
-                        globalState.profilePage.creatingUserProfile_googlePlus :
-                        globalState.profilePage.userProfile.contacts.googlePlus,
+            mainLink: globalState.profilePage.creatingUserProfile_mainLink !== null ?
+                globalState.profilePage.creatingUserProfile_mainLink :
+                globalState.profilePage.userProfile.contacts.mainLink,
 
             twitter: globalState.profilePage.creatingUserProfile_twitter !== null ?
-                     globalState.profilePage.creatingUserProfile_twitter :
-                     globalState.profilePage.userProfile.contacts.twitter,
+                globalState.profilePage.creatingUserProfile_twitter :
+                globalState.profilePage.userProfile.contacts.twitter,
 
-            instagram:  globalState.profilePage.creatingUserProfile_instagram !== null ?
-                        globalState.profilePage.creatingUserProfile_instagram :
-                        globalState.profilePage.userProfile.contacts.instagram,
+            vk: globalState.profilePage.creatingUserProfile_vk !== null ?
+                 globalState.profilePage.creatingUserProfile_vk :
+                 globalState.profilePage.userProfile.contacts.vk,
 
-            whatsApp:   globalState.profilePage.creatingUserProfile_whatsApp !== null ?
-                        globalState.profilePage.creatingUserProfile_whatsApp :
-                        globalState.profilePage.userProfile.contacts.whatsApp
+            website: globalState.profilePage.creatingUserProfile_website !== null ?
+                   globalState.profilePage.creatingUserProfile_website :
+                   globalState.profilePage.userProfile.contacts.website,
+
+            youtube: globalState.profilePage.creatingUserProfile_youtube !== null ?
+                        globalState.profilePage.creatingUserProfile_youtube :
+                        globalState.profilePage.userProfile.contacts.youtube,
+
         },
         lookingForAJob: globalState.profilePage.creation_lookingForAJob !== null ?
                         globalState.profilePage.creation_lookingForAJob :
@@ -367,6 +378,7 @@ export const setReceivedServerUserProfile = (userId) => (dispatch, getState) => 
     userId = userId ? userId : getAuthUsersId(globalState);
     axios.get('profile/' + userId)
         .then(result => {
+
             dispatch(actions.setUserProfile(result.data))
         })
 };
@@ -388,7 +400,7 @@ export const updateAuthUserProfileFromCreatingUserProfile = (profile) => (dispat
     const userProfile = getCreatingUserProfile(globalState);
     let newProfile = {...userProfile, ...profile};
     dispatch(actions.setUserProfileUpdatingProcessStatus(userProfileUpdatingProcessProfile.IN_PROGRESS));
-
+debugger
     axios.put('profile', newProfile)
         .then(result => {
             if (result.data.resultCode === 0) {
@@ -411,6 +423,9 @@ export const updateAuthUserProfileFromCreatingUserProfile = (profile) => (dispat
                 dispatch(actions.setUserProfileUpdatingProcessError(userProfileUpdatingProcessResults.COMMON_ERROR));
                 dispatch(actions.setUserProfileUpdatingProcessErrorMessage('ERROR!'))
             }
+        })
+        .catch( (e) => {
+            console.log(e)
         })
 };
 

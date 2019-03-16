@@ -9,6 +9,7 @@ import AboutMeForm from "../../containers/AboutMeForm/AboutMeForm";
 let UserInfoSection = (props) => {
     const {handleSubmit} = props;
     const submit = (values) => {
+
         props.onCreatingUserProfileFinishCommitted(values);
     };
 
@@ -98,29 +99,32 @@ let UserInfoSection = (props) => {
                 </div>
                 {
                     Object.keys(props.userProfile.contacts).map(key => {
+
+                        let currentValue = props.profilePage["creatingUserProfile_" + key];
+
                         return <div className="contacts-block" key={key}>
                                 <span className="c-info__decorated-label">
                                     {key}:
                                 </span>
                             {
-                                (props["creatingUserProfile_" + key] === null) ?
+                                (currentValue === null) ?
                                     <div className="contacts-block__text"
                                          onClick={() => props.isOwner && props.onContactsChangeRequest(key)}>
-                                        {props.userProfile.contacts[key]}
+                                        {props.userProfile.contacts[key] ? props.userProfile.contacts[key] : '-----'}
                                     </div> :
 
                                     <div className="contacts-block__form">
                                         <input className="contacts-block__input" placeholder={key}
-                                               value={props["creatingUserProfile_" + key]}
+                                               value={currentValue}
                                                onChange={
                                                    (e) => {
                                                        props.onChangeCreatingContacts(e.currentTarget.value, key)
                                                    }
                                                }/>
-                                        < button className="contacts-block__button"
+                                        <button className="contacts-block__button"
                                                  onClick={
                                                      (e) => {
-                                                         props.onCreatingUserProfileFinishCommitted()
+                                                         props.onCreatingUserProfileFinishCommitted({})
                                                      }
                                                  }>>
                                             ok
