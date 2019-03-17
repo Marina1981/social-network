@@ -16,53 +16,9 @@ let UserInfoSection = (props) => {
     return (
         <div className="c-info
                         c-info__c-info--positioned">
-            <div className="c-info__short-info
-                            c-info__short-info--positioned">
-                <span className="c-info__decorated-about-me">
-                       AboutMe:
-                </span>
-                {/*<div className="contacts-block__about-me">*/}
-
-                {/*{*/}
-                {/*(props.creatingUserProfile_aboutMe === null) ?*/}
-                {/*<div className="contacts-block__text-about-me"*/}
-                {/*onClick={() => props.isOwner && props.onAboutMeChangeRequest(props.isOwner)}>*/}
-                {/*{props.userProfile.aboutMe}*/}
-                {/*</div> :*/}
-                {/*<AboutMeForm onSubmit={submit} {...props}/>*/}
-                {/*}*/}
-                {/*</div>*/}
-                <div className="c-info__birth-date">
-                    <span className=" c-info__decorated-label">
-                        Birth date:
-                    </span>
-                    <span className="c-info__birth-date-value">
-                      {props.userInfo.userBirthDate}
-                    </span>
-                </div>
-                <div className="c-info__city">
-                    <span className="c-info__decorated-label">
-                         City:
-                    </span>
-                    <span className="c-info__city-value">
-                           {props.userInfo.userCity}
-                    </span>
-                </div>
-                <div className="c-info__education">
-                    <span className="c-info__decorated-label">
-                        Education:
-                    </span>
-                    <span className="c-info__education-value">
-                           {props.userInfo.userEducation}
-                    </span>
-                </div>
-                <div className="c-info__website">
-                    <span className="c-info__decorated-label">
-                        Website:
-                    </span>
-                    <Link to='/' className="c-info__website-value">
-                        {props.userInfo.userWebSite}
-                    </Link>
+            <div className="c-info__contacts-block">
+                <div className="contacts-block__decorated-my-contacts">
+                    My contacts:
                 </div>
                 <div className="userStatusBlock-positioned">
                     <div className="user-status__status-block">
@@ -91,19 +47,15 @@ let UserInfoSection = (props) => {
                             </div>}
                     </div>
                 </div>
-            </div>
-
-            <div className="c-info__contacts-block">
-                <div className="contacts-block__decorated-my-contacts">
-                    My contacts:
-                </div>
                 <div className="contacts-block__about-me">
-
+                    <label className="about-me_label">
+                        about me:
+                    </label>
                     {
                         (props.creatingUserProfile_aboutMe === null) ?
                             <div className="contacts-block__text-about-me"
                                  onClick={() => props.isOwner && props.onAboutMeChangeRequest(props.isOwner)}>
-                                {props.userProfile.aboutMe}
+                                {props.userProfile.aboutMe ? props.userProfile.aboutMe : '-----'}
                             </div> :
                             <AboutMeForm onSubmit={submit} {...props}/>
                     }
@@ -183,7 +135,7 @@ let UserInfoSection = (props) => {
                                             (e) => {
                                                 props.onCreatingUserProfileFinishCommitted()
                                             }
-                                        }>>
+                                        }>
                                     ok
                                 </button>
                             </div>
