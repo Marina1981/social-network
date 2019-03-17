@@ -3,9 +3,7 @@ import connect from "react-redux/es/connect/connect";
 import UserInfoSection from "../../components/UserInfoSection/UserInfoSection";
 import {actions as actionsProfile, isUserProfileOwner, setReceivedServerUserProfile,
     updateAuthUserProfileFromCreatingUserProfile} from "../../redux/modules/profileRedux";
-import withRouter from "react-router/es/withRouter";
-import {actions as actionsUserStatus, setReceivedServerUserStatus,
-    updateUserStatusFromCreatingUserStatus} from "../../redux/modules/userStatusRedux";
+import {actions as actionsUserStatus, updateUserStatusFromCreatingUserStatus} from "../../redux/modules/userStatusRedux";
 
 
 class UserInfoSectionContainer extends React.Component {
@@ -58,9 +56,9 @@ const mapDispatchToProps = (dispatch, props) => {
         onAboutMeChangeRequest: () => {
                 dispatch(actionsProfile.copyAboutMeToCreatingAboutMe())
         },
-        onChangeCreatingProfileAboutMe: (text) => {
-            dispatch(actionsProfile.setCreatingAboutMe(text))
-        },
+        // onChangeCreatingProfileAboutMe: (text) => {
+        //     dispatch(actionsProfile.setCreatingAboutMe(text))
+        // },
 
         onContactsChangeRequest: (key) => {
             dispatch(actionsProfile.copyContactToCreatingContact(key, true))
@@ -79,15 +77,12 @@ const mapDispatchToProps = (dispatch, props) => {
             dispatch(actionsProfile.setCreatingDescription(text))
         },
 
-
-
-
         onChangeRememberMeFlag: () => {
             dispatch(actionsProfile.setCreatingLookingForAJobFlag())
         },
 
-        onCreatingUserProfileFinishCommitted: () => {
-            dispatch(updateAuthUserProfileFromCreatingUserProfile())
+        onCreatingUserProfileFinishCommitted: (values) => {
+            dispatch(updateAuthUserProfileFromCreatingUserProfile(values))
         },
 
         onUserStatusChangeRequest: (userId) => {
@@ -97,8 +92,8 @@ const mapDispatchToProps = (dispatch, props) => {
         onChangeCreatingUserStatus: (creatingUserStatus) => {
             dispatch(actionsUserStatus.setCreatingUserStatus(creatingUserStatus))
         },
-        onCreatingUserStatusFinishCommitted: () => {
-            dispatch(updateUserStatusFromCreatingUserStatus());
+        onCreatingUserStatusFinishCommitted: (values) => {
+            dispatch(updateUserStatusFromCreatingUserStatus(values));
         }
     }
 };

@@ -26,12 +26,6 @@ export const types = {
 
     COPY_CONTACT_TO_CREATING_CONTACT: 'NETWORK/PROFILE_PAGE/COPY_CONTACT_TO_CREATING_CONTACT',
 
-
-    // SET_USER_NAME: 'NETWORK/PROFILE_PAGE/SET_USER_NAME',
-    SET_USER_BIRTH_DATE: 'NETWORK/PROFILE_PAGE/SET_USER_BIRTH_DATE',
-    SET_USER_CITY: 'NETWORK/PROFILE_PAGE/SET_USER_CITY',
-    SET_USER_EDUCATION: 'NETWORK/PROFILE_PAGE/SET_USER_EDUCATION',
-    SET_USER_WEBSITE: 'NETWORK/PROFILE_PAGE/SET_USER_WEBSITE',
     ADD_POST: 'NETWORK/PROFILE_PAGE/ADD_POST',
     SET_CREATING_POST: 'NETORK/PROFILE_PAGE/SET_CREATING_POST',
     INCREMENT_POST_LIKE_COUNT: 'NETWORK/PROFILE_PAGE/INCREMENT_POST_LIKE_COUNT',
@@ -81,11 +75,6 @@ export const actions = {
         type: types.SET_USER_PROFILE_UPDATING_PROCESS_ERROR_MESSAGE,
         processErrorMessage
     }),
-
-    setUserBirthDate: (userBirthDate) => ({type: types.SET_USER_BIRTH_DATE, userBirthDate}),
-    setUserCity: (userCity) => ({type: types.SET_USER_CITY, userCity}),
-    setUserEducation: (userEducation) => ({type: types.SET_USER_EDUCATION, userEducation}),
-    setUserWebSite: (userWebSite) => ({type: types.SET_USER_WEBSITE, userWebSite}),
     addPost: (message, messageId) => ({type: types.ADD_POST, message, messageId}),
     setCreatingPost: (message) => ({type: types.SET_CREATING_POST, message}),
     incrementPostLikeCount: (messageId) => ({type: types.INCREMENT_POST_LIKE_COUNT, messageId}),
@@ -95,12 +84,6 @@ export const actions = {
 //-------
 const FormInitialState = () => {
     let formingState = {
-        userInfo: {
-            userBirthDate: '',
-            userCity: '',
-            userEducation: '',
-            userWebSite: ''
-        },
         userProfile: {
             aboutMe: '<about me>',
             contacts: {
@@ -122,19 +105,6 @@ const FormInitialState = () => {
             fullName: '',
             userId: ''
         },
-        // creatingUserProfile_aboutMe: null,
-        // creatingUserProfile_skype: null,
-        //  creatingUserProfile_vk: null,
-        //  creatingUserProfile_facebook: null,
-        //  creatingUserProfile_icq: null,
-        //  creatingUserProfile_email: null,
-        //  creatingUserProfile_googlePlus: null,
-        //  creatingUserProfile_twitter: null,
-        //  creatingUserProfile_instagram: null,
-        //  creatingUserProfile_whatsApp: null,
-        // creatingUserProfile_lookingForAJob: null,
-        // creatingUserProfile_lookingForAJobDescription: null,
-        // creatingUserProfile_fullName: null,
 
         userProfileUpdatingProfile: userProfileUpdatingProcessProfile.READY,
         userProfileUpdatingProcessError: userProfileUpdatingProcessResults.SUCCESS,
@@ -165,10 +135,12 @@ const FormInitialState = () => {
     }////
      //---
     {////
-        formingState =  {...formingState, 
-                            creatingUserProfile_aboutMe: null,
-                            creatingUserProfile_lookingForAJobDescription: null,
-                            creatingUserProfile_fullName: null};
+        formingState = {
+            ...formingState,
+            creatingUserProfile_aboutMe: null,
+            creatingUserProfile_lookingForAJobDescription: null,
+            creatingUserProfile_fullName: null
+        };
     }////
     //---
     return formingState;
@@ -181,7 +153,6 @@ export const reducer = (state = initialState, action) => {
     //----
     const newState = {
         ...state,
-        userInfo: {...state.userInfo},
         wall: {
             ...state.wall,
             messagesList: state.wall.messagesList.map(obj => ({...obj}))
@@ -323,34 +294,8 @@ export const reducer = (state = initialState, action) => {
                 creating_fullName: state.userProfile.fullName
             };
 
-
         case
-        types.SET_USER_BIRTH_DATE
-        :
-            newState.userInfo.userBirthDate = action.userBirthDate;
-            return newState;
-
-        case
-        types.SET_USER_CITY
-        :
-            newState.userInfo.userCity = action.userCity;
-            return newState;
-
-        case
-        types.SET_USER_EDUCATION
-        :
-            newState.userInfo.userEducation = action.userEducation;
-            return newState;
-
-        case
-        types.SET_USER_WEBSITE
-        :
-            newState.userInfo.userWebSite = action.userWebSite;
-            return newState;
-
-        case
-        types.ADD_POST
-        :
+        types.ADD_POST:
             newState.wall.messagesList = [...newState.wall.messagesList,
                 {
                     text: action.message,
@@ -360,15 +305,13 @@ export const reducer = (state = initialState, action) => {
             return newState;
 
         case
-        types.SET_CREATING_POST
-        :
+        types.SET_CREATING_POST:
 
             newState.wall.creatingMessage = action.message;
             return newState;
 
         case
-        types.INCREMENT_POST_LIKE_COUNT
-        :
+        types.INCREMENT_POST_LIKE_COUNT:
             let filteredMessages = newState.wall.messagesList.filter((el) => {
                 return action.messageId === el.messageId;
             });
@@ -377,8 +320,7 @@ export const reducer = (state = initialState, action) => {
             return newState;
 
         case
-        types.ADD_CREATING_MESSAGE_AS_POST
-        :
+        types.ADD_CREATING_MESSAGE_AS_POST:
 
             newState.wall.messagesList = [...newState.wall.messagesList,
                 {

@@ -1,16 +1,17 @@
 import React from 'react';
 import './UserInfoSection.css';
-import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
 import AboutMeForm from "../../containers/AboutMeForm/AboutMeForm";
-import Field from "redux-form/es/Field";
+import StatusForm from "../../containers/StatusForm/StatusForm";
 
 
 let UserInfoSection = (props) => {
     const {handleSubmit} = props;
     const submit = (values) => {
-
         props.onCreatingUserProfileFinishCommitted(values);
+    };
+    const submitStatus = (values) => {
+        props.onCreatingUserStatusFinishCommitted(values);
     };
 
     return (
@@ -25,26 +26,14 @@ let UserInfoSection = (props) => {
                          <span className="status-block__status-title">
                              Status:
                          </span>
-                        {(props.creatingUserStatus === null) ?
+                        {
+                            (props.creatingUserStatus === null) ?
                             <div className="user_status__text"
                                  onClick={props.isOwner && props.onUserStatusChangeRequest}>
                                 {props.status}
                             </div> :
-                            <div className="user-status__form">
-                                <input className="user-status__input" placeholder='change status'
-                                       value={props.creatingUserStatus}
-                                       onChange={
-                                           (e) => {
-                                               props.onChangeCreatingUserStatus(e.currentTarget.value)
-                                           }
-                                       }/>
-                                <button className="user-status__button"
-                                        onClick={(e) => {
-                                            props.onCreatingUserStatusFinishCommitted();
-                                        }}>
-                                    add
-                                </button>
-                            </div>}
+                            <StatusForm onSubmit={submitStatus} {...props}/>
+                        }
                     </div>
                 </div>
                 <div className="contacts-block__about-me">
@@ -53,11 +42,11 @@ let UserInfoSection = (props) => {
                     </label>
                     {
                         (props.creatingUserProfile_aboutMe === null) ?
-                            <div className="contacts-block__text-about-me"
-                                 onClick={() => props.isOwner && props.onAboutMeChangeRequest(props.isOwner)}>
-                                {props.userProfile.aboutMe ? props.userProfile.aboutMe : '-----'}
-                            </div> :
-                            <AboutMeForm onSubmit={submit} {...props}/>
+                        <div className="contacts-block__text-about-me"
+                             onClick={() => props.isOwner && props.onAboutMeChangeRequest(props.isOwner)}>
+                            {props.userProfile.aboutMe ? props.userProfile.aboutMe : '-----'}
+                        </div> :
+                        <AboutMeForm onSubmit={submit} {...props}/>
                     }
                 </div>
 
@@ -119,7 +108,6 @@ let UserInfoSection = (props) => {
                         (props.creatingUserProfile_lookingForAJobDescription === null) ?
                             <div className="contacts-block__text"
                                  onClick={() => props.onLookingForAJobDescriptionChangeRequest(props.isOwner)}>
-                                {/*onClick={props.onLookingForAJobDescriptionChangeRequest}*/}
                                 {props.userProfile.lookingForAJobDescription}
                             </div> :
                             <div className="description-job__form">

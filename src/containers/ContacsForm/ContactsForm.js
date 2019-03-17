@@ -5,32 +5,8 @@ import Field from "redux-form/es/Field";
 
 
 let ContactsForm = (props) => {
-    debugger
   return (
-          <form onSubmit={props.handleSubmit} className="contacts-block__form">
-                  <Field
-                      name={props.contact}
-                      component="input"
-                      type="text"
-                      className="contacts-block__input" placeholder={key}
-
-                      // value={creatingUserProfileContactValue}
-                      // onChange={
-                      //     (e) => {
-                      //         props.onChangeCreatingContacts(e.currentTarget.value, key)
-                      //     }
-                      // }
-                  />
-                  <button type="submit"  className="contacts-block__button"
-                      // onClick={
-                      //     (e) => {
-                      //         props.onCreatingUserProfileFinishCommitted({})
-                      //     }
-                      // }
-                  >
-                      ok
-                  </button>
-          </form>
+         <></>
   )
 };
 
