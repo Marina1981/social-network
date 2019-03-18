@@ -1,4 +1,4 @@
-import {actions as actionsAuth, getAuthUsersId, getUsersId} from "./authRedux";
+import {actions as actionsAuth, getAuthUsersIdSelector, getUsersId} from "./authRedux";
 import axios, {userStatusUpdatingProcessStatuses} from "../../dal/axios-instance";
 import {
     userProfileUpdatingProcessProfile, userProfileUpdatingProcessResults,
@@ -337,7 +337,7 @@ export const reducer = (state = initialState, action) => {
 
 //----
 //----Selectors-------//
-export const getCreatingUserProfile = (globalState) => {
+export const getCreatingUserProfileSelector = (globalState) => {
 
     const creatingUserProfile = {
         aboutMe: globalState.profilePage.creatingUserProfile_aboutMe !== null ?
@@ -390,7 +390,7 @@ export const getCreatingUserProfile = (globalState) => {
 //-----ThanksCreators----//
 export const setReceivedServerUserProfile = (userId) => (dispatch, getState) => {
     const globalState = getState();
-    userId = userId ? userId : getAuthUsersId(globalState);
+    userId = userId ? userId : getAuthUsersIdSelector(globalState);
     axios.get('profile/' + userId)
         .then(result => {
             dispatch(actions.setUserProfile(result.data))
@@ -400,7 +400,7 @@ export const setReceivedServerUserProfile = (userId) => (dispatch, getState) => 
 
 export const setReceivedServerAuthUserProfile = () => (dispatch, getState) => {
     const globalState = getState();
-    let authUserId = getAuthUsersId(globalState);
+    let authUserId = getAuthUsersIdSelector(globalState);
     axios.get('profile/' + authUserId)
         .then(result => {
             dispatch(actionsAuth.setUserAvatar(result.data.photos.large))
@@ -411,7 +411,7 @@ export const setReceivedServerAuthUserProfile = () => (dispatch, getState) => {
 export const updateAuthUserProfileFromCreatingUserProfile = (userProfileValues) => (dispatch, getState) => {
 
     const globalState = getState();
-    const userProfile = getCreatingUserProfile(globalState);
+    const userProfile = getCreatingUserProfileSelector(globalState);
     let newProfile = {...userProfile, ...userProfileValues};
     dispatch(actions.setUserProfileUpdatingProcessStatus(userProfileUpdatingProcessProfile.IN_PROGRESS));
 
@@ -419,7 +419,7 @@ export const updateAuthUserProfileFromCreatingUserProfile = (userProfileValues) 
         .then(result => {
             if (result.data.resultCode === 0) {
 
-                const userId = getAuthUsersId(globalState);
+                const userId = getAuthUsersIdSelector(globalState);
                 axios.get('profile/' + userId)
                     .then(result => {
                         dispatch(actions.setUserProfileUpdatingProcessStatus(userProfileUpdatingProcessProfile.READY));

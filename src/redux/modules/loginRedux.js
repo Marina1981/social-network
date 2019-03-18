@@ -4,7 +4,7 @@ import {
     userProfileUpdatingProcessProfile
 } from "../../dal/axios-instance";
 import axios from "../../dal/axios-instance";
-import {actions as actionsAuth, getAuthUsersId} from "./authRedux";
+import {actions as actionsAuth, getAuthUsersIdSelector} from "./authRedux";
 import {actions as actionUsers} from "./usersRedux";
 import {setReceivedServerUserProfile} from "./profileRedux";
 import {setReceivedServerUserStatus} from "./userStatusRedux";

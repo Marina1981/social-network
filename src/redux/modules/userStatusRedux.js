@@ -2,7 +2,7 @@ import {
     userStatusUpdatingProcessResults,
     userStatusUpdatingProcessStatuses
 } from "../../dal/axios-instance";
-import {getAuthUsersId, getUsersId} from "./authRedux";
+import {getAuthUsersIdSelector, getUsersId} from "./authRedux";
 import axios from "../../dal/axios-instance";
 
 export const types = {
@@ -96,12 +96,12 @@ export const reducer = (state = initialState, action) => {
 };
 
 //----Selectors-------//
-export const getCreatingUserStatus = (globalState) => globalState.userStatusBlock.creatingUserStatus;
+export const getCreatingUserStatusSelector = (globalState) => globalState.userStatusBlock.creatingUserStatus;
 
 //-----ThanksCreators----//
 export const setReceivedServerUserStatus = (userId) => (dispatch, getState) => {
     const globalState = getState();
-    userId = userId ? userId : getAuthUsersId(globalState);
+    userId = userId ? userId : getAuthUsersIdSelector(globalState);
     // const userId = getUsersId(globalState);
 
     axios.get('profile/status/' + userId)
@@ -113,7 +113,7 @@ export const setReceivedServerUserStatus = (userId) => (dispatch, getState) => {
 //---
 export const updateUserStatusFromCreatingUserStatus = (userId) => (dispatch, getState) => {
     const globalState = getState();
-    const status = getCreatingUserStatus(globalState);
+    const status = getCreatingUserStatusSelector(globalState);
 
     dispatch(actions.setUserStatusUpdatingProcessStatus(userStatusUpdatingProcessStatuses.IN_PROGRESS));
 
@@ -122,7 +122,7 @@ export const updateUserStatusFromCreatingUserStatus = (userId) => (dispatch, get
             if (result.data.resultCode === 0) {
 
                 // const userId = getUsersId(globalState);
-                const userId = userId ? userId : getAuthUsersId(globalState);
+                const userId = userId ? userId : getAuthUsersIdSelector(globalState);
 
                 axios.get('profile/status/' + userId)
                     .then(result => {

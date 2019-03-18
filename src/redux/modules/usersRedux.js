@@ -59,7 +59,7 @@ export const reducer = (state = initialState, action) => {
     }
 };
 //-----Selectors-------//
-export const getPageSize = (globalState) => {
+export const getPageSizeSelector = (globalState) => {
 
     const {pageSize, pageNumber, totalCount} = globalState.usersPage;
     return totalCount > (pageSize - 1) * pageNumber;
@@ -67,7 +67,7 @@ export const getPageSize = (globalState) => {
 //---
 export const getUsersId = (globalState) => globalState.usersPage.usersList.id;
 //---
-export const getUsersFilteredByNameSubstring = (globalState, substring) => {
+export const getUsersFilteredByNameSubstringSelector = (globalState, substring) => {
 
     let filteredData = globalState.usersPage.usersList;
 

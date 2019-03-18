@@ -3,8 +3,8 @@ import connect from "react-redux/es/connect/connect";
 import UsersSection from "../../components/UsersSection/UsersSection";
 import {
     actions as actionUsers,
-    getPageSize,
-    getUsersFilteredByNameSubstring,
+    getPageSizeSelector,
+    getUsersFilteredByNameSubstringSelector,
     setReceivedServerUsers
 } from "../../redux/modules/usersRedux";
 import withRouter from "react-router/es/withRouter";
@@ -34,9 +34,9 @@ const mapStateToProps = (state) => {
     return{
         isAuth:          state.auth.userAuthData.userId !== null, // true / false
        // usersList:       state.usersPage.usersList,
-        usersList:       getUsersFilteredByNameSubstring(state, state.usersPage.filterSubstring),
+        usersList:       getUsersFilteredByNameSubstringSelector(state, state.usersPage.filterSubstring),
         pageNumber:      state.usersPage.pageNumber,
-        hasNextpageFlag: getPageSize(state),
+        hasNextpageFlag: getPageSizeSelector(state),
 
         userInfo:         state.profilePage.userInfo
     }

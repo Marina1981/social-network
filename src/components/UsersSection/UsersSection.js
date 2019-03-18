@@ -4,7 +4,7 @@ import {Redirect} from "react-router";
 import NavLink from "react-router-dom/es/NavLink";
 import {userStatusUpdatingProcessStatuses} from "../../dal/axios-instance";
 import Loading from "../Loading/Loading";
-import {getUsersFilteredByNameSubstring} from "../../redux/modules/usersRedux";
+import {getUsersFilteredByNameSubstringSelector} from "../../redux/modules/usersRedux";
 
 
 const UserSection = (props) => {
