@@ -27,21 +27,17 @@ class UserInfoSectionContainer extends React.Component {
 const mapStateToProps = (state) => {
 
     return {
-        isAuth:             state.auth.userAuthData.userId !== null, // true / false
-        authUserId:         state.auth.userAuthData.userId,
-        // userPicURL:    state.profilePage.userInfo.userPicURL,
-        userName:           state.auth.userAuthData.userLogin,
-        userInfo:           state.profilePage.userInfo,
-        userProfile:        state.profilePage.userProfile,
-
-        status:             state.userStatusBlock.userStatus,
-        creatingUserStatus: state.userStatusBlock.creatingUserStatus,
-
-        profilePage:        state.profilePage,
-        creatingUserProfile_aboutMe:        state.profilePage.creatingUserProfile_aboutMe,
+        isAuth:                      state.auth.userAuthData.userId !== null, // true / false
+        authUserId:                  state.auth.userAuthData.userId,
+        userName:                    state.auth.userAuthData.userLogin,
+        userProfile:                 state.profilePage.userProfile,
+        status:                      state.userStatusBlock.userStatus,
+        creatingUserStatus:          state.userStatusBlock.creatingUserStatus,
+        profilePage:                 state.profilePage,
+        creatingUserProfile_aboutMe: state.profilePage.creatingUserProfile_aboutMe,
 
         creatingUserProfile_lookingForAJobDescription:  state.profilePage.creatingUserProfile_lookingForAJobDescription,
-        isOwner: isUserProfileOwner(state)
+        isOwner:                     isUserProfileOwner(state)
     }
 };
 
@@ -66,9 +62,6 @@ const mapDispatchToProps = (dispatch, props) => {
         onChangeCreatingContacts: (text, key) => {
             dispatch(actionsProfile.setCreatingContact(text, key))
         },
-
-
-
 
         onLookingForAJobDescriptionChangeRequest: () => {
             dispatch(actionsProfile.copyDescriptionToCreatingDescription(true))

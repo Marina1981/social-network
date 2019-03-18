@@ -18,15 +18,27 @@
     /* max-height: 55rem; */
 }
 
-.userLabel {
+.searchBlock {
     margin-top: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: "Arial Narrow";
-    font-size: 2rem;
-    color: #0fc19e;
+}
 
+.search{
+    width: 25rem;
+    height: 2rem;
+    border: none;
+    background-color: #4e514e;
+    font-size: 1.4rem;
+    font-family: "Arial Narrow";
+    color: white;
+    text-align: center;
+    border-radius: 1rem;
+    outline:none;
+}
+.search:hover{
+    cursor: pointer;
 }
 
 .usersList {

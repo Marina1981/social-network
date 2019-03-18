@@ -1,7 +1,12 @@
 import React from 'react';
 import connect from "react-redux/es/connect/connect";
 import UsersSection from "../../components/UsersSection/UsersSection";
-import {actions as actionUsers, getPageSize, setReceivedServerUsers} from "../../redux/modules/usersRedux";
+import {
+    actions as actionUsers,
+    getPageSize,
+    getUsersFilteredByNameSubstring,
+    setReceivedServerUsers
+} from "../../redux/modules/usersRedux";
 import withRouter from "react-router/es/withRouter";
 
 
@@ -28,7 +33,8 @@ class UsersSectionContainer extends React.Component {
 const mapStateToProps = (state) => {
     return{
         isAuth:          state.auth.userAuthData.userId !== null, // true / false
-        usersList:       state.usersPage.usersList,
+       // usersList:       state.usersPage.usersList,
+        usersList:       getUsersFilteredByNameSubstring(state, state.usersPage.filterSubstring),
         pageNumber:      state.usersPage.pageNumber,
         hasNextpageFlag: getPageSize(state),
 
@@ -41,6 +47,9 @@ const mapDispatchToProps = (dispatch) => ({
     },
     clearUsersList: () => {
         dispatch(actionUsers.clearUsersList())
+    },
+    onChangeFilterByNameSubstring: (substring) => {
+        dispatch(actionUsers.setFilterSubstring(substring))
     }
 });
 
