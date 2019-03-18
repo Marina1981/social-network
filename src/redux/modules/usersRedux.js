@@ -10,7 +10,7 @@ export const types = {
 //----
 const initialState = {
     usersList: [],
-    pageSize: 3,
+    pageSize: 6,
     pageNumber: 1,
     totalCount: null,
     filterSubstring: null
