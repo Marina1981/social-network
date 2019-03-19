@@ -4,7 +4,7 @@ import {Redirect} from "react-router";
 import NavLink from "react-router-dom/es/NavLink";
 import {userStatusUpdatingProcessStatuses} from "../../dal/axios-instance";
 import Loading from "../Loading/Loading";
-import {getUsersFilteredByNameSubstringSelector} from "../../redux/modules/usersRedux";
+
 
 
 const UserSection = (props) => {
@@ -19,7 +19,10 @@ const UserSection = (props) => {
             {userStatusUpdatingProcessStatuses.READY ?
                 <>
                     <div className={style.searchBlock}>
-                        <input className={style.search} placeholder="search" size='20'
+                        <input className={style.search}
+                               placeholder="search"
+                               size='20'
+                               value={props.filterSubstring}
                                onChange={(e) => {
                                   props.onChangeFilterByNameSubstring(e.currentTarget.value)
                                  }}/>

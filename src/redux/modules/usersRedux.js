@@ -59,14 +59,17 @@ export const reducer = (state = initialState, action) => {
     }
 };
 //-----Selectors-------//
-export const getPageSizeSelector = (globalState) => {
 
+export const getPageSizeSelector = (globalState) => {
     const {pageSize, pageNumber, totalCount} = globalState.usersPage;
     return totalCount > (pageSize - 1) * pageNumber;
 };
 //---
+
 export const getUsersId = (globalState) => globalState.usersPage.usersList.id;
+
 //---
+
 export const getUsersFilteredByNameSubstringSelector = (globalState, substring) => {
 
     let filteredData = globalState.usersPage.usersList;
@@ -79,13 +82,14 @@ export const getUsersFilteredByNameSubstringSelector = (globalState, substring) 
 
     return filteredData;
 };
+
 //---
 
 //---ThanksCreators----//
 export const setReceivedServerUsers = () => (dispatch, getState) => {
 
     const globalState = getState();
-    const {pageSize = 3, pageNumber = 1} = globalState.usersPage;   //destructuring
+    const {pageSize = 6, pageNumber = 1} = globalState.usersPage;   //destructuring
 
     axios.get(`users?count=${pageSize}&page=${pageNumber}`)
         .then(result => {
