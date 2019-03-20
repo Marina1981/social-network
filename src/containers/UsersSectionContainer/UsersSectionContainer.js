@@ -5,7 +5,7 @@ import {
     actions as actionUsers,
     getPageSizeSelector,
     getUsersFilteredByNameSubstringSelector,
-    setReceivedServerUsers
+    setReceivedServerUsers, setReceivedServerUsersAll, setReceivedServerUsersFiltered
 } from "../../redux/modules/usersRedux";
 import withRouter from "react-router/es/withRouter";
 
@@ -21,6 +21,10 @@ class UsersSectionContainer extends React.Component {
         }
     }
 
+    // componentWillMount() {
+    //     this.props.getUsersFromServerFiltered();
+    // }
+
     //---
     render() {
         return <UsersSection {...this.props} />
@@ -32,11 +36,14 @@ class UsersSectionContainer extends React.Component {
 //----
 const mapStateToProps = (state) => {
     return{
-        isAuth:          state.auth.userAuthData.userId !== null, // true / false
-        usersList:       getUsersFilteredByNameSubstringSelector(state, state.usersPage.filterSubstring),
-        pageNumber:      state.usersPage.pageNumber,
-        hasNextpageFlag: getPageSizeSelector(state),
-        filterSubstring: state.usersPage.filterSubstring
+        isAuth:             state.auth.userAuthData.userId !== null, // true / false
+        usersList:          getUsersFilteredByNameSubstringSelector(state, state.usersPage.filterSubstring),
+        filteredUsersList:  state.usersPage.filteredUsersList,
+        pageNumber:         state.usersPage.pageNumber,
+        hasNextpageFlag:    getPageSizeSelector(state),
+        filterSubstring:    state.usersPage.filterSubstring,
+        isAllUsersReceived: state.usersPage.isAllUsersReceived,
+        totalCount:         state.usersPage.totalCount
     }
 };
 const mapDispatchToProps = (dispatch) => ({
@@ -47,8 +54,15 @@ const mapDispatchToProps = (dispatch) => ({
         dispatch(actionUsers.clearUsersList())
     },
     onChangeFilterByNameSubstring: (substring) => {
-        dispatch(actionUsers.setFilterSubstring(substring))
-    }
+        dispatch(actionUsers.setFilterSubstring(substring));
+        dispatch(setReceivedServerUsersFiltered())
+    },
+    getUsersFromServerFiltered: (totalCount) => {
+        dispatch(setReceivedServerUsersAll(totalCount))
+    },
+    // onSearchChange: () => {
+    //     dispatch(setReceivedServerUsersFiltered())
+    // }
 });
 
 //----
