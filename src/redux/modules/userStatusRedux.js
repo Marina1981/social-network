@@ -1,9 +1,7 @@
-import {
-    userStatusUpdatingProcessResults,
-    userStatusUpdatingProcessStatuses
-} from "../../dal/axios-instance";
+
 import {getAuthUsersIdSelector, getUsersId} from "./authRedux";
 import axios from "../../dal/axios-instance";
+import {userStatusUpdatingProcessResults, userStatusUpdatingProcessStatuses} from "../statusСonstants/statusConstants";
 
 export const types = {
     SET_USER_STATUS: 'NETWORK/USER_STATUS_BLOCK/SET_USER_STATUS',

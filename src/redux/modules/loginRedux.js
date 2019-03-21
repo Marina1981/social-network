@@ -1,13 +1,10 @@
-import {
-    loginingProcessResults,
-    loginingProcessStatuses,
-    userProfileUpdatingProcessProfile
-} from "../../dal/axios-instance";
+
 import axios from "../../dal/axios-instance";
 import {actions as actionsAuth, getAuthUsersIdSelector} from "./authRedux";
 import {actions as actionUsers} from "./usersRedux";
 import {setReceivedServerUserProfile} from "./profileRedux";
 import {setReceivedServerUserStatus} from "./userStatusRedux";
+import {loginingProcessResults, loginingProcessStatuses} from "../statusСonstants/statusConstants";
 
 
 export const types = {

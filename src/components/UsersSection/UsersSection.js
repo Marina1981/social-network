@@ -53,6 +53,10 @@ class UserSection extends React.Component {
                                 //      }
                             />
                         </div>
+
+                        <div className={style.errorMessage}>
+                            Nothing found by request
+                        </div>
                         {this.props.usersList.map((user) => {
                             return (
                                 <div className={style.usersList}>

@@ -127,3 +127,13 @@
     outline: none;
     margin: 1rem 2rem;
 }
+
+.errorMessage{
+    display: block;
+    width: 6rem;
+    height: 3rem;
+    font-family:  "Arial Narrow";
+    font-size: 1rem;
+    background: #0fc19e;
+    color: white;
+}

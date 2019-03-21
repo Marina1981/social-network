@@ -1,8 +1,7 @@
 import {actions as actionsAuth, getAuthUsersIdSelector, getUsersId} from "./authRedux";
-import axios, {userStatusUpdatingProcessStatuses} from "../../dal/axios-instance";
-import {
-    userProfileUpdatingProcessProfile, userProfileUpdatingProcessResults,
-} from "../../dal/axios-instance";
+import axios from "../../dal/axios-instance";
+import {userProfileUpdatingProcessProfile, userProfileUpdatingProcessResults} from "../statusСonstants/statusConstants";
+
 
 
 export const types = {
