@@ -37,12 +37,13 @@ class UsersSectionContainer extends React.Component {
 const mapStateToProps = (state) => {
     return{
         isAuth:             state.auth.userAuthData.userId !== null, // true / false
-        usersList:          getUsersFilteredByNameSubstringSelector(state, state.usersPage.filterSubstring),
-        filteredUsersList:  state.usersPage.filteredUsersList,
+        // usersList:          getUsersFilteredByNameSubstringSelector(state, state.usersPage.filterSubstring),
+        usersList:          state.usersPage.usersList,
+        // filteredUsersList:  state.usersPage.filteredUsersList,
         pageNumber:         state.usersPage.pageNumber,
         hasNextpageFlag:    getPageSizeSelector(state),
         filterSubstring:    state.usersPage.filterSubstring,
-        isAllUsersReceived: state.usersPage.isAllUsersReceived,
+        // isAllUsersReceived: state.usersPage.isAllUsersReceived,
         totalCount:         state.usersPage.totalCount
     }
 };

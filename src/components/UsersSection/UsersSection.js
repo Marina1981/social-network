@@ -4,31 +4,31 @@ import {Redirect} from "react-router";
 import NavLink from "react-router-dom/es/NavLink";
 import {userStatusUpdatingProcessStatuses} from "../../dal/axios-instance";
 import Loading from "../Loading/Loading";
-import Field from "redux-form/es/Field";
 
 
 class UserSection extends React.Component {
 
     constructor(props) {
-       super(props);
-       this.state = {filterSubstring: '',};
-       this. _filterTimeoutId = null;
-       // this.onSearchChange = this.onSearchChange.bind(this);
+        super(props);
+        this.state = {filterSubstring: '',};
+        this._filterTimeoutId = null;
+        this.onSearchChange = this.onSearchChange.bind(this);
     }
 
-    // onSearchChange = (e) => {
-    //     if (!this.props.isAllUsersReceived) {
-    //         this.props.getUsersFromServerFiltered(this.props.totalCount);
-    //     }
-    //
-    //     let substring = e.target.value;
-    //     this.setState({filterSubstring: substring});
-    //     clearTimeout(this._filterTimeoutId);
-    //
-    //     this._filterTimeoutId = setTimeout(() => {
-    //         this.props.onChangeFilterByNameSubstring(substring)
-    //     }, 2000)
-    // };
+    onSearchChange = (e) => {
+        // if (!this.props.isAllUsersReceived) {
+        //     this.props.getUsersFromServerFiltered(this.props.totalCount);
+        // }
+
+
+        let substring = e.target.value;
+        this.setState({filterSubstring: substring});
+        clearTimeout(this._filterTimeoutId);
+
+        this._filterTimeoutId = setTimeout(() => {
+            this.props.onChangeFilterByNameSubstring(substring)
+        }, 3000)
+    };
 
     //---
     render() {
@@ -42,18 +42,18 @@ class UserSection extends React.Component {
                     <>
                         <div className={style.searchBlock}>
                             <input className={style.search}
-                                   placeholder="search"
+                                   placeholder={"search"}
                                    size='20'
-                                   value={this.props.filterSubstring}
-                                   // onChange={this.props.onSearchChange}
-                                   onChange={
-                                           (e) => {
-                                               this.props.onChangeFilterByNameSubstring(e.currentTarget.value)
-                                            }
-                                        }
+                                   value={this.state.filterSubstring}
+                                   onChange={this.onSearchChange}
+                                // onChange={
+                                //         (e) => {
+                                //             this.props.onChangeFilterByNameSubstring(e.currentTarget.value)
+                                //          }
+                                //      }
                             />
                         </div>
-                        {this.props.filteredUsersList.map((user) => {
+                        {this.props.usersList.map((user) => {
                             return (
                                 <div className={style.usersList}>
                                     <NavLink to={'profile/users/' + user.id} className={style.usersName}>

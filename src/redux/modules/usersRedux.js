@@ -6,19 +6,19 @@ export const types = {
     INCREMENT_CURRENT_PAGE:     'NETWORK/USERS/INCREMENT_CURRENT_PAGE',
     CLEAR_USERS_LIST:           'NETWORK/USERS/CLEAR_USERS_LIST',
     SET_FILTER_SUBSTRING:       'NETWORK/USERS/SET_FILTER_SUBSTRING',
-    SET_ALL_USERS:              'NETWORK/USERS/SET_ALL_USERS',
+    // SET_ALL_USERS:              'NETWORK/USERS/SET_ALL_USERS',
     SET_FILTERED_USERS:         'NETWORK/USERS/SET_FILTERED_USERS'
 };
 
 //----
 const initialState = {
     usersList: [],
-    filteredUsersList: [],
+    // filteredUsersList: [],
     pageSize: 4,
     pageNumber: 1,
     totalCount: null,
     filterSubstring: '',
-    isAllUsersReceived: false
+    // isAllUsersReceived: false
 };
 //---- actionCreators--------//
 export const actions = {
@@ -26,7 +26,7 @@ export const actions = {
     incrementCurrentPage: (pageNumber)        => ({type: types.INCREMENT_CURRENT_PAGE, nextPage: pageNumber}),
     clearUsersList:       ()                  => ({type: types.CLEAR_USERS_LIST}),
     setFilterSubstring:   (substring)         => ({type: types.SET_FILTER_SUBSTRING, substring}),
-    setIsAllUsers:        ()                  => ({type: types.SET_ALL_USERS}),
+    // setIsAllUsers:        ()                  => ({type: types.SET_ALL_USERS}),
     setFilteredUsersList: (users)             => ({type: types.SET_FILTERED_USERS, users})
 };
 
@@ -43,7 +43,8 @@ export const reducer = (state = initialState, action) => {
         case types.SET_FILTERED_USERS:
             return {
                 ...state,
-                filteredUsersList: action.users
+                // filteredUsersList: action.users
+                usersList: action.users
             };
 
         case types.INCREMENT_CURRENT_PAGE:
@@ -66,8 +67,8 @@ export const reducer = (state = initialState, action) => {
                 filterSubstring: action.substring
             };
 
-        case types.SET_ALL_USERS:
-            return {...state,isAllUsersReceived:  !state.isAllUsersReceived};
+        // case types.SET_ALL_USERS:
+        //     return {...state,isAllUsersReceived:  !state.isAllUsersReceived};
 
         default:
             return state;
@@ -84,21 +85,21 @@ export const getPageSizeSelector = (globalState) => {
 export const getUsersId = (globalState) => globalState.usersPage.usersList.id;
 
 //---
+             //---   local filter selector  ---//
 
-export const getUsersFilteredByNameSubstringSelector = (globalState, substring) => {
+// export const getUsersFilteredByNameSubstringSelector = (globalState, substring) => {
+//
+//     let filteredData = globalState.usersPage.usersList;
+//
+//     if(substring !== null){
+//         filteredData = globalState.usersPage.usersList.filter((item) => {
+//             return item.name.toLowerCase().indexOf(substring) >= 0;
+//         });
+//     }
+//
+//     return filteredData;
+// };
 
-    let filteredData = globalState.usersPage.usersList;
-
-    if(substring !== null){
-        filteredData = globalState.usersPage.usersList.filter((item) => {
-            return item.name.toLowerCase().indexOf(substring) >= 0;
-        });
-    }
-
-    return filteredData;
-};
-
-//---
 //---
 
 //---ThanksCreators----//
@@ -122,7 +123,7 @@ export const setReceivedServerUsersAll = () => (dispatch, getState) => {
     axios.get(`users?count=${totalCount}`)
         .then(result => {
             dispatch(actions.setUsersList(result.data.items));
-            dispatch(actions.setIsAllUsers())
+            // dispatch(actions.setIsAllUsers())
         })
 };
 //---
@@ -133,6 +134,6 @@ export const setReceivedServerUsersAll = () => (dispatch, getState) => {
 
      axios.get(`users?term=${filterSubstring}`)
          .then(result => {
-           dispatch(actions.setFilteredUsersList(result.data.items))
+            dispatch(actions.setFilteredUsersList(result.data.items))
          })
  };
