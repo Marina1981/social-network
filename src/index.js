@@ -12,6 +12,7 @@ import {actions as actionsAuth} from "./redux/modules/authRedux";
 
 axios.get('auth/me').then(result => {
         if (result.data.resultCode === 0) {
+
             store.dispatch(actionsAuth.setUserAuthData(result.data.data.id, result.data.data.login, result.data.data.email));
         }
     ReactDOM.render(

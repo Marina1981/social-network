@@ -39,12 +39,14 @@ const mapStateToProps = (state) => {
         isAuth:             state.auth.userAuthData.userId !== null, // true / false
         // usersList:          getUsersFilteredByNameSubstringSelector(state, state.usersPage.filterSubstring),
         usersList:          state.usersPage.usersList,
-        // filteredUsersList:  state.usersPage.filteredUsersList,
+        //filteredUsersList:  state.usersPage.filteredUsersList,
         pageNumber:         state.usersPage.pageNumber,
         hasNextpageFlag:    getPageSizeSelector(state),
         filterSubstring:    state.usersPage.filterSubstring,
         // isAllUsersReceived: state.usersPage.isAllUsersReceived,
-        totalCount:         state.usersPage.totalCount
+        totalCount:         state.usersPage.totalCount,
+        filteredStatus:        state.usersPage.usersFilteredProcessError,
+        loginingErrorMessage:  state.usersPage.userStatusUpdatingErrorMessage,
     }
 };
 const mapDispatchToProps = (dispatch) => ({

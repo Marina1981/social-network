@@ -31,3 +31,9 @@ export const userProfileUpdatingProcessResults = {
     COMMON_ERROR:             'COMMON_ERROR',
     SUCCESS:                  'SUCCESS'
 };
+//----
+export const usersFilteredProcessResult = {
+    COMMON_ERROR:             'COMMON_ERROR',
+    SUCCESS:                  'SUCCESS'
+};
+//----

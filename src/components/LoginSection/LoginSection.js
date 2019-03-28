@@ -1,9 +1,9 @@
 import React from 'react';
 import './LoginSection.css';
 import Redirect from "react-router/es/Redirect";
-import {loginingProcessResults, loginingProcessStatuses} from "../../dal/axios-instance";
 import LoginForm from "../../containers/LoginForm/LoginForm";
 import Loading from "../Loading/Loading";
+import {loginingProcessResults, loginingProcessStatuses} from "../../redux/statusСonstants/statusConstants";
 
 
 let LoginSection = (props) => {

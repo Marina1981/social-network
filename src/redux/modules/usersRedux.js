@@ -1,4 +1,5 @@
 import axios from "../../dal/axios-instance";
+import {usersFilteredProcessResult, userStatusUpdatingProcessResults} from "../statusСonstants/statusConstants";
 
 
 export const types = {
@@ -8,6 +9,7 @@ export const types = {
     SET_FILTER_SUBSTRING: 'NETWORK/USERS/SET_FILTER_SUBSTRING',
     // SET_ALL_USERS:                            'NETWORK/USERS/SET_ALL_USERS',
     SET_FILTERED_USERS: 'NETWORK/USERS/SET_FILTERED_USERS',
+    SET_USERS_FILTERED_PROCESS_ERROR: 'NETWORK/USERS/SET_USERS_FILTERED_PROCESS_ERROR',
     SET_USERS_FILTERED_PROCESS_ERROR_MESSAGE: 'NETWORK/USERS/SET_USERS_FILTERED_PROCESS_ERROR_MESSAGE'
 };
 
@@ -19,6 +21,8 @@ const initialState = {
     totalCount: null,
     filterSubstring: '',
     // isAllUsersReceived: false
+    usersFilteredProcessError: usersFilteredProcessResult.SUCCESS,
+    userStatusUpdatingErrorMessage: ''
 };
 //---- actionCreators--------//
 export const actions = {
@@ -28,10 +32,14 @@ export const actions = {
     setFilterSubstring: (substring) => ({type: types.SET_FILTER_SUBSTRING, substring}),
     // setIsAllUsers:                    ()                  => ({type: types.SET_ALL_USERS}),
     setFilteredUsersList: (users) => ({type: types.SET_FILTERED_USERS, users}),
-    setUsersFilteredProcessErrorMessage: (processErrorMessage) => ({
-        type: types.SET_USER_PROFILE_UPDATING_PROCESS_ERROR_MESSAGE,
-        processErrorMessage
+    setUsersFilteredProcessError: (processError) => ({
+        type: types.SET_USERS_FILTERED_PROCESS_ERROR,
+        processError
     }),
+    setUsersFilteredProcessErrorMessage: (processErrorMessage) => ({
+        type: types.SET_USERS_FILTERED_PROCESS_ERROR_MESSAGE,
+        processErrorMessage
+    })
 };
 
 //---- reducer  ----//
@@ -77,7 +85,13 @@ export const reducer = (state = initialState, action) => {
         case types.SET_USERS_FILTERED_PROCESS_ERROR_MESSAGE:
             return {
                 ...state,
-                processErrorMessage: action.processErrorMessage
+                userStatusUpdatingErrorMessage: action.processErrorMessage
+            };
+
+        case types.SET_USERS_FILTERED_PROCESS_ERROR:
+            return {
+                ...state,
+                usersFilteredProcessError: action.processError
             };
 
         default:
@@ -144,10 +158,6 @@ export const setReceivedServerUsersFiltered = () => (dispatch, getState) => {
 
     axios.get(`users?term=${filterSubstring}`)
         .then(result => {
-            if (result.data.resultCode === 0) {
-                dispatch(actions.setFilteredUsersList(result.data.items))
-            } else {
-                dispatch(actions.setUsersFilteredProcessErrorMessage('nothing found by request'))
-            }
+            dispatch(actions.setFilteredUsersList(result.data.items))
         })
 };

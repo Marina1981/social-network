@@ -1,4 +1,4 @@
-import {actions as actionsAuth, getAuthUsersIdSelector, getUsersId} from "./authRedux";
+import {actions as actionsAuth, getAuthUsersIdSelector} from "./authRedux";
 import axios from "../../dal/axios-instance";
 import {userProfileUpdatingProcessProfile, userProfileUpdatingProcessResults} from "../statusСonstants/statusConstants";
 
@@ -13,7 +13,7 @@ export const types = {
     SET_CREATING_LOOKING_FOR_A_JOB_DESCRIPTION: 'NETWORK/PROFILE_PAGE/SET_CREATING_LOOKING_FOR_A_JOB_DESCRIPTION',
     SET_USER_PIC_URL: 'NETWORK/PROFILE_PAGE/SET_USER_PIC_URL',
 
-    SET_CREATING_FULLL_NAME: 'NETWORK/PROFILE_PAGE/SET_CREATING_FULL_NAME',
+    SET_CREATING_FULL_NAME: 'NETWORK/PROFILE_PAGE/SET_CREATING_FULL_NAME',
 
     SET_USER_PROFILE_UPDATING_PROCESS_STATUS: 'NETWORK/PROFILE_PAGE/SET_USER_PROFILE_UPDATING_PROCESS_STATUS',
     SET_USER_PROFILE_UPDATING_PROCESS_ERROR: 'NETWORK/PROFILE_PAGE/SET_USER_PROFILE_UPDATING_PROCESS_ERROR',
@@ -26,7 +26,7 @@ export const types = {
     COPY_CONTACT_TO_CREATING_CONTACT: 'NETWORK/PROFILE_PAGE/COPY_CONTACT_TO_CREATING_CONTACT',
 
     ADD_POST: 'NETWORK/PROFILE_PAGE/ADD_POST',
-    SET_CREATING_POST: 'NETORK/PROFILE_PAGE/SET_CREATING_POST',
+    SET_CREATING_POST: 'NETWORK/PROFILE_PAGE/SET_CREATING_POST',
     INCREMENT_POST_LIKE_COUNT: 'NETWORK/PROFILE_PAGE/INCREMENT_POST_LIKE_COUNT',
     ADD_CREATING_MESSAGE_AS_POST: 'NETWORK/PROFILE_PAGE/ADD_CREATING_MESSAGE_AS_POST'
 };
@@ -59,7 +59,7 @@ export const actions = {
 
     setUserPicUrl: (photos) => ({type: types.SET_USER_PIC_URL, photos}),
 
-    setCreatingFullName: (fullName) => ({type: types.SET_CREATING_FULLL_NAME, fullName}),
+    setCreatingFullName: (fullName) => ({type: types.SET_CREATING_FULL_NAME, fullName}),
     copyFullNameToCreatingFullName: () => ({type: types.COPY_FULLL_NAME_TO_CREATING_FULLL_NAME}),
 
     setUserProfileUpdatingProcessStatus: (processUserProfile) => ({
@@ -84,7 +84,7 @@ export const actions = {
 const FormInitialState = () => {
     let formingState = {
         userProfile: {
-            aboutMe: '<about me>',
+            aboutMe: '',
             contacts: {
                 facebook: '',
                 website: '',
@@ -101,7 +101,7 @@ const FormInitialState = () => {
                 large: null,
                 small: null
             },
-            fullName: '',
+            fullName: 'marina',
             userId: ''
         },
 
@@ -229,7 +229,7 @@ export const reducer = (state = initialState, action) => {
                 photos: action.photos
             };
 
-        case types.SET_CREATING_FULLL_NAME:
+        case types.SET_CREATING_FULL_NAME:
             return {
                 ...state,
                 creating_fullName: action.fullName
@@ -337,7 +337,6 @@ export const reducer = (state = initialState, action) => {
 //----
 //----Selectors-------//
 export const getCreatingUserProfileSelector = (globalState) => {
-
     const creatingUserProfile = {
         aboutMe: globalState.profilePage.creatingUserProfile_aboutMe !== null ?
             globalState.profilePage.creatingUserProfile_aboutMe :
@@ -382,7 +381,7 @@ export const getCreatingUserProfileSelector = (globalState) => {
 
         fullName: globalState.profilePage.creatingUserProfile_fullName !== null ?
             globalState.profilePage.creatingUserProfile_fullName :
-            globalState.profilePage.fullName
+            globalState.profilePage.userProfile.fullName
     };
     return creatingUserProfile;
 };
@@ -443,6 +442,7 @@ export const updateAuthUserProfileFromCreatingUserProfile = (userProfileValues) 
 };
 
 export const updateUserPic = (imgFile) => (dispatch) => {
+
     let formData = new FormData();
     formData.append('image', imgFile);
     axios.post('profile/photo', formData, {

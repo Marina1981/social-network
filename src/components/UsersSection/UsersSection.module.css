@@ -130,10 +130,11 @@
 
 .errorMessage{
     display: block;
-    width: 6rem;
+    width: 15rem;
     height: 3rem;
     font-family:  "Arial Narrow";
-    font-size: 1rem;
+    font-size: 1.5rem;
     background: #0fc19e;
     color: white;
+    text-align: center;
 }

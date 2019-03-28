@@ -2,8 +2,8 @@ import React from 'react';
 import style from "./UsersSection.module.css";
 import {Redirect} from "react-router";
 import NavLink from "react-router-dom/es/NavLink";
-import {userStatusUpdatingProcessStatuses} from "../../dal/axios-instance";
 import Loading from "../Loading/Loading";
+import {usersFilteredProcessResult} from "../../redux/statusСonstants/statusConstants";
 
 
 class UserSection extends React.Component {
@@ -38,7 +38,6 @@ class UserSection extends React.Component {
         //---
         return (
             <div className={style.usersListSection}>
-                {userStatusUpdatingProcessStatuses.READY ?
                     <>
                         <div className={style.searchBlock}>
                             <input className={style.search}
@@ -54,9 +53,11 @@ class UserSection extends React.Component {
                             />
                         </div>
 
-                        <div className={style.errorMessage}>
-                            Nothing found by request
-                        </div>
+                            {/*<div className={style.errorMessage}>*/}
+                                {/*Nothing found by request*/}
+                            {/*</div> : */}
+
+
                         {this.props.usersList.map((user) => {
                             return (
                                 <div className={style.usersList}>
@@ -83,8 +84,7 @@ class UserSection extends React.Component {
                                 Load more
                             </button>
                         }
-                    </> : <Loading/>
-                }
+                    </>
 
             </div>
         )

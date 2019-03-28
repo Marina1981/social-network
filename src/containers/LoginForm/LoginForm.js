@@ -1,7 +1,7 @@
 import React from 'react';
 import {reduxForm} from "redux-form";
-import {loginingProcessStatuses} from "../../dal/axios-instance";
 import Field from "redux-form/es/Field";
+import {loginingProcessStatuses} from "../../redux/statusСonstants/statusConstants";
 
 
 let LoginForm = (props) => {
