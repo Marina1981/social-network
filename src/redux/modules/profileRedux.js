@@ -21,14 +21,16 @@ export const types = {
 
     COPY_ABOUT_ME_TO_CREATING_ABOUT_ME: 'NETWORK/PROFILE_PAGE/COPY_ABOUT_ME_TO_CREATING_ABOUT_ME',
     COPY_LOOKING_FOR_A_JOB_DESCRIPTION_TO_CREATING_LOOKING_FOR_A_JOB_DESCRIPTION: 'NETWORK/PROFILE_PAGE/COPY_LOOKING_FOR_A_JOB_DESCRIPTION_TO_CREATING_LOOKING_FOR_A_JOB_DESCRIPTION',
-    COPY_FULLL_NAME_TO_CREATING_FULLL_NAME: 'NETWORK/PROFILE_PAGE/COPY_FULLL_NAME_TO_CREATING_FULLL_NAME',
+    COPY_FULL_NAME_TO_CREATING_FULL_NAME: 'NETWORK/PROFILE_PAGE/COPY_FULL_NAME_TO_CREATING_FULL_NAME',
 
     COPY_CONTACT_TO_CREATING_CONTACT: 'NETWORK/PROFILE_PAGE/COPY_CONTACT_TO_CREATING_CONTACT',
 
     ADD_POST: 'NETWORK/PROFILE_PAGE/ADD_POST',
     SET_CREATING_POST: 'NETWORK/PROFILE_PAGE/SET_CREATING_POST',
     INCREMENT_POST_LIKE_COUNT: 'NETWORK/PROFILE_PAGE/INCREMENT_POST_LIKE_COUNT',
-    ADD_CREATING_MESSAGE_AS_POST: 'NETWORK/PROFILE_PAGE/ADD_CREATING_MESSAGE_AS_POST'
+    ADD_CREATING_MESSAGE_AS_POST: 'NETWORK/PROFILE_PAGE/ADD_CREATING_MESSAGE_AS_POST',
+
+    GET_SUBSCRIPTION_TO_USER: 'NETWORK/PROFILE_PAGE/GET_SUBSCRIPTION_TO_USER'
 };
 
 
@@ -60,7 +62,7 @@ export const actions = {
     setUserPicUrl: (photos) => ({type: types.SET_USER_PIC_URL, photos}),
 
     setCreatingFullName: (fullName) => ({type: types.SET_CREATING_FULL_NAME, fullName}),
-    copyFullNameToCreatingFullName: () => ({type: types.COPY_FULLL_NAME_TO_CREATING_FULLL_NAME}),
+    copyFullNameToCreatingFullName: () => ({type: types.COPY_FULL_NAME_TO_CREATING_FULL_NAME}),
 
     setUserProfileUpdatingProcessStatus: (processUserProfile) => ({
         type: types.SET_USER_PROFILE_UPDATING_PROCESS_STATUS,
@@ -77,7 +79,8 @@ export const actions = {
     addPost: (message, messageId) => ({type: types.ADD_POST, message, messageId}),
     setCreatingPost: (message) => ({type: types.SET_CREATING_POST, message}),
     incrementPostLikeCount: (messageId) => ({type: types.INCREMENT_POST_LIKE_COUNT, messageId}),
-    addCreatingMessageAsPost: (messageId) => ({type: types.ADD_CREATING_MESSAGE_AS_POST, messageId})
+    addCreatingMessageAsPost: (messageId) => ({type: types.ADD_CREATING_MESSAGE_AS_POST, messageId}),
+    getSubscriptionToUser: (subscription) => ({type: types.GET_SUBSCRIPTION_TO_USER, subscription})
 };
 
 //-------
@@ -108,6 +111,9 @@ const FormInitialState = () => {
         userProfileUpdatingProfile: userProfileUpdatingProcessProfile.READY,
         userProfileUpdatingProcessError: userProfileUpdatingProcessResults.SUCCESS,
         userProfileUpdatingErrorMessage: '',
+
+        subscriptionToUser: false,
+
         wall: {
             messagesList: [],
             creatingMessage: ''
@@ -286,15 +292,13 @@ export const reducer = (state = initialState, action) => {
                 creatingUserProfile_lookingForAJobDescription: description
             };
 
-        case
-        types.COPY_FULLL_NAME_TO_CREATING_FULLL_NAME:
+        case types.COPY_FULL_NAME_TO_CREATING_FULL_NAME:
             return {
                 ...state,
                 creating_fullName: state.userProfile.fullName
             };
 
-        case
-        types.ADD_POST:
+        case types.ADD_POST:
             newState.wall.messagesList = [...newState.wall.messagesList,
                 {
                     text: action.message,
@@ -303,14 +307,12 @@ export const reducer = (state = initialState, action) => {
                 }];
             return newState;
 
-        case
-        types.SET_CREATING_POST:
+        case types.SET_CREATING_POST:
 
             newState.wall.creatingMessage = action.message;
             return newState;
 
-        case
-        types.INCREMENT_POST_LIKE_COUNT:
+        case types.INCREMENT_POST_LIKE_COUNT:
             let filteredMessages = newState.wall.messagesList.filter((el) => {
                 return action.messageId === el.messageId;
             });
@@ -318,8 +320,7 @@ export const reducer = (state = initialState, action) => {
 
             return newState;
 
-        case
-        types.ADD_CREATING_MESSAGE_AS_POST:
+        case types.ADD_CREATING_MESSAGE_AS_POST:
 
             newState.wall.messagesList = [...newState.wall.messagesList,
                 {
@@ -328,6 +329,12 @@ export const reducer = (state = initialState, action) => {
                     messageId: action.messageId
                 }];
             return newState;
+
+        case types.GET_SUBSCRIPTION_TO_USER:
+        {
+            newState.subscriptionToUser = true;
+            return newState;
+        }
 
         default:
             return state;

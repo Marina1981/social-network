@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    actions as profileActions,
+    actions as profileActions, isUserProfileOwner,
     updateUserPic,
     uploadUserPhoto
 } from "../../redux/modules/profileRedux";
@@ -33,7 +33,8 @@ const mapStateToProps = (state) => {
         selectedFriendId: state.dialogsPage.selectedFriendId,
         messagesList:     state.profilePage.wall.messagesList,
         creatingMessage:  state.profilePage.wall.creatingMessage,
-        userName:         state.profilePage.userProfile.fullName
+        userName:         state.profilePage.userProfile.fullName,
+        isOwner:          isUserProfileOwner(state)
     }
 };
 

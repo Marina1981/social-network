@@ -15,8 +15,7 @@ const DialogsSection = (props) => {
     let selectedFriendId = props.friendsChatLog[props.selectedFriendId];
     //---
     let idFromUrl = +props.match.params.friendId;
-    console.log(idFromUrl);
-    console.log(props.selectedFriendId);
+
 
     let unsyncState = (!props.selectedFriendId && !!idFromUrl) ||
         (!!props.selectedFriendId && !!idFromUrl && idFromUrl != props.selectedFriendId);

@@ -30,7 +30,7 @@ test('flag remember me set successfully', () => {
 test('loginingProcessStatuses set successfully', () => {
     let newState = reducer ({
         loginingStatus: null
-    }, {type: types.SET_LOGINING_PROCESS_STATUS, loginingStatus: loginingProcessStatuses.READY,});
+    }, {type: types.SET_LOGINNING_PROCESS_STATUS, loginingStatus: loginingProcessStatuses.READY,});
     expect(newState.loginingStatus).toBe(loginingProcessStatuses.READY);
 });
 
@@ -38,13 +38,13 @@ test('loginingProcessStatuses set successfully', () => {
 test('loginingProcessResults set successfully', () => {
     let newState = reducer ({
         loginingError: null
-    }, {type: types.SET_LOGINING_PROCESS_ERROR, loginingError: loginingProcessResults.SUCCESS,});
+    }, {type: types.SET_LOGINNING_PROCESS_ERROR, loginingError: loginingProcessResults.SUCCESS,});
     expect(newState.loginingStatus).toBe(loginingProcessResults.SUCCESS);
 });
 //------------//
 test('loginingProcessErrorMessage set successfully', () => {
     let newState = reducer ({
         loginingErrorMessage: null
-    }, {type: types.SET_LOGINING_PROCESS_ERROR_MESSAGE, loginingErrorMessage: 'ERROR',});
+    }, {type: types.SET_LOGINNING_PROCESS_ERROR_MESSAGE, loginingErrorMessage: 'ERROR',});
     expect(newState.loginingErrorMessage).toBe('ERROR');
 });
